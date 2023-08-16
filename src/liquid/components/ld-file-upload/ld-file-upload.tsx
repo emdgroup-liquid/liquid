@@ -12,6 +12,7 @@ import {
   Watch,
 } from '@stencil/core'
 import { LdUploadItemConfig } from './ld-upload-item/ld-upload-item.types'
+import { getClassNames } from '../../utils/getClassNames'
 
 export type UploadItem = {
   state: 'pending' | 'uploading' | 'uploaded' | 'upload failed'
@@ -76,14 +77,25 @@ export class LdFileUpload {
   /** Contains files that have been chosen but the upload has not started yet. */
   @State() chosenFiles: UploadItem[] = []
 
-  @Event() ldchoosefiles: EventEmitter<FileList>
+  /** Contains all files that have been chosen but the upload has not started yet. */
+  @State() allChosenFiles: UploadItem[] = []
+
+  /** Names of files that cannot be chosen by the user since a file of the same name has been chosen already. */
+  @State() cannotBeChosen: string[] = []
+
+  @State() renderOnlyChooseFile = true
+
+  // @Event() ldchoosefiles: EventEmitter<FileList>
+  @Event() ldchoosefiles: EventEmitter<UploadItem[]>
 
   @Event() ldfileuploadready: EventEmitter<UploadItem[]>
 
+  @Event() ldfileuploaddeleteall: EventEmitter
+
   @Listen('lduploaditempause')
   pauseClickHandler(ev: CustomEvent<UploadItem>) {
-    console.log(this.uploadItems)
-    console.log('Received the pauseClick event: ', ev.detail)
+    // console.log(this.uploadItems)
+    // console.log('Received the pauseClick event: ', ev.detail)
     const itemToPauseIndex = this.uploadItems.findIndex(
       (item) => item.fileName === ev.detail.fileName
     )
@@ -96,13 +108,13 @@ export class LdFileUpload {
       ...this.uploadItems.slice(itemToPauseIndex + 1),
     ]
 
-    console.log('uploadItems after pauseClick', this.uploadItems)
+    // console.log('uploadItems after pauseClick', this.uploadItems)
   }
 
   @Listen('lduploaditemremove')
   @Listen('lduploaditemdelete')
   removeClickHandler(ev: CustomEvent<UploadItem>) {
-    console.log('Received the stopClick event: ', ev.detail)
+    // console.log('Received the stopClick event: ', ev.detail)
     const itemToRemoveIndex = this.uploadItems.findIndex(
       (item) => item.fileName === ev.detail.fileName
     )
@@ -111,7 +123,7 @@ export class LdFileUpload {
       ...this.uploadItems.slice(0, itemToRemoveIndex),
       ...this.uploadItems.slice(itemToRemoveIndex + 1),
     ]
-    console.log('uploadItems after stopClick', this.uploadItems)
+    // console.log('uploadItems after stopClick', this.uploadItems)
   }
 
   @Listen('lduploadclick')
@@ -133,9 +145,16 @@ export class LdFileUpload {
   }
 
   @Listen('ldfileuploadready')
-  /** After the ldfileuploadready event is emitted, the list of chosen files is cleared */
+  /** After the ldfileuploadready event is emitted, the list of all schosen files is cleared */
   clearChosenFiles() {
-    this.chosenFiles = []
+    this.allChosenFiles = []
+  }
+
+  @Listen('ldchoosefiles')
+  updateComponentAppearance() {
+    if (this.renderOnlyChooseFile) {
+      this.renderOnlyChooseFile = false
+    }
   }
 
   /**
@@ -160,7 +179,7 @@ export class LdFileUpload {
     const itemToUpdateIndex = this.uploadItems.findIndex(
       (item) => item.fileName === uploadItem.fileName
     )
-    if (!itemToUpdateIndex) {
+    if (!itemToUpdateIndex && itemToUpdateIndex != 0) {
       throw new Error(
         `Upload item with name ${uploadItem.fileName} not found in upload list.`
       )
@@ -173,14 +192,66 @@ export class LdFileUpload {
     ]
   }
 
+  /**
+   * Accepts a file list from component consumer (name, progress, state etc.)
+   * and deletes the upload items.
+   */
+  @Method()
+  async deleteUploadItems() {
+    /* for (let i = 0; i < uploadItems.length; i++) {
+      const itemToDeleteIndex = this.uploadItems.findIndex(
+        (item) => item.fileName === uploadItems[i].fileName
+      )
+      if (!itemToDeleteIndex && itemToDeleteIndex != 0) {
+        throw new Error(
+          `Upload item with name ${uploadItems[i].fileName} not found in upload list.`
+        )
+      }
+
+      this.uploadItems = [
+        ...this.uploadItems.slice(0, itemToDeleteIndex),
+        ...this.uploadItems.slice(itemToDeleteIndex + 1),
+      ]
+    } */
+    this.uploadItems = []
+  }
+
+  /**
+   * Accepts a file from component consumer (name, progress, state etc.)
+   * and deletes the upload items.
+   */
+  @Method()
+  async deleteUploadItem(uploadItem: UploadItem) {
+    const itemToDeleteIndex = this.uploadItems.findIndex(
+      (item) => item.fileName === uploadItem.fileName
+    )
+    if (!itemToDeleteIndex && itemToDeleteIndex != 0) {
+      throw new Error(
+        `Upload item with name ${uploadItem.fileName} not found in upload list.`
+      )
+    }
+
+    this.uploadItems = [
+      ...this.uploadItems.slice(0, itemToDeleteIndex),
+      ...this.uploadItems.slice(itemToDeleteIndex + 1),
+    ]
+  }
+
+  @Watch('uploadItems')
+  changeChooseFile() {
+    if (this.uploadItems.length == 0 && this.renderOnlyChooseFile == false) {
+      this.renderOnlyChooseFile = true
+    }
+  }
+
   @Watch('dirname')
   @Watch('form')
   @Watch('name')
   @Watch('value')
-  updateHiddenInput() {
+  updateFileInput() {
     const outerForm = this.el.closest('form')
     if (!this.fileInput && this.name && (outerForm || this.form)) {
-      this.createHiddenInput()
+      this.createFileInput()
     }
 
     if (this.fileInput) {
@@ -227,10 +298,10 @@ export class LdFileUpload {
 
   private parsedIcons: Partial<LdUploadItemConfig>
 
-  private addChosenFiles(chosenFiles: FileList) {
+  /* private addChosenFiles(chosenFiles: FileList) {
     // const newChosenFiles: UploadItem[] = []
     for (let i = 0; i < chosenFiles.length; i++) {
-      this.chosenFiles.push({
+      this.allChosenFiles.push({
         state: 'pending',
         fileName: chosenFiles[i].name,
         fileSize: chosenFiles[i].size,
@@ -239,6 +310,43 @@ export class LdFileUpload {
       })
     }
     // this.chosenFiles = [...this.chosenFiles.slice(), ...newChosenFiles.slice()]
+  } */
+  private addChosenFiles(chosenFiles: UploadItem[]) {
+    for (let i = 0; i < chosenFiles.length; i++) {
+      this.allChosenFiles.push(chosenFiles[i])
+    }
+    // this.chosenFiles = [...this.chosenFiles.slice(), ...newChosenFiles.slice()]
+  }
+
+  private removeDuplicateChosenFiles(chosenFiles: FileList) {
+    this.chosenFiles = []
+    this.cannotBeChosen = []
+    for (let i = 0; i < chosenFiles.length; i++) {
+      if (
+        !this.chosenFiles.some(
+          (chosenFile) => chosenFile.fileName == chosenFiles[i].name
+        ) &&
+        !this.uploadItems.some(
+          (uploadFile) => uploadFile.fileName == chosenFiles[i].name
+        )
+      ) {
+        this.chosenFiles.push({
+          state: 'pending',
+          fileName: chosenFiles[i].name,
+          fileSize: chosenFiles[i].size,
+          fileType: chosenFiles[i].type,
+          progress: 0,
+        })
+      } else {
+        /* TODO: Show error message to the user */
+        console.log(
+          `${chosenFiles[i].name} cannot be chosen since a file with the same name has been chosen already.`
+        )
+        // this.cannotBeChosen.concat(chosenFiles[i].name)
+        this.cannotBeChosen.push(chosenFiles[i].name)
+        console.log('cannotbechosen', this.cannotBeChosen)
+      }
+    }
   }
 
   /* private handleUploadClick = async () => {
@@ -260,21 +368,25 @@ export class LdFileUpload {
     const files = (ev.target as HTMLInputElement).files
     if (!files || !files.length) return
 
-    console.log(files)
+    // console.log(files)
 
     this.fileList = files
-    console.log('filelist input getFile', this.fileList)
-    this.ldchoosefiles.emit(this.fileList)
-    this.addChosenFiles(this.fileList)
+    // console.log('filelist input getFile', this.fileList)
+    this.removeDuplicateChosenFiles(files)
+    this.ldchoosefiles.emit(this.chosenFiles)
+    this.addChosenFiles(this.chosenFiles)
     if (this.startUpload) {
-      this.ldfileuploadready.emit(this.chosenFiles)
+      this.ldfileuploadready.emit(this.allChosenFiles)
     }
   }
 
-  private createHiddenInput() {
+  /* mehrere Input Felder vom Typ file erstellen, alle mit name=file[], wenn Files gedropped
+  werden soll ein neuer Input erstellt werden */
+  private createFileInput() {
     this.fileInput = document.createElement('input')
     this.fileInput.type = 'file'
     this.fileInput.tabIndex = -1
+    this.fileInput.multiple = true
     this.fileInput.style.visibility = 'hidden'
     this.fileInput.style.position = 'absolute'
     this.fileInput.style.inset = '0'
@@ -298,12 +410,36 @@ export class LdFileUpload {
   /** Emits filesChosen event to component consumer. */
   private handleChooseFiles = (ev: CustomEvent<FileList>) => {
     this.fileList = ev.detail
-    console.log('filelist handleChooseFiles', this.fileList)
+    // console.log('filelist handleChooseFiles', this.fileList)
+    /* const chosenFiles: UploadItem[] = []
+    for (let i = 0; i < chosenFiles.length; i++) {
+      this.chosenFiles.push({
+        state: 'pending',
+        fileName: chosenFiles[i].name,
+        fileSize: chosenFiles[i].size,
+        fileType: chosenFiles[i].type,
+        progress: 0,
+      })
+    } */
+    /* const chosenFiles = Array.from(ev.detail)
+    const updatedFiles = chosenFiles.filter(
+      (file) =>
+        !this.chosenFiles.some(
+          (chosenFile) => chosenFile.fileName == file.name
+        ) &&
+        !this.uploadItems.some((uploadFile) => uploadFile.fileName == file.name)
+    )
+    console.log('updatedFiles:', updatedFiles)
+    // this.fileList = new FileList(updatedFiles)
+    // Create a new FileList using the updated array of files
+    // return new FileList(updatedFiles) */
+
     ev.stopImmediatePropagation() // We stop the internal event...
-    this.ldchoosefiles.emit(this.fileList) // ...and dispatch the public one.
-    this.addChosenFiles(this.fileList)
+    this.removeDuplicateChosenFiles(ev.detail)
+    this.ldchoosefiles.emit(this.chosenFiles) // ...and dispatch the public one.
+    this.addChosenFiles(this.chosenFiles)
     if (this.startUpload) {
-      this.ldfileuploadready.emit(this.chosenFiles)
+      this.ldfileuploadready.emit(this.allChosenFiles)
     }
     /* const file = ev.detail[0]
     for (let i = 0; i < ev.detail.length; i++) {
@@ -336,19 +472,23 @@ export class LdFileUpload {
     /* this.updateUploadItems(this.uploadItems) */
   }
 
+  /* TODO: Continue nur einmal erlauben */
   private handleContinueClick = (ev: MouseEvent) => {
     ev.preventDefault()
     if (!this.startUpload) {
-      this.ldfileuploadready.emit(this.chosenFiles)
+      this.ldfileuploadready.emit(this.allChosenFiles)
     }
   }
 
+  /* TODO: State management dem user überlassen, hier nur Event emitten */
   private handleDeleteAllClick = () => {
-    this.uploadItems = []
+    this.ldfileuploaddeleteall.emit(this.uploadItems)
+    /* this.uploadItems = [] */
+    this.allChosenFiles = []
   }
 
   componentWillLoad() {
-    this.createHiddenInput()
+    this.createFileInput()
     this.fileInput.name = this.name
 
     if (this.dirname) {
@@ -370,13 +510,51 @@ export class LdFileUpload {
   }
 
   render() {
+    if (this.renderOnlyChooseFile) {
+      const cl = getClassNames([
+        'ld-file-upload',
+        this.renderOnlyChooseFile && 'ld-file-upload--only-choose-file',
+      ])
+      return (
+        <Host class={cl}>
+          <ld-choose-file
+            class="ld-file-upload__choose-file"
+            size="bg"
+            onLdchoosefiles={this.handleChooseFiles}
+          >
+            <slot>
+              <pre>Upload button</pre>
+            </slot>
+          </ld-choose-file>
+        </Host>
+      )
+    }
+
     return (
       <Host class="ld-file-upload">
-        <ld-choose-file onLdchoosefiles={this.handleChooseFiles}>
+        <ld-choose-file
+          class="ld-file-upload__choose-file"
+          size="sm"
+          onLdchoosefiles={this.handleChooseFiles}
+        >
           <slot>
             <pre>Upload button</pre>
           </slot>
         </ld-choose-file>
+        {/* <div class="ld-file-upload__error">
+          <ld-typo>
+            Error: File cannot be chosen since a file with the same name has
+            been chosen already. To upload this file please remove the file with
+            the same name.
+          </ld-typo>
+        </div> */}
+        {this.cannotBeChosen.length != 0 ? (
+          <ld-typo class="ld-file-upload__error">
+            Error: {this.cannotBeChosen.join(', ')} cannot be chosen since a
+            file with the same name has been chosen already. To upload this file
+            please remove the file with the same name.
+          </ld-typo>
+        ) : undefined}
         <ld-upload-progress
           class="ld-file-upload__progress"
           uploadItems={this.uploadItems}

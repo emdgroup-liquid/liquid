@@ -9,7 +9,7 @@ import {
   EventEmitter,
 } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
-import internal from 'stream'
+import { getAssetPath } from '../../../utils/assetPath'
 
 /**
  * TODO: emit files chosen event with file list, that's it.
@@ -21,6 +21,7 @@ import internal from 'stream'
   tag: 'ld-choose-file',
   styleUrl: 'ld-choose-file.css',
   shadow: true,
+  assetsDirs: ['assets'],
 })
 export class LdChooseFile {
   @Element() el: HTMLLdChooseFileElement
@@ -37,6 +38,9 @@ export class LdChooseFile {
     fileType: string
     progress: number
   }[] = []
+
+  /** Size of the choose file area */
+  @Prop() size?: 'sm' | 'bg' = 'bg'
 
   @State() highlighted? = false
 
@@ -127,35 +131,66 @@ export class LdChooseFile {
       this.highlighted && 'ld-choose-file--highlighted',
     ])
 
+    /* async created() {
+      try {
+        const data = await fetch('{{ env.base }}/{{ buildstamp }}assets/examples/numerals.json').then((res) => res.json())
+        this.elements = data.elements
+      } catch (err) {
+        console.error(err)
+      }
+    } */
+
+    ///Users/lea/workspace/work/liquid/src/liquid/components/ld-file-upload/ld-choose-file/files.svg
+
     return (
       <Host class={cl}>
         <div
-          class="ld-choose-file__drag-area"
+          class="ld-choose-file__drop-area"
           onDragEnter={this.handleDragEnter}
           onDragOver={this.handleDragOver}
           onDragLeave={this.handleDragLeave}
           onDrop={this.handleDrop}
         >
-          {this.highlighted ? (
+          <div
+            class={getClassNames([
+              'ld-choose-file__content',
+              this.size && `ld-choose-file--${this.size}`,
+            ])}
+          >
+            <img
+              class="ld-choose-file__image"
+              src={getAssetPath('./assets/file-upload.svg')}
+              alt=""
+              width="142"
+              height="122"
+            />
+
+            <div class="ld-choose-file__text">
+              {/* {this.highlighted ? (
             <ld-typo variant="h5">Drop your file(s) here or browse</ld-typo>
           ) : (
             <ld-typo variant="h5">Drag your file(s) here or browse</ld-typo>
-          )}
-          <ld-typo>max. 1.5 mb file size</ld-typo>
+          )} */}
+              <ld-typo variant="h5">Drag your file(s) here or browse</ld-typo>
+              <ld-typo>max. 1.5 mb file size</ld-typo>
 
-          {/*
+              {/*
             TODO:
               - move into drop area
               - set drop area position relative
               - set input position absolute, inset 0, opacity 0
           */}
-          {/* <ld-input
+              {/* <ld-input
             placeholder="Upload a file"
             type="file"
             onLdchange={this.getFile}
         ></ld-input> */}
-          <slot></slot>
-          <ld-button onClick={this.handleUploadClick}>Upload a file</ld-button>
+              <slot></slot>
+              <ld-button onClick={this.handleUploadClick}>
+                Upload a file
+              </ld-button>
+            </div>
+          </div>
         </div>
       </Host>
     )

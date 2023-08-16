@@ -5,6 +5,21 @@
 .ld-upload-progress {
   list-style: none;
   margin: 0;
-  padding: var(--ld-sp-12);
+  /* padding: var(--ld-sp-12); */
+  padding: 0;
   width: 100%;
+  /* height: 20rem;
+  overflow: hidden;
+  overflow-y: scroll; */
+
+  li:first-child,
+  li:first-child ld-upload-item::part(card) {
+    border-top-left-radius: var(--ld-br-l);
+    border-top-right-radius: var(--ld-br-l);
+  }
+
+  li:last-child ld-upload-item::part(card) {
+    border-bottom-left-radius: var(--ld-br-l);
+    border-bottom-right-radius: var(--ld-br-l);
+  }
 }

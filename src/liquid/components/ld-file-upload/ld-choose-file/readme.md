@@ -38,6 +38,7 @@ TODO: emit files chosen event with file list, that's it.
 | `key`         | `key`      | for tracking the node's identity when working with lists | `string \| number`                                                                                                                                | `undefined` |
 | `maxSize`     | `max-size` | Max. file size in bytes                                  | `number`                                                                                                                                          | `1572864`   |
 | `ref`         | `ref`      | reference to component                                   | `any`                                                                                                                                             | `undefined` |
+| `size`        | `size`     | Size of the choose file area                             | `"bg" \| "sm"`                                                                                                                                    | `'bg'`      |
 | `uploadFiles` | --         | Chosen Files                                             | `{ state: "pending" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; fileType: string; progress: number; }[]` | `[]`        |
 
 

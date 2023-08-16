@@ -105,6 +105,7 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 | Part         | Description                                   |
 | ------------ | --------------------------------------------- |
 | `"button"`   | `ld-button` element wrapping the default slot |
+| `"card"`     |                                               |
 | `"listitem"` | `li` element wrapping the `ld-button` element |
 
 

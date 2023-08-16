@@ -586,6 +586,7 @@ Here are some examples on how you can apply different colors on headings:
 
  - [ld-choose-file](../ld-file-upload/ld-choose-file)
  - [ld-cookie-consent](../ld-cookie-consent)
+ - [ld-file-upload](../ld-file-upload)
  - [ld-header](../ld-header)
  - [ld-notice](../ld-notice)
  - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
@@ -599,6 +600,7 @@ Here are some examples on how you can apply different colors on headings:
 graph TD;
   ld-choose-file --> ld-typo
   ld-cookie-consent --> ld-typo
+  ld-file-upload --> ld-typo
   ld-header --> ld-typo
   ld-notice --> ld-typo
   ld-sidenav-header --> ld-typo

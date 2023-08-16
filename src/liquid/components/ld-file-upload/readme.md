@@ -16,6 +16,110 @@ File upload allows the user to upload files.
 ### Default
 
 {% example '{ "opened": true }' %}
+<ld-file-upload></ld-file-upload>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+{% example '{ "opened": true }' %}
+<ld-file-upload></ld-file-upload>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      console.log('ldchoosefiles', ev.detail)
+      // uploadingItems = ev.detail.forEach((item) => item.state = 'uploading')
+      uploadItems = ev.detail
+      /* uploadingItems = []
+      for (let item in uploadItems) {
+        console.log(item)
+        newItem = uploadItems[item]
+        console.log(newItem)
+        newItem.state = 'uploading'
+        uploadingItems.push(newItem)
+      }
+      console.log(uploadingItems) */
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      // uploadingItems = ev.detail.forEach((item) => item.state = 'uploading')
+      uploadItems = ev.detail
+      uploadingItems = []
+      for (let item in uploadItems) {
+        console.log(item)
+        newItem = uploadItems[item]
+        console.log(newItem)
+        newItem.state = 'uploading'
+        uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+      }
+      // console.log(uploadingItems)
+      // ldUpload.updateUploadItems(uploadingItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Start upload immediately after choosing files
+
+{% example '{ "opened": true }' %}
+<ld-file-upload start-upload></ld-file-upload>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+{% example '{ "opened": true }' %}
+<ld-file-upload start-upload></ld-file-upload>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      // uploadingItems = ev.detail.forEach((item) => item.state = 'uploading')
+      uploadItems = ev.detail
+      uploadingItems = []
+      for (let item in uploadItems) {
+        console.log(item)
+        newItem = uploadItems[item]
+        console.log(newItem)
+        newItem.state = 'uploading'
+        uploadingItems.push(newItem)
+      }
+      console.log(uploadingItems)
+      ldUpload.updateUploadItems(uploadingItems)
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Examples with dummy files
+
+{% example '{ "opened": true }' %}
 <ld-file-upload icons='{"pdf": "documents"}'></ld-file-upload>
 
 <script>
@@ -70,45 +174,16 @@ File upload allows the user to upload files.
           fileType: 'txt',
           progress: 75,
         },
+        {
+          state: 'uploading',
+          fileName: 'fileeeeeeeeee.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
       ]
       const ldFileUpload = button.previousElementSibling.previousElementSibling
       ldFileUpload.updateUploadItems(fileList)
-    })
-  })()
-</script>
-
-<!-- React component -->
-
-<!-- CSS component -->
-
-{% endexample %}
-
-{% example '{ "opened": true }' %}
-<ld-file-upload start-upload></ld-file-upload>
-
-<script>
-  ;(() => {
-    const ldUpload = document.currentScript.previousElementSibling
-    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
-      console.log('ldfileuploadready', ev.detail)
-      // uploadingItems = ev.detail.forEach((item) => item.state = 'uploading')
-      uploadItems = ev.detail
-      uploadingItems = []
-      for (let item in uploadItems) {
-        console.log(item)
-        newItem = uploadItems[item]
-        console.log(newItem)
-        newItem.state = 'uploading'
-        uploadingItems.push(newItem)
-      }
-      console.log(uploadingItems)
-      ldUpload.updateUploadItems(uploadingItems)
-
-      /* ldUpload.updateUploadItem({state: 'uploading',
-          fileName: 'testfile.rtf',
-          fileSize: 100000,
-          fileType: 'rtf',
-          progress: 20,}) */
     })
   })()
 </script>
@@ -225,13 +300,36 @@ TODO:
 
 ## Events
 
-| Event               | Description | Type                        |
-| ------------------- | ----------- | --------------------------- |
-| `ldchoosefiles`     |             | `CustomEvent<FileList>`     |
-| `ldfileuploadready` |             | `CustomEvent<UploadItem[]>` |
+| Event                   | Description | Type                        |
+| ----------------------- | ----------- | --------------------------- |
+| `ldchoosefiles`         |             | `CustomEvent<UploadItem[]>` |
+| `ldfileuploaddeleteall` |             | `CustomEvent<any>`          |
+| `ldfileuploadready`     |             | `CustomEvent<UploadItem[]>` |
 
 
 ## Methods
+
+### `deleteUploadItem(uploadItem: UploadItem) => Promise<void>`
+
+Accepts a file from component consumer (name, progress, state etc.)
+and deletes the upload items.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `deleteUploadItems() => Promise<void>`
+
+Accepts a file list from component consumer (name, progress, state etc.)
+and deletes the upload items.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 ### `updateUploadItem(uploadItem: UploadItem) => Promise<void>`
 
@@ -268,6 +366,7 @@ Type: `Promise<void>`
 ### Depends on
 
 - [ld-choose-file](ld-choose-file)
+- [ld-typo](../ld-typo)
 - [ld-upload-progress](ld-upload-progress)
 - [ld-button](../ld-button)
 
@@ -275,6 +374,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   ld-file-upload --> ld-choose-file
+  ld-file-upload --> ld-typo
   ld-file-upload --> ld-upload-progress
   ld-file-upload --> ld-button
   ld-choose-file --> ld-typo

@@ -29,6 +29,17 @@
   flex-direction: column;
   align-items: flex-start;
   flex-grow: 1;
+  width: calc(100% - 9rem);
+}
+
+.ld-upload-item__file-name {
+  flex: 1;
+  width: 100%;
+
+  &::part(tag) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .ld-upload-item__buttons {
@@ -38,6 +49,22 @@
   flex-direction: row;
   justify-self: end;
   justify-items: end;
+}
+
+.ld-upload-icon__pause-icon {
+  color: var(--ld-col-neutral-900);
+}
+
+.ld-upload-item__remove-icon {
+  color: var(--ld-col-neutral-900);
+}
+
+.ld-upload-icon__download-icon {
+  color: var(--ld-col-neutral-900);
+}
+
+.ld-upload-item__delete-icon {
+  color: var(--ld-col-rr-600);
 }
 
 .ld-upload-item__progress {

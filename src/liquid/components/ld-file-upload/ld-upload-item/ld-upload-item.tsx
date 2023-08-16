@@ -98,11 +98,10 @@ export class LdUploadItem {
    */
   @Event() lduploaditemdelete: EventEmitter
 
-  private getFileType = () => {
+  /* private getFileType = () => {
     const fileType = this.fileName.split('.').pop()?.toLowerCase()
-    // console.log(fileType)
     return fileType
-  }
+  } */
 
   private setIcon = () => {
     const mergedIcons = { ...this.defaultIcons, ...this.icons }
@@ -115,6 +114,26 @@ export class LdUploadItem {
     }
   }
 
+  /* private getIconFile = async () => {
+    try {
+      const icon = await fetch(
+        '{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg'
+      )
+      icon
+    } catch (err) {
+      console.error(err)
+    }
+  } */
+
+  /* async created() {
+    try {
+      const data = await fetch('{{ env.base }}/{{ buildstamp }}assets/examples/numerals.json').then((res) => res.json())
+      this.elements = data.elements
+    } catch (err) {
+      console.error(err)
+    }
+  }
+ */
   private pauseClick = () => {
     this.lduploaditempause.emit({
       state: this.state,
@@ -176,38 +195,70 @@ export class LdUploadItem {
 
   render() {
     const cl = getClassNames(['ld-upload-item'])
-    const icon = this.setIcon()
 
     return (
       <Host class={cl}>
-        <div class="ld-upload-item__card">
+        <div class="ld-upload-item__card" part="card">
           <div class="ld-upload-item__container">
-            <ld-icon class="ld-upload-item__icon" name={icon}></ld-icon>
+            {/* Image mit pfad hier setzen, falls Pfad gegeben ist */}
+            <ld-icon
+              class="ld-upload-item__icon"
+              name={this.setIcon()}
+              size="lg"
+            ></ld-icon>
+
+            {/* <img src="{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg"></img> */}
             <div class="ld-upload-item__file-details">
-              <ld-typo variant="h5">{this.fileName}</ld-typo>
+              {/* <ld-typo variant="h5">{this.fileName}</ld-typo> */}
+              <ld-typo class="ld-upload-item__file-name" variant="h5">
+                {/* {this.fileName.length <= 15
+                  ? this.fileName
+                  : this.fileName.slice(0, 10).concat('...')} */}
+                {this.fileName}
+              </ld-typo>
               <ld-typo>{this.bytesToSize(this.fileSize)}</ld-typo>
             </div>
             <div class="ld-upload-item__buttons">
               {this.state == 'uploading' ? (
-                <ld-button mode="ghost" onClick={this.pauseClick}>
-                  <ld-icon name="pause" aria-label="Text"></ld-icon>
+                <ld-button mode="ghost" size="sm" onClick={this.pauseClick}>
+                  <ld-icon
+                    class="ld-upload-icon__pause-icon"
+                    name="pause"
+                    size="sm"
+                    aria-label="Text"
+                  ></ld-icon>
                 </ld-button>
               ) : undefined}
               {this.state == 'pending' ||
               this.state == 'uploading' ||
               this.state == 'upload failed' ? (
-                <ld-button mode="ghost" onClick={this.removeClick}>
-                  <ld-icon name="cross" aria-label="Text"></ld-icon>
+                <ld-button mode="ghost" size="sm" onClick={this.removeClick}>
+                  <ld-icon
+                    class="ld-upload-item__remove-icon"
+                    name="cross"
+                    size="sm"
+                    aria-label="Text"
+                  ></ld-icon>
                 </ld-button>
               ) : undefined}
               {this.state == 'uploaded' ? (
-                <ld-button mode="ghost" onClick={this.downloadClick}>
-                  <ld-icon name="download" aria-label="Text"></ld-icon>
+                <ld-button mode="ghost" size="sm" onClick={this.downloadClick}>
+                  <ld-icon
+                    class="ld-upload-item__download-icon"
+                    name="download"
+                    size="sm"
+                    aria-label="Text"
+                  ></ld-icon>
                 </ld-button>
               ) : undefined}
               {this.state == 'uploaded' ? (
-                <ld-button mode="ghost" onClick={this.deleteClick}>
-                  <ld-icon name="bin" aria-label="Text"></ld-icon>
+                <ld-button mode="ghost" size="sm" onClick={this.deleteClick}>
+                  <ld-icon
+                    class="ld-upload-item__delete-icon"
+                    name="bin"
+                    size="sm"
+                    aria-label="Text"
+                  ></ld-icon>
                 </ld-button>
               ) : undefined}
             </div>

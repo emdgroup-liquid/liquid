@@ -13,6 +13,33 @@
   justify-items: center;
 }
 
+/* stylelint-disable-next-line csstools/use-nesting */
+:host(.ld-file-upload--only-choose-file) {
+  background: none;
+  border-radius: none;
+  box-shadow: none;
+  box-sizing: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ld-file-upload__choose-file {
+  width: 100%;
+}
+
+.ld-file-upload__error {
+  display: inline-flex;
+  background: var(--ld-col-rr-050);
+  border-radius: var(--ld-br-l);
+  border: var(--ld-sp-2) solid var(--ld-col-rr-600);
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: var(--ld-sp-1);
+  width: 15rem;
+}
+
 .ld-file-upload__progress {
   width: 100%;
 }
