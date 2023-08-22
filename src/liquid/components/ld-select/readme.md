@@ -33,7 +33,7 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 <ld-select placeholder="Pick a fruit" name="fruit">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -53,7 +53,7 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 <LdSelect placeholder="Pick a fruit" name="fruit">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -75,7 +75,7 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
     <option value="">Pick a fruit</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
-    <option value="strawberry">Strawberry</option>
+    <option value="papaya">Papaya</option>
     <option value="watermelon" disabled>Watermelon</option>
     <option value="honeymelon">Honeymelon</option>
     <option value="rasberry">Rasberry</option>
@@ -113,7 +113,7 @@ You can prevent a state with no options selected after initial selection in sing
 <ld-select placeholder="Pick a fruit" name="fruit" prevent-deselection>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -133,7 +133,7 @@ You can prevent a state with no options selected after initial selection in sing
 <LdSelect placeholder="Pick a fruit" name="fruit" preventDeselection>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -155,7 +155,7 @@ You can prevent a state with no options selected after initial selection in sing
 <ld-select placeholder="Pick some fruits" name="fruits" multiple>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -175,7 +175,7 @@ You can prevent a state with no options selected after initial selection in sing
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -189,6 +189,41 @@ You can prevent a state with no options selected after initial selection in sing
   <LdOption value="pineapple">Pineapple</LdOption>
   <LdOption value="plum">Plum</LdOption>
 </LdSelect>
+
+<!-- CSS component -->
+
+<div class='ld-select'>
+  <select name="fruits" multiple>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="papaya">Papaya</option>
+    <option value="watermelon" disabled>Watermelon</option>
+    <option value="honeymelon">Honeymelon</option>
+    <option value="rasberry">Rasberry</option>
+    <option value="cherry">Cherry</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="peach">Peach</option>
+    <option value="grape">Grape</option>
+    <option value="fuyu persimmon">Fuyu Persimmon</option>
+    <option value="monstera deliciosa">Monstera Deliciosa</option>
+    <option value="pear">Pear</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="plum">Plum</option>
+  </select>
+  <svg
+    role="presentation"
+    class="ld-select__icon"
+    viewBox="0 0 16 16"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+      d="M3 6l5 4 5-4"
+    />
+  </svg>
+</div>
 {% endexample %}
 
 #### Width
@@ -199,7 +234,7 @@ You may have noticed, that in multiple mode the component grows horizontally wit
 <ld-select placeholder="Pick some fruits" name="fruits" multiple style="width: 14rem">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry" selected>Strawberry</ld-option>
+  <ld-option value="papaya" selected>Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -217,7 +252,7 @@ You may have noticed, that in multiple mode the component grows horizontally wit
 <ld-select class="my-select-max-width" placeholder="Pick some fruits" name="fruits" multiple style="max-width: 24rem">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry" selected>Strawberry</ld-option>
+  <ld-option value="papaya" selected>Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -237,7 +272,7 @@ You may have noticed, that in multiple mode the component grows horizontally wit
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple style={ { width: '14rem' } }>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana" selected>Banana</LdOption>
-  <LdOption value="strawberry" selected>Strawberry</LdOption>
+  <LdOption value="papaya" selected>Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -255,7 +290,7 @@ You may have noticed, that in multiple mode the component grows horizontally wit
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple style={ { maxWidth: '24rem' } }>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana" selected>Banana</LdOption>
-  <LdOption value="strawberry" selected>Strawberry</LdOption>
+  <LdOption value="papaya" selected>Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -279,7 +314,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick some fruits" name="fruits" multiple max-rows="1" style="width: 14rem">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry" selected>Strawberry</ld-option>
+  <ld-option value="papaya" selected>Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -297,7 +332,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick some fruits" name="fruits" multiple max-rows="2" style="max-width: 24rem">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry" selected>Strawberry</ld-option>
+  <ld-option value="papaya" selected>Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -317,7 +352,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple maxRows={1} style={ { width: '14rem' } }>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana" selected>Banana</LdOption>
-  <LdOption value="strawberry" selected>Strawberry</LdOption>
+  <LdOption value="papaya" selected>Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -335,7 +370,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple maxRows={2} style={ { maxWidth: '24rem' } }>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana" selected>Banana</LdOption>
-  <LdOption value="strawberry" selected>Strawberry</LdOption>
+  <LdOption value="papaya" selected>Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -357,7 +392,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick a fruit" name="fruit" disabled>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -375,7 +410,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick some fruits" name="fruits" multiple disabled>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -393,7 +428,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick a fruit" name="fruit" disabled>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -411,7 +446,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick some fruits" name="fruits" multiple disabled>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -431,7 +466,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick a fruit" name="fruit" disabled>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -449,7 +484,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple disabled>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -467,7 +502,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick a fruit" name="fruit" disabled>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana" selected>Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -485,7 +520,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple disabled>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana" selected>Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -507,7 +542,7 @@ If you have limited vertical space (this may especially be the case on mobile de
     <option value="">Pick a fruit</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
-    <option value="strawberry">Strawberry</option>
+    <option value="papaya">Papaya</option>
     <option value="watermelon" disabled>Watermelon</option>
     <option value="honeymelon">Honeymelon</option>
     <option value="rasberry">Rasberry</option>
@@ -543,7 +578,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick a fruit" name="fruit" aria-disabled="true">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -561,7 +596,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick some fruits" name="fruits" multiple aria-disabled="true">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -579,7 +614,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick a fruit" name="fruit" aria-disabled="true">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -597,7 +632,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick some fruits" name="fruits" multiple aria-disabled="true">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -617,7 +652,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick a fruit" name="fruit" aria-disabled="true">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -635,7 +670,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple aria-disabled="true">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -653,7 +688,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick a fruit" name="fruit" aria-disabled="true">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana" selected>Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -671,7 +706,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple aria-disabled="true">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana" selected>Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -693,7 +728,7 @@ If you have limited vertical space (this may especially be the case on mobile de
     <option value="">Pick a fruit</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
-    <option value="strawberry">Strawberry</option>
+    <option value="papaya">Papaya</option>
     <option value="watermelon" disabled>Watermelon</option>
     <option value="honeymelon">Honeymelon</option>
     <option value="rasberry">Rasberry</option>
@@ -733,7 +768,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick a fruit" name="fruit" invalid>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -751,7 +786,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <ld-select placeholder="Pick some fruits" name="fruits" multiple invalid>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -771,7 +806,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick a fruit" name="fruit" invalid>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -789,7 +824,7 @@ If you have limited vertical space (this may especially be the case on mobile de
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple invalid>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana" selected>Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -811,7 +846,7 @@ If you have limited vertical space (this may especially be the case on mobile de
     <option value="">Pick a fruit</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
-    <option value="strawberry">Strawberry</option>
+    <option value="papaya">Papaya</option>
     <option value="watermelon" disabled>Watermelon</option>
     <option value="honeymelon">Honeymelon</option>
     <option value="rasberry">Rasberry</option>
@@ -849,7 +884,7 @@ In detached mode the component positions the popper element with a small vertica
 <ld-select placeholder="Pick a fruit" name="fruit" mode="detached">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -869,7 +904,7 @@ In detached mode the component positions the popper element with a small vertica
 <LdSelect placeholder="Pick a fruit" name="fruit" mode="detached">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -893,7 +928,7 @@ In inline mode, while the popper element has a minimum width, the component's tr
 <ld-select placeholder="Pick a fruit" name="fruit" mode="inline">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -911,7 +946,7 @@ In inline mode, while the popper element has a minimum width, the component's tr
 <ld-select placeholder="Pick some fruits" name="fruits" multiple mode="inline">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -929,7 +964,7 @@ In inline mode, while the popper element has a minimum width, the component's tr
 <ld-select placeholder="Pick some fruits" name="fruits" multiple mode="inline" style="width: 6.9375rem" max-rows="1">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -949,7 +984,7 @@ In inline mode, while the popper element has a minimum width, the component's tr
 <LdSelect placeholder="Pick a fruit" name="fruit" mode="inline">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -967,7 +1002,7 @@ In inline mode, while the popper element has a minimum width, the component's tr
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple mode="inline">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -985,7 +1020,7 @@ In inline mode, while the popper element has a minimum width, the component's tr
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple mode="inline" style={ { width: '6.9375rem' } } maxRows={1}>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1009,7 +1044,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <ld-select placeholder="Pick a fruit" name="fruit" mode="ghost">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1029,7 +1064,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <LdSelect placeholder="Pick a fruit" name="fruit" mode="ghost">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1051,7 +1086,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <ld-select placeholder="Pick a fruit" name="fruit" size="sm">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1069,7 +1104,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <ld-select placeholder="Pick a fruit" name="fruit">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1087,7 +1122,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <ld-select placeholder="Pick a fruit" name="fruit" size="lg">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1105,7 +1140,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <ld-select placeholder="Pick some fruits" name="fruits" multiple size="sm">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1123,7 +1158,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <ld-select placeholder="Pick some fruits" name="fruits" multiple>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1141,7 +1176,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <ld-select placeholder="Pick some fruits" name="fruits" multiple size="lg">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1161,7 +1196,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <LdSelect placeholder="Pick a fruit" name="fruit" size="sm">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1179,7 +1214,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <LdSelect placeholder="Pick a fruit" name="fruit">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1197,7 +1232,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <LdSelect placeholder="Pick a fruit" name="fruit" size="lg">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1215,7 +1250,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple size="sm">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1233,7 +1268,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1251,7 +1286,7 @@ In ghost mode the component works the same way as it does in inline mode while a
 <LdSelect placeholder="Pick some fruits" name="fruits" multiple size="lg">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1273,7 +1308,7 @@ In ghost mode the component works the same way as it does in inline mode while a
     <option value="">Pick a fruit</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
-    <option value="strawberry">Strawberry</option>
+    <option value="papaya">Papaya</option>
     <option value="watermelon" disabled>Watermelon</option>
     <option value="honeymelon">Honeymelon</option>
     <option value="rasberry">Rasberry</option>
@@ -1307,7 +1342,7 @@ In ghost mode the component works the same way as it does in inline mode while a
     <option value="">Pick a fruit</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
-    <option value="strawberry">Strawberry</option>
+    <option value="papaya">Papaya</option>
     <option value="watermelon" disabled>Watermelon</option>
     <option value="honeymelon">Honeymelon</option>
     <option value="rasberry">Rasberry</option>
@@ -1341,7 +1376,7 @@ In ghost mode the component works the same way as it does in inline mode while a
     <option value="">Pick a fruit</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
-    <option value="strawberry">Strawberry</option>
+    <option value="papaya">Papaya</option>
     <option value="watermelon" disabled>Watermelon</option>
     <option value="honeymelon">Honeymelon</option>
     <option value="rasberry">Rasberry</option>
@@ -1379,7 +1414,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 <ld-select placeholder="Pick a fruit" name="fruit" size="sm">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1398,7 +1433,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 <ld-select placeholder="Pick a fruit" name="fruit">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1417,7 +1452,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 <ld-select placeholder="Pick a fruit" name="fruit" size="lg">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1438,7 +1473,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 <LdSelect placeholder="Pick a fruit" name="fruit" size="sm">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1457,7 +1492,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 <LdSelect placeholder="Pick a fruit" name="fruit">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1476,7 +1511,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 <LdSelect placeholder="Pick a fruit" name="fruit" size="lg">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1499,7 +1534,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
     <option value="">Pick a fruit</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
-    <option value="strawberry">Strawberry</option>
+    <option value="papaya">Papaya</option>
     <option value="watermelon" disabled>Watermelon</option>
     <option value="honeymelon">Honeymelon</option>
     <option value="rasberry">Rasberry</option>
@@ -1524,7 +1559,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
     <option value="">Pick a fruit</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
-    <option value="strawberry">Strawberry</option>
+    <option value="papaya">Papaya</option>
     <option value="watermelon" disabled>Watermelon</option>
     <option value="honeymelon">Honeymelon</option>
     <option value="rasberry">Rasberry</option>
@@ -1549,7 +1584,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
     <option value="">Pick a fruit</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
-    <option value="strawberry">Strawberry</option>
+    <option value="papaya">Papaya</option>
     <option value="watermelon" disabled>Watermelon</option>
     <option value="honeymelon">Honeymelon</option>
     <option value="rasberry">Rasberry</option>
@@ -1576,7 +1611,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 <ld-select filter placeholder="Pick a fruit" name="fruit">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1594,7 +1629,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 <ld-select filter placeholder="Pick some fruits" name="fruits" multiple max-rows="2" style="max-width: 17rem">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
   <ld-option value="watermelon" disabled>Watermelon</ld-option>
   <ld-option value="honeymelon">Honeymelon</ld-option>
   <ld-option value="rasberry">Rasberry</ld-option>
@@ -1614,7 +1649,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 <LdSelect filter placeholder="Pick a fruit" name="fruit">
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana">Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1632,7 +1667,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 <LdSelect filter placeholder="Pick some fruits" name="fruits" multiple maxRows={2} style={ { maxWidth: '17rem' } }>
   <LdOption value="apple">Apple</LdOption>
   <LdOption value="banana" selected>Banana</LdOption>
-  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="papaya">Papaya</LdOption>
   <LdOption value="watermelon" disabled>Watermelon</LdOption>
   <LdOption value="honeymelon">Honeymelon</LdOption>
   <LdOption value="rasberry">Rasberry</LdOption>
@@ -1662,7 +1697,7 @@ This mode allows the user to create new options using the filter input field.
 >
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
 </ld-select>
 
 <script>
@@ -1683,7 +1718,7 @@ void function() {
 const [options, setOptions] = useState([
   { value: 'apple', title: 'Apple', selected: false },
   { value: 'banana', title: 'Banana', selected: false },
-  { value: 'strawberry', title: 'Strawberry', selected: false },
+  { value: 'papaya', title: 'Papaya', selected: false },
 ])
 
 return (
@@ -1745,7 +1780,7 @@ The `creatable` prop does also work with the multiple select mode.
 >
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
 </ld-select>
 
 <script>
@@ -1766,7 +1801,7 @@ void function() {
 const [options, setOptions] = useState([
   { value: 'apple', title: 'Apple', selected: false },
   { value: 'banana', title: 'Banana', selected: false },
-  { value: 'strawberry', title: 'Strawberry', selected: false },
+  { value: 'papaya', title: 'Papaya', selected: false },
 ])
 
 return (
@@ -1818,7 +1853,7 @@ You can hide created options in the popper element by simply adding the `hidden`
 <ld-select filter creatable placeholder="Pick some fruits" name="fruits" multiple max-rows="2" style="max-width: 17rem">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
-  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="papaya">Papaya</ld-option>
 </ld-select>
 
 <script>
@@ -1840,7 +1875,7 @@ void function() {
 const [options, setOptions] = useState([
   { value: 'apple', title: 'Apple', selected: false, hidden: false },
   { value: 'banana', title: 'Banana', selected: false, hidden: false },
-  { value: 'strawberry', title: 'Strawberry', selected: false, hidden: false },
+  { value: 'papaya', title: 'Papaya', selected: false, hidden: false },
 ])
 
 return (
@@ -1888,6 +1923,175 @@ return (
 )
 {% endexample %}
 
+### With option groups
+
+{% example %}
+<ld-select
+  filter
+  placeholder="Pick a fruit or vegetable"
+  name="fruit-vegetable"
+>
+  <ld-optgroup label="Fruits">
+    <ld-option value="apple">Apple</ld-option>
+    <ld-option value="banana">Banana</ld-option>
+    <ld-option value="papaya">Papaya</ld-option>
+  </ld-optgroup>
+  <ld-optgroup label="Vegetables">
+    <ld-option value="potato">Potato</ld-option>
+    <ld-option value="cucumber">Cucumber</ld-option>
+    <ld-option value="tomato">Tomato</ld-option>
+  </ld-optgroup>
+  <ld-optgroup label="Nuts" disabled>
+    <ld-option value="walnut">Walnut</ld-option>
+    <ld-option value="chestnut">Chestnut</ld-option>
+    <ld-option value="strawberry">Strawberry</ld-option>
+  </ld-optgroup>
+</ld-select>
+
+<ld-select
+  filter
+  placeholder="Pick some fruits or vegetables"
+  name="fruits-vegetables"
+  multiple
+  max-rows="2"
+  style="width: 17rem"
+>
+  <ld-optgroup label="Fruits">
+    <ld-option value="apple">Apple</ld-option>
+    <ld-option value="banana">Banana</ld-option>
+    <ld-option value="papaya">Papaya</ld-option>
+  </ld-optgroup>
+  <ld-optgroup label="Vegetables">
+    <ld-option value="potato">Potato</ld-option>
+    <ld-option value="cucumber">Cucumber</ld-option>
+    <ld-option value="tomato">Tomato</ld-option>
+  </ld-optgroup>
+  <ld-optgroup label="Nuts" disabled>
+    <ld-option value="walnut">Walnut</ld-option>
+    <ld-option value="chestnut">Chestnut</ld-option>
+    <ld-option value="strawberry">Strawberry</ld-option>
+  </ld-optgroup>
+</ld-select>
+
+<!-- React component -->
+
+<LdSelect
+  filter
+  placeholder="Pick a fruit or vegetable"
+  name="fruit-vegetable"
+>
+  <LdOptgroup label="Fruits">
+    <LdOption value="apple">Apple</LdOption>
+    <LdOption value="banana">Banana</LdOption>
+    <LdOption value="papaya">Papaya</LdOption>
+  </LdOptgroup>
+  <LdOptgroup label="Vegetables">
+    <LdOption value="potato">Potato</LdOption>
+    <LdOption value="cucumber">Cucumber</LdOption>
+    <LdOption value="tomato">Tomato</LdOption>
+  </LdOptgroup>
+  <LdOptgroup label="Nuts" disabled>
+    <LdOption value="walnut">Walnut</LdOption>
+    <LdOption value="chestnut">Chestnut</LdOption>
+    <LdOption value="strawberry">Strawberry</LdOption>
+  </LdOptgroup>
+</LdSelect>
+
+<LdSelect
+  filter
+  placeholder="Pick some fruits or vegetables"
+  name="fruits-vegetables"
+  multiple
+  maxRows="2"
+  style={ { width: '17rem' } }
+>
+  <LdOptgroup label="Fruits">
+    <LdOption value="apple">Apple</LdOption>
+    <LdOption value="banana">Banana</LdOption>
+    <LdOption value="papaya">Papaya</LdOption>
+  </LdOptgroup>
+  <LdOptgroup label="Vegetables">
+    <LdOption value="potato">Potato</LdOption>
+    <LdOption value="cucumber">Cucumber</LdOption>
+    <LdOption value="tomato">Tomato</LdOption>
+  </LdOptgroup>
+  <LdOptgroup label="Nuts" disabled>
+    <LdOption value="walnut">Walnut</LdOption>
+    <LdOption value="chestnut">Chestnut</LdOption>
+    <LdOption value="strawberry">Strawberry</LdOption>
+  </LdOptgroup>
+</LdSelect>
+
+<!-- CSS component -->
+
+<div class='ld-select'>
+  <select name="fruits-vegetables">
+    <option value="">Pick a fruit or vegetable</option>
+    <optgroup label="Fruits">
+      <option value="apple">Apple</option>
+      <option value="banana">Banana</option>
+      <option value="papaya">Papaya</option>
+    </optgroup>
+    <optgroup label="Vegetables">
+      <option value="potato">Potato</option>
+      <option value="cucumber">Cucumber</option>
+      <option value="tomato">Tomato</option>
+    </optgroup>
+    <optgroup label="Nuts" disabled>
+      <option value="walnut">Walnut</option>
+      <option value="chestnut">Chestnut</option>
+      <option value="strawberry">Strawberry</option>
+    </optgroup>
+  </select>
+  <svg
+    role="presentation"
+    class="ld-select__icon"
+    viewBox="0 0 16 16"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+      d="M3 6l5 4 5-4"
+    />
+  </svg>
+</div>
+
+<div class='ld-select'>
+  <select name="fruits-vegetables" multiple>
+    <optgroup label="Fruits">
+      <option value="apple">Apple</option>
+      <option value="banana">Banana</option>
+      <option value="papaya">Papaya</option>
+    </optgroup>
+    <optgroup label="Vegetables">
+      <option value="potato">Potato</option>
+      <option value="cucumber">Cucumber</option>
+      <option value="tomato">Tomato</option>
+    </optgroup>
+    <optgroup label="Nuts" disabled>
+      <option value="walnut">Walnut</option>
+      <option value="chestnut">Chestnut</option>
+      <option value="strawberry">Strawberry</option>
+    </optgroup>
+  </select>
+  <svg
+    role="presentation"
+    class="ld-select__icon"
+    viewBox="0 0 16 16"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+      d="M3 6l5 4 5-4"
+    />
+  </svg>
+</div>
+{% endexample %}
+
 ### With label
 
 {% example %}
@@ -1896,7 +2100,7 @@ return (
   <ld-select placeholder="Pick a fruit" name="fruit">
     <ld-option value="apple">Apple</ld-option>
     <ld-option value="banana">Banana</ld-option>
-    <ld-option value="strawberry">Strawberry</ld-option>
+    <ld-option value="papaya">Papaya</ld-option>
     <ld-option value="watermelon" disabled>Watermelon</ld-option>
     <ld-option value="honeymelon">Honeymelon</ld-option>
     <ld-option value="rasberry">Rasberry</ld-option>
@@ -1919,7 +2123,7 @@ return (
   <LdSelect placeholder="Pick a fruit" name="fruit">
     <LdOption value="apple">Apple</LdOption>
     <LdOption value="banana">Banana</LdOption>
-    <LdOption value="strawberry">Strawberry</LdOption>
+    <LdOption value="papaya">Papaya</LdOption>
     <LdOption value="watermelon" disabled>Watermelon</LdOption>
     <LdOption value="honeymelon">Honeymelon</LdOption>
     <LdOption value="rasberry">Rasberry</LdOption>
@@ -1944,7 +2148,7 @@ return (
       <option value="">Pick a fruit</option>
       <option value="apple">Apple</option>
       <option value="banana">Banana</option>
-      <option value="strawberry">Strawberry</option>
+      <option value="papaya">Papaya</option>
       <option value="watermelon" disabled>Watermelon</option>
       <option value="honeymelon">Honeymelon</option>
       <option value="rasberry">Rasberry</option>
@@ -1983,7 +2187,7 @@ return (
   <ld-select placeholder="Pick a fruit" name="fruit">
     <ld-option value="apple">Apple</ld-option>
     <ld-option value="banana">Banana</ld-option>
-    <ld-option value="strawberry">Strawberry</ld-option>
+    <ld-option value="papaya">Papaya</ld-option>
     <ld-option value="watermelon" disabled>Watermelon</ld-option>
     <ld-option value="honeymelon">Honeymelon</ld-option>
     <ld-option value="rasberry">Rasberry</ld-option>
@@ -2007,7 +2211,7 @@ return (
   <LdSelect placeholder="Pick a fruit" name="fruit">
     <LdOption value="apple">Apple</LdOption>
     <LdOption value="banana">Banana</LdOption>
-    <LdOption value="strawberry">Strawberry</LdOption>
+    <LdOption value="papaya">Papaya</LdOption>
     <LdOption value="watermelon" disabled>Watermelon</LdOption>
     <LdOption value="honeymelon">Honeymelon</LdOption>
     <LdOption value="rasberry">Rasberry</LdOption>
@@ -2033,7 +2237,7 @@ return (
       <option value="">Pick a fruit</option>
       <option value="apple">Apple</option>
       <option value="banana">Banana</option>
-      <option value="strawberry">Strawberry</option>
+      <option value="papaya">Papaya</option>
       <option value="watermelon" disabled>Watermelon</option>
       <option value="honeymelon">Honeymelon</option>
       <option value="rasberry">Rasberry</option>
@@ -2085,32 +2289,33 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 
 ## Properties
 
-| Property             | Attribute             | Description                                                                                                                                                                    | Type                                                                                                                                                                                                                                                                                                                                             | Default                          |
-| -------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
-| `ariaDisabled`       | `aria-disabled`       | Alternative disabled state that keeps element focusable                                                                                                                        | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
-| `autofocus`          | `autofocus`           | This Boolean attribute lets you specify that a form control should have input focus when the page loads. Only one form element in a document can have the autofocus attribute. | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
-| `creatable`          | `creatable`           | Creatable mode can be enabled when the filter prop is set to true. This mode allows the user to create new options using the filter input field.                               | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
-| `createButtonLabel`  | `create-button-label` | The "create" button label (creatable mode).                                                                                                                                    | `string`                                                                                                                                                                                                                                                                                                                                         | `'Create option'`                |
-| `createInputLabel`   | `create-input-label`  | The "create" input label (creatable mode).                                                                                                                                     | `string`                                                                                                                                                                                                                                                                                                                                         | `'Press Enter to create option'` |
-| `disabled`           | `disabled`            | Disabled state of the component.                                                                                                                                               | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
-| `filter`             | `filter`              | Set this property to `true` in order to enable an input field for filtering options.                                                                                           | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
-| `filterPlaceholder`  | `filter-placeholder`  | The filter input placeholder.                                                                                                                                                  | `string`                                                                                                                                                                                                                                                                                                                                         | `'Filter options'`               |
-| `form`               | `form`                | The form element to associate the select with (its form owner).                                                                                                                | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
-| `invalid`            | `invalid`             | Set this property to `true` in order to mark the select visually as invalid.                                                                                                   | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
-| `key`                | `key`                 | for tracking the node's identity when working with lists                                                                                                                       | `string \| number`                                                                                                                                                                                                                                                                                                                               | `undefined`                      |
-| `ldTabindex`         | `ld-tabindex`         | Tab index of the trigger button.                                                                                                                                               | `number`                                                                                                                                                                                                                                                                                                                                         | `0`                              |
-| `maxRows`            | `max-rows`            | Constrains the height of the trigger button by replacing overflowing selection with a "+X more" indicator.                                                                     | `number`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
-| `mode`               | `mode`                | Display mode.                                                                                                                                                                  | `"detached" \| "ghost" \| "inline"`                                                                                                                                                                                                                                                                                                              | `undefined`                      |
-| `multiple`           | `multiple`            | Multiselect mode.                                                                                                                                                              | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
-| `name`               | `name`                | Used to specify the name of the control.                                                                                                                                       | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
-| `placeholder`        | `placeholder`         | Used as trigger button label in multiselect mode and in single select mode if nothing is selected.                                                                             | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
-| `popperClass`        | `popper-class`        | Attached as CSS class to the select popper element.                                                                                                                            | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
-| `preventDeselection` | `prevent-deselection` | Prevents a state with no options selected after initial selection in single select mode.                                                                                       | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
-| `ref`                | `ref`                 | reference to component                                                                                                                                                         | `any`                                                                                                                                                                                                                                                                                                                                            | `undefined`                      |
-| `required`           | `required`            | A Boolean attribute indicating that an option with a non-empty string value must be selected.                                                                                  | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
-| `selected`           | --                    | Currently selected option(s) (read only!)                                                                                                                                      | `SelectOption[]`                                                                                                                                                                                                                                                                                                                                 | `[]`                             |
-| `size`               | `size`                | Size of the select trigger button.                                                                                                                                             | `"lg" \| "sm"`                                                                                                                                                                                                                                                                                                                                   | `undefined`                      |
-| `tetherOptions`      | `tether-options`      | Tether options object to be merged with the default options (optionally stringified).                                                                                          | `string \| { attachment?: string; bodyElement?: HTMLElement; classes?: { [className: string]: string \| boolean; }; classPrefix?: string; constraints?: ITetherConstraint[]; element?: any; enabled?: boolean; offset?: string; optimizations?: any; target?: any; targetAttachment?: string; targetOffset?: string; targetModifier?: string; }` | `undefined`                      |
+| Property             | Attribute             | Description                                                                                                                                                                                       | Type                                                                                                                                                                                                                                                                                                                                             | Default                          |
+| -------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
+| `ariaDisabled`       | `aria-disabled`       | Alternative disabled state that keeps element focusable                                                                                                                                           | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
+| `autofocus`          | `autofocus`           | This Boolean attribute lets you specify that a form control should have input focus when the page loads. Only one form element in a document can have the autofocus attribute.                    | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `creatable`          | `creatable`           | Creatable mode can be enabled when the filter prop is set to true. This mode allows the user to create new options using the filter input field.                                                  | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `createButtonLabel`  | `create-button-label` | The "create" button label (creatable mode).                                                                                                                                                       | `string`                                                                                                                                                                                                                                                                                                                                         | `'Create option'`                |
+| `createInputLabel`   | `create-input-label`  | The "create" input label (creatable mode).                                                                                                                                                        | `string`                                                                                                                                                                                                                                                                                                                                         | `'Press Enter to create option'` |
+| `disabled`           | `disabled`            | Disabled state of the component.                                                                                                                                                                  | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `filter`             | `filter`              | Set this property to `true` in order to enable an input field for filtering options.                                                                                                              | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `filterPlaceholder`  | `filter-placeholder`  | The filter input placeholder.                                                                                                                                                                     | `string`                                                                                                                                                                                                                                                                                                                                         | `'Filter options'`               |
+| `form`               | `form`                | The form element to associate the select with (its form owner).                                                                                                                                   | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
+| `invalid`            | `invalid`             | Set this property to `true` in order to mark the select visually as invalid.                                                                                                                      | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `key`                | `key`                 | for tracking the node's identity when working with lists                                                                                                                                          | `string \| number`                                                                                                                                                                                                                                                                                                                               | `undefined`                      |
+| `ldTabindex`         | `ld-tabindex`         | Tab index of the trigger button.                                                                                                                                                                  | `number`                                                                                                                                                                                                                                                                                                                                         | `0`                              |
+| `maxRows`            | `max-rows`            | Constrains the height of the trigger button by replacing overflowing selection with a "+X more" indicator.                                                                                        | `number`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
+| `mode`               | `mode`                | Display mode.                                                                                                                                                                                     | `"detached" \| "ghost" \| "inline"`                                                                                                                                                                                                                                                                                                              | `undefined`                      |
+| `multiple`           | `multiple`            | Multiselect mode.                                                                                                                                                                                 | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `name`               | `name`                | Used to specify the name of the control.                                                                                                                                                          | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
+| `placeholder`        | `placeholder`         | Used as trigger button label in multiselect mode and in single select mode if nothing is selected.                                                                                                | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
+| `popperClass`        | `popper-class`        | Attached as CSS class to the select popper element.                                                                                                                                               | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
+| `preventDeselection` | `prevent-deselection` | Prevents a state with no options selected after initial selection in single select mode.                                                                                                          | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `ref`                | `ref`                 | reference to component                                                                                                                                                                            | `any`                                                                                                                                                                                                                                                                                                                                            | `undefined`                      |
+| `required`           | `required`            | A Boolean attribute indicating that an option with a non-empty string value must be selected.                                                                                                     | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `sanitizeConfig`     | `sanitize-config`     | Sanitize config passed to DOMPurify's sanitize method. If passed as string, the component will try to parse the string as JSON. See https://github.com/cure53/DOMPurify#can-i-configure-dompurify | `SanitizeConfig \| string`                                                                                                                                                                                                                                                                                                                       | `undefined`                      |
+| `selected`           | --                    | Currently selected option(s) (read only!)                                                                                                                                                         | `SelectOption[]`                                                                                                                                                                                                                                                                                                                                 | `[]`                             |
+| `size`               | `size`                | Size of the select trigger button.                                                                                                                                                                | `"lg" \| "sm"`                                                                                                                                                                                                                                                                                                                                   | `undefined`                      |
+| `tetherOptions`      | `tether-options`      | Tether options object to be merged with the default options (optionally stringified).                                                                                                             | `string \| { attachment?: string; bodyElement?: HTMLElement; classes?: { [className: string]: string \| boolean; }; classPrefix?: string; constraints?: ITetherConstraint[]; element?: any; enabled?: boolean; offset?: string; optimizations?: any; target?: any; targetAttachment?: string; targetOffset?: string; targetModifier?: string; }` | `undefined`                      |
 
 
 ## Events

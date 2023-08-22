@@ -9,6 +9,7 @@ import {
   Listen,
   State,
   Method,
+  Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
 
@@ -49,7 +50,7 @@ export class LdOptionInternal implements InnerFocusable {
   /**
    * Display mode.
    */
-  @Prop() mode?: 'checkbox' | undefined
+  @Prop() mode?: 'checkbox'
 
   /** Size of the option. */
   @Prop() size?: 'sm' | 'lg'
@@ -60,21 +61,10 @@ export class LdOptionInternal implements InnerFocusable {
   /** Tab index of the option. */
   @Prop() ldTabindex? = -1
 
-  /**
-   * Sets focus internally.
-   */
+  /** Sets focus internally. */
   @Method()
   async focusInner() {
     this.optionRef.focus()
-  }
-
-  /**
-   * Sets focus internally.
-   * @deprecated
-   */
-  @Method()
-  async focusOption() {
-    await this.focusInner()
   }
 
   /**
@@ -87,8 +77,14 @@ export class LdOptionInternal implements InnerFocusable {
 
   @State() hasFocus: boolean
   @State() hasHover: boolean
+  @State() indent?: boolean = false
 
-  private handleClick() {
+  @Watch('selected')
+  handleSelectedChange() {
+    this.ldoptionselect.emit(this.selected)
+  }
+
+  private handleClick = () => {
     if (this.disabled) return
 
     if (
@@ -98,13 +94,6 @@ export class LdOptionInternal implements InnerFocusable {
     ) {
       this.selected = !this.selected
     }
-
-    if (this.mode !== 'checkbox') {
-      this.hasFocus = false
-      this.hasHover = false
-    }
-
-    this.ldoptionselect.emit(this.selected)
   }
 
   @Listen('keydown', { passive: false })
@@ -114,33 +103,26 @@ export class LdOptionInternal implements InnerFocusable {
       ev.stopImmediatePropagation()
       this.handleClick()
     }
-
-    if (ev.key === 'Escape') {
-      this.hasFocus = false
-      this.hasHover = false
-    }
   }
 
   componentWillLoad() {
     if (typeof this.value === 'undefined') {
-      requestAnimationFrame(() => {
+      setTimeout(() => {
         this.value = this.el.innerText
       })
+    }
+    if (this.mode === 'checkbox' && this.el.closest('ld-optgroup-internal')) {
+      this.indent = true
     }
   }
 
   render() {
     return (
-      <Host
-        class={getClassNames([
-          this.disabled && 'ld-option-internal--disabled',
-          this.hasFocus && 'ld-option-internal--focus-within',
-          this.hasHover && 'ld-option-internal--hover-within',
-        ])}
-      >
+      <Host>
         <div
           class={getClassNames([
             'ld-option-internal',
+            this.indent && `ld-option-internal--indent`,
             this.size && `ld-option-internal--${this.size}`,
             this.filtered && 'ld-option-internal--filtered',
           ])}
@@ -148,11 +130,7 @@ export class LdOptionInternal implements InnerFocusable {
           ref={(el) => (this.optionRef = el as HTMLElement)}
           aria-selected={this.selected ? 'true' : undefined}
           aria-disabled={this.disabled ? 'true' : undefined}
-          onClick={this.handleClick.bind(this)}
-          onFocus={() => (this.hasFocus = true)}
-          onBlur={() => (this.hasFocus = false)}
-          onMouseOver={() => (this.hasHover = true)}
-          onMouseOut={() => (this.hasHover = false)}
+          onClick={this.handleClick}
           tabindex={this.ldTabindex}
           part="option focusable"
         >

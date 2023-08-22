@@ -585,12 +585,14 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - ld-optgroup-internal
  - ld-option-internal
  - [ld-table-row](../ld-table/ld-table-row)
 
 ### Graph
 ```mermaid
 graph TD;
+  ld-optgroup-internal --> ld-checkbox
   ld-option-internal --> ld-checkbox
   ld-table-row --> ld-checkbox
   style ld-checkbox fill:#f9f,stroke:#333,stroke-width:4px
