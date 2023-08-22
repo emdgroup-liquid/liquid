@@ -2662,11 +2662,11 @@ __metadata:
   linkType: hard
 
 "@stencil/core@npm:^4.0.1":
-  version: 4.0.5
-  resolution: "@stencil/core@npm:4.0.5"
+  version: 4.1.0
+  resolution: "@stencil/core@npm:4.1.0"
   bin:
     stencil: bin/stencil
-  checksum: 83136cb2d001abad9d95254649c49df9a284cd403843378572952998cfa7207860efeba0b9db19258afcce4af3a8614edee25b3084ad708634a28137f98cc3bf
+  checksum: ea214fb7269274ebac8fd3ddd11ac8c2d6fbc23870d0d2ba6f4baeb431b0dc10cdec31adc8e098dec1b1839d80c4a2f4276b60ff0148db5a5ef1bd2ac5efd794
   languageName: node
   linkType: hard
 
