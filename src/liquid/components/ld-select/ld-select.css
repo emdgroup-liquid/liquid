@@ -9,24 +9,52 @@
 
 :host,
 .ld-select {
+  /* reset */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  ul {
+    list-style: none;
+  }
+}
+
+.ld-select {
   /* layout */
   --ld-select-min-width: 12.8125rem;
-  --ld-select-min-height-sm: 2rem;
-  --ld-select-min-height-md: 2.5rem;
+  --ld-select-min-height: var(--ld-sp-40);
+  --ld-select-min-height-sm: var(--ld-sp-32);
   --ld-select-min-height-lg: 3.125rem;
+  --ld-select-padding-x: var(--ld-sp-12);
   --ld-select-padding-x-sm: 0.625rem;
-  --ld-select-padding-x-md: 0.75rem;
   --ld-select-padding-x-lg: 0.875rem;
-  --ld-select-padding-y-sm: 0.25rem;
-  --ld-select-padding-y-md: 0.5rem;
-  --ld-select-padding-y-lg: 0.5rem;
-  --ld-select-padding-right-sm: calc(2.5rem + 0.625rem);
-  --ld-select-padding-right-md: calc(2.5rem + 0.75rem);
-  --ld-select-padding-right-lg: calc(2.5rem + 0.875rem);
-  --ld-select-icon-size-sm: 1rem;
-  --ld-select-icon-size-md: 1.25rem;
-  --ld-select-icon-size-lg: 1.5rem;
+  --ld-select-padding-y: var(--ld-sp-8);
+  --ld-select-padding-y-sm: var(--ld-sp-4);
+  --ld-select-padding-y-lg: var(--ld-sp-8);
+  --ld-select-padding-right: calc(var(--ld-sp-40) + var(--ld-sp-12));
+  --ld-select-padding-right-sm: calc(var(--ld-sp-40) + 0.625rem);
+  --ld-select-padding-right-lg: calc(var(--ld-sp-40) + 0.875rem);
+  --ld-select-icon-size: 1.25rem;
+  --ld-select-icon-size-sm: var(--ld-sp-16);
+  --ld-select-icon-size-lg: var(--ld-sp-24);
   --ld-select-trigger-line-height: 1.25;
+
+  &--sm {
+    --ld-select-min-height: var(--ld-select-min-height-sm);
+    --ld-select-padding-x: var(--ld-select-padding-x-sm);
+    --ld-select-padding-y: var(--ld-select-padding-y-sm);
+    --ld-select-padding-right: var(--ld-select-padding-right-sm);
+    --ld-select-icon-size: var(--ld-select-icon-size-sm);
+  }
+
+  &--lg {
+    --ld-select-min-height: var(--ld-select-min-height-lg);
+    --ld-select-padding-x: var(--ld-select-padding-x-lg);
+    --ld-select-padding-y: var(--ld-select-padding-y-lg);
+    --ld-select-padding-right: var(--ld-select-padding-right-lg);
+    --ld-select-icon-size: var(--ld-select-icon-size-lg);
+  }
 
   /* colors */
   --ld-select-col: var(--ld-col-neutral-900);
@@ -49,25 +77,13 @@
   --ld-select-ghost-trigger-bg-col-hover: var(--ld-thm-primary-alpha-lowest);
   --ld-select-ghost-trigger-bg-col-focus: var(--ld-thm-primary-alpha-low);
 
-  /* reset */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  ul {
-    list-style: none;
-  }
-}
-
-.ld-select {
   display: inline-flex;
   position: relative;
 
   select + .ld-icon,
   ::slotted(ld-icon) {
-    width: var(--ld-select-icon-size-md);
-    height: var(--ld-select-icon-size-md);
+    width: var(--ld-select-icon-size);
+    height: var(--ld-select-icon-size);
   }
 
   ::slotted(ld-icon) {
@@ -78,53 +94,36 @@
     + .ld-icon,
     + .ld-select__icon {
       position: absolute;
-      right: var(--ld-select-padding-x-md);
+      right: var(--ld-select-padding-x);
       top: 50%;
       transform: translateY(-50%);
     }
 
+    &[multiple] + .ld-icon,
+    &[multiple] + .ld-select__icon {
+      display: none;
+    }
+
     + .ld-icon {
-      width: var(--ld-select-icon-size-md);
-      height: var(--ld-select-icon-size-md);
-    }
-
-    &:where(:not[multiple]) {
-      padding-right: var(--ld-select-padding-right-md);
+      width: var(--ld-select-icon-size);
+      height: var(--ld-select-icon-size);
     }
   }
 
-  &.ld-select--sm {
-    select {
-      + .ld-icon,
-      + .ld-select__icon {
-        right: var(--ld-select-padding-x-sm);
-      }
-
-      + .ld-icon {
-        width: var(--ld-select-icon-size-sm);
-        height: var(--ld-select-icon-size-sm);
-      }
-
-      &:where(:not[multiple]) {
-        padding-right: var(--ld-select-padding-right-sm);
-      }
-    }
+  > select[multiple] {
+    overflow: auto;
   }
-  &.ld-select--lg {
-    select {
-      + .ld-icon,
-      + .ld-select__icon {
-        right: var(--ld-select-padding-x-lg);
-      }
+}
 
-      + .ld-icon {
-        width: var(--ld-select-icon-size-lg);
-        height: var(--ld-select-icon-size-lg);
-      }
+/* Mobile Safari (iOS only) */
+/* stylelint-disable-next-line media-feature-range-notation, media-feature-name-no-vendor-prefix */
+@media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 0) {
+  .ld-select > select[multiple] {
+    padding-right: calc(var(--ld-select-padding-x) + var(--ld-sp-24));
 
-      &:where(:not[multiple]) {
-        padding-right: var(--ld-select-padding-right-lg);
-      }
+    + .ld-icon,
+    + .ld-select__icon {
+      display: flex;
     }
   }
 }
@@ -157,7 +156,7 @@
   font: var(--ld-typo-body-m);
   line-height: var(--ld-select-trigger-line-height);
   border: 0;
-  padding: var(--ld-select-padding-y-md) var(--ld-select-padding-x-md);
+  padding: var(--ld-select-padding-y) var(--ld-select-padding-x);
   border-radius: var(--ld-br-m);
   height: 100%;
   user-select: none;
@@ -170,23 +169,10 @@
 
   &:where(select) {
     width: 100%;
+  }
 
-    &[multiple] {
-      optgroup {
-        padding: var(--ld-sp-8) 0;
-        font-style: normal;
-      }
-
-      option {
-        padding: var(--ld-sp-6) var(--ld-sp-6);
-        margin: 0 calc(-1 * var(--ld-sp-6));
-        border-radius: var(--ld-br-m);
-
-        &:not(:last-of-type) {
-          margin-bottom: var(--ld-sp-2);
-        }
-      }
-    }
+  &:where(select:not([multiple])) {
+    padding-right: calc(var(--ld-select-padding-x) + var(--ld-sp-24));
   }
 
   &:where(select:not(:disabled, [aria-disabled='true'])),
@@ -218,27 +204,7 @@
 
 :where(.ld-select),
 :where(.ld-select) > select {
-  min-height: var(--ld-select-min-height-md);
-}
-
-:where(.ld-select--sm),
-:where(.ld-select--sm) > select {
-  min-height: var(--ld-select-min-height-sm);
-}
-
-:where(.ld-select--lg),
-:where(.ld-select--lg) > select {
-  min-height: var(--ld-select-min-height-lg);
-}
-
-.ld-select--sm > select,
-.ld-select--sm .ld-select__btn-trigger {
-  padding: var(--ld-select-padding-y-sm) var(--ld-select-padding-x-sm);
-}
-
-.ld-select--lg > select,
-.ld-select--lg .ld-select__btn-trigger {
-  padding: var(--ld-select-padding-y-lg) var(--ld-select-padding-x-lg);
+  min-height: var(--ld-select-min-height);
 }
 
 .ld-select--ghost {
@@ -363,19 +329,6 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-}
-
-.ld-select--sm > select,
-.ld-select--sm .ld-select__btn-trigger-input,
-.ld-select--sm .ld-select__btn-trigger-text-wrapper {
-  font: var(--ld-typo-body-s);
-  line-height: var(--ld-select-trigger-line-height);
-}
-.ld-select--lg > select,
-.ld-select--lg .ld-select__btn-trigger-input,
-.ld-select--lg .ld-select__btn-trigger-text-wrapper {
-  font: var(--ld-typo-body-l);
-  line-height: var(--ld-select-trigger-line-height);
 }
 
 .ld-select > select,

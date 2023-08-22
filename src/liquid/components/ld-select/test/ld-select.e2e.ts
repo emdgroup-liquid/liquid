@@ -444,6 +444,69 @@ describe('ld-select', () => {
         expect(results).toMatchScreenshot()
       })
     })
+
+    describe('option groups', () => {
+      it('default', async () => {
+        const page = await getPageWithContent(`
+          <ld-select
+            filter
+            placeholder="Pick a fruit or vegetable"
+            name="fruit-vegetable"
+          >
+            <ld-optgroup label="Fruits">
+              <ld-option value="apple">Apple</ld-option>
+              <ld-option value="banana">Banana</ld-option>
+            </ld-optgroup>
+            <ld-optgroup label="Vegetables">
+              <ld-option value="potato">Potato</ld-option>
+              <ld-option value="cucumber">Cucumber</ld-option>
+            </ld-optgroup>
+            <ld-optgroup label="Nuts" disabled>
+              <ld-option value="walnut">Walnut</ld-option>
+              <ld-option value="strawberry">Strawberry</ld-option>
+            </ld-optgroup>
+          </ld-select>
+        `)
+        await page.keyboard.press('Tab')
+        await page.waitForChanges()
+        await page.keyboard.press('ArrowDown')
+        await page.waitForChanges()
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('multiple', async () => {
+        const page = await getPageWithContent(`
+          <ld-select
+            filter
+            placeholder="Pick some fruits or vegetables"
+            name="fruits-vegetables"
+            multiple
+            max-rows="2"
+            style="width: 17rem"
+          >
+            <ld-optgroup label="Fruits">
+              <ld-option value="apple">Apple</ld-option>
+              <ld-option value="banana">Banana</ld-option>
+            </ld-optgroup>
+            <ld-optgroup label="Vegetables">
+              <ld-option value="potato">Potato</ld-option>
+              <ld-option value="cucumber">Cucumber</ld-option>
+            </ld-optgroup>
+            <ld-optgroup label="Nuts" disabled>
+              <ld-option value="walnut">Walnut</ld-option>
+              <ld-option value="strawberry">Strawberry</ld-option>
+            </ld-optgroup>
+          </ld-select>
+        `)
+        await page.keyboard.press('Tab')
+        await page.waitForChanges()
+        await page.keyboard.press('ArrowDown')
+        await page.waitForChanges()
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+    })
   })
 
   describe('filter', () => {
@@ -639,6 +702,91 @@ describe('ld-select', () => {
         { components: LdSelect }
       )
       await page.keyboard.press('Tab')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('multiple', async () => {
+      const page = await getPageWithContent(
+        `
+        <div class='ld-select'>
+          <select name="fruits" multiple>
+            <option value="apple">Apple</option>
+            <option value="banana">Banana</option>
+            <option value="papaya">Papaya</option>
+            <option value="watermelon" disabled>Watermelon</option>
+            <option value="honeymelon">Honeymelon</option>
+            <option value="rasberry">Rasberry</option>
+          </select>${selectIcon}
+        </div>`,
+        { components: LdSelect }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it('multiple hover', async () => {
+      const page = await getPageWithContent(
+        `
+        <div class='ld-select'>
+          <select name="fruits" multiple>
+            <option value="apple">Apple</option>
+            <option value="banana">Banana</option>
+            <option value="papaya">Papaya</option>
+            <option value="watermelon" disabled>Watermelon</option>
+            <option value="honeymelon">Honeymelon</option>
+            <option value="rasberry">Rasberry</option>
+          </select>${selectIcon}
+        </div>`,
+        { components: LdSelect }
+      )
+      await page.hover('.ld-select')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it('multiple focus', async () => {
+      const page = await getPageWithContent(
+        `
+        <div class='ld-select'>
+          <select name="fruits" multiple>
+            <option value="apple">Apple</option>
+            <option value="banana">Banana</option>
+            <option value="papaya">Papaya</option>
+            <option value="watermelon" disabled>Watermelon</option>
+            <option value="honeymelon">Honeymelon</option>
+            <option value="rasberry">Rasberry</option>
+          </select>${selectIcon}
+        </div>`,
+        { components: LdSelect }
+      )
+      await page.keyboard.press('Tab')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('multiple with option groups', async () => {
+      const page = await getPageWithContent(
+        `
+        <div class='ld-select'>
+          <select name="fruits-vegetables" multiple>
+            <optgroup label="Fruits">
+              <option value="apple">Apple</option>
+              <option value="banana">Banana</option>
+              <option value="papaya">Papaya</option>
+            </optgroup>
+            <optgroup label="Vegetables">
+              <option value="potato">Potato</option>
+              <option value="cucumber">Cucumber</option>
+              <option value="tomato">Tomato</option>
+            </optgroup>
+            <optgroup label="Nuts" disabled>
+              <option value="walnut">Walnut</option>
+              <option value="chestnut">Chestnut</option>
+              <option value="strawberry">Strawberry</option>
+            </optgroup>
+          </select>${selectIcon}
+        </div>`,
+        { components: LdSelect }
+      )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })

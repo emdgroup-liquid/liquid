@@ -41,7 +41,7 @@ export class LdOption {
 
   render() {
     return (
-      <Host class="ld-option">
+      <Host>
         <slot></slot>
       </Host>
     )

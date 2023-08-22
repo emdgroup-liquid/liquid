@@ -4,6 +4,8 @@ import { LdSelectPopper } from '../ld-select-popper/ld-select-popper'
 import { LdLabel } from '../../ld-label/ld-label'
 import { LdOption } from '../ld-option/ld-option'
 import { LdOptionInternal } from '../ld-option-internal/ld-option-internal'
+import { LdOptgroup } from '../ld-optgroup/ld-optgroup'
+import { LdOptgroupInternal } from '../ld-optgroup-internal/ld-optgroup-internal'
 import {
   clearTriggerableMutationObservers,
   getTriggerableMutationObservers,
@@ -15,6 +17,8 @@ const components = [
   LdLabel,
   LdOption,
   LdOptionInternal,
+  LdOptgroup,
+  LdOptgroupInternal,
   LdSelect,
   LdSelectPopper,
 ]
@@ -35,14 +39,24 @@ function getInternalOptions(page: SpecPage) {
   const ldInternalOptions = Array.from(
     ldSelectPopper.querySelectorAll('ld-option-internal')
   )
+  const ldInternalOptgroups = Array.from(
+    ldSelectPopper.querySelectorAll('ld-optgroup-internal')
+  )
   const internalOptions = ldInternalOptions.map((ldInternalOption) =>
     ldInternalOption.shadowRoot.querySelector<HTMLElement>(
       '.ld-option-internal'
     )
   )
+  const internalOptgroups = ldInternalOptgroups.map((ldInternalOptgroup) =>
+    ldInternalOptgroup.shadowRoot.querySelector<HTMLElement>(
+      '.ld-optgroup-internal'
+    )
+  )
   return {
     ldInternalOptions,
+    ldInternalOptgroups,
     internalOptions,
+    internalOptgroups,
   }
 }
 
@@ -121,7 +135,7 @@ describe('ld-select', () => {
       html: `
         <ld-select placeholder="Pick a fruit" name="fruit">
           <ld-option value="apple">Apple</ld-option>
-          <ld-option value="banana" selected='true'>Banana</ld-option>
+          <ld-option value="banana" selected>Banana</ld-option>
         </ld-select>
       `,
     })
@@ -133,6 +147,60 @@ describe('ld-select', () => {
     expect(ldInternalOptions.length).toEqual(2)
     expect(ldInternalOption1.getAttribute('selected')).toEqual(null)
     expect(ldInternalOption2.getAttribute('selected')).not.toEqual(null)
+  })
+
+  it('sets value on option from inner text if undefined', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-select placeholder="Pick a fruit" name="fruit">
+          <ld-option>Apple</ld-option>
+          <ld-option>Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    await triggerPopperWithClick(page)
+    const { ldInternalOptions } = getInternalOptions(page)
+
+    await page.waitForChanges()
+
+    expect(ldInternalOptions[0].getAttribute('value')).toEqual('Apple')
+    expect(ldInternalOptions[1].getAttribute('value')).toEqual('Banana')
+  })
+
+  it('renders with option groups', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-select placeholder="Pick a fruit or vegetable" name="fruit">
+          <ld-optgroup label="Fruits">
+            <ld-option value="apple">Apple</ld-option>
+            <ld-option value="banana" selected>Banana</ld-option>
+          </ld-optgroup>
+          <ld-optgroup label="Vegetables">
+            <ld-option value="potato">Potato</ld-option>
+            <ld-option value="tomato">Tomato</ld-option>
+          </ld-optgroup>
+          <ld-optgroup label="Nuts" disabled>
+            <ld-option value="walnut">Walnut</ld-option>
+            <ld-option value="strawberry">Strawberry</ld-option>
+          </ld-optgroup>
+        </ld-select>
+      `,
+    })
+
+    await triggerPopperWithClick(page)
+    const { ldInternalOptions, ldInternalOptgroups, internalOptions } =
+      getInternalOptions(page)
+
+    await page.waitForChanges()
+
+    expect(ldInternalOptions.length).toEqual(6)
+    expect(ldInternalOptgroups.length).toEqual(3)
+    expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+    expect(internalOptions[5].getAttribute('aria-disabled')).toEqual('true')
   })
 
   describe('events', () => {
@@ -372,6 +440,183 @@ describe('ld-select', () => {
 
       expect(ldInternalOption1.getAttribute('selected')).not.toEqual(null)
       expect(ldInternalOption2.getAttribute('selected')).not.toEqual(null)
+    })
+
+    it('sets selected states on option group in multiple select mode', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+        <ld-select placeholder="Pick some fruits" name="fruits" multiple>
+          <ld-optgroup label='apple and banana'>
+            <ld-option value="apple">Apple</ld-option>
+            <ld-option value="banana">Banana</ld-option>
+          </ld-optgroup>
+        </ld-select>
+      `,
+      })
+
+      await triggerPopperWithClick(page)
+      const { ldInternalOptions, internalOptions, internalOptgroups } =
+        getInternalOptions(page)
+
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+
+      const optgroupCheckbox = internalOptgroups[0].querySelector('ld-checkbox')
+
+      expect(optgroupCheckbox.hasAttribute('checked')).toBeFalsy()
+      expect(optgroupCheckbox.hasAttribute('indeterminate')).toBeFalsy()
+      expect(ldInternalOptions[0].hasAttribute('selected')).toBeFalsy()
+      expect(ldInternalOptions[1].hasAttribute('selected')).toBeFalsy()
+
+      internalOptions[0].click()
+      await page.waitForChanges()
+
+      expect(optgroupCheckbox.hasAttribute('checked')).toBeFalsy()
+      expect(optgroupCheckbox.hasAttribute('indeterminate')).toBeTruthy()
+      expect(ldInternalOptions[0].hasAttribute('selected')).toBeTruthy()
+      expect(ldInternalOptions[1].hasAttribute('selected')).toBeFalsy()
+
+      internalOptions[1].click()
+      await page.waitForChanges()
+
+      expect(optgroupCheckbox.hasAttribute('checked')).toBeTruthy()
+      expect(optgroupCheckbox.hasAttribute('indeterminate')).toBeFalsy()
+      expect(ldInternalOptions[0].hasAttribute('selected')).toBeTruthy()
+      expect(ldInternalOptions[1].hasAttribute('selected')).toBeTruthy()
+    })
+
+    it('sets selected states on options within option group in multiple select mode', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+          <ld-select placeholder="Pick some fruits" name="fruits" multiple>
+            <ld-optgroup label='apple and banana'>
+              <ld-option value="apple" selected>Apple</ld-option>
+              <ld-option value="banana">Banana</ld-option>
+            </ld-optgroup>
+          </ld-select>
+        `,
+      })
+
+      await triggerPopperWithClick(page)
+      const {
+        ldInternalOptions,
+        ldInternalOptgroups,
+        internalOptions,
+        internalOptgroups,
+      } = getInternalOptions(page)
+
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+
+      const optgroupCheckbox = internalOptgroups[0].querySelector('ld-checkbox')
+
+      expect(optgroupCheckbox.hasAttribute('checked')).toBeFalsy()
+      expect(optgroupCheckbox.hasAttribute('indeterminate')).toBeTruthy()
+      expect(ldInternalOptions[0].hasAttribute('selected')).toBeTruthy()
+      expect(ldInternalOptions[1].hasAttribute('selected')).toBeFalsy()
+
+      internalOptgroups[0].click()
+      await page.waitForChanges()
+
+      expect(optgroupCheckbox.hasAttribute('checked')).toBeTruthy()
+      expect(optgroupCheckbox.hasAttribute('indeterminate')).toBeFalsy()
+      expect(ldInternalOptions[0].hasAttribute('selected')).toBeTruthy()
+      expect(ldInternalOptions[1].hasAttribute('selected')).toBeTruthy()
+
+      ldInternalOptgroups[0].dispatchEvent(
+        new KeyboardEvent('keydown', { key: ' ', bubbles: true })
+      )
+      await page.waitForChanges()
+
+      expect(optgroupCheckbox.hasAttribute('checked')).toBeFalsy()
+      expect(optgroupCheckbox.hasAttribute('indeterminate')).toBeFalsy()
+      expect(ldInternalOptions[0].hasAttribute('selected')).toBeFalsy()
+      expect(ldInternalOptions[1].hasAttribute('selected')).toBeFalsy()
+
+      ldInternalOptgroups[0].dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })
+      )
+      await page.waitForChanges()
+
+      expect(optgroupCheckbox.hasAttribute('checked')).toBeTruthy()
+      expect(optgroupCheckbox.hasAttribute('indeterminate')).toBeFalsy()
+      expect(ldInternalOptions[0].hasAttribute('selected')).toBeTruthy()
+      expect(ldInternalOptions[1].hasAttribute('selected')).toBeTruthy()
+    })
+
+    it('does not set selected states on options within option group in multiple select mode if option group is disabled', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+          <ld-select placeholder="Pick some fruits" name="fruits" multiple size="lg">
+            <ld-optgroup label='apple and banana' disabled>
+              <ld-option value="apple" selected>Apple</ld-option>
+              <ld-option value="banana">Banana</ld-option>
+            </ld-optgroup>
+          </ld-select>
+        `,
+      })
+
+      await triggerPopperWithClick(page)
+      const { ldInternalOptions, internalOptions, internalOptgroups } =
+        getInternalOptions(page)
+
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+
+      const optgroupCheckbox = internalOptgroups[0].querySelector('ld-checkbox')
+
+      expect(optgroupCheckbox.hasAttribute('checked')).toBeFalsy()
+      expect(optgroupCheckbox.hasAttribute('indeterminate')).toBeTruthy()
+      expect(ldInternalOptions[0].hasAttribute('selected')).toBeTruthy()
+      expect(ldInternalOptions[1].hasAttribute('selected')).toBeFalsy()
+
+      internalOptgroups[0].click()
+      await page.waitForChanges()
+
+      expect(optgroupCheckbox.hasAttribute('checked')).toBeFalsy()
+      expect(optgroupCheckbox.hasAttribute('indeterminate')).toBeTruthy()
+      expect(ldInternalOptions[0].hasAttribute('selected')).toBeTruthy()
+      expect(ldInternalOptions[1].hasAttribute('selected')).toBeFalsy()
+    })
+
+    it('does not set selected states on options within option group in single select mode', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+        <ld-select placeholder="Pick a fruit" name="fruit">
+          <ld-optgroup label='apple and banana'>
+            <ld-option value="apple">Apple</ld-option>
+            <ld-option value="banana">Banana</ld-option>
+          </ld-optgroup>
+        </ld-select>
+      `,
+      })
+
+      await triggerPopperWithClick(page)
+      const { ldInternalOptions, internalOptions, internalOptgroups } =
+        getInternalOptions(page)
+
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+
+      const optgroupCheckbox = internalOptgroups[0].querySelector('ld-checkbox')
+
+      expect(optgroupCheckbox).toEqual(null)
+      expect(ldInternalOptions[0].hasAttribute('selected')).toBeFalsy()
+      expect(ldInternalOptions[1].hasAttribute('selected')).toBeFalsy()
+
+      internalOptgroups[0].click()
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].hasAttribute('selected')).toBeFalsy()
+      expect(ldInternalOptions[1].hasAttribute('selected')).toBeFalsy()
     })
   })
 
@@ -1552,6 +1797,149 @@ describe('ld-select', () => {
       expect(ldInternalOption5.getAttribute('selected')).not.toEqual(null)
     })
 
+    it('selects multiple options on key down ArrowDown with Shift if popper is expanded in multiple mode with option groups', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+        <ld-select placeholder="Pick some fruits or vegetables" name="fruits-vegetables" multiple>
+          <ld-optgroup label="Fruits">
+            <ld-option value="apple">Apple</ld-option>
+            <ld-option value="banana">Banana</ld-option>
+          </ld-optgroup>
+          <ld-optgroup label="Vegetables">
+            <ld-option value="potato" selected>Potato</ld-option>
+            <ld-option value="tomato">Tomato</ld-option>
+          </ld-optgroup>
+          <ld-optgroup label="Nuts" disabled>
+            <ld-option value="walnut">Walnut</ld-option>
+            <ld-option value="strawberry">Strawberry</ld-option>
+          </ld-optgroup>
+        </ld-select>
+      `,
+      })
+
+      await triggerPopperWithClick(page)
+
+      const {
+        ldInternalOptions,
+        ldInternalOptgroups,
+        internalOptions,
+        internalOptgroups,
+      } = getInternalOptions(page)
+
+      const { doc, shadowDoc } = getShadow(page)
+
+      expect(internalOptions.length).toEqual(6)
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+
+      expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[1].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[3].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[5].getAttribute('selected')).toEqual(null)
+
+      doc.activeElement = ldInternalOptions[0]
+      shadowDoc.activeElement = internalOptions[0]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[3].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[5].getAttribute('selected')).toEqual(null)
+
+      doc.activeElement = ldInternalOptions[1]
+      shadowDoc.activeElement = internalOptions[1]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[3].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[5].getAttribute('selected')).toEqual(null)
+
+      doc.activeElement = ldInternalOptgroups[1]
+      shadowDoc.activeElement = internalOptgroups[1]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[3].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[5].getAttribute('selected')).toEqual(null)
+
+      doc.activeElement = ldInternalOptions[2]
+      shadowDoc.activeElement = internalOptions[2]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[3].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[5].getAttribute('selected')).toEqual(null)
+
+      doc.activeElement = ldInternalOptions[3]
+      shadowDoc.activeElement = internalOptions[3]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[3].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[5].getAttribute('selected')).toEqual(null)
+
+      doc.activeElement = ldInternalOptgroups[2]
+      shadowDoc.activeElement = internalOptgroups[2]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[3].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[5].getAttribute('selected')).toEqual(null)
+
+      doc.activeElement = ldInternalOptions[4]
+      shadowDoc.activeElement = internalOptions[4]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[3].getAttribute('selected')).not.toEqual(null)
+      expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
+      expect(ldInternalOptions[5].getAttribute('selected')).toEqual(null)
+    })
+
     it('selects multiple options on key down ArrowUp with Shift if popper is expanded in multiple mode', async () => {
       const page = await newSpecPage({
         components,
@@ -1630,6 +2018,149 @@ describe('ld-select', () => {
       expect(ldInternalOption3.getAttribute('selected')).not.toEqual(null)
       expect(ldInternalOption4.getAttribute('selected')).not.toEqual(null)
       expect(ldInternalOption5.getAttribute('selected')).toEqual(null)
+    })
+
+    it('selects multiple options on key down ArrowUp with Shift if popper is expanded in multiple mode with option groups', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+        <ld-select placeholder="Pick some fruits or vegetables" name="fruits-vegetables" multiple>
+          <ld-optgroup label="Fruits">
+            <ld-option value="apple">Apple</ld-option>
+            <ld-option value="banana">Banana</ld-option>
+          </ld-optgroup>
+          <ld-optgroup label="Vegetables">
+            <ld-option value="potato" selected>Potato</ld-option>
+            <ld-option value="tomato">Tomato</ld-option>
+          </ld-optgroup>
+          <ld-optgroup label="Nuts" disabled>
+            <ld-option value="walnut">Walnut</ld-option>
+            <ld-option value="strawberry">Strawberry</ld-option>
+          </ld-optgroup>
+        </ld-select>
+      `,
+      })
+
+      await triggerPopperWithClick(page)
+
+      const {
+        ldInternalOptions,
+        ldInternalOptgroups,
+        internalOptions,
+        internalOptgroups,
+      } = getInternalOptions(page)
+
+      const { doc, shadowDoc } = getShadow(page)
+
+      expect(internalOptions.length).toEqual(6)
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+
+      expect(ldInternalOptions[0].selected).toBeFalsy()
+      expect(ldInternalOptions[1].selected).toBeFalsy()
+      expect(ldInternalOptions[2].selected).toBeTruthy()
+      expect(ldInternalOptions[3].selected).toBeFalsy()
+      expect(ldInternalOptions[4].selected).toBeFalsy()
+      expect(ldInternalOptions[5].selected).toBeFalsy()
+
+      doc.activeElement = ldInternalOptions[5]
+      shadowDoc.activeElement = internalOptions[5]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].selected).toBeFalsy()
+      expect(ldInternalOptions[1].selected).toBeFalsy()
+      expect(ldInternalOptions[2].selected).toBeTruthy()
+      expect(ldInternalOptions[3].selected).toBeFalsy()
+      expect(ldInternalOptions[4].selected).toBeFalsy()
+      expect(ldInternalOptions[5].selected).toBeFalsy()
+
+      doc.activeElement = ldInternalOptions[4]
+      shadowDoc.activeElement = internalOptions[4]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].selected).toBeFalsy()
+      expect(ldInternalOptions[1].selected).toBeFalsy()
+      expect(ldInternalOptions[2].selected).toBeTruthy()
+      expect(ldInternalOptions[3].selected).toBeFalsy()
+      expect(ldInternalOptions[4].selected).toBeFalsy()
+      expect(ldInternalOptions[5].selected).toBeFalsy()
+
+      doc.activeElement = ldInternalOptgroups[2]
+      shadowDoc.activeElement = internalOptgroups[2]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].selected).toBeFalsy()
+      expect(ldInternalOptions[1].selected).toBeFalsy()
+      expect(ldInternalOptions[2].selected).toBeTruthy()
+      expect(ldInternalOptions[3].selected).toBeTruthy()
+      expect(ldInternalOptions[4].selected).toBeFalsy()
+      expect(ldInternalOptions[5].selected).toBeFalsy()
+
+      doc.activeElement = ldInternalOptions[3]
+      shadowDoc.activeElement = internalOptions[3]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].selected).toBeFalsy()
+      expect(ldInternalOptions[1].selected).toBeFalsy()
+      expect(ldInternalOptions[2].selected).toBeTruthy()
+      expect(ldInternalOptions[3].selected).toBeTruthy()
+      expect(ldInternalOptions[4].selected).toBeFalsy()
+      expect(ldInternalOptions[5].selected).toBeFalsy()
+
+      doc.activeElement = ldInternalOptions[2]
+      shadowDoc.activeElement = internalOptions[2]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].selected).toBeFalsy()
+      expect(ldInternalOptions[1].selected).toBeFalsy()
+      expect(ldInternalOptions[2].selected).toBeTruthy()
+      expect(ldInternalOptions[3].selected).toBeTruthy()
+      expect(ldInternalOptions[4].selected).toBeFalsy()
+      expect(ldInternalOptions[5].selected).toBeFalsy()
+
+      doc.activeElement = ldInternalOptgroups[1]
+      shadowDoc.activeElement = internalOptgroups[1]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].selected).toBeFalsy()
+      expect(ldInternalOptions[1].selected).toBeTruthy()
+      expect(ldInternalOptions[2].selected).toBeTruthy()
+      expect(ldInternalOptions[3].selected).toBeTruthy()
+      expect(ldInternalOptions[4].selected).toBeFalsy()
+      expect(ldInternalOptions[5].selected).toBeFalsy()
+
+      doc.activeElement = ldInternalOptions[1]
+      shadowDoc.activeElement = internalOptions[1]
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
+      )
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].selected).toBeTruthy()
+      expect(ldInternalOptions[1].selected).toBeTruthy()
+      expect(ldInternalOptions[2].selected).toBeTruthy()
+      expect(ldInternalOptions[3].selected).toBeTruthy()
+      expect(ldInternalOptions[4].selected).toBeFalsy()
+      expect(ldInternalOptions[5].selected).toBeFalsy()
     })
 
     it('supports typeahead focus setting', async () => {
@@ -2606,6 +3137,397 @@ describe('ld-select', () => {
       expect(internalOption4.focus).toHaveBeenCalledTimes(1)
     })
 
+    it('skips hidden options on key down ArrowDown with option groups', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+          <ld-select filter placeholder="Pick a fruit or vegetable" name="fruit-vegetable">
+            <ld-optgroup label="Fruits">
+              <ld-option value="apple">Apple</ld-option>
+              <ld-option value="banana">Banana</ld-option>
+            </ld-optgroup>
+            <ld-optgroup label="Vegetables">
+              <ld-option value="cucumber" hidden>Cucumber</ld-option>
+              <ld-option value="celery">Celery</ld-option>
+              <ld-option value="tomato">Tomato</ld-option>
+            </ld-optgroup>
+          </ld-select>
+        `,
+      })
+
+      const ldSelect = page.root
+      const btnTrigger = ldSelect.shadowRoot.querySelector<HTMLElement>(
+        '.ld-select__btn-trigger'
+      )
+      btnTrigger.focus = jest.fn()
+
+      const filterInput = getFilterInput(page)
+      filterInput.focus = jest.fn()
+
+      await triggerPopperWithClick(page)
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      getTriggerableMutationObservers()[0].trigger([
+        { oldValue: 'display: none;' },
+      ])
+      expect(filterInput.focus).toHaveBeenCalledTimes(1)
+
+      const { doc, shadowDoc, popperShadowDoc } = getShadow(page)
+      const ldSelectPopper = page.body.querySelector('ld-select-popper')
+      doc.activeElement = ldSelect
+      shadowDoc.activeElement = btnTrigger
+
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(filterInput.focus).toHaveBeenCalledTimes(2)
+
+      doc.activeElement = ldSelectPopper
+      shadowDoc.activeElement = ldSelectPopper
+      popperShadowDoc.activeElement = filterInput
+
+      const {
+        ldInternalOptions,
+        ldInternalOptgroups,
+        internalOptions,
+        internalOptgroups,
+      } = getInternalOptions(page)
+
+      expect(ldInternalOptions.length).toEqual(5)
+
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+      internalOptgroups.forEach((internalOptgroup) => {
+        internalOptgroup.focus = jest.fn()
+      })
+
+      filterInput.value = 'e'
+      filterInput.dispatchEvent(new InputEvent('input'))
+
+      await page.waitForChanges()
+
+      expect(ldInternalOptgroups[0].filtered).toBeTruthy()
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptions[1].filtered).toBeTruthy()
+      expect(ldInternalOptgroups[1].filtered).toBeFalsy()
+      expect(ldInternalOptions[2].filtered).toBeFalsy()
+      expect(ldInternalOptions[3].filtered).toBeFalsy()
+      expect(ldInternalOptions[4].filtered).toBeTruthy()
+
+      doc.activeElement = ldSelect
+      shadowDoc.activeElement = btnTrigger
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+
+      doc.activeElement = ldInternalOptions[0]
+      shadowDoc.activeElement = internalOptions[0]
+      popperShadowDoc.activeElement = null
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+
+      doc.activeElement = ldInternalOptgroups[1]
+      shadowDoc.activeElement = internalOptgroups[1]
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+
+      doc.activeElement = ldInternalOptions[3]
+      shadowDoc.activeElement = internalOptgroups[3]
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+    })
+
+    it('skips hidden options on key down ArrowDown with option groups mixed with non-grouped options', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+          <ld-select filter placeholder="Pick some food" name="food">
+            <ld-option value="edamame">Edamame</ld-option>
+            <ld-optgroup label="Fruits">
+              <ld-option value="apple">Apple</ld-option>
+              <ld-option value="banana">Banana</ld-option>
+            </ld-optgroup>
+            <ld-option value="onigiri">Onigiri</ld-option>
+            <ld-optgroup label="Vegetables">
+              <ld-option value="cucumber" hidden>Cucumber</ld-option>
+              <ld-option value="celery">Celery</ld-option>
+              <ld-option value="tomato">Tomato</ld-option>
+            </ld-optgroup>
+          </ld-select>
+        `,
+      })
+
+      const ldSelect = page.root
+      const btnTrigger = ldSelect.shadowRoot.querySelector<HTMLElement>(
+        '.ld-select__btn-trigger'
+      )
+      btnTrigger.focus = jest.fn()
+
+      const filterInput = getFilterInput(page)
+      filterInput.focus = jest.fn()
+
+      await triggerPopperWithClick(page)
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      getTriggerableMutationObservers()[0].trigger([
+        { oldValue: 'display: none;' },
+      ])
+      expect(filterInput.focus).toHaveBeenCalledTimes(1)
+
+      const { doc, shadowDoc, popperShadowDoc } = getShadow(page)
+      const ldSelectPopper = page.body.querySelector('ld-select-popper')
+      doc.activeElement = ldSelect
+      shadowDoc.activeElement = btnTrigger
+
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(filterInput.focus).toHaveBeenCalledTimes(2)
+
+      doc.activeElement = ldSelectPopper
+      shadowDoc.activeElement = ldSelectPopper
+      popperShadowDoc.activeElement = filterInput
+
+      const {
+        ldInternalOptions,
+        ldInternalOptgroups,
+        internalOptions,
+        internalOptgroups,
+      } = getInternalOptions(page)
+
+      expect(ldInternalOptions.length).toEqual(7)
+
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+      internalOptgroups.forEach((internalOptgroup) => {
+        internalOptgroup.focus = jest.fn()
+      })
+
+      filterInput.value = 'e'
+      filterInput.dispatchEvent(new InputEvent('input'))
+
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptgroups[0].filtered).toBeTruthy()
+      expect(ldInternalOptions[1].filtered).toBeFalsy()
+      expect(ldInternalOptions[2].filtered).toBeTruthy()
+      expect(ldInternalOptions[3].filtered).toBeTruthy()
+      expect(ldInternalOptgroups[1].filtered).toBeFalsy()
+      expect(ldInternalOptions[4].filtered).toBeFalsy()
+      expect(ldInternalOptions[5].filtered).toBeFalsy()
+      expect(ldInternalOptions[6].filtered).toBeTruthy()
+
+      doc.activeElement = ldSelect
+      shadowDoc.activeElement = btnTrigger
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[5].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[6].focus).toHaveBeenCalledTimes(0)
+
+      doc.activeElement = ldInternalOptions[0]
+      shadowDoc.activeElement = internalOptions[0]
+      popperShadowDoc.activeElement = null
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[5].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[6].focus).toHaveBeenCalledTimes(0)
+
+      doc.activeElement = ldInternalOptions[1]
+      shadowDoc.activeElement = internalOptions[1]
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[5].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[6].focus).toHaveBeenCalledTimes(0)
+    })
+
+    it('skips hidden option groups on key down ArrowDown with option groups mixed with non-grouped options', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+          <ld-select filter placeholder="Pick some food" name="food">
+            <ld-option value="edamame">Edamame</ld-option>
+            <ld-optgroup label="Fruits">
+              <ld-option value="apple">Apple</ld-option>
+              <ld-option value="banana">Banana</ld-option>
+            </ld-optgroup>
+            <ld-option value="onigiri">Onigiri</ld-option>
+            <ld-optgroup label="Nuts">
+              <ld-option value="walnut">Walnut</ld-option>
+              <ld-option value="strawberry">Strawberry</ld-option>
+            </ld-optgroup>
+          </ld-select>
+        `,
+      })
+
+      const ldSelect = page.root
+      const btnTrigger = ldSelect.shadowRoot.querySelector<HTMLElement>(
+        '.ld-select__btn-trigger'
+      )
+      btnTrigger.focus = jest.fn()
+
+      const filterInput = getFilterInput(page)
+      filterInput.focus = jest.fn()
+
+      await triggerPopperWithClick(page)
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      getTriggerableMutationObservers()[0].trigger([
+        { oldValue: 'display: none;' },
+      ])
+      expect(filterInput.focus).toHaveBeenCalledTimes(1)
+
+      const { doc, shadowDoc, popperShadowDoc } = getShadow(page)
+      const ldSelectPopper = page.body.querySelector('ld-select-popper')
+      doc.activeElement = ldSelect
+      shadowDoc.activeElement = btnTrigger
+
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(filterInput.focus).toHaveBeenCalledTimes(2)
+
+      doc.activeElement = ldSelectPopper
+      shadowDoc.activeElement = ldSelectPopper
+      popperShadowDoc.activeElement = filterInput
+
+      const {
+        ldInternalOptions,
+        ldInternalOptgroups,
+        internalOptions,
+        internalOptgroups,
+      } = getInternalOptions(page)
+
+      expect(ldInternalOptions.length).toEqual(6)
+
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+      internalOptgroups.forEach((internalOptgroup) => {
+        internalOptgroup.focus = jest.fn()
+      })
+
+      filterInput.value = 'e'
+      filterInput.dispatchEvent(new InputEvent('input'))
+
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptgroups[0].filtered).toBeTruthy()
+      expect(ldInternalOptions[1].filtered).toBeFalsy()
+      expect(ldInternalOptions[2].filtered).toBeTruthy()
+      expect(ldInternalOptions[3].filtered).toBeTruthy()
+      expect(ldInternalOptgroups[1].filtered).toBeTruthy()
+      expect(ldInternalOptions[4].filtered).toBeTruthy()
+      expect(ldInternalOptions[5].filtered).toBeFalsy()
+
+      doc.activeElement = ldSelect
+      shadowDoc.activeElement = btnTrigger
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[5].focus).toHaveBeenCalledTimes(0)
+
+      doc.activeElement = ldInternalOptions[0]
+      shadowDoc.activeElement = internalOptions[0]
+      popperShadowDoc.activeElement = null
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[5].focus).toHaveBeenCalledTimes(0)
+
+      doc.activeElement = ldInternalOptions[1]
+      shadowDoc.activeElement = internalOptions[1]
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      await page.waitForChanges()
+
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[5].focus).toHaveBeenCalledTimes(1)
+    })
+
     it('skips hidden options on key down ArrowUp', async () => {
       const page = await newSpecPage({
         components,
@@ -2693,6 +3615,117 @@ describe('ld-select', () => {
       shadowDoc.activeElement = internalOption1
       window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
       await page.waitForChanges()
+
+      expect(filterInput.focus).toHaveBeenCalledTimes(2)
+    })
+
+    it('skips hidden options on key down ArrowUp with option groups', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+          <ld-select filter placeholder="Pick a fruit or vegetable" name="fruit-vegetable">
+            <ld-optgroup label="Fruits">
+              <ld-option value="apple">Apple</ld-option>
+              <ld-option value="banana">Banana</ld-option>
+            </ld-optgroup>
+            <ld-optgroup label="Vegetables">
+              <ld-option value="cucumber" hidden>Cucumber</ld-option>
+              <ld-option value="celery">Celery</ld-option>
+              <ld-option value="tomato">Tomato</ld-option>
+            </ld-optgroup>
+          </ld-select>
+        `,
+      })
+
+      const ldSelect = page.root
+      const btnTrigger = ldSelect.shadowRoot.querySelector<HTMLElement>(
+        '.ld-select__btn-trigger'
+      )
+      btnTrigger.focus = jest.fn()
+
+      const filterInput = getFilterInput(page)
+      filterInput.focus = jest.fn()
+
+      await triggerPopperWithClick(page)
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      getTriggerableMutationObservers()[0].trigger([
+        { oldValue: 'display: none;' },
+      ])
+      expect(filterInput.focus).toHaveBeenCalledTimes(1)
+
+      const {
+        ldInternalOptions,
+        ldInternalOptgroups,
+        internalOptions,
+        internalOptgroups,
+      } = getInternalOptions(page)
+
+      expect(ldInternalOptions.length).toEqual(5)
+
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+      internalOptgroups.forEach((internalOptgroup) => {
+        internalOptgroup.focus = jest.fn()
+      })
+
+      filterInput.value = 'e'
+      filterInput.dispatchEvent(new InputEvent('input'))
+
+      await page.waitForChanges()
+
+      expect(ldInternalOptgroups[0].filtered).toBeTruthy()
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptions[1].filtered).toBeTruthy()
+      expect(ldInternalOptgroups[1].filtered).toBeFalsy()
+      expect(ldInternalOptions[2].filtered).toBeFalsy()
+      expect(ldInternalOptions[3].filtered).toBeFalsy()
+      expect(ldInternalOptions[4].filtered).toBeTruthy()
+
+      const { doc, shadowDoc } = getShadow(page)
+      doc.activeElement = ldInternalOptions[3]
+      shadowDoc.activeElement = internalOptions[3]
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
+      await page.waitForChanges()
+
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+
+      doc.activeElement = ldInternalOptgroups[1]
+      shadowDoc.activeElement = internalOptgroups[1]
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
+      await page.waitForChanges()
+
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
+
+      expect(filterInput.focus).toHaveBeenCalledTimes(1)
+
+      doc.activeElement = ldInternalOptions[0]
+      shadowDoc.activeElement = internalOptions[0]
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
+      await page.waitForChanges()
+
+      expect(internalOptgroups[0].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[0].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[1].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptgroups[1].focus).toHaveBeenCalledTimes(1)
+      expect(internalOptions[2].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[3].focus).toHaveBeenCalledTimes(0)
+      expect(internalOptions[4].focus).toHaveBeenCalledTimes(0)
 
       expect(filterInput.focus).toHaveBeenCalledTimes(2)
     })
@@ -2905,6 +3938,64 @@ describe('ld-select', () => {
       expect(ldInternalOption2.filtered).toBeTruthy()
       expect(ldInternalOption3.filtered).toBeFalsy()
       expect(ldInternalOption4.filtered).toBeFalsy()
+    })
+
+    it('filters option groups', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+          <ld-select filter placeholder="Pick a fruit or vegetable" name="fruit-vegetable">
+            <ld-optgroup label="Fruits">
+              <ld-option value="apple">Apple</ld-option>
+              <ld-option value="banana">Banana</ld-option>
+            </ld-optgroup>
+            <ld-optgroup label="Vegetables">
+              <ld-option value="potato">Potato</ld-option>
+              <ld-option value="tomato">Tomato</ld-option>
+            </ld-optgroup>
+          </ld-select>
+        `,
+      })
+
+      const ldSelect = page.root
+      const btnTrigger = ldSelect.shadowRoot.querySelector<HTMLElement>(
+        '.ld-select__btn-trigger'
+      )
+      btnTrigger.focus = jest.fn()
+
+      const filterInput = getFilterInput(page)
+      filterInput.focus = jest.fn()
+
+      await triggerPopperWithClick(page)
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      const { ldInternalOptions, ldInternalOptgroups, internalOptions } =
+        getInternalOptions(page)
+
+      expect(ldInternalOptions.length).toEqual(4)
+
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+
+      filterInput.value = 'e'
+      filterInput.dispatchEvent(new InputEvent('input'))
+
+      const { doc, shadowDoc, popperShadowDoc } = getShadow(page)
+      doc.activeElement = ldSelect
+      shadowDoc.activeElement = page.body.querySelector('ld-select-popper')
+
+      popperShadowDoc.activeElement = filterInput
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'e' }))
+
+      await page.waitForChanges()
+
+      expect(ldInternalOptgroups[0].filtered).toBeTruthy()
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptions[1].filtered).toBeTruthy()
+      expect(ldInternalOptgroups[1].filtered).toBeFalsy()
+      expect(ldInternalOptions[2].filtered).toBeTruthy()
+      expect(ldInternalOptions[3].filtered).toBeTruthy()
     })
   })
 

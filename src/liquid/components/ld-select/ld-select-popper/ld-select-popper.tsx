@@ -87,8 +87,9 @@ export class LdSelectPopper {
 
   private handleCreate = (ev) => {
     ev.preventDefault()
-    this.ldselectfiltercreate.emit(this.filterInputValue)
+    const value = this.filterInputValue
     this.filterInputValue = ''
+    this.ldselectfiltercreate.emit(value)
   }
 
   @Watch('creatable')

@@ -17,6 +17,14 @@ import { registerAutofocus } from '../../utils/focus'
 import { closest } from '../../utils/closest'
 import { TypeAheadHandler } from '../../utils/typeahead'
 import { isAriaDisabled } from '../../utils/ariaDisabled'
+import { sanitize } from '../../utils/sanitize'
+import {
+  isLdOptgroup,
+  isLdOptgroupInternal,
+  isLdOption,
+  isLdOptionInternal,
+  isLdOptInternalHidden,
+} from './utils/type-guards'
 
 type SelectOption = { value: string; text: string }
 
@@ -43,6 +51,7 @@ export class LdSelect implements InnerFocusable {
   private slotChangeObserver: MutationObserver
   private popperObserver: MutationObserver
   private isObserverEnabled = true
+  private optionSelectListenerEnabled = true
 
   /** Alternative disabled state that keeps element focusable */
   @Prop() ariaDisabled: string
@@ -112,6 +121,13 @@ export class LdSelect implements InnerFocusable {
   /** A Boolean attribute indicating that an option with a non-empty string value must be selected. */
   @Prop() required?: boolean
 
+  /**
+   * Sanitize config passed to DOMPurify's sanitize method.
+   * If passed as string, the component will try to parse the string as JSON.
+   * See https://github.com/cure53/DOMPurify#can-i-configure-dompurify
+   */
+  @Prop() sanitizeConfig?: SanitizeConfig | string
+
   /** Currently selected option(s) (read only!) */
   @Prop({ mutable: true }) selected?: SelectOption[] = []
 
@@ -121,8 +137,8 @@ export class LdSelect implements InnerFocusable {
   /** Tether options object to be merged with the default options (optionally stringified). */
   @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
 
-  @State() allOptionsFiltered = false
-  @State() filterMatchesOption = false
+  @State() allOptsFiltered = false
+  @State() filterMatchesOpt = false
   @State() expanded = false
   @State() hasCustomIcon = false
   @State() hasMore = false
@@ -130,7 +146,9 @@ export class LdSelect implements InnerFocusable {
   @State() internalOptionsHTML: string
   @State() renderHiddenInput = false
   @State() theme: string
-  @State() typeAheadHandler: TypeAheadHandler<HTMLLdOptionInternalElement>
+  @State() typeAheadHandler: TypeAheadHandler<
+    HTMLLdOptionInternalElement | HTMLLdOptgroupInternalElement
+  >
 
   /**
    * Emitted with an array of selected values
@@ -171,7 +189,7 @@ export class LdSelect implements InnerFocusable {
 
     const newValues = newSelection.map((option) => option.value)
     const oldValues = oldSelection.map((option) => option.value)
-    if (newValues.join() === oldValues.join()) return
+    if (JSON.stringify(newValues) === JSON.stringify(oldValues)) return
 
     this.updateTriggerMoreIndicator(true)
 
@@ -296,11 +314,6 @@ export class LdSelect implements InnerFocusable {
     })
   }
 
-  private isLdOption = (
-    el: HTMLElement | Node | EventTarget
-  ): el is HTMLLdOptionElement | HTMLLdOptionInternalElement =>
-    ['LD-OPTION', 'LD-OPTION-INTERNAL'].includes((el as HTMLElement)?.tagName)
-
   private updatePopperWidth = () => {
     this.listboxRef.style.setProperty(
       'width',
@@ -366,25 +379,74 @@ export class LdSelect implements InnerFocusable {
     this.listboxRef.classList.add('ld-select__popper--initialized')
   }
 
+  private getOptsRec = (
+    children: Element[]
+  ): (HTMLLdOptionElement | HTMLLdOptionInternalElement)[] => {
+    const options = children.flatMap((child) => {
+      if (isLdOption(child)) {
+        return child
+      }
+      if (isLdOptgroup(child)) {
+        return this.getOptsRec(Array.from(child.children))
+      }
+      return []
+    })
+    return options
+  }
+
+  private getInternalOptionHTML = (
+    ldOption: HTMLLdOptionElement,
+    optgroupDisabled = false
+  ) => {
+    const classStr = ldOption.classList.toString()
+    return `<ld-option-internal${classStr ? ' class="' + classStr + '"' : ''}${
+      this.multiple ? ' mode="checkbox"' : ''
+    }${this.size ? ' size="' + this.size + '"' : ''}${
+      this.preventDeselection ? ' prevent-deselection' : ''
+    }${ldOption.selected ? ' selected' : ''}${
+      ldOption.hidden ? ' hidden' : ''
+    }${ldOption.value ? ' value="' + ldOption.value + '"' : ''}${
+      ldOption.disabled || optgroupDisabled ? ' disabled' : ''
+    }>${ldOption.innerHTML.replaceAll(
+      /<ld-icon (.|\n|\r)*slot="icon"(.|\n|\r)*>(.|\n|\r)*<\/ld-icon>/g,
+      ''
+    )}</ld-option-internal>`
+  }
+
+  private getInternalOptgroupHTML = (ldOptgroup: HTMLLdOptgroupElement) => {
+    const classStr = ldOptgroup.classList.toString()
+    return `<ld-optgroup-internal label=${ldOptgroup.label} ${
+      classStr ? ' class="' + classStr + '"' : ''
+    }${this.multiple ? ' mode="checkbox"' : ''}${
+      this.size ? ' size="' + this.size + '"' : ''
+    }${ldOptgroup.hidden ? ' hidden' : ''}${
+      ldOptgroup.disabled ? ' disabled' : ''
+    }>${Array.from(ldOptgroup.children)
+      .map((ldOption: HTMLLdOptionElement) =>
+        this.getInternalOptionHTML(ldOption, ldOptgroup.disabled)
+      )
+      .join('')}</ld-optgroup-internal>`
+  }
+
   private initOptions = () => {
     const initialized = this.initialized
-    const children = initialized
-      ? this.internalOptionsContainerRef.querySelectorAll('ld-option-internal')
-      : this.el.querySelectorAll('ld-option')
+    const children = Array.from(
+      initialized ? this.internalOptionsContainerRef.children : this.el.children
+    )
 
-    if (!children.length) {
+    const options = this.getOptsRec(children)
+
+    if (!options.length) {
       throw new TypeError(
         'ld-select requires at least one ld-option element as a child, but found none.'
       )
     }
 
-    const selectedChildren = Array.from<
-      HTMLLdOptionInternalElement | HTMLLdOptionElement
-    >(children).filter((child) => {
+    const selectedOptions = options.filter((child) => {
       return child.selected
     })
 
-    if (selectedChildren.length > 1 && !this.multiple) {
+    if (selectedOptions.length > 1 && !this.multiple) {
       throw new TypeError(
         'Multiple selected options are not allowed, if multiple option is not set.'
       )
@@ -392,26 +454,16 @@ export class LdSelect implements InnerFocusable {
 
     if (!initialized) {
       let internalOptionsHTML = ''
-      children.forEach((ldOption: HTMLLdOptionElement) => {
-        const classStr = ldOption.classList.toString()
-        internalOptionsHTML += `<ld-option-internal${
-          classStr ? ' class="' + classStr + '"' : ''
-        }${this.multiple ? ' mode="checkbox"' : ''}${
-          this.size ? ' size="' + this.size + '"' : ''
-        }${this.preventDeselection ? ' prevent-deselection' : ''}${
-          ldOption.selected ? ' selected' : ''
-        }${ldOption.hidden ? ' hidden' : ''}${
-          ldOption.value ? ' value="' + ldOption.value + '"' : ''
-        }${
-          ldOption.disabled ? ' disabled' : ''
-        }>${ldOption.innerHTML.replaceAll(
-          /<ld-icon (.|\n|\r)*slot="icon"(.|\n|\r)*>(.|\n|\r)*<\/ld-icon>/g,
-          ''
-        )}</ld-option-internal>`
+      children.forEach((child) => {
+        if (isLdOption(child)) {
+          internalOptionsHTML += this.getInternalOptionHTML(child)
+        } else if (isLdOptgroup(child)) {
+          internalOptionsHTML += this.getInternalOptgroupHTML(child)
+        } // else it's the slotted icon which we ignore.
       })
       this.internalOptionsHTML = internalOptionsHTML
     }
-    this.selected = selectedChildren.map((child) => {
+    this.selected = selectedOptions.map((child) => {
       return {
         value: child.value,
         text: child.innerHTML,
@@ -493,7 +545,11 @@ export class LdSelect implements InnerFocusable {
 
   private handleSlotChange = (mutationsList: MutationRecord[]) => {
     if (!this.isObserverEnabled) return
-    if (!mutationsList.some((record) => this.isLdOption(record.target))) {
+    if (
+      !mutationsList.some(
+        (record) => isLdOption(record.target) || isLdOptgroup(record.target)
+      )
+    ) {
       return
     }
 
@@ -604,6 +660,9 @@ export class LdSelect implements InnerFocusable {
     // Ignore events which are not fired on current instance.
     if (target.closest('[role="listbox"]') !== this.listboxRef) return
 
+    if (!this.optionSelectListenerEnabled) return
+    this.optionSelectListenerEnabled = false
+
     if (!this.multiple) {
       // Deselect currently selected option, if it's not the target option.
       this.listboxRef
@@ -620,6 +679,8 @@ export class LdSelect implements InnerFocusable {
       }
     }
     this.initOptions()
+
+    this.optionSelectListenerEnabled = true
   }
 
   private handleHome = (ev) => {
@@ -630,63 +691,65 @@ export class LdSelect implements InnerFocusable {
   private handleEnd = (ev) => {
     // Move focus to the last option.
     ev.preventDefault()
-    const options = Array.from(
+    const visibleOptions = Array.from(
       this.listboxRef.querySelectorAll('ld-option-internal')
-    )
-    if (document.activeElement !== options[options.length - 1]) {
-      options[options.length - 1].focusOption()
+    ).filter((option) => !isLdOptInternalHidden(option))
+    if (document.activeElement !== visibleOptions[visibleOptions.length - 1]) {
+      visibleOptions[visibleOptions.length - 1].focusInner()
     }
   }
 
   private selectAndFocus = (
     ev: KeyboardEvent,
-    ldOption: HTMLLdOptionInternalElement
+    opt: HTMLLdOptionInternalElement | HTMLLdOptgroupInternalElement | undefined
   ) => {
-    if (!ldOption) return
+    if (!opt) return
 
     if (this.multiple && ev.shiftKey) {
       if (
-        this.isLdOption(document.activeElement) &&
+        isLdOptionInternal(document.activeElement) &&
+        !isLdOptgroupInternal(document.activeElement) &&
         !document.activeElement.hasAttribute('selected')
       ) {
         document.activeElement.dispatchEvent(
           new KeyboardEvent('keydown', { key: ' ' })
         )
       }
-      ldOption.focusOption()
-      if (!ldOption.hasAttribute('selected')) {
-        ldOption.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
+      if (!opt.hasAttribute('selected') && !isLdOptgroupInternal(opt)) {
+        opt.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
       }
-    } else {
-      ldOption.focusOption()
     }
+    opt.focusInner()
   }
 
   private handleFilterChange = (ev: CustomEvent<string>) => {
     // Hide options which do not match the filter query.
-    const options =
-      this.internalOptionsContainerRef.querySelectorAll('ld-option-internal')
+    const opts = this.internalOptionsContainerRef.querySelectorAll<
+      HTMLLdOptionInternalElement | HTMLLdOptgroupInternalElement
+    >('ld-option-internal, ld-optgroup-internal')
     const query = ev.detail.trim().toLowerCase()
     let allFiltered = true
-    let filterMatchesOption = false
-    const filteredOptions = Array.from(options).filter((ldOption) => {
-      const optionTextLower = ldOption.textContent.toLowerCase()
-      const filtered = Boolean(query) && !optionTextLower.includes(query)
+    let filterMatchesOpt = false
+    const filteredOpts = Array.from(opts).filter((opt) => {
+      const optTextLower = isLdOptionInternal(opt)
+        ? opt.textContent.toLowerCase()
+        : (opt as HTMLLdOptgroupInternalElement).label.toLowerCase()
+      const filtered = Boolean(query) && !optTextLower.includes(query)
 
-      ldOption.filtered = filtered
-      if (optionTextLower === query) {
-        filterMatchesOption = true
+      opt.filtered = filtered
+      if (optTextLower === query) {
+        filterMatchesOpt = true
       }
-      if (!ldOption.filtered) {
+      if (!opt.filtered) {
         allFiltered = false
       }
 
       return !filtered
     })
 
-    this.typeAheadHandler.options = filteredOptions
-    this.allOptionsFiltered = allFiltered
-    this.filterMatchesOption = filterMatchesOption
+    this.typeAheadHandler.options = filteredOpts
+    this.allOptsFiltered = allFiltered
+    this.filterMatchesOpt = filterMatchesOpt
 
     // Re-position popper after new height has been applied.
     requestAnimationFrame(() => {
@@ -703,19 +766,155 @@ export class LdSelect implements InnerFocusable {
       })
     }
 
-    this.ldoptioncreate.emit(this.getFilterInput().value)
+    const value = this.getFilterInput().value
     this.resetFilter()
+    this.ldoptioncreate.emit(value)
   }
 
   private canCreate = () => {
     return Boolean(
-      this.creatable && !this.filterMatchesOption && this.getFilterInput().value
+      this.creatable && !this.filterMatchesOpt && this.getFilterInput().value
     )
+  }
+
+  private focusPrev = (
+    current: HTMLLdOptionInternalElement | HTMLLdOptgroupInternalElement,
+    ev: KeyboardEvent
+  ) => {
+    // Focus previous visible option, if any.
+    // If the previous is an option, we check if it's visible.
+    if (isLdOptionInternal(current.previousElementSibling)) {
+      if (isLdOptInternalHidden(current.previousElementSibling)) {
+        // If it's hidden, we repeat with the hidden option.
+        this.focusPrev(current.previousElementSibling, ev)
+        return
+      }
+      // If it's not hidden we focus it.
+      this.selectAndFocus(ev, current.previousElementSibling)
+      return
+    }
+
+    // If the previous is an optgroup, we try to focus the last option in it.
+    if (isLdOptgroupInternal(current.previousElementSibling)) {
+      const lastInOptgroup = Array.from(
+        current.previousElementSibling.children
+      ).at(-1) as HTMLLdOptionInternalElement
+
+      // If it's hidden, we repeat with the hidden option.
+      if (isLdOptInternalHidden(lastInOptgroup)) {
+        this.focusPrev(lastInOptgroup, ev)
+        return
+      }
+      // If it's not hidden we focus it.
+      this.selectAndFocus(ev, lastInOptgroup)
+      return
+    }
+
+    // If there is no previous element, we check if we are currently in an optgroup.
+    const closestOptgroup =
+      isLdOptionInternal(current) &&
+      current.closest<HTMLLdOptgroupInternalElement | undefined>(
+        'ld-optgroup-internal'
+      )
+    // If we are in an optgroup, we try to focus the optgroup.
+    if (closestOptgroup) {
+      // If the optgroup is not visible, we set current to the optgroup and repeat.
+      if (isLdOptInternalHidden(closestOptgroup)) {
+        this.focusPrev(closestOptgroup, ev)
+        return
+      }
+      closestOptgroup.focusInner()
+      return
+    }
+
+    // Otherwise we focus either the filter input or the trigger button.
+    if (this.filter) {
+      this.getFilterInput().focus()
+      return
+    }
+    this.handleHome(ev)
+  }
+
+  private focusNext = (
+    current: HTMLLdOptionInternalElement | HTMLLdOptgroupInternalElement,
+    ev: KeyboardEvent
+  ) => {
+    // Focus next visible option, if any.
+    // If current is an optgroup, try to focus the first option in it.
+    if (isLdOptgroupInternal(current)) {
+      const firstInOptgroup = current.children[0] as HTMLLdOptionInternalElement
+      // If it's hidden, we repeat with the hidden option.
+      if (isLdOptInternalHidden(firstInOptgroup)) {
+        this.focusNext(firstInOptgroup, ev)
+        return
+      }
+      // If it's not hidden we focus it.
+      this.selectAndFocus(ev, firstInOptgroup)
+      return
+    }
+
+    // If the next is an option, we check if it's visible.
+    if (isLdOptionInternal(current.nextElementSibling)) {
+      if (isLdOptInternalHidden(current.nextElementSibling)) {
+        // If it's hidden, we repeat with the hidden option.
+        this.focusNext(current.nextElementSibling, ev)
+        return
+      }
+      // If it's not hidden we focus it.
+      this.selectAndFocus(ev, current.nextElementSibling)
+      return
+    }
+
+    // If the next is an optgroup, we try to focus the optgroup.
+    if (isLdOptgroupInternal(current.nextElementSibling)) {
+      // If it's hidden, we repeat with first input within the hidden optgroup.
+      if (isLdOptInternalHidden(current.nextElementSibling)) {
+        const firstInOptgroup = current.nextElementSibling
+          .children[0] as HTMLLdOptionInternalElement
+        // If the first is not visible, we continue with it as current.
+        if (isLdOptInternalHidden(firstInOptgroup)) {
+          this.focusNext(firstInOptgroup, ev)
+          return
+        }
+        // Otherwise we focus it.
+        this.selectAndFocus(ev, firstInOptgroup)
+        return
+      }
+      // If it's not hidden we focus it.
+      this.selectAndFocus(ev, current.nextElementSibling)
+      return
+    }
+
+    // If there is no next element, we check if we are currently in an optgroup.
+    const closestOptgroup =
+      isLdOptionInternal(current) &&
+      current.closest<HTMLLdOptgroupInternalElement | undefined>(
+        'ld-optgroup-internal'
+      )
+    // If we are in an optgroup, we try to focus its next sibling.
+    if (closestOptgroup) {
+      const next = closestOptgroup.nextElementSibling as
+        | HTMLLdOptionInternalElement
+        | HTMLLdOptgroupInternalElement
+        | undefined
+      if (!next) return
+
+      // If the next sibling is not visible, we repeat with the next sibling.
+      if (isLdOptInternalHidden(next)) {
+        this.focusNext(next, ev)
+        return
+      }
+      // If it's visible, we focus it.
+      next.focusInner()
+    }
   }
 
   @Listen('keydown', { passive: false, target: 'window' })
   handleKeyDown(ev: KeyboardEvent) {
     if (this.isDisabled()) return
+
+    // Ignore page special meta key combos.
+    if (ev.metaKey && !['ArrowDown', 'ArrowUp'].includes(ev.key)) return
 
     // Ignore events if current instance has no focus.
     if (
@@ -780,29 +979,20 @@ export class LdSelect implements InnerFocusable {
           if (this.filter && !filterHasFocus) {
             this.getFilterInput().focus()
           } else {
-            const nextLdOption = Array.from(
-              this.listboxRef.querySelectorAll('ld-option-internal')
-            ).find((ldOption) => !ldOption.filtered)
-            this.selectAndFocus(ev, nextLdOption)
+            const nextOpt = Array.from(
+              this.listboxRef.querySelectorAll<
+                HTMLLdOptionInternalElement | HTMLLdOptgroupInternalElement
+              >('ld-option-internal, ld-optgroup-internal')
+            ).find((opt) => !isLdOptInternalHidden(opt))
+            this.selectAndFocus(ev, nextOpt)
           }
         } else {
-          let current = document.activeElement
-          let nextLdOption
-          while (nextLdOption === undefined) {
-            if (this.isLdOption(current.nextElementSibling)) {
-              if (
-                current.nextElementSibling.filtered ||
-                current.nextElementSibling.hidden
-              ) {
-                current = current.nextElementSibling
-              } else {
-                nextLdOption = current.nextElementSibling
-              }
-            } else {
-              nextLdOption = null
-            }
-          }
-          this.selectAndFocus(ev, nextLdOption)
+          this.focusNext(
+            document.activeElement as
+              | HTMLLdOptionInternalElement
+              | HTMLLdOptgroupInternalElement,
+            ev
+          )
         }
         break
       }
@@ -824,32 +1014,11 @@ export class LdSelect implements InnerFocusable {
         }
 
         // Focus previous visible option, if any.
-        if (this.isLdOption(document.activeElement)) {
-          let prevLdOption
-          let current = document.activeElement
-          while (prevLdOption === undefined) {
-            if (this.isLdOption(current.previousElementSibling)) {
-              if (
-                current.previousElementSibling.hidden ||
-                current.previousElementSibling.filtered
-              ) {
-                current = current.previousElementSibling
-              } else {
-                prevLdOption = current.previousElementSibling
-              }
-            } else {
-              prevLdOption = null
-            }
-          }
-          if (prevLdOption) {
-            this.selectAndFocus(ev, prevLdOption)
-          } else {
-            if (this.filter) {
-              this.getFilterInput().focus()
-            } else {
-              this.handleHome(ev)
-            }
-          }
+        if (
+          isLdOptionInternal(document.activeElement) ||
+          isLdOptgroupInternal(document.activeElement)
+        ) {
+          this.focusPrev(document.activeElement, ev)
         }
         break
       }
@@ -941,22 +1110,23 @@ export class LdSelect implements InnerFocusable {
   }
 
   private resetFilter = () => {
-    this.allOptionsFiltered = false
-    this.filterMatchesOption = false
+    this.allOptsFiltered = false
+    this.filterMatchesOpt = false
 
     if (!this.filter) return
     const filterInput = this.getFilterInput()
     if (!filterInput) return
 
     filterInput.value = ''
-    const options =
-      this.internalOptionsContainerRef.querySelectorAll('ld-option-internal')
+    const opts = this.internalOptionsContainerRef.querySelectorAll<
+      HTMLLdOptionInternalElement | HTMLLdOptgroupInternalElement
+    >('ld-option-internal, ld-optgroup-internal')
 
-    options.forEach((ldOption) => {
-      ldOption.filtered = false
+    opts.forEach((opt) => {
+      opt.filtered = false
     })
 
-    this.typeAheadHandler.options = options
+    this.typeAheadHandler.options = opts
     this.listboxRef.resetFilter()
   }
 
@@ -965,7 +1135,8 @@ export class LdSelect implements InnerFocusable {
     if (
       ev.relatedTarget === null ||
       ev.relatedTarget === this.listboxRef ||
-      this.isLdOption(ev.relatedTarget) ||
+      isLdOption(ev.relatedTarget) ||
+      isLdOptgroup(ev.relatedTarget) ||
       closest('ld-select', ev.relatedTarget as HTMLElement) === this.el
     ) {
       ev.stopImmediatePropagation()
@@ -1170,7 +1341,10 @@ export class LdSelect implements InnerFocusable {
                               class="ld-select__selection-label-text"
                               title={selection.text}
                               part="selection-label-text"
-                              innerHTML={selection.text}
+                              innerHTML={sanitize(
+                                selection.text,
+                                this.sanitizeConfig
+                              )}
                             ></span>
 
                             <button
@@ -1222,7 +1396,7 @@ export class LdSelect implements InnerFocusable {
                   <span
                     class="ld-select__btn-trigger-text"
                     part="trigger-text"
-                    innerHTML={triggerText}
+                    innerHTML={sanitize(triggerText, this.sanitizeConfig)}
                   ></span>
                 </span>
               )}
@@ -1283,14 +1457,14 @@ export class LdSelect implements InnerFocusable {
             </div>
           </div>
           <ld-select-popper
-            allOptionsFiltered={this.allOptionsFiltered}
+            allOptionsFiltered={this.allOptsFiltered}
             creatable={this.creatable}
             createButtonLabel={this.createButtonLabel}
             createInputLabel={this.createInputLabel}
             detached={detached}
             expanded={this.expanded}
             filter={this.filter}
-            filterMatchesOption={this.filterMatchesOption}
+            filterMatchesOption={this.filterMatchesOpt}
             filterPlaceholder={this.filterPlaceholder}
             onBlur={this.handleFocusEvent}
             onFocusout={this.handleFocusEvent}
@@ -1304,7 +1478,12 @@ export class LdSelect implements InnerFocusable {
           >
             <div
               ref={(el) => (this.internalOptionsContainerRef = el)}
-              innerHTML={this.internalOptionsHTML}
+              innerHTML={sanitize(this.internalOptionsHTML, {
+                ...(typeof this.sanitizeConfig === 'string'
+                  ? JSON.parse(this.sanitizeConfig)
+                  : this.sanitizeConfig),
+                ADD_ATTR: ['prevent-deselection'],
+              })}
               part="options-container"
             ></div>
           </ld-select-popper>

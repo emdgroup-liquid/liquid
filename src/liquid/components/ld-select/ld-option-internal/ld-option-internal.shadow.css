@@ -1,13 +1,9 @@
-:host(:not(:last-of-type)) {
-  .ld-option-internal {
-    border-bottom: solid var(--ld-option-border-col) var(--ld-sp-1);
-  }
-}
-
+:host,
 .ld-option-internal {
   /* layout */
-  --ld-option-padding-left-sm: 0.625rem;
-  --ld-option-padding-left-lg: 0.875rem;
+  --ld-option-padding-inline-start: var(--ld-sp-12);
+  --ld-option-padding-inline-start-sm: 0.625rem;
+  --ld-option-padding-inline-start-lg: 0.875rem;
 
   /* colors */
   --ld-option-bg-col: var(--ld-col-wht);
@@ -23,13 +19,37 @@
   --ld-option-thm-bg-col-hover: var(--ld-thm-primary-highlight);
   --ld-option-thm-bg-col-focus: var(--ld-thm-primary-highlight);
   --ld-option-thm-bg-col-active: var(--ld-thm-primary-highlight);
+}
+
+:host(:not(:last-of-type)) {
+  .ld-option-internal {
+    border-bottom: solid var(--ld-option-border-col) var(--ld-sp-1);
+  }
+}
+
+.ld-option-internal {
+  &--sm {
+    --ld-option-padding-inline-start: var(--ld-option-padding-inline-start-sm);
+  }
+
+  &--lg {
+    --ld-option-padding-inline-start: var(--ld-option-padding-inline-start-lg);
+  }
+
+  &--indent {
+    --ld-option-indent: 1.75rem;
+  }
 
   outline: none;
   display: flex;
   position: relative;
   color: var(--ld-option-text-col);
   background-color: var(--ld-option-bg-col);
-  padding: var(--ld-sp-8) var(--ld-sp-12);
+  padding-block: var(--ld-sp-8);
+  padding-inline-end: var(--ld-sp-12);
+  padding-inline-start: calc(
+    var(--ld-option-padding-inline-start) + var(--ld-option-indent, 0px)
+  );
   font: var(--ld-typo-label-m);
   min-height: 2.5rem;
   white-space: nowrap;
@@ -38,14 +58,6 @@
   border: 0;
   -webkit-touch-callout: none;
   box-sizing: border-box;
-
-  &--sm {
-    padding-left: var(--ld-option-padding-left-sm);
-  }
-
-  &--lg {
-    padding-left: var(--ld-option-padding-left-lg);
-  }
 
   &--filtered {
     display: none;
@@ -100,7 +112,7 @@
     }
   }
 
-  &:where(:not(.ld-option-internal--disabled, [aria-disabled='true'])) {
+  &:where(:not([aria-disabled='true'])) {
     :where(.ld-option-internal__check) {
       color: var(--ld-option-thm-col);
     }
