@@ -44,12 +44,13 @@
 
   input {
     appearance: none;
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    width: 100%;
+    background-color: transparent; /* Required for Mobile Sarari */
     height: 100%;
+    inset: 0;
     margin: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
 
     &:checked {
       ~ .ld-radio__dot {
