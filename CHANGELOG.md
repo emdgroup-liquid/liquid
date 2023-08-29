@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.12.0](https://github.com/emdgroup-liquid/liquid/compare/v5.11.1...v5.12.0) (2023-08-29)
+
+
+### Bug Fixes
+
+* **ld-checkbox:** disabled background color on mobile safari ([b8a00a6](https://github.com/emdgroup-liquid/liquid/commit/b8a00a6d58393f65bb588e8f7bf2fef8d895cce1))
+* **ld-radio:** disabled background color on mobile safari ([87f228c](https://github.com/emdgroup-liquid/liquid/commit/87f228ccee3e07cb51720e321c3442833af845da))
+
+
+### Features
+
+* **ld-select:** option groups ([71870e3](https://github.com/emdgroup-liquid/liquid/commit/71870e3bfebc2d2bbb4ca69781c3722c9ee7cc20))
+
 ## [5.11.1](https://github.com/emdgroup-liquid/liquid/compare/v5.11.0...v5.11.1) (2023-08-10)
 
 
