@@ -2531,12 +2531,12 @@ __metadata:
   linkType: hard
 
 "@semantic-release/release-notes-generator@npm:^11.0.0, @semantic-release/release-notes-generator@npm:^11.0.1":
-  version: 11.0.6
-  resolution: "@semantic-release/release-notes-generator@npm:11.0.6"
+  version: 11.0.7
+  resolution: "@semantic-release/release-notes-generator@npm:11.0.7"
   dependencies:
     conventional-changelog-angular: ^6.0.0
     conventional-changelog-writer: ^6.0.0
-    conventional-commits-filter: ^3.0.0
+    conventional-commits-filter: ^4.0.0
     conventional-commits-parser: ^5.0.0
     debug: ^4.0.0
     get-stream: ^7.0.0
@@ -2546,7 +2546,7 @@ __metadata:
     read-pkg-up: ^10.0.0
   peerDependencies:
     semantic-release: ">=20.1.0"
-  checksum: 54a2ad2595d2cef40ea5c10c8f7921df12484b92f408026dff385e41c04381bdc5166e692df6406b9ff222ce00c86c6a13708376bff1b89fa5bfc20b6688dc80
+  checksum: add63da421304bbe21b3d3f8b1ebc1b38d44ca9c5c556eb97f9ed0cf9789e2a8b25644cc41eb40bb2848914d948f9898fcdf0e481e28e8e495c8546863a1a4ae
   languageName: node
   linkType: hard
 
@@ -5339,6 +5339,13 @@ __metadata:
     lodash.ismatch: ^4.4.0
     modify-values: ^1.0.1
   checksum: 73337f42acff7189e1dfca8d13c9448ce085ac1c09976cb33617cc909949621befb1640b1c6c30a1be4953a1be0deea9e93fa0dc86725b8be8e249a64fbb4632
+  languageName: node
+  linkType: hard
+
+"conventional-commits-filter@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "conventional-commits-filter@npm:4.0.0"
+  checksum: 46d2d90531f024d596f61d353876276e5357adb5c4684e042467bb7d159feb0a2831b74656bd3038ac9ec38d99b0b24ac39f319ad511861e1299c4cdfb5a119a
   languageName: node
   linkType: hard
 
