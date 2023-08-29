@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  grid-gap: var(--ld-sp-8);
+  gap: var(--ld-sp-16);
   justify-items: center;
 }
 
@@ -29,7 +29,6 @@
 }
 
 .ld-file-upload__error {
-  display: inline-flex;
   background: var(--ld-col-rr-050);
   border-radius: var(--ld-br-l);
   border: var(--ld-sp-2) solid var(--ld-col-rr-600);
@@ -52,10 +51,22 @@
   width: 100%;
 }
 
+.ld-file-upload__pause-all-button {
+  width: 100%;
+}
+
+.ld-file-upload__continue-paused-button {
+  width: 100%;
+}
+
 .ld-file-upload__input {
   visibility: hidden;
   position: absolute;
   clip: rect(0, 0, 0, 0);
   width: 1px;
   height: 1px;
+}
+
+::slotted(*) {
+  display: none;
 }

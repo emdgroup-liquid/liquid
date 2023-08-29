@@ -10,14 +10,12 @@ import {
 } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
 import { LdUploadItemConfig } from './ld-upload-item.types'
+import { closest } from '../../../utils/closest'
 
 type Mode = 'highlight' | 'danger' | 'neutral'
 
 /**
  * @virtualProp ref - reference to component
- * @virtualProp {string | number} key - for tracking the node's identity when working with lists
- * @part listitem - `li` element wrapping the `ld-button` element
- * @part button - `ld-button` element wrapping the default slot
  */
 @Component({
   tag: 'ld-upload-item',
@@ -27,12 +25,20 @@ type Mode = 'highlight' | 'danger' | 'neutral'
 export class LdUploadItem {
   @Element() el: HTMLLdUploadItemElement
 
-  /** State of the file. */
-  @Prop() state?: 'pending' | 'uploading' | 'uploaded' | 'upload failed' =
-    'pending'
+  /** allowPause defines whether the user will be able to pause uploads. */
+  @Prop() allowPause?: boolean
 
-  /** URL of the uploaded image. Preview of image will be shown after upload. */
-  @Prop() previewUrl?: string
+  /** showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button */
+  @Prop() showProgress?: boolean = false
+
+  /** State of the file. */
+  @Prop() state?:
+    | 'pending'
+    | 'paused'
+    | 'cancelled'
+    | 'uploading'
+    | 'uploaded'
+    | 'upload failed' = 'pending'
 
   /** Name of the uploaded file. */
   @Prop() fileName: string
@@ -62,9 +68,6 @@ export class LdUploadItem {
   @Prop() icons?: Partial<LdUploadItemConfig> = {}
   // @Prop() icon?: string = 'documents'
 
-  // icon prop hinzufügen, string type, nur einen Pfad damit es customizable ist
-  // generisches file icon als standard
-
   @State() defaultIcons: Partial<LdUploadItemConfig> = {
     pdf: 'pdf',
     zip: 'zip',
@@ -82,6 +85,12 @@ export class LdUploadItem {
 
   /**
    * @internal
+   * Emitted on continue button click.
+   */
+  @Event() lduploaditemcontinue: EventEmitter
+
+  /**
+   * @internal
    * Emitted on stop button click.
    */
   @Event() lduploaditemremove: EventEmitter
@@ -94,6 +103,12 @@ export class LdUploadItem {
 
   /**
    * @internal
+   * Emitted on retry button click.
+   */
+  @Event() lduploaditemretry: EventEmitter
+
+  /**
+   * @internal
    * Emitted on delete button click.
    */
   @Event() lduploaditemdelete: EventEmitter
@@ -103,7 +118,16 @@ export class LdUploadItem {
     return fileType
   } */
 
-  private setIcon = () => {
+  /* private availableIcons = [
+    'documents',
+    'pdf',
+    'zip',
+    'documents-storage',
+    'files',
+    'jpeg',
+  ] */
+
+  /* private setIcon = () => {
     const mergedIcons = { ...this.defaultIcons, ...this.icons }
     // const fileType = this.getFileType()
     const fileType = this.fileType.split('/').pop()?.toLowerCase()
@@ -112,30 +136,20 @@ export class LdUploadItem {
     } else {
       return 'documents'
     }
-  }
-
-  /* private getIconFile = async () => {
-    try {
-      const icon = await fetch(
-        '{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg'
-      )
-      icon
-    } catch (err) {
-      console.error(err)
-    }
   } */
 
-  /* async created() {
-    try {
-      const data = await fetch('{{ env.base }}/{{ buildstamp }}assets/examples/numerals.json').then((res) => res.json())
-      this.elements = data.elements
-    } catch (err) {
-      console.error(err)
-    }
-  }
- */
   private pauseClick = () => {
     this.lduploaditempause.emit({
+      state: this.state,
+      fileName: this.fileName,
+      fileSize: this.fileSize,
+      fileType: this.fileType,
+      progress: this.progress,
+    })
+  }
+
+  private continueUploadClick = () => {
+    this.lduploaditemcontinue.emit({
       state: this.state,
       fileName: this.fileName,
       fileSize: this.fileSize,
@@ -156,6 +170,16 @@ export class LdUploadItem {
 
   private downloadClick = () => {
     this.lduploaditemdownload.emit({
+      state: this.state,
+      fileName: this.fileName,
+      fileSize: this.fileSize,
+      fileType: this.fileType,
+      progress: this.progress,
+    })
+  }
+
+  private retryClick = () => {
+    this.lduploaditemretry.emit({
       state: this.state,
       fileName: this.fileName,
       fileSize: this.fileSize,
@@ -189,50 +213,164 @@ export class LdUploadItem {
     return roundedSize + ' ' + sizes[sizeIndex]
   }
 
+  /* private getIcon = () => {
+    const customIcon = closest('ld-file-upload', this.el)?.querySelector(
+      `[data-upload-icon='${this.fileType}']`
+    )
+    console.log('fileType', this.fileType)
+    console.log('customIcon', customIcon)
+    // TODO: If custom icon exists, clone it and insert it.
+    if (customIcon) {
+      const icon = customIcon.cloneNode(true)
+      icon.className = 'ld-upload-item__icon'
+      console.log(this.customIcon)
+      return icon
+    } else {
+      return (
+        <ld-icon
+          class="ld-upload-item__icon"
+          name="documents"
+          size="lg"
+        ></ld-icon>
+      )
+    }
+  } */
+
   componentWillLoad() {
-    // this.getFileType()
+    const customIcon = closest('ld-file-upload', this.el)?.querySelector(
+      `[data-upload-icon='${this.fileType}']`
+    )
+    // TODO: If custom icon exists, clone it and insert it.
+    if (customIcon) {
+      // this.customIcon = customIcon.cloneNode(true)
+      // this.customIcon.className = 'ld-upload-item__icon'
+      // console.log(this.customIcon)
+      const clonedIcon = customIcon.cloneNode(true) /* as HTMLElement */
+      /* clonedIcon.style.width = '2rem'
+      clonedIcon.style.height = 'auto' */
+      // this.customIcon = <div class="ld-upload-item__icon">{clonedIcon}</div>
+      this.el.appendChild(clonedIcon)
+    } /* else {
+      // this.customIcon = (
+      //   <ld-icon
+      //     class="ld-upload-item__icon"
+      //     name="documents"
+      //     size="lg"
+      //   ></ld-icon>
+      // )
+      this.el.appendChild(
+        <ld-icon slot="icons" name="documents" size="lg"></ld-icon>
+      )
+    } */
+
+    /* if (customIcon) {
+      this.customIcon = customIcon.cloneNode(true) as HTMLElement
+    } */
   }
 
   render() {
     const cl = getClassNames(['ld-upload-item'])
 
+    const activeUploads =
+      this.state == 'pending' ||
+      this.state == 'paused' ||
+      this.state == 'uploading'
+
     return (
       <Host class={cl}>
-        <div class="ld-upload-item__card" part="card">
-          <div class="ld-upload-item__container">
-            {/* Image mit pfad hier setzen, falls Pfad gegeben ist */}
+        <div class="ld-upload-item__container">
+          {/* überprüfen, ob es sich um einen Pfad oder einen Icon namen handelt und entsprechend img oder ld-icon nutzen */}
+          {/* {this.availableIcons.includes(this.setIcon()) ? (
             <ld-icon
               class="ld-upload-item__icon"
               name={this.setIcon()}
               size="lg"
             ></ld-icon>
-
-            {/* <img src="{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg"></img> */}
-            <div class="ld-upload-item__file-details">
-              {/* <ld-typo variant="h5">{this.fileName}</ld-typo> */}
-              <ld-typo class="ld-upload-item__file-name" variant="h5">
-                {/* {this.fileName.length <= 15
-                  ? this.fileName
-                  : this.fileName.slice(0, 10).concat('...')} */}
-                {this.fileName}
-              </ld-typo>
-              <ld-typo>{this.bytesToSize(this.fileSize)}</ld-typo>
+          ) : (
+            <img class="ld-upload-item__icon" src={this.setIcon()}></img>
+          )} */}
+          {/* {this.customIcon} */}
+          {/* {this.getIcon()} */}
+          {/* <div class="ld-upload-item__icon">
+            {this.customIcon ? (
+              this.customIcon
+            ) : (
+              <ld-icon name="documents" size="lg"></ld-icon>
+            )}
+          </div> */}
+          {
+            <div class="ld-upload-item__icon">
+              <slot name="icons">
+                <pre>
+                  <ld-icon name="documents" size="lg"></ld-icon>
+                </pre>
+              </slot>
             </div>
-            <div class="ld-upload-item__buttons">
-              {this.state == 'uploading' ? (
-                <ld-button mode="ghost" size="sm" onClick={this.pauseClick}>
+          }
+
+          <div class="ld-upload-item__file-details">
+            <ld-typo class="ld-upload-item__file-name" variant="h5">
+              {this.fileName}
+            </ld-typo>
+            {/* <b class="ld-upload-item__file-name">{this.fileName}</b> */}
+            {this.state == 'uploaded' ? (
+              <ld-typo class="ld-upload-item__file-size">
+                {this.bytesToSize(this.fileSize)}
+              </ld-typo>
+            ) : (
+              <ld-typo class="ld-upload-item__file-size">
+                {this.bytesToSize(this.fileSize * (this.progress / 100))} /{' '}
+                {this.bytesToSize(this.fileSize)}
+              </ld-typo>
+            )}
+          </div>
+          <div class="ld-upload-item__buttons">
+            {this.state == 'uploading' && this.allowPause ? (
+              <ld-tooltip arrow position="left middle" size="sm">
+                <ld-button
+                  mode="ghost"
+                  size="sm"
+                  onClick={this.pauseClick}
+                  slot="trigger"
+                >
                   <ld-icon
-                    class="ld-upload-icon__pause-icon"
+                    class="ld-upload-item__pause-icon"
                     name="pause"
                     size="sm"
                     aria-label="Text"
                   ></ld-icon>
                 </ld-button>
-              ) : undefined}
-              {this.state == 'pending' ||
-              this.state == 'uploading' ||
-              this.state == 'upload failed' ? (
-                <ld-button mode="ghost" size="sm" onClick={this.removeClick}>
+                <ld-typo>Pause</ld-typo>
+              </ld-tooltip>
+            ) : undefined}
+            {this.state == 'paused' && this.allowPause ? (
+              <ld-tooltip arrow position="left middle" size="sm">
+                <ld-button
+                  mode="ghost"
+                  size="sm"
+                  onClick={this.continueUploadClick}
+                  slot="trigger"
+                >
+                  <ld-icon
+                    class="ld-upload-item__continue-icon"
+                    name="upload"
+                    size="sm"
+                    aria-label="Text"
+                  ></ld-icon>
+                </ld-button>
+                <ld-typo>Continue upload</ld-typo>
+              </ld-tooltip>
+            ) : undefined}
+            {this.state == 'pending' ||
+            this.state == 'paused' ||
+            this.state == 'uploading' ? (
+              <ld-tooltip arrow position="left middle" size="sm">
+                <ld-button
+                  mode="ghost"
+                  size="sm"
+                  onClick={this.removeClick}
+                  slot="trigger"
+                >
                   <ld-icon
                     class="ld-upload-item__remove-icon"
                     name="cross"
@@ -240,9 +378,17 @@ export class LdUploadItem {
                     aria-label="Text"
                   ></ld-icon>
                 </ld-button>
-              ) : undefined}
-              {this.state == 'uploaded' ? (
-                <ld-button mode="ghost" size="sm" onClick={this.downloadClick}>
+                <ld-typo>Remove</ld-typo>
+              </ld-tooltip>
+            ) : undefined}
+            {this.state == 'uploaded' ? (
+              <ld-tooltip arrow position="left middle" size="sm">
+                <ld-button
+                  mode="ghost"
+                  size="sm"
+                  onClick={this.downloadClick}
+                  slot="trigger"
+                >
                   <ld-icon
                     class="ld-upload-item__download-icon"
                     name="download"
@@ -250,9 +396,37 @@ export class LdUploadItem {
                     aria-label="Text"
                   ></ld-icon>
                 </ld-button>
-              ) : undefined}
-              {this.state == 'uploaded' ? (
-                <ld-button mode="ghost" size="sm" onClick={this.deleteClick}>
+                <ld-typo>Download</ld-typo>
+              </ld-tooltip>
+            ) : undefined}
+            {this.state == 'upload failed' ? (
+              <ld-tooltip arrow position="left middle" size="sm">
+                <ld-button
+                  mode="ghost"
+                  size="sm"
+                  onClick={this.retryClick}
+                  slot="trigger"
+                >
+                  <ld-icon
+                    class="ld-upload-item__retry-icon"
+                    name="repost"
+                    size="sm"
+                    aria-label="Text"
+                  ></ld-icon>
+                </ld-button>
+                <ld-typo>Retry</ld-typo>
+              </ld-tooltip>
+            ) : undefined}
+            {this.state == 'cancelled' ||
+            this.state == 'uploaded' ||
+            this.state == 'upload failed' ? (
+              <ld-tooltip arrow position="left middle" size="sm">
+                <ld-button
+                  mode="ghost"
+                  size="sm"
+                  onClick={this.deleteClick}
+                  slot="trigger"
+                >
                   <ld-icon
                     class="ld-upload-item__delete-icon"
                     name="bin"
@@ -260,27 +434,40 @@ export class LdUploadItem {
                     aria-label="Text"
                   ></ld-icon>
                 </ld-button>
-              ) : undefined}
-            </div>
+                <ld-typo>Delete</ld-typo>
+              </ld-tooltip>
+            ) : undefined}
           </div>
-          {this.state == 'pending' || this.state == 'uploading' ? (
-            <ld-sr-only id="progress-label">Progress</ld-sr-only>
-          ) : undefined}
-          {this.state == 'pending' || this.state == 'uploading' ? (
-            <ld-progress
-              class="ld-upload-item__progress"
-              aria-labeledby="progress-label"
-              aria-valuenow={this.progress}
-            ></ld-progress>
-          ) : undefined}
-          {this.state == 'uploaded' ? (
-            <ld-typo>Upload was successful!</ld-typo>
-          ) : undefined}
-          {this.state == 'upload failed' ? (
-            <ld-typo>Error! Upload was unsuccessful</ld-typo>
-          ) : undefined}
-          <slot></slot>
         </div>
+        {this.state == 'pending' || this.state == 'uploading' ? (
+          <ld-sr-only id="progress-label">Progress</ld-sr-only>
+        ) : undefined}
+        {activeUploads && this.showProgress ? (
+          <ld-progress
+            class="ld-upload-item__progress"
+            pending={this.state == 'paused'}
+            aria-labeledby="progress-label"
+            aria-valuenow={this.progress}
+          ></ld-progress>
+        ) : this.state == 'uploading' && !this.showProgress ? (
+          <div class="ld-upload-item__progress">
+            <ld-loading class="ld-upload-item__loading"></ld-loading>
+          </div>
+        ) : undefined}
+        {this.state == 'cancelled' ? (
+          <ld-input-message mode="info">
+            Upload of this file has been cancelled
+          </ld-input-message>
+        ) : undefined}
+        {this.state == 'uploaded' ? (
+          <ld-input-message mode="valid">
+            Upload was successful!
+          </ld-input-message>
+        ) : undefined}
+        {this.state == 'upload failed' ? (
+          <ld-input-message>Error! Upload was unsuccessful</ld-input-message>
+        ) : undefined}
+        <slot></slot>
       </Host>
     )
   }

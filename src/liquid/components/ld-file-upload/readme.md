@@ -24,8 +24,11 @@ File upload allows the user to upload files.
 
 {% endexample %}
 
-{% example '{ "opened": true }' %}
-<ld-file-upload></ld-file-upload>
+With state management:
+
+{% example '{ "opened": false }' %}
+<ld-file-upload>
+</ld-file-upload>
 
 <script>
   ;(() => {
@@ -33,23 +36,12 @@ File upload allows the user to upload files.
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       console.log('ldchoosefiles', ev.detail)
-      // uploadingItems = ev.detail.forEach((item) => item.state = 'uploading')
       uploadItems = ev.detail
-      /* uploadingItems = []
-      for (let item in uploadItems) {
-        console.log(item)
-        newItem = uploadItems[item]
-        console.log(newItem)
-        newItem.state = 'uploading'
-        uploadingItems.push(newItem)
-      }
-      console.log(uploadingItems) */
       ldUpload.updateUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
       console.log('ldfileuploadready', ev.detail)
-      // uploadingItems = ev.detail.forEach((item) => item.state = 'uploading')
       uploadItems = ev.detail
       uploadingItems = []
       for (let item in uploadItems) {
@@ -60,12 +52,52 @@ File upload allows the user to upload files.
         uploadingItems.push(newItem)
         ldUpload.updateUploadItem(newItem)
       }
-      // console.log(uploadingItems)
-      // ldUpload.updateUploadItems(uploadingItems)
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+      uploadItem = ev.detail
+      /* ldUpload.deleteUploadItem(uploadItem) */
+      uploadItem.state = 'cancelled'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
       ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
     })
   })()
 </script>
@@ -78,16 +110,7 @@ File upload allows the user to upload files.
 
 ### Start upload immediately after choosing files
 
-{% example '{ "opened": true }' %}
-<ld-file-upload start-upload></ld-file-upload>
-
-<!-- React component -->
-
-<!-- CSS component -->
-
-{% endexample %}
-
-{% example '{ "opened": true }' %}
+{% example '{ "opened": false }' %}
 <ld-file-upload start-upload></ld-file-upload>
 
 <script>
@@ -95,7 +118,6 @@ File upload allows the user to upload files.
     const ldUpload = document.currentScript.previousElementSibling
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
       console.log('ldfileuploadready', ev.detail)
-      // uploadingItems = ev.detail.forEach((item) => item.state = 'uploading')
       uploadItems = ev.detail
       uploadingItems = []
       for (let item in uploadItems) {
@@ -117,10 +139,526 @@ File upload allows the user to upload files.
 
 {% endexample %}
 
+### Allow pause
+
+{% example '{ "opened": false }' %}
+<ld-file-upload allow-pause>
+</ld-file-upload>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      console.log('ldchoosefiles', ev.detail)
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      uploadItems = ev.detail
+      uploadingItems = []
+      for (let item in uploadItems) {
+        console.log(item)
+        newItem = uploadItems[item]
+        console.log(newItem)
+        newItem.state = 'uploading'
+        uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+      uploadItem = ev.detail
+      /* ldUpload.deleteUploadItem(uploadItem) */
+      uploadItem.state = 'cancelled'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Show progress
+
+{% example '{ "opened": false }' %}
+<ld-file-upload show-progress>
+</ld-file-upload>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      console.log('ldchoosefiles', ev.detail)
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      uploadItems = ev.detail
+      uploadingItems = []
+      for (let item in uploadItems) {
+        console.log(item)
+        newItem = uploadItems[item]
+        console.log(newItem)
+        newItem.state = 'uploading'
+        uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+      uploadItem = ev.detail
+      /* ldUpload.deleteUploadItem(uploadItem) */
+      uploadItem.state = 'cancelled'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Select multiple
+
+{% example '{ "opened": false }' %}
+<ld-file-upload select-multiple>
+</ld-file-upload>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      console.log('ldchoosefiles', ev.detail)
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      uploadItems = ev.detail
+      uploadingItems = []
+      for (let item in uploadItems) {
+        console.log(item)
+        newItem = uploadItems[item]
+        console.log(newItem)
+        newItem.state = 'uploading'
+        uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+      uploadItem = ev.detail
+      /* ldUpload.deleteUploadItem(uploadItem) */
+      uploadItem.state = 'cancelled'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Max size
+
+{% example '{ "opened": false }' %}
+<ld-file-upload max-size=500>
+</ld-file-upload>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      console.log('ldchoosefiles', ev.detail)
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      uploadItems = ev.detail
+      uploadingItems = []
+      for (let item in uploadItems) {
+        console.log(item)
+        newItem = uploadItems[item]
+        console.log(newItem)
+        newItem.state = 'uploading'
+        uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+      uploadItem = ev.detail
+      /* ldUpload.deleteUploadItem(uploadItem) */
+      uploadItem.state = 'cancelled'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Custom icons
+
+{% example '{ "opened": false }' %}
+<ld-file-upload>
+
+<ld-icon slot='icons' data-upload-icon='application/pdf' name='pdf' size='lg'></ld-icon>
+
+<!-- <ld-icon data-upload-icon='text/rtf' name='placeholder'></ld-icon> -->
+<img slot='icons' src='{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg' data-upload-icon='text/rtf' />
+</ld-file-upload>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      console.log('ldchoosefiles', ev.detail)
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      uploadItems = ev.detail
+      uploadingItems = []
+      for (let item in uploadItems) {
+        console.log(item)
+        newItem = uploadItems[item]
+        console.log(newItem)
+        newItem.state = 'uploading'
+        uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+      uploadItem = ev.detail
+      /* ldUpload.deleteUploadItem(uploadItem) */
+      uploadItem.state = 'cancelled'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Combined examples
+
+{% example '{ "opened": false }' %}
+<ld-file-upload allow-pause select-multiple icons='{"rtf": "{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg"}'>
+
+<ld-icon slot='icons' data-upload-icon='application/pdf' name='pdf' size='lg'></ld-icon>
+
+<!-- <ld-icon data-upload-icon='text/rtf' name='placeholder'></ld-icon> -->
+<img slot='icons' src='{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg' data-upload-icon='text/rtf' />
+</ld-file-upload>
+
+<!-- style="width: 30rem" -->
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      console.log('ldchoosefiles', ev.detail)
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      uploadItems = ev.detail
+      uploadingItems = []
+      for (let item in uploadItems) {
+        console.log(item)
+        newItem = uploadItems[item]
+        console.log(newItem)
+        newItem.state = 'uploading'
+        uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+      uploadItem = ev.detail
+      /* ldUpload.deleteUploadItem(uploadItem) */
+      uploadItem.state = 'cancelled'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
 ### Examples with dummy files
 
-{% example '{ "opened": true }' %}
-<ld-file-upload icons='{"pdf": "documents"}'></ld-file-upload>
+{% example '{ "opened": false }' %}
+<ld-file-upload allow-pause=false show-progress icons='{"pdf": "documents"}'></ld-file-upload>
 
 <script>
   ;(() => {
@@ -175,8 +713,22 @@ File upload allows the user to upload files.
           progress: 75,
         },
         {
-          state: 'uploading',
-          fileName: 'fileeeeeeeeee.txt',
+          state: 'paused',
+          fileName: 'file6.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
+        {
+          state: 'cancelled',
+          fileName: 'file7.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
+        {
+          state: 'uploaded',
+          fileName: 'filefilefilefilefilefilefilefilefilefilefilefilefilefile.txt',
           fileSize: 100000,
           fileType: 'txt',
           progress: 50,
@@ -194,7 +746,7 @@ File upload allows the user to upload files.
 
 {% endexample %}
 
-{% example '{ "opened": true }' %}
+{% example '{ "opened": false }' %}
 <ld-file-upload start-upload></ld-file-upload>
 
 <script>
@@ -211,6 +763,7 @@ File upload allows the user to upload files.
 <script>
   ;(() => {
     const button = document.currentScript.previousElementSibling
+    const ldFileUpload = button.previousElementSibling.previousElementSibling
     button.addEventListener('click', async (ev) => {
       console.log('click', ev.detail)
       const fileList = [
@@ -250,7 +803,6 @@ File upload allows the user to upload files.
           progress: 75,
         },
       ]
-      const ldFileUpload = button.previousElementSibling.previousElementSibling
       ldFileUpload.updateUploadItems(fileList)
 
       for (let i = 0; i <= 100; i++) {
@@ -259,6 +811,44 @@ File upload allows the user to upload files.
           fileSize: 100000,
           fileType: 'pdf',
           progress: i,})
+      }
+    })
+
+    ldFileUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'pending'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldFileUpload.addEventListener('lduploaditemremove', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldFileUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldFileUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldFileUpload.addEventListener('ldfileuploadcanceluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'pending'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldFileUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
       }
     })
   })()
@@ -285,26 +875,30 @@ TODO:
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                       | Type                                                                                                 | Default     |
-| ------------- | -------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------- |
-| `dirname`     | `dirname`      | Name of form field to use for sending the element's directionality in form submission.            | `string`                                                                                             | `undefined` |
-| `form`        | `form`         | Associates the control with a form element.                                                       | `string`                                                                                             | `undefined` |
-| `icons`       | `icons`        | Maps file types to icon path                                                                      | `string \| { pdf?: string; zip?: string; jpeg?: string; txt?: string; png?: string; rtf?: string; }` | `undefined` |
-| `key`         | `key`          | for tracking the node's identity when working with lists                                          | `string \| number`                                                                                   | `undefined` |
-| `maxSize`     | `max-size`     | TODO: is used to display and validate maximum file size                                           | `number`                                                                                             | `undefined` |
-| `name`        | `name`         | Used to specify the name of the control.                                                          | `string`                                                                                             | `undefined` |
-| `ref`         | `ref`          | reference to component                                                                            | `any`                                                                                                | `undefined` |
-| `startUpload` | `start-upload` | startUpload defines whether upload starts immediately after choosing files or after confirmation. | `boolean`                                                                                            | `false`     |
-| `value`       | `value`        | The input value.                                                                                  | `string`                                                                                             | `undefined` |
+| Property         | Attribute         | Description                                                                                                      | Type                                                                                                 | Default     |
+| ---------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------- |
+| `allowPause`     | `allow-pause`     | allowPause defines whether the user will be able to pause uploads.                                               | `boolean`                                                                                            | `false`     |
+| `dirname`        | `dirname`         | Name of form field to use for sending the element's directionality in form submission.                           | `string`                                                                                             | `undefined` |
+| `form`           | `form`            | Associates the control with a form element.                                                                      | `string`                                                                                             | `undefined` |
+| `icons`          | `icons`           | Maps file types to icon path                                                                                     | `string \| { pdf?: string; zip?: string; jpeg?: string; txt?: string; png?: string; rtf?: string; }` | `undefined` |
+| `maxSize`        | `max-size`        | TODO: is used to display and validate maximum file size in Bytes                                                 | `number`                                                                                             | `undefined` |
+| `name`           | `name`            | Used to specify the name of the control.                                                                         | `string`                                                                                             | `undefined` |
+| `ref`            | `ref`             | reference to component                                                                                           | `any`                                                                                                | `undefined` |
+| `selectMultiple` | `select-multiple` | selectMultiple defines whether selection of multiple input files is allowed.                                     | `boolean`                                                                                            | `false`     |
+| `showProgress`   | `show-progress`   | showTotalProgress defines whether the progress of uploading files will be shown, or only an uploading indicator. | `boolean`                                                                                            | `false`     |
+| `startUpload`    | `start-upload`    | startUpload defines whether upload starts immediately after choosing files or after confirmation.                | `boolean`                                                                                            | `false`     |
+| `value`          | `value`           | The input value.                                                                                                 | `string`                                                                                             | `undefined` |
 
 
 ## Events
 
-| Event                   | Description | Type                        |
-| ----------------------- | ----------- | --------------------------- |
-| `ldchoosefiles`         |             | `CustomEvent<UploadItem[]>` |
-| `ldfileuploaddeleteall` |             | `CustomEvent<any>`          |
-| `ldfileuploadready`     |             | `CustomEvent<UploadItem[]>` |
+| Event                         | Description | Type                        |
+| ----------------------------- | ----------- | --------------------------- |
+| `ldchoosefiles`               |             | `CustomEvent<UploadItem[]>` |
+| `ldfileuploadcontinueuploads` |             | `CustomEvent<any>`          |
+| `ldfileuploaddeleteall`       |             | `CustomEvent<any>`          |
+| `ldfileuploadpausealluploads` |             | `CustomEvent<any>`          |
+| `ldfileuploadready`           |             | `CustomEvent<UploadItem[]>` |
 
 
 ## Methods
@@ -354,13 +948,6 @@ Type: `Promise<void>`
 
 
 
-## Shadow Parts
-
-| Part     | Description                            |
-| -------- | -------------------------------------- |
-| `"list"` | `ul` element wrapping the default slot |
-
-
 ## Dependencies
 
 ### Depends on
@@ -382,9 +969,15 @@ graph TD;
   ld-upload-progress --> ld-upload-item
   ld-upload-item --> ld-icon
   ld-upload-item --> ld-typo
+  ld-upload-item --> ld-tooltip
   ld-upload-item --> ld-button
   ld-upload-item --> ld-sr-only
   ld-upload-item --> ld-progress
+  ld-upload-item --> ld-loading
+  ld-upload-item --> ld-input-message
+  ld-tooltip --> ld-sr-only
+  ld-tooltip --> ld-tooltip-popper
+  ld-input-message --> ld-icon
   style ld-file-upload fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

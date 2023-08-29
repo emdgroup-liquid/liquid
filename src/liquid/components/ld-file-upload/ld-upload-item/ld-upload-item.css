@@ -1,11 +1,5 @@
 :host {
-  display: block;
-}
-
-.ld-upload-item__card {
   background: var(--ld-col-wht);
-  border-radius: var(--ld-br-s);
-  border: var(--ld-sp-2) solid var(--ld-col-neutral-100);
   box-sizing: border-box;
   list-style: none;
   margin: 0;
@@ -14,6 +8,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  max-width: 100%;
+  gap: var(--ld-sp-8);
 }
 
 .ld-upload-item__container {
@@ -24,12 +20,30 @@
   width: 100%;
 }
 
+.ld-upload-item__icon {
+  width: 2rem;
+  height: auto;
+  /* display: flex;
+  justify-content: center; */
+}
+
+.ld-upload-item__custom-icon {
+  width: 2rem;
+  height: auto;
+}
+
+::slotted(*) {
+  width: 2rem;
+  height: auto;
+}
+
 .ld-upload-item__file-details {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   flex-grow: 1;
-  width: calc(100% - 9rem);
+  /* width: calc(100% - 9rem); */
+  width: calc(100% - 18rem);
 }
 
 .ld-upload-item__file-name {
@@ -42,16 +56,28 @@
   }
 }
 
+.ld-upload-item__file-size {
+  flex: 1;
+  width: 100%;
+
+  &::part(tag) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 .ld-upload-item__buttons {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr; */
   display: flex;
   flex-direction: row;
   justify-self: end;
   justify-items: end;
 }
 
-.ld-upload-icon__pause-icon {
+.ld-upload-item__pause-icon {
+  color: var(--ld-col-neutral-900);
+}
+
+.ld-upload-item__continue-icon {
   color: var(--ld-col-neutral-900);
 }
 
@@ -59,7 +85,11 @@
   color: var(--ld-col-neutral-900);
 }
 
-.ld-upload-icon__download-icon {
+.ld-upload-item__download-icon {
+  color: var(--ld-col-neutral-900);
+}
+
+.ld-upload-item__retry-icon {
   color: var(--ld-col-neutral-900);
 }
 
@@ -70,4 +100,5 @@
 .ld-upload-item__progress {
   display: grid;
   width: 100%;
+  justify-content: center;
 }

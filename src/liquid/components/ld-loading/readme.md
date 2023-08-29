@@ -98,6 +98,19 @@ Use the `ld-loading` component to indicate that the user should wait for a proce
 | `ref`     | `ref`     | reference to component                                   | `any`              | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ld-upload-item](../ld-file-upload/ld-upload-item)
+
+### Graph
+```mermaid
+graph TD;
+  ld-upload-item --> ld-loading
+  style ld-loading fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

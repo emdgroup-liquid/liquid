@@ -34,22 +34,15 @@ The `ld-upload-progress` component is used internally for the `ld-file-upload`. 
 
 ## Properties
 
-| Property          | Attribute      | Description                                                                                       | Type                                                                                       | Default                                                                                                                                                                                                                                                                           |
-| ----------------- | -------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `icons`           | --             | Maps file types to icon path                                                                      | `{ pdf?: string; zip?: string; jpeg?: string; txt?: string; png?: string; rtf?: string; }` | `undefined`                                                                                                                                                                                                                                                                       |
-| `key`             | `key`          | for tracking the node's identity when working with lists                                          | `string \| number`                                                                         | `undefined`                                                                                                                                                                                                                                                                       |
-| `ref`             | `ref`          | reference to component                                                                            | `any`                                                                                      | `undefined`                                                                                                                                                                                                                                                                       |
-| `size`            | `size`         | Size of the context menu.                                                                         | `"lg" \| "sm"`                                                                             | `undefined`                                                                                                                                                                                                                                                                       |
-| `startUpload`     | `start-upload` | startUpload defines whether upload starts immediately after choosing files or after confirmation. | `boolean`                                                                                  | `false`                                                                                                                                                                                                                                                                           |
-| `uploadItemTypes` | --             |                                                                                                   | `{ fileName: string; fileType: string; }[]`                                                | `[]`                                                                                                                                                                                                                                                                              |
-| `uploadItems`     | --             |                                                                                                   | `UploadItem[]`                                                                             | `[     {       state: 'pending',       fileName: 'file1.png',       fileSize: 100000,       fileType: 'png',       progress: 0,     },     {       state: 'uploading',       fileName: 'file2.png',       fileSize: 200000,       fileType: 'png',       progress: 0,     },   ]` |
-
-
-## Shadow Parts
-
-| Part     | Description                            |
-| -------- | -------------------------------------- |
-| `"list"` | `ul` element wrapping the default slot |
+| Property       | Attribute       | Description                                                                                                     | Type                                                                                       | Default     |
+| -------------- | --------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------- |
+| `allowPause`   | `allow-pause`   | allowPause defines whether the user will be able to pause uploads.                                              | `boolean`                                                                                  | `undefined` |
+| `icons`        | --              | Maps file types to icon path                                                                                    | `{ pdf?: string; zip?: string; jpeg?: string; txt?: string; png?: string; rtf?: string; }` | `undefined` |
+| `ref`          | `ref`           | reference to component                                                                                          | `any`                                                                                      | `undefined` |
+| `showProgress` | `show-progress` | showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button | `boolean`                                                                                  | `false`     |
+| `size`         | `size`          | Size of the context menu.                                                                                       | `"lg" \| "sm"`                                                                             | `undefined` |
+| `startUpload`  | `start-upload`  | startUpload defines whether upload starts immediately after choosing files or after confirmation.               | `boolean`                                                                                  | `false`     |
+| `uploadItems`  | --              | List of files                                                                                                   | `UploadItem[]`                                                                             | `[]`        |
 
 
 ## Dependencies
@@ -68,9 +61,15 @@ graph TD;
   ld-upload-progress --> ld-upload-item
   ld-upload-item --> ld-icon
   ld-upload-item --> ld-typo
+  ld-upload-item --> ld-tooltip
   ld-upload-item --> ld-button
   ld-upload-item --> ld-sr-only
   ld-upload-item --> ld-progress
+  ld-upload-item --> ld-loading
+  ld-upload-item --> ld-input-message
+  ld-tooltip --> ld-sr-only
+  ld-tooltip --> ld-tooltip-popper
+  ld-input-message --> ld-icon
   ld-file-upload --> ld-upload-progress
   style ld-upload-progress fill:#f9f,stroke:#333,stroke-width:4px
 ```

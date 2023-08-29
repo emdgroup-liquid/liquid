@@ -27,33 +27,18 @@ The `ld-choose-file` component is used internally for the `ld-file-upload`. It i
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-TODO: emit files chosen event with file list, that's it.
-
 ## Properties
 
-| Property      | Attribute  | Description                                              | Type                                                                                                                                              | Default     |
-| ------------- | ---------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `key`         | `key`      | for tracking the node's identity when working with lists | `string \| number`                                                                                                                                | `undefined` |
-| `maxSize`     | `max-size` | Max. file size in bytes                                  | `number`                                                                                                                                          | `1572864`   |
-| `ref`         | `ref`      | reference to component                                   | `any`                                                                                                                                             | `undefined` |
-| `size`        | `size`     | Size of the choose file area                             | `"bg" \| "sm"`                                                                                                                                    | `'bg'`      |
-| `uploadFiles` | --         | Chosen Files                                             | `{ state: "pending" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; fileType: string; progress: number; }[]` | `[]`        |
-
-
-## Events
-
-| Event           | Description | Type                    |
-| --------------- | ----------- | ----------------------- |
-| `ldchoosefiles` |             | `CustomEvent<FileList>` |
-
-
-## Shadow Parts
-
-| Part     | Description                            |
-| -------- | -------------------------------------- |
-| `"list"` | `ul` element wrapping the default slot |
+| Property          | Attribute          | Description                                                                                       | Type           | Default     |
+| ----------------- | ------------------ | ------------------------------------------------------------------------------------------------- | -------------- | ----------- |
+| `continueClicked` | `continue-clicked` | contineClicked defines whether the continue button has been clicked while startUpload = false     | `boolean`      | `false`     |
+| `maxSize`         | `max-size`         | Max. file size in bytes                                                                           | `number`       | `1572864`   |
+| `ref`             | `ref`              | reference to component                                                                            | `any`          | `undefined` |
+| `selectMultiple`  | `select-multiple`  | selectMultiple defines whether selection of multiple input files is allowed.                      | `boolean`      | `false`     |
+| `size`            | `size`             | Size of the choose file area                                                                      | `"bg" \| "sm"` | `'bg'`      |
+| `startUpload`     | `start-upload`     | startUpload defines whether upload starts immediately after choosing files or after confirmation. | `boolean`      | `false`     |
+| `uploadFiles`     | --                 | Chosen Files                                                                                      | `UploadItem[]` | `[]`        |
+| `uploadItems`     | --                 | Chosen Files from the parent component                                                            | `UploadItem[]` | `[]`        |
 
 
 ## Dependencies

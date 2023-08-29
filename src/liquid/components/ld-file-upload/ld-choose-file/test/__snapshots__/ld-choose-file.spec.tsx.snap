@@ -3,14 +3,20 @@
 exports[`ld-choose-file renders default 1`] = `
 <ld-choose-file class="ld-choose-file">
   <mock:shadow-root>
-    <div class="ld-choose-file__drag-area">
-      <ld-typo variant="h5">
-        Drag your file(s) here or browse
-      </ld-typo>
-      <ld-typo>
-        max. 1.5 mb file size
-      </ld-typo>
-      <slot></slot>
+    <div class="ld-choose-file--bg ld-choose-file__content">
+      <img alt="" class="ld-choose-file__image" height="122" src="/dist/liquid/assets/file-upload.svg" width="142">
+      <div class="ld-choose-file__text">
+        <ld-typo variant="h5">
+          Drag your file(s) here or browse
+        </ld-typo>
+        <ld-typo>
+          max. 1.5 mb file size
+        </ld-typo>
+        <slot></slot>
+        <ld-button>
+          Upload a file
+        </ld-button>
+      </div>
     </div>
   </mock:shadow-root>
 </ld-choose-file>

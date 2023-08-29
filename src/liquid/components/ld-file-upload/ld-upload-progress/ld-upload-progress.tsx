@@ -1,11 +1,9 @@
-import { Component, Element, h, Host, Prop, State } from '@stencil/core'
+import { Component, Element, h, Host, Prop } from '@stencil/core'
 import type { UploadItem } from '../ld-file-upload'
 import { LdUploadItemConfig } from '../ld-upload-item/ld-upload-item.types'
 
 /**
  * @virtualProp ref - reference to component
- * @virtualProp {string | number} key - for tracking the node's identity when working with lists
- * @part list - `ul` element wrapping the default slot
  */
 @Component({
   tag: 'ld-upload-progress',
@@ -21,34 +19,22 @@ export class LdUploadProgress {
   /** startUpload defines whether upload starts immediately after choosing files or after confirmation. */
   @Prop() startUpload?: boolean = false
 
+  /** allowPause defines whether the user will be able to pause uploads. */
+  @Prop() allowPause?: boolean
+
+  /** showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button */
+  @Prop() showProgress?: boolean = false
+
   /** Maps file types to icon path */
   @Prop() icons?: Partial<LdUploadItemConfig>
 
-  @State() initialized = false
+  /** List of files */
+  @Prop() uploadItems: UploadItem[] = []
 
-  // TODO: remove mock data
-  @Prop() uploadItems: UploadItem[] = [
-    {
-      state: 'pending',
-      fileName: 'file1.png',
-      fileSize: 100000,
-      fileType: 'png',
-      progress: 0,
-    },
-    {
-      state: 'uploading',
-      fileName: 'file2.png',
-      fileSize: 200000,
-      fileType: 'png',
-      progress: 0,
-    },
-  ]
-  // @State() uploadItems: unknown[] = [{ state: 'uploaded', fileName: 'yolo.png' }]
-
-  @Prop() uploadItemTypes: {
+  /* @Prop() uploadItemTypes: {
     fileName: string
     fileType: string
-  }[] = []
+  }[] = [] */
 
   private renderListItems = () =>
     this.uploadItems.map((item) => (
@@ -60,16 +46,9 @@ export class LdUploadProgress {
           fileSize={item.fileSize}
           fileType={item.fileType}
           progress={item.progress}
+          allowPause={this.allowPause}
+          showProgress={this.showProgress}
           icons={this.icons}
-          /* fileType={
-            this.uploadItemTypes.find(
-              (typeItem) => item.fileName === typeItem.fileName
-            )
-              ? this.uploadItemTypes.find(
-                  (typeItem) => item.fileName === typeItem.fileName
-                ).fileType
-              : 'undefined'
-          } */
         ></ld-upload-item>
       </li>
     ))

@@ -3,14 +3,15 @@
 exports[`ld-upload-progress renders default 1`] = `
 <ld-upload-progress>
   <mock:shadow-root>
-    <ul class="ld-upload-progress">
-      <li>
-        <ld-upload-item filename="file1.png" filesize="100000" progress="0" state="pending"></ld-upload-item>
-      </li>
-      <li>
-        <ld-upload-item filename="file2.png" filesize="200000" progress="0" state="uploading"></ld-upload-item>
-      </li>
-    </ul>
+    <ul class="ld-upload-progress"></ul>
+  </mock:shadow-root>
+</ld-upload-progress>
+`;
+
+exports[`ld-upload-progress renders list item 1`] = `
+<ld-upload-progress 'file1.png',="" 'png',="" 'uploading',="" 100000,="" 50,="" filename:="" filesize:="" filetype:="" progress:="" state:="" uploaditems="[" {="" },]="">
+  <mock:shadow-root>
+    <ul class="ld-upload-progress"></ul>
   </mock:shadow-root>
 </ld-upload-progress>
 `;

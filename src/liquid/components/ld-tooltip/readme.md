@@ -494,6 +494,7 @@ Type: `Promise<void>`
  - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
  - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
  - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
+ - [ld-upload-item](../ld-file-upload/ld-upload-item)
 
 ### Depends on
 
@@ -509,6 +510,7 @@ graph TD;
   ld-sidenav-header --> ld-tooltip
   ld-sidenav-navitem --> ld-tooltip
   ld-sidenav-toggle-outside --> ld-tooltip
+  ld-upload-item --> ld-tooltip
   style ld-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
