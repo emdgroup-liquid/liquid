@@ -76,9 +76,11 @@ export class LdChooseFile {
   @State() highlighted? = false
 
   /** @internal */
+  /** Emitted after dropping a file in the drop area. */
   @Event() ldchoosefiles: EventEmitter<FileList>
 
   /** @internal */
+  /** Emitted on upload click. */
   @Event() lduploadclick: EventEmitter
 
   private handleUploadClick = () => {

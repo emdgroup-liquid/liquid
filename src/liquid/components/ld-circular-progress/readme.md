@@ -649,6 +649,19 @@ Use this mode on backgrounds with brand color.
 | `ref`           | `ref`            | reference to component                                                                                                                                                                     | `any`              | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ld-file-upload](../ld-file-upload)
+
+### Graph
+```mermaid
+graph TD;
+  ld-file-upload --> ld-circular-progress
+  style ld-circular-progress fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

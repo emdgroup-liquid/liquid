@@ -24,10 +24,108 @@ File upload allows the user to upload files.
 
 {% endexample %}
 
-With state management:
+#### State management:
+
+State management such as changing the upload state or progress of a file has to be done by the user. Every event emits a an upload item (`UploadItem = {
+  state:
+    | 'pending'
+    | 'paused'
+    | 'cancelled'
+    | 'uploading'
+    | 'uploaded'
+    | 'upload failed'
+  fileName: string
+  fileSize: number
+  fileType: string
+  progress: number
+}`) or an array of upload items. For each event, the states need to be changed using methods.
 
 {% example '{ "opened": false }' %}
 <ld-file-upload>
+</ld-file-upload>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      console.log('ldchoosefiles', ev.detail)
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      uploadItems = ev.detail
+      uploadingItems = []
+      for (let item in uploadItems) {
+        console.log(item)
+        newItem = uploadItems[item]
+        console.log(newItem)
+        newItem.state = 'uploading'
+        uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+      uploadItem = ev.detail
+      /* ldUpload.deleteUploadItem(uploadItem) */
+      uploadItem.state = 'cancelled'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Circular progress
+
+{% example '{ "opened": false }' %}
+<ld-file-upload select-multiple circular-progress>
 </ld-file-upload>
 
 <script>
@@ -658,7 +756,7 @@ With state management:
 ### Examples with dummy files
 
 {% example '{ "opened": false }' %}
-<ld-file-upload allow-pause=false show-progress icons='{"pdf": "documents"}'></ld-file-upload>
+<ld-file-upload circular-progress allow-pause=false show-progress icons='{"pdf": "documents"}'></ld-file-upload>
 
 <script>
   ;(() => {
@@ -875,19 +973,19 @@ TODO:
 
 ## Properties
 
-| Property         | Attribute         | Description                                                                                                      | Type                                                                                                 | Default     |
-| ---------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------- |
-| `allowPause`     | `allow-pause`     | allowPause defines whether the user will be able to pause uploads.                                               | `boolean`                                                                                            | `false`     |
-| `dirname`        | `dirname`         | Name of form field to use for sending the element's directionality in form submission.                           | `string`                                                                                             | `undefined` |
-| `form`           | `form`            | Associates the control with a form element.                                                                      | `string`                                                                                             | `undefined` |
-| `icons`          | `icons`           | Maps file types to icon path                                                                                     | `string \| { pdf?: string; zip?: string; jpeg?: string; txt?: string; png?: string; rtf?: string; }` | `undefined` |
-| `maxSize`        | `max-size`        | TODO: is used to display and validate maximum file size in Bytes                                                 | `number`                                                                                             | `undefined` |
-| `name`           | `name`            | Used to specify the name of the control.                                                                         | `string`                                                                                             | `undefined` |
-| `ref`            | `ref`             | reference to component                                                                                           | `any`                                                                                                | `undefined` |
-| `selectMultiple` | `select-multiple` | selectMultiple defines whether selection of multiple input files is allowed.                                     | `boolean`                                                                                            | `false`     |
-| `showProgress`   | `show-progress`   | showTotalProgress defines whether the progress of uploading files will be shown, or only an uploading indicator. | `boolean`                                                                                            | `false`     |
-| `startUpload`    | `start-upload`    | startUpload defines whether upload starts immediately after choosing files or after confirmation.                | `boolean`                                                                                            | `false`     |
-| `value`          | `value`           | The input value.                                                                                                 | `string`                                                                                             | `undefined` |
+| Property           | Attribute           | Description                                                                                                      | Type      | Default     |
+| ------------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `allowPause`       | `allow-pause`       | allowPause defines whether the user will be able to pause uploads.                                               | `boolean` | `false`     |
+| `circularProgress` | `circular-progress` | circularProgress defines whether only the circular progress indicator will be shown during upload.               | `boolean` | `false`     |
+| `dirname`          | `dirname`           | Name of form field to use for sending the element's directionality in form submission.                           | `string`  | `undefined` |
+| `form`             | `form`              | Associates the control with a form element.                                                                      | `string`  | `undefined` |
+| `maxSize`          | `max-size`          | TODO: is used to display and validate maximum file size in Bytes                                                 | `number`  | `undefined` |
+| `name`             | `name`              | Used to specify the name of the control.                                                                         | `string`  | `undefined` |
+| `ref`              | `ref`               | reference to component                                                                                           | `any`     | `undefined` |
+| `selectMultiple`   | `select-multiple`   | selectMultiple defines whether selection of multiple input files is allowed.                                     | `boolean` | `false`     |
+| `showProgress`     | `show-progress`     | showTotalProgress defines whether the progress of uploading files will be shown, or only an uploading indicator. | `boolean` | `false`     |
+| `startUpload`      | `start-upload`      | startUpload defines whether upload starts immediately after choosing files or after confirmation.                | `boolean` | `false`     |
+| `value`            | `value`             | The input value.                                                                                                 | `string`  | `undefined` |
 
 
 ## Events
@@ -953,19 +1051,26 @@ Type: `Promise<void>`
 ### Depends on
 
 - [ld-choose-file](ld-choose-file)
+- [ld-sr-only](../ld-sr-only)
+- [ld-circular-progress](../ld-circular-progress)
 - [ld-typo](../ld-typo)
-- [ld-upload-progress](ld-upload-progress)
 - [ld-button](../ld-button)
+- [ld-input-message](../ld-input-message)
+- [ld-upload-progress](ld-upload-progress)
 
 ### Graph
 ```mermaid
 graph TD;
   ld-file-upload --> ld-choose-file
+  ld-file-upload --> ld-sr-only
+  ld-file-upload --> ld-circular-progress
   ld-file-upload --> ld-typo
-  ld-file-upload --> ld-upload-progress
   ld-file-upload --> ld-button
+  ld-file-upload --> ld-input-message
+  ld-file-upload --> ld-upload-progress
   ld-choose-file --> ld-typo
   ld-choose-file --> ld-button
+  ld-input-message --> ld-icon
   ld-upload-progress --> ld-upload-item
   ld-upload-item --> ld-icon
   ld-upload-item --> ld-typo
@@ -977,7 +1082,6 @@ graph TD;
   ld-upload-item --> ld-input-message
   ld-tooltip --> ld-sr-only
   ld-tooltip --> ld-tooltip-popper
-  ld-input-message --> ld-icon
   style ld-file-upload fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -113,6 +113,7 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 ### Used by
 
+ - [ld-file-upload](../ld-file-upload)
  - [ld-upload-item](../ld-file-upload/ld-upload-item)
 
 ### Depends on
@@ -123,6 +124,7 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 ```mermaid
 graph TD;
   ld-input-message --> ld-icon
+  ld-file-upload --> ld-input-message
   ld-upload-item --> ld-input-message
   style ld-input-message fill:#f9f,stroke:#333,stroke-width:4px
 ```

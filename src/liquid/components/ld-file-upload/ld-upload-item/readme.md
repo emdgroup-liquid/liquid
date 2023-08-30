@@ -13,10 +13,54 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 
 ## Examples
 
-### Default
+### Default / Pending
 
-{% example '{ "opened": true }' %}
+{% example '{ "opened": false }' %}
 <ld-upload-item file-name='Liquid' file-size='1.28'></ld-upload-item>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+#### Show progress
+
+{% example '{ "opened": false }' %}
+<ld-upload-item show-progress file-name='Liquid' file-size='1.28'></ld-upload-item>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Paused
+
+{% example '{ "opened": false }' %}
+<ld-upload-item allow-pause state='paused' file-name='Liquid' file-size='1.28' progress='25'></ld-upload-item>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+#### Show progress
+
+{% example '{ "opened": false }' %}
+<ld-upload-item show-progress state='paused' file-name='Liquid' file-size='1.28' progress='25'></ld-upload-item>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Cancelled
+
+{% example '{ "opened": false }' %}
+<ld-upload-item state='cancelled' file-name='Liquid' file-size='1.28' progress='25'></ld-upload-item>
 
 <!-- React component -->
 
@@ -26,8 +70,19 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 
 ### Uploading
 
-{% example '{ "opened": true }' %}
+{% example '{ "opened": false }' %}
 <ld-upload-item state='uploading' file-name='Liquid' file-size='1.28' progress='25'></ld-upload-item>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+#### Allow pause
+
+{% example '{ "opened": false }' %}
+<ld-upload-item allow-pause state='uploading' file-name='Liquid' file-size='1.28' progress='25'></ld-upload-item>
 
 <!-- React component -->
 
@@ -37,8 +92,8 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 
 ### Uploading interactive
 
-{% example '{ "opened": true }' %}
-<ld-upload-item state='uploading' file-name='Liquid' file-size='1.28' progress='25'></ld-upload-item>
+{% example '{ "opened": false }' %}
+<ld-upload-item show-progress state='uploading' file-name='Liquid' file-size='1.28' progress='25'></ld-upload-item>
 <ld-slider value="25" max="100" width="14rem"></ld-slider>
 
 <script>
@@ -60,7 +115,7 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 
 ### Uploaded
 
-{% example '{ "opened": true }' %}
+{% example '{ "opened": false }' %}
 <ld-upload-item state='uploaded' file-name='Liquid' file-size='1.28'></ld-upload-item>
 
 <!-- React component -->
@@ -71,7 +126,7 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 
 ### Upload failed
 
-{% example '{ "opened": true }' %}
+{% example '{ "opened": false }' %}
 <ld-upload-item state='upload failed' file-name='Liquid' file-size='1.28'></ld-upload-item>
 
 <!-- React component -->
@@ -85,19 +140,17 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                     | Type                                                                                       | Default     |
-| -------------- | --------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------- |
-| `allowPause`   | `allow-pause`   | allowPause defines whether the user will be able to pause uploads.                                              | `boolean`                                                                                  | `undefined` |
-| `fileName`     | `file-name`     | Name of the uploaded file.                                                                                      | `string`                                                                                   | `undefined` |
-| `fileSize`     | `file-size`     | Size of the uploaded file in bytes.                                                                             | `number`                                                                                   | `undefined` |
-| `fileType`     | `file-type`     | Type of the uploaded file.                                                                                      | `string`                                                                                   | `undefined` |
-| `icons`        | --              | Maps file types to icon path                                                                                    | `{ pdf?: string; zip?: string; jpeg?: string; txt?: string; png?: string; rtf?: string; }` | `{}`        |
-| `ldTabindex`   | `ld-tabindex`   | Tab index of the progress item.                                                                                 | `number`                                                                                   | `undefined` |
-| `mode`         | `mode`          | Display mode.                                                                                                   | `"danger" \| "highlight" \| "neutral"`                                                     | `'neutral'` |
-| `progress`     | `progress`      | Upload progress in percent.                                                                                     | `number`                                                                                   | `0`         |
-| `ref`          | `ref`           | reference to component                                                                                          | `any`                                                                                      | `undefined` |
-| `showProgress` | `show-progress` | showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button | `boolean`                                                                                  | `false`     |
-| `state`        | `state`         | State of the file.                                                                                              | `"cancelled" \| "paused" \| "pending" \| "upload failed" \| "uploaded" \| "uploading"`     | `'pending'` |
+| Property       | Attribute       | Description                                                                                                     | Type                                                                                   | Default     |
+| -------------- | --------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----------- |
+| `allowPause`   | `allow-pause`   | allowPause defines whether the user will be able to pause uploads.                                              | `boolean`                                                                              | `undefined` |
+| `fileName`     | `file-name`     | Name of the uploaded file.                                                                                      | `string`                                                                               | `undefined` |
+| `fileSize`     | `file-size`     | Size of the uploaded file in bytes.                                                                             | `number`                                                                               | `undefined` |
+| `fileType`     | `file-type`     | Type of the uploaded file.                                                                                      | `string`                                                                               | `undefined` |
+| `ldTabindex`   | `ld-tabindex`   | Tab index of the progress item.                                                                                 | `number`                                                                               | `undefined` |
+| `progress`     | `progress`      | Upload progress in percent.                                                                                     | `number`                                                                               | `0`         |
+| `ref`          | `ref`           | reference to component                                                                                          | `any`                                                                                  | `undefined` |
+| `showProgress` | `show-progress` | showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button | `boolean`                                                                              | `false`     |
+| `state`        | `state`         | State of the file.                                                                                              | `"cancelled" \| "paused" \| "pending" \| "upload failed" \| "uploaded" \| "uploading"` | `'pending'` |
 
 
 ## Dependencies

@@ -16,6 +16,234 @@ The `ld-upload-progress` component is used internally for the `ld-file-upload`. 
 ### Default
 
 {% example '{ "opened": true }' %}
+<ld-upload-progress>
+</ld-upload-progress>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+    ldUpload.uploadItems = [
+        {
+          state: 'uploading',
+          fileName: 'file1.png',
+          fileSize: 100000,
+          fileType: 'png',
+          progress: 50,
+        },
+        {
+          state: 'uploading',
+          fileName: 'file2.png',
+          fileSize: 200000,
+          fileType: 'png',
+          progress: 3,
+        },
+        {
+          state: 'pending',
+          fileName: 'file3.pdf',
+          fileSize: 100000,
+          fileType: 'pdf',
+          progress: 0,
+        },
+        {
+          state: 'uploaded',
+          fileName: 'file4.jpeg',
+          fileSize: 100000,
+          fileType: 'image/jpeg',
+          progress: 100,
+        },
+        {
+          state: 'upload failed',
+          fileName: 'file5.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 75,
+        },
+        {
+          state: 'paused',
+          fileName: 'file6.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
+        {
+          state: 'cancelled',
+          fileName: 'file7.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
+        {
+          state: 'uploaded',
+          fileName: 'filefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefile.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
+      ]
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Allow pause
+
+{% example '{ "opened": true }' %}
+<ld-upload-progress allow-pause>
+</ld-upload-progress>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+    ldUpload.uploadItems = [
+        {
+          state: 'uploading',
+          fileName: 'file1.png',
+          fileSize: 100000,
+          fileType: 'png',
+          progress: 50,
+        },
+        {
+          state: 'uploading',
+          fileName: 'file2.png',
+          fileSize: 200000,
+          fileType: 'png',
+          progress: 3,
+        },
+        {
+          state: 'pending',
+          fileName: 'file3.pdf',
+          fileSize: 100000,
+          fileType: 'pdf',
+          progress: 0,
+        },
+        {
+          state: 'uploaded',
+          fileName: 'file4.jpeg',
+          fileSize: 100000,
+          fileType: 'image/jpeg',
+          progress: 100,
+        },
+        {
+          state: 'upload failed',
+          fileName: 'file5.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 75,
+        },
+        {
+          state: 'paused',
+          fileName: 'file6.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
+        {
+          state: 'cancelled',
+          fileName: 'file7.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
+        {
+          state: 'uploaded',
+          fileName: 'filefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefile.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
+      ]
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Show progress
+
+{% example '{ "opened": true }' %}
+<ld-upload-progress show-progress>
+</ld-upload-progress>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+    ldUpload.uploadItems = [
+        {
+          state: 'uploading',
+          fileName: 'file1.png',
+          fileSize: 100000,
+          fileType: 'png',
+          progress: 50,
+        },
+        {
+          state: 'uploading',
+          fileName: 'file2.png',
+          fileSize: 200000,
+          fileType: 'png',
+          progress: 3,
+        },
+        {
+          state: 'pending',
+          fileName: 'file3.pdf',
+          fileSize: 100000,
+          fileType: 'pdf',
+          progress: 0,
+        },
+        {
+          state: 'uploaded',
+          fileName: 'file4.jpeg',
+          fileSize: 100000,
+          fileType: 'image/jpeg',
+          progress: 100,
+        },
+        {
+          state: 'upload failed',
+          fileName: 'file5.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 75,
+        },
+        {
+          state: 'paused',
+          fileName: 'file6.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
+        {
+          state: 'cancelled',
+          fileName: 'file7.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
+        {
+          state: 'uploaded',
+          fileName: 'filefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefilefile.txt',
+          fileSize: 100000,
+          fileType: 'txt',
+          progress: 50,
+        },
+      ]
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+### Old version
+
+{% example '{ "opened": true }' %}
 <ld-upload-progress start-upload='false'>
 <ld-upload-item state='pending' file-name='Liquid' file-size='1.28'></ld-upload-item>
 <ld-upload-item file-name='Liquid' file-size='1.28'></ld-upload-item>
@@ -34,15 +262,14 @@ The `ld-upload-progress` component is used internally for the `ld-file-upload`. 
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                     | Type                                                                                       | Default     |
-| -------------- | --------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------- |
-| `allowPause`   | `allow-pause`   | allowPause defines whether the user will be able to pause uploads.                                              | `boolean`                                                                                  | `undefined` |
-| `icons`        | --              | Maps file types to icon path                                                                                    | `{ pdf?: string; zip?: string; jpeg?: string; txt?: string; png?: string; rtf?: string; }` | `undefined` |
-| `ref`          | `ref`           | reference to component                                                                                          | `any`                                                                                      | `undefined` |
-| `showProgress` | `show-progress` | showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button | `boolean`                                                                                  | `false`     |
-| `size`         | `size`          | Size of the context menu.                                                                                       | `"lg" \| "sm"`                                                                             | `undefined` |
-| `startUpload`  | `start-upload`  | startUpload defines whether upload starts immediately after choosing files or after confirmation.               | `boolean`                                                                                  | `false`     |
-| `uploadItems`  | --              | List of files                                                                                                   | `UploadItem[]`                                                                             | `[]`        |
+| Property       | Attribute       | Description                                                                                                     | Type           | Default     |
+| -------------- | --------------- | --------------------------------------------------------------------------------------------------------------- | -------------- | ----------- |
+| `allowPause`   | `allow-pause`   | allowPause defines whether the user will be able to pause uploads.                                              | `boolean`      | `undefined` |
+| `ref`          | `ref`           | reference to component                                                                                          | `any`          | `undefined` |
+| `showProgress` | `show-progress` | showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button | `boolean`      | `false`     |
+| `size`         | `size`          | Size of the context menu.                                                                                       | `"lg" \| "sm"` | `undefined` |
+| `startUpload`  | `start-upload`  | startUpload defines whether upload starts immediately after choosing files or after confirmation.               | `boolean`      | `false`     |
+| `uploadItems`  | --              | List of files                                                                                                   | `UploadItem[]` | `[]`        |
 
 
 ## Dependencies

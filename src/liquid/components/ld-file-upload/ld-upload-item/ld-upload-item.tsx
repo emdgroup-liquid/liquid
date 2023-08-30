@@ -6,13 +6,9 @@ import {
   Prop,
   Event,
   EventEmitter,
-  State,
 } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
-import { LdUploadItemConfig } from './ld-upload-item.types'
 import { closest } from '../../../utils/closest'
-
-type Mode = 'highlight' | 'danger' | 'neutral'
 
 /**
  * @virtualProp ref - reference to component
@@ -52,9 +48,6 @@ export class LdUploadItem {
   /** Tab index of the progress item. */
   @Prop() ldTabindex?: number
 
-  /** Display mode. */
-  @Prop() mode?: Mode = 'neutral'
-
   /**
    * Size of the menu item.
    * @internal
@@ -63,19 +56,6 @@ export class LdUploadItem {
 
   /** Upload progress in percent. */
   @Prop() progress?: number = 0
-
-  /** Maps file types to icon path */
-  @Prop() icons?: Partial<LdUploadItemConfig> = {}
-  // @Prop() icon?: string = 'documents'
-
-  @State() defaultIcons: Partial<LdUploadItemConfig> = {
-    pdf: 'pdf',
-    zip: 'zip',
-    jpeg: 'jpeg',
-    txt: 'documents',
-    png: 'documents',
-    rtf: 'documents',
-  }
 
   /**
    * @internal
@@ -112,31 +92,6 @@ export class LdUploadItem {
    * Emitted on delete button click.
    */
   @Event() lduploaditemdelete: EventEmitter
-
-  /* private getFileType = () => {
-    const fileType = this.fileName.split('.').pop()?.toLowerCase()
-    return fileType
-  } */
-
-  /* private availableIcons = [
-    'documents',
-    'pdf',
-    'zip',
-    'documents-storage',
-    'files',
-    'jpeg',
-  ] */
-
-  /* private setIcon = () => {
-    const mergedIcons = { ...this.defaultIcons, ...this.icons }
-    // const fileType = this.getFileType()
-    const fileType = this.fileType.split('/').pop()?.toLowerCase()
-    if (fileType && mergedIcons[fileType]) {
-      return mergedIcons[fileType]
-    } else {
-      return 'documents'
-    }
-  } */
 
   private pauseClick = () => {
     this.lduploaditempause.emit({
@@ -212,29 +167,6 @@ export class LdUploadItem {
 
     return roundedSize + ' ' + sizes[sizeIndex]
   }
-
-  /* private getIcon = () => {
-    const customIcon = closest('ld-file-upload', this.el)?.querySelector(
-      `[data-upload-icon='${this.fileType}']`
-    )
-    console.log('fileType', this.fileType)
-    console.log('customIcon', customIcon)
-    // TODO: If custom icon exists, clone it and insert it.
-    if (customIcon) {
-      const icon = customIcon.cloneNode(true)
-      icon.className = 'ld-upload-item__icon'
-      console.log(this.customIcon)
-      return icon
-    } else {
-      return (
-        <ld-icon
-          class="ld-upload-item__icon"
-          name="documents"
-          size="lg"
-        ></ld-icon>
-      )
-    }
-  } */
 
   componentWillLoad() {
     const customIcon = closest('ld-file-upload', this.el)?.querySelector(
@@ -313,7 +245,7 @@ export class LdUploadItem {
               {this.fileName}
             </ld-typo>
             {/* <b class="ld-upload-item__file-name">{this.fileName}</b> */}
-            {this.state == 'uploaded' ? (
+            {this.state == 'uploaded' || !this.showProgress ? (
               <ld-typo class="ld-upload-item__file-size">
                 {this.bytesToSize(this.fileSize)}
               </ld-typo>
@@ -409,7 +341,7 @@ export class LdUploadItem {
                 >
                   <ld-icon
                     class="ld-upload-item__retry-icon"
-                    name="repost"
+                    name="refresh"
                     size="sm"
                     aria-label="Text"
                   ></ld-icon>

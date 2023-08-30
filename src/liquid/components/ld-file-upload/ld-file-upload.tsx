@@ -12,7 +12,6 @@ import {
   Watch,
   Fragment,
 } from '@stencil/core'
-import { LdUploadItemConfig } from './ld-upload-item/ld-upload-item.types'
 import { getClassNames } from '../../utils/getClassNames'
 
 export type UploadItem = {
@@ -61,8 +60,8 @@ export class LdFileUpload {
   /** selectMultiple defines whether selection of multiple input files is allowed. */
   @Prop() selectMultiple?: boolean = false
 
-  /** Maps file types to icon path */
-  @Prop() icons?: Partial<LdUploadItemConfig> | string
+  /** circularProgress defines whether only the circular progress indicator will be shown during upload. */
+  @Prop() circularProgress?: boolean = false
 
   /** TODO: is used to display and validate maximum file size in Bytes */
   @Prop() maxSize?: number
@@ -80,7 +79,11 @@ export class LdFileUpload {
   /** The input value. */
   @Prop({ mutable: true }) value?: string
 
+  /** List of files */
   @State() uploadItems: UploadItem[] = []
+
+  // TODO: Remove, this is no longer needed
+  /** List of file names + types */
   @State() uploadItemTypes: {
     fileName: string
     fileType: string
@@ -104,6 +107,12 @@ export class LdFileUpload {
   @State() continueClicked = false
 
   @State() pauseAllClicked = false
+
+  /** Defines whether files have been chosen in circular progress mode and the circular progress should be rendered. */
+  @State() renderCircularProgress = false
+
+  /** Defines whether all uploads in circular progress mode are finished. */
+  @State() allUploadsFinished = false
 
   @Event() ldchoosefiles: EventEmitter<UploadItem[]>
 
@@ -172,6 +181,9 @@ export class LdFileUpload {
   updateComponentAppearance() {
     if (this.renderOnlyChooseFile) {
       this.renderOnlyChooseFile = false
+    }
+    if (this.circularProgress && !this.renderCircularProgress) {
+      this.renderCircularProgress = true
     }
   }
 
@@ -256,14 +268,35 @@ export class LdFileUpload {
   }
 
   @Watch('uploadItems')
-  changeChooseFile() {
+  changeProgressVisualisation() {
     if (this.uploadItems.length == 0 && this.renderOnlyChooseFile == false) {
       this.renderOnlyChooseFile = true
       this.continueClicked = false
+      this.renderCircularProgress = false
+    }
+    if (
+      this.uploadItems.filter((item) => item.state == 'uploaded').length ==
+        this.uploadItems.length &&
+      this.uploadItems.length != 0
+    ) {
+      this.allUploadsFinished = true
     }
   }
 
-  private parsedIcons: Partial<LdUploadItemConfig>
+  private bytesToSize = (bytes: number) => {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
+
+    let sizeIndex = 0
+
+    while (bytes >= 1024 && sizeIndex < sizes.length - 1) {
+      bytes /= 1024
+      sizeIndex++
+    }
+
+    const roundedSize = Number(bytes.toFixed(2))
+
+    return roundedSize + ' ' + sizes[sizeIndex]
+  }
 
   private calculateTotalProgress = () => {
     const activeUploads = this.uploadItems.filter(
@@ -279,11 +312,12 @@ export class LdFileUpload {
       0
     )
     const uploadedSizeSum = activeUploads.reduce(
-      (partialSum, file) => partialSum + file.fileSize * file.progress,
+      (partialSum, file) => partialSum + file.fileSize * (file.progress / 100),
       0
     )
-    const totalProgress = uploadedSizeSum / totalSizeSum / 100 || 0
+    const totalProgress = uploadedSizeSum / totalSizeSum || 0
     console.log('totalProgress', totalProgress)
+    // returns total progress between 0 and 1
     return totalProgress
   }
 
@@ -345,7 +379,7 @@ export class LdFileUpload {
     this.removeDuplicateChosenFiles(files)
     this.ldchoosefiles.emit(this.chosenFiles)
     this.addChosenFiles(this.chosenFiles)
-    if (this.startUpload) {
+    if (this.startUpload || this.circularProgress) {
       this.ldfileuploadready.emit(this.allChosenFiles)
     }
   }
@@ -358,7 +392,7 @@ export class LdFileUpload {
     this.removeDuplicateChosenFiles(ev.detail)
     this.ldchoosefiles.emit(this.chosenFiles) // ...and dispatch the public one.
     this.addChosenFiles(this.chosenFiles)
-    if (this.startUpload) {
+    if (this.startUpload || this.circularProgress) {
       this.ldfileuploadready.emit(this.allChosenFiles)
     }
   }
@@ -404,20 +438,96 @@ export class LdFileUpload {
     if (this.value) {
       this.fileInput.value = this.value
     }
-
-    const parsedIcons: Partial<LdUploadItemConfig> =
-      typeof this.icons === 'string' ? JSON.parse(this.icons) : this.icons
-
-    this.parsedIcons = parsedIcons
   }
 
   render() {
     const cl = getClassNames([
       'ld-file-upload',
       this.renderOnlyChooseFile && 'ld-file-upload--only-choose-file',
+      this.renderCircularProgress && 'ld-file-upload--only-circular-progress',
     ])
 
-    console.log(this.renderOnlyChooseFile)
+    /* this.allUploadsFinished = true */
+
+    /* TODO: Error case if upload fails */
+    if (this.circularProgress) {
+      return (
+        <Host class={cl}>
+          {!this.renderCircularProgress && !this.allUploadsFinished ? (
+            <ld-choose-file
+              class="ld-file-upload__choose-file"
+              size={this.renderOnlyChooseFile ? 'bg' : 'sm'}
+              onLdchoosefiles={this.handleChooseFiles}
+              start-upload={this.startUpload}
+              selectMultiple={this.selectMultiple}
+              continueClicked={this.continueClicked}
+              uploadItems={this.uploadItems}
+            ></ld-choose-file>
+          ) : this.renderCircularProgress && !this.allUploadsFinished ? (
+            <Fragment>
+              <ld-sr-only id="progress-label">Progress</ld-sr-only>
+              <ld-circular-progress
+                /* class="ld-file-upload__circular-progress" */
+                class={getClassNames([
+                  'ld-file-upload__circular-progress',
+                  this.uploadItems.filter(
+                    (item) => item.state == 'upload failed'
+                  ).length != 0 && 'ld-file-upload--circular-progress-error',
+                ])}
+                aria-labelledby="progress-label"
+                aria-valuenow={this.calculateTotalProgress() * 100}
+                /* aria-valuenow="25" */
+              >
+                <ld-typo variant="b6">
+                  {(this.calculateTotalProgress() * 100).toFixed(2)}%
+                </ld-typo>
+                {/* <ld-typo variant="label-s">complete</ld-typo> */}
+              </ld-circular-progress>
+              <ld-typo variant="h5">
+                Uploading {this.uploadItems.length} files
+              </ld-typo>
+              <ld-typo>
+                {this.bytesToSize(
+                  this.uploadItems.reduce(
+                    (partialSum, file) => partialSum + file.fileSize,
+                    0
+                  )
+                )}
+              </ld-typo>
+              <ld-typo>
+                {this.bytesToSize(
+                  this.uploadItems.reduce(
+                    (partialSum, file) =>
+                      partialSum + file.fileSize * (file.progress / 100),
+                    0
+                  )
+                )}{' '}
+                uploaded...
+              </ld-typo>
+              {/* Cancel button has the same functionality as the delete all button */}
+              <ld-button
+                class="ld-file-upload__cancel-button"
+                onClick={this.handleDeleteAllClick}
+                mode="secondary"
+              >
+                Cancel
+              </ld-button>
+            </Fragment>
+          ) : (
+            <ld-input-message mode="valid">Files uploaded</ld-input-message>
+          )}
+
+          <input
+            ref={(el) => (this.fileInput = el)}
+            onChange={this.handleInputChange}
+            type="file"
+            multiple={this.selectMultiple}
+            tabIndex={-1}
+            class="ld-file-upload__input"
+          />
+        </Host>
+      )
+    }
 
     return (
       <Host class={cl}>
@@ -456,7 +566,6 @@ export class LdFileUpload {
               startUpload={false}
               allowPause={this.allowPause}
               showProgress={this.showProgress}
-              icons={this.parsedIcons}
             />
             {!this.startUpload && (
               <ld-button

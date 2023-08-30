@@ -47,6 +47,7 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
 
 ### Used by
 
+ - [ld-file-upload](../ld-file-upload)
  - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
  - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
  - [ld-slider](../ld-slider)
@@ -59,6 +60,7 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
 ### Graph
 ```mermaid
 graph TD;
+  ld-file-upload --> ld-sr-only
   ld-sidenav-header --> ld-sr-only
   ld-sidenav-toggle-outside --> ld-sr-only
   ld-slider --> ld-sr-only

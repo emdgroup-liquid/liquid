@@ -24,6 +24,17 @@ The `ld-choose-file` component is used internally for the `ld-file-upload`. It i
 
 {% endexample %}
 
+### In file upload
+
+{% example '{ "opened": true }' %}
+<ld-choose-file size='sm'></ld-choose-file>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
 <!-- Auto Generated Below -->
 
 
@@ -39,6 +50,14 @@ The `ld-choose-file` component is used internally for the `ld-file-upload`. It i
 | `startUpload`     | `start-upload`     | startUpload defines whether upload starts immediately after choosing files or after confirmation. | `boolean`      | `false`     |
 | `uploadFiles`     | --                 | Chosen Files                                                                                      | `UploadItem[]` | `[]`        |
 | `uploadItems`     | --                 | Chosen Files from the parent component                                                            | `UploadItem[]` | `[]`        |
+
+
+## Events
+
+| Event           | Description                                     | Type                    |
+| --------------- | ----------------------------------------------- | ----------------------- |
+| `ldchoosefiles` | Emitted after dropping a file in the drop area. | `CustomEvent<FileList>` |
+| `lduploadclick` | Emitted on upload click.                        | `CustomEvent<any>`      |
 
 
 ## Dependencies

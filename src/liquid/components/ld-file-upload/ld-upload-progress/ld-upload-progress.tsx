@@ -1,6 +1,5 @@
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 import type { UploadItem } from '../ld-file-upload'
-import { LdUploadItemConfig } from '../ld-upload-item/ld-upload-item.types'
 
 /**
  * @virtualProp ref - reference to component
@@ -25,16 +24,8 @@ export class LdUploadProgress {
   /** showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button */
   @Prop() showProgress?: boolean = false
 
-  /** Maps file types to icon path */
-  @Prop() icons?: Partial<LdUploadItemConfig>
-
   /** List of files */
   @Prop() uploadItems: UploadItem[] = []
-
-  /* @Prop() uploadItemTypes: {
-    fileName: string
-    fileType: string
-  }[] = [] */
 
   private renderListItems = () =>
     this.uploadItems.map((item) => (
@@ -48,7 +39,6 @@ export class LdUploadProgress {
           progress={item.progress}
           allowPause={this.allowPause}
           showProgress={this.showProgress}
-          icons={this.icons}
         ></ld-upload-item>
       </li>
     ))

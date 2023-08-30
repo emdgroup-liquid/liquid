@@ -24,6 +24,17 @@
   padding: 0;
 }
 
+/* stylelint-disable-next-line csstools/use-nesting */
+:host(.ld-file-upload--only-circular-progress) {
+  background: none;
+  border-radius: none;
+  box-shadow: none;
+  box-sizing: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .ld-file-upload__choose-file {
   width: 100%;
 }
@@ -41,6 +52,14 @@
 
 .ld-file-upload__progress {
   width: 100%;
+}
+
+/* .ld-file-upload__circular-progress {
+  --ld-circular-progress-size: 10rem;
+} */
+
+.ld-file-upload--circular-progress-error {
+  --ld-circular-progress-bar-col: var(--ld-thm-error);
 }
 
 .ld-file-upload__continue-button {
