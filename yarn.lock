@@ -3005,9 +3005,9 @@ __metadata:
   linkType: hard
 
 "@types/tether@npm:^1.4.6":
-  version: 1.4.6
-  resolution: "@types/tether@npm:1.4.6"
-  checksum: 5047559f502e43c10a61420dc5c7dd4ca5abb3b1b0c61fb62414acef93a1ecc207ae8111b4cd0f5d93c4ab4a09b7a30ebf33a523c5885488818c4f9b4852937a
+  version: 1.4.7
+  resolution: "@types/tether@npm:1.4.7"
+  checksum: 0a66df4f1e80484fe3928e7fb6c77d14f1bbdee3006384621364f1b6efa5c803faa22b288f07aa19573b83de74ec60c518a497361a41d3bc02893f9ff4c4f4cb
   languageName: node
   linkType: hard
 
