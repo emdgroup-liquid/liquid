@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.1](https://github.com/emdgroup-liquid/liquid/compare/v5.12.0...v5.12.1) (2023-09-20)
+
+
+### Bug Fixes
+
+* **ld-input:** disabled color on safari ([62cafe9](https://github.com/emdgroup-liquid/liquid/commit/62cafe92575dc3440022d7ca03e4d3935de2f245))
+
 # [5.12.0](https://github.com/emdgroup-liquid/liquid/compare/v5.11.1...v5.12.0) (2023-08-29)
 
 
