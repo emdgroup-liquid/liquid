@@ -24,7 +24,6 @@
   --ld-input-time-min-width-lg: 7.5rem;
 
   /* colors */
-  --ld-input-col: var(--ld-col-neutral-900);
   --ld-input-bg-col-disabled: var(--ld-col-neutral-010);
   --ld-input-bg-col-invalid-focus: var(--ld-col-wht);
   --ld-input-bg-col-invalid: var(--ld-thm-error-disabled);
@@ -91,9 +90,10 @@
   }
 
   > input {
-    color: var(--ld-input-col);
+    color: var(--ld-input-text-col);
     align-self: stretch;
     max-height: var(--ld-input-max-height-md);
+    -webkit-text-fill-color: var(--ld-input-text-col);
 
     &[type='file'] {
       opacity: 0;
@@ -413,6 +413,7 @@
   ) {
   background-color: var(--ld-input-bg-col-invalid);
   color: var(--ld-input-text-col-invalid);
+  -webkit-text-fill-color: var(--ld-input-text-col-invalid);
 }
 
 :host(.ld-input--invalid:not(.ld-input--disabled, [aria-disabled='true'])),
@@ -424,6 +425,7 @@
   > input,
   > textarea {
     color: var(--ld-input-text-col-invalid);
+    -webkit-text-fill-color: var(--ld-input-text-col-invalid);
 
     &::placeholder {
       color: var(--ld-input-placeholder-col-invalid);
@@ -458,6 +460,7 @@
   > input,
   > textarea {
     color: var(--ld-input-text-col-invalid-focus);
+    -webkit-text-fill-color: var(--ld-input-text-col-invalid-focus);
   }
 }
 
@@ -474,8 +477,9 @@
 
   input,
   textarea {
-    color: currentColor;
+    color: var(--ld-input-text-col-disabled);
     caret-color: transparent;
+    -webkit-text-fill-color: var(--ld-input-text-col-disabled);
 
     &::placeholder {
       opacity: 0.25;
