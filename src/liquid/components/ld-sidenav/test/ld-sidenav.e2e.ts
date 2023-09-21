@@ -980,6 +980,22 @@ describe('ld-sidenav', () => {
       const result = await page.compareScreenshot()
       expect(result).toMatchScreenshot()
     })
+
+    it('truncates text in header', async () => {
+      const page = await getPageWithContent(
+        `
+        <ld-sidenav open collapsible narrow>
+          <ld-sidenav-header href="#" slot="header">
+            A title which is super long and should be truncated, because it is too long.
+          </ld-sidenav-header>
+        </ld-sidenav>`,
+        { reducedMotion: true }
+      )
+      page.waitForChanges()
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
   })
 
   describe('stacking', () => {
