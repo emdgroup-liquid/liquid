@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.2](https://github.com/emdgroup-liquid/liquid/compare/v5.12.1...v5.12.2) (2023-09-21)
+
+
+### Bug Fixes
+
+* **ld-sidenav:** truncate long words in nav header ([a93f496](https://github.com/emdgroup-liquid/liquid/commit/a93f49670e1e7aef684cd984c77d1de20efe5b0f))
+* **ld-sidenav:** truncate long words in nav items ([d31779e](https://github.com/emdgroup-liquid/liquid/commit/d31779e40ab8f26db0d9daabc01528fc7676c68e)), closes [#942](https://github.com/emdgroup-liquid/liquid/issues/942)
+
 ## [5.12.1](https://github.com/emdgroup-liquid/liquid/compare/v5.12.0...v5.12.1) (2023-09-20)
 
 
