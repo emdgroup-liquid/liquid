@@ -430,12 +430,12 @@ That's why we set z-index 0 on the following elements.
   display: -webkit-box;
   text-overflow: ellipsis;
   overflow: hidden;
+  word-break: break-word;
 }
 
 .ld-sidenav-navitem--subline .ld-sidenav-navitem__mainline,
 .ld-sidenav-navitem__subline {
   -webkit-line-clamp: 1;
-  word-break: break-all;
 }
 
 .ld-sidenav-navitem__subline {

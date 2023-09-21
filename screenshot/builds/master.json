@@ -19713,6 +19713,45 @@
       "isMobile": false
     },
     {
+      "id": "0cdf3a8b",
+      "image": "0e69e43d8da0025236da8c11d783a89a.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav nav item truncates long titles consisting of long words",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "1e39f6d6",
+      "image": "0c5488023501aeba7743d2d2dbf7d9ca.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav nav item truncates long titles consisting of long words with subline",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "dba66369",
+      "image": "c31192e38029883a6b790c55c8aef90a.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav nav item truncates long titles with subline",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "83af979a",
       "image": "ef14289917090cb0472a03c5f958b050.png",
       "userAgent": "default",

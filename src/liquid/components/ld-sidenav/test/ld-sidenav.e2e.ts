@@ -446,6 +446,84 @@ describe('ld-sidenav', () => {
       expect(result).toMatchScreenshot()
     })
 
+    it('truncates long titles with subline', async () => {
+      const page = await getPageWithContent(
+        `
+        <ld-sidenav open>
+          <ld-sidenav-slider label="Outline of CS">
+            <ld-sidenav-navitem>
+              This is an extremely long title that actually needs truncation to not grow too large
+              <span slot="subline">Interoperable, accessible and compliant with the Liquid Design System</span>
+              <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+            </ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="secondary">
+              This is an extremely long title that actually needs truncation to not grow too large
+              <span slot="subline">Interoperable, accessible and compliant with the Liquid Design System</span>
+              <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+            </ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="tertiary">
+              This is an extremely long title that actually needs truncation to not grow too large
+              <span slot="subline">Interoperable, accessible and compliant with the Liquid Design System</span>
+              <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+            </ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+        { reducedMotion: true }
+      )
+      page.waitForChanges()
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+
+    it('truncates long titles consisting of long words', async () => {
+      const page = await getPageWithContent(
+        `
+        <ld-sidenav open>
+          <ld-sidenav-slider label="Outline of CS">
+            <ld-sidenav-navitem>This_is_an_extremely_long_title_that_actually_needs_truncation_to_not_grow_too_large</ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="secondary">This_is_an_extremely_long_title_that_actually_needs_truncation_to_not_grow_too_large</ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="tertiary">This_is_an_extremely_long_title_that_actually_needs_truncation_to_not_grow_too_large</ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+        { reducedMotion: true }
+      )
+      page.waitForChanges()
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+
+    it('truncates long titles consisting of long words with subline', async () => {
+      const page = await getPageWithContent(
+        `
+        <ld-sidenav open>
+          <ld-sidenav-slider label="Outline of CS">
+            <ld-sidenav-navitem>
+              This_is_an_extremely_long_title_that_actually_needs_truncation_to_not_grow_too_large
+              <span slot="subline">Interoperable_accessible_and_compliant_with_the_Liquid_Design_System</span>
+              <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+            </ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="secondary">
+              This_is_an_extremely_long_title_that_actually_needs_truncation_to_not_grow_too_large
+              <span slot="subline">Interoperable_accessible_and_compliant_with_the_Liquid_Design_System</span>
+              <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+            </ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="tertiary">
+              This_is_an_extremely_long_title_that_actually_needs_truncation_to_not_grow_too_large
+              <span slot="subline">Interoperable_accessible_and_compliant_with_the_Liquid_Design_System</span>
+              <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+            </ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+        { reducedMotion: true }
+      )
+      page.waitForChanges()
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+
     it('is active and has hover state', async () => {
       const page = await getPageWithContent(
         `
