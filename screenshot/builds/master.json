@@ -19505,6 +19505,19 @@
       "isMobile": false
     },
     {
+      "id": "4df0ed6a",
+      "image": "8513cd52278926a95d7b2299296d9087.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav header truncates text in header",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "171fb2c3",
       "image": "0ec4bccd78c16f24b8352b0a15f2934b.png",
       "userAgent": "default",

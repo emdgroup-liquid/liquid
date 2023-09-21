@@ -46,7 +46,8 @@
   outline-offset: var(--ld-sidenav-navitem-bg-inset);
   position: relative;
   text-decoration: none;
-  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+  transition:
+    opacity var(--ld-sidenav-transition-duration-collapse-expand)
       var(--ld-sidenav-transition-delay-collapse-expand) linear,
     transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
 
@@ -107,7 +108,8 @@
   :host(.ld-sidenav-header--closed) &,
   :host(.ld-sidenav-header--collapsed) & {
     transform: translateX(var(--ld-sidenav-translate-x-delta));
-    transition: visibility 0s
+    transition:
+      visibility 0s
         calc(
           var(--ld-sidenav-transition-duration-collapse-expand) +
             var(--ld-sidenav-transition-delay-collapse-expand)
@@ -150,8 +152,8 @@
   place-content: center;
   touch-action: manipulation;
   transform: translateX(var(--ld-sp-6));
-  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
-      ease,
+  transition:
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease,
     opacity var(--ld-sidenav-transition-duration-collapse-expand) linear;
   width: var(--ld-sidenav-navitem-icon-size);
   will-change: transform; /* fixes rendering issue */
@@ -210,7 +212,8 @@
 
   :host(.ld-sidenav-header--closed) &,
   :host(.ld-sidenav-header--collapsed-fully) & {
-    transition: visibility 0s
+    transition:
+      visibility 0s
         calc(2 * var(--ld-sidenav-transition-duration-collapse-expand)) linear,
       transform var(--ld-sidenav-transition-duration-collapse-expand) ease,
       opacity calc(var(--ld-sidenav-transition-duration-collapse-expand) * 0.5)
@@ -253,11 +256,12 @@
 
 .ld-sidenav-header__slot-wrapper {
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   display: -webkit-box;
   max-height: var(--ld-sidenav-header-height); /* required in Safari */
   overflow: hidden;
   position: relative;
   text-overflow: ellipsis;
+  word-break: break-word;
   z-index: 2;
 }
