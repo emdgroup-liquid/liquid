@@ -125,6 +125,7 @@ export class LdSidenavHeader {
             class="ld-sidenav-header__tooltip"
             ref={(el) => (this.tooltipRef = el)}
             show-delay="1000"
+            part="tooltip"
             position={
               this.sidenavAlignement === 'left' ? 'right middle' : 'left middle'
             }
@@ -149,7 +150,7 @@ export class LdSidenavHeader {
                 {this.sidenavCollapsed ? this.labelExpand : this.labelCollapse}
               </ld-sr-only>
             </button>
-            <ld-typo>
+            <ld-typo part="tooltip-label">
               {this.sidenavCollapsed ? this.labelExpand : this.labelCollapse}
             </ld-typo>
           </ld-tooltip>
@@ -164,6 +165,7 @@ export class LdSidenavHeader {
             <svg
               class="ld-sidenav-header__initial-m"
               fill="none"
+              part="logo"
               preserveAspectRatio="xMidYMid meet"
               viewBox="2 6 20 12"
             >
@@ -175,7 +177,7 @@ export class LdSidenavHeader {
               ></path>
             </svg>
           </slot>
-          <span class="ld-sidenav-header__slot-wrapper">
+          <span part="title" class="ld-sidenav-header__slot-wrapper">
             <slot></slot>
           </span>
         </a>

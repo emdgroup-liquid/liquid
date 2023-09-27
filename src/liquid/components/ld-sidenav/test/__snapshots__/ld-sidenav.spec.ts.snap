@@ -29,11 +29,11 @@ exports[`ld-sidenav aligns header to the right 1`] = `
       <mock:shadow-root>
         <a class="ld-sidenav-header__anchor" href="#" part="anchor">
           <slot name="logo">
-            <svg class="ld-sidenav-header__initial-m" fill="none" preserveAspectRatio="xMidYMid meet" viewBox="2 6 20 12">
+            <svg class="ld-sidenav-header__initial-m" fill="none" part="logo" preserveAspectRatio="xMidYMid meet" viewBox="2 6 20 12">
               <path clip-rule="evenodd" d="M20.5921 7.5H19.1a.2955.2955 0 0 0-.1926.0727l-2.9895 2.6378c-1.0241.9043-2.4024 1.412-3.9177 1.412-1.5796 0-3.0088-.5544-4.0444-1.5266 0 0-2.199-1.9406-2.2179-1.958-.422-.369-1.0028-.624-1.6714-.6379h-1.785C2.126 7.5 2 7.6184 2 7.7645v7.4118c0 .7316.6301 1.3237 1.4083 1.3237h.9133c.1564 0 .2831-.1194.2831-.2661l.0007-2.6375c0-.6893.5987-1.2579 1.3204-1.2579 1.3434 0 2.3067 1.0814 3.177 1.8037 1.0661.8849 1.8871 1.7374 2.8974 1.7374 1.0092 0 1.8306-.8525 2.8966-1.7374.8707-.7223 1.834-1.8037 3.1767-1.8037.718 0 1.3137.5629 1.3208 1.2468v1.591c0 .7316.6305 1.3224 1.4089 1.3224h.6079c.1588 0 .3061.0013.3061.0013.1561 0 .2828-.1194.2828-.2658V8.8237C22 8.0925 21.3692 7.5 20.5921 7.5Z" fill="currentcolor" fill-rule="evenodd"></path>
             </svg>
           </slot>
-          <span class="ld-sidenav-header__slot-wrapper">
+          <span class="ld-sidenav-header__slot-wrapper" part="title">
             <slot></slot>
           </span>
         </a>
@@ -198,7 +198,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </mock:shadow-root>
     <ld-sidenav-header class="ld-sidenav-header ld-sidenav-header--collapsed" href="#" slot="header">
       <mock:shadow-root>
-        <ld-tooltip class="ld-sidenav-header__tooltip" show-delay="1000">
+        <ld-tooltip class="ld-sidenav-header__tooltip" part="tooltip" show-delay="1000">
           <mock:shadow-root>
             <span aria-describedby="ld-tooltip-520" class="ld-tooltip__trigger" part="trigger focusable" tabindex="-1" type="button">
               <ld-sr-only>
@@ -222,17 +222,17 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               Expand side navigation
             </ld-sr-only>
           </button>
-          <ld-typo>
+          <ld-typo part="tooltip-label">
             Expand side navigation
           </ld-typo>
         </ld-tooltip>
         <a class="ld-sidenav-header__anchor" href="#" part="anchor">
           <slot name="logo">
-            <svg class="ld-sidenav-header__initial-m" fill="none" preserveAspectRatio="xMidYMid meet" viewBox="2 6 20 12">
+            <svg class="ld-sidenav-header__initial-m" fill="none" part="logo" preserveAspectRatio="xMidYMid meet" viewBox="2 6 20 12">
               <path clip-rule="evenodd" d="M20.5921 7.5H19.1a.2955.2955 0 0 0-.1926.0727l-2.9895 2.6378c-1.0241.9043-2.4024 1.412-3.9177 1.412-1.5796 0-3.0088-.5544-4.0444-1.5266 0 0-2.199-1.9406-2.2179-1.958-.422-.369-1.0028-.624-1.6714-.6379h-1.785C2.126 7.5 2 7.6184 2 7.7645v7.4118c0 .7316.6301 1.3237 1.4083 1.3237h.9133c.1564 0 .2831-.1194.2831-.2661l.0007-2.6375c0-.6893.5987-1.2579 1.3204-1.2579 1.3434 0 2.3067 1.0814 3.177 1.8037 1.0661.8849 1.8871 1.7374 2.8974 1.7374 1.0092 0 1.8306-.8525 2.8966-1.7374.8707-.7223 1.834-1.8037 3.1767-1.8037.718 0 1.3137.5629 1.3208 1.2468v1.591c0 .7316.6305 1.3224 1.4089 1.3224h.6079c.1588 0 .3061.0013.3061.0013.1561 0 .2828-.1194.2828-.2658V8.8237C22 8.0925 21.3692 7.5 20.5921 7.5Z" fill="currentcolor" fill-rule="evenodd"></path>
             </svg>
           </slot>
-          <span class="ld-sidenav-header__slot-wrapper">
+          <span class="ld-sidenav-header__slot-wrapper" part="title">
             <slot></slot>
           </span>
         </a>
@@ -4462,7 +4462,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
     </mock:shadow-root>
     <ld-sidenav-header class="ld-sidenav-header ld-sidenav-header--collapsed" href="#" slot="header">
       <mock:shadow-root>
-        <ld-tooltip class="ld-sidenav-header__tooltip" show-delay="1000">
+        <ld-tooltip class="ld-sidenav-header__tooltip" part="tooltip" show-delay="1000">
           <mock:shadow-root>
             <span aria-describedby="ld-tooltip-1182" class="ld-tooltip__trigger" part="trigger focusable" tabindex="-1" type="button">
               <ld-sr-only>
@@ -4486,17 +4486,17 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               Expand side navigation
             </ld-sr-only>
           </button>
-          <ld-typo>
+          <ld-typo part="tooltip-label">
             Expand side navigation
           </ld-typo>
         </ld-tooltip>
         <a class="ld-sidenav-header__anchor" href="#" part="anchor">
           <slot name="logo">
-            <svg class="ld-sidenav-header__initial-m" fill="none" preserveAspectRatio="xMidYMid meet" viewBox="2 6 20 12">
+            <svg class="ld-sidenav-header__initial-m" fill="none" part="logo" preserveAspectRatio="xMidYMid meet" viewBox="2 6 20 12">
               <path clip-rule="evenodd" d="M20.5921 7.5H19.1a.2955.2955 0 0 0-.1926.0727l-2.9895 2.6378c-1.0241.9043-2.4024 1.412-3.9177 1.412-1.5796 0-3.0088-.5544-4.0444-1.5266 0 0-2.199-1.9406-2.2179-1.958-.422-.369-1.0028-.624-1.6714-.6379h-1.785C2.126 7.5 2 7.6184 2 7.7645v7.4118c0 .7316.6301 1.3237 1.4083 1.3237h.9133c.1564 0 .2831-.1194.2831-.2661l.0007-2.6375c0-.6893.5987-1.2579 1.3204-1.2579 1.3434 0 2.3067 1.0814 3.177 1.8037 1.0661.8849 1.8871 1.7374 2.8974 1.7374 1.0092 0 1.8306-.8525 2.8966-1.7374.8707-.7223 1.834-1.8037 3.1767-1.8037.718 0 1.3137.5629 1.3208 1.2468v1.591c0 .7316.6305 1.3224 1.4089 1.3224h.6079c.1588 0 .3061.0013.3061.0013.1561 0 .2828-.1194.2828-.2658V8.8237C22 8.0925 21.3692 7.5 20.5921 7.5Z" fill="currentcolor" fill-rule="evenodd"></path>
             </svg>
           </slot>
-          <span class="ld-sidenav-header__slot-wrapper">
+          <span class="ld-sidenav-header__slot-wrapper" part="title">
             <slot></slot>
           </span>
         </a>
