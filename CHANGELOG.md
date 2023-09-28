@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.3](https://github.com/emdgroup-liquid/liquid/compare/v5.12.2...v5.12.3) (2023-09-28)
+
+
+### Bug Fixes
+
+* **ld-sidenav:** add shadow parts to sidenav header ([5febf7a](https://github.com/emdgroup-liquid/liquid/commit/5febf7ad204331cbfb0ec23fa1618aeeecf7277e))
+
 ## [5.12.2](https://github.com/emdgroup-liquid/liquid/compare/v5.12.1...v5.12.2) (2023-09-21)
 
 
