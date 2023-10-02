@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.4](https://github.com/emdgroup-liquid/liquid/compare/v5.12.3...v5.12.4) (2023-10-02)
+
+
+### Bug Fixes
+
+* **closest:** account for closest method being undefined on document ([1e7a748](https://github.com/emdgroup-liquid/liquid/commit/1e7a74853e1b7bedbaf7d7f67ffebc100aa3f08f))
+
 ## [5.12.3](https://github.com/emdgroup-liquid/liquid/compare/v5.12.2...v5.12.3) (2023-09-28)
 
 
