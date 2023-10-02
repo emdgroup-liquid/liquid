@@ -1,0 +1,2 @@
+import{r as s,h as t,H as a}from"./p-b9c388ee.js";const e="";const l=class{constructor(t){s(this,t)}render(){return t(a,{role:"tabpanel",class:"ld-tabpanel",tabindex:"-1"},t("slot",null))}};l.style=e;export{l as ld_tabpanel};
+//# sourceMappingURL=p-00de5a07.entry.js.map

@@ -1,2 +1,0 @@
-import{r as s,h as r,H as o}from"./p-4e3fd072.js";const l=".ld-sr-only,:host{clip:rect(0,0,0,0);border-width:0;height:var(--ld-sp-1);overflow:hidden;padding:0;position:absolute;width:var(--ld-sp-1)}";const t=class{constructor(r){s(this,r)}render(){return r(o,{class:"ld-sr-only"},r("slot",null))}};t.style=l;export{t as ld_sr_only};
-//# sourceMappingURL=p-e3a02fad.entry.js.map
