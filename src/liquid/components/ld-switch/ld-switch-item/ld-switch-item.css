@@ -34,7 +34,8 @@
 
     &:where(:disabled),
     &:where(
-        [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+        [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+      ) {
       ~ .ld-switch-item__content {
         opacity: 0.2;
       }
@@ -67,7 +68,9 @@
     &:where(
         :not(
             :disabled,
-            [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']),
+            [aria-disabled]:where(
+                :not([aria-disabled=''], [aria-disabled='false'])
+              ),
             [readonly]
           )
       ) {

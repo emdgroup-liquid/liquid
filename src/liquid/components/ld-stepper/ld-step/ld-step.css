@@ -311,7 +311,8 @@
 
   .ld-step:not(.ld-step--current)
     &:not(
-      [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    ) {
     cursor: pointer;
 
     &:focus {
@@ -343,7 +344,8 @@
      lines above this comment. Thus the color needs to be overwritten explicitly. */
   .ld-step--optional:not(.ld-step--current)
     &:not(
-      [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    ) {
     &:focus {
       + .ld-icon {
         --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-focus);

@@ -178,11 +178,17 @@
   &:where(
       select:not(
           :disabled,
-          [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+          [aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            )
+        )
     ),
   &:where(
       .ld-select__btn-trigger:not(
-          [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+          [aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            )
+        )
     ) {
     cursor: pointer;
   }
@@ -198,10 +204,16 @@
   &:disabled,
   &:disabled + .ld-select__icon,
   &:disabled + .ld-icon,
-  &:where([aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])),
-  &:where([aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+  &:where(
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    ),
+  &:where(
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    )
     + .ld-select__icon,
-  &:where([aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+  &:where(
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    )
     + .ld-icon {
     color: var(--ld-select-col-disabled);
   }
@@ -246,12 +258,17 @@
       &:where(
           .ld-select__btn-trigger--detached:not(
               :disabled,
-              [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+              [aria-disabled]:where(
+                  :not([aria-disabled=''], [aria-disabled='false'])
+                )
+            )
         ),
       &:where(
           :not(
               :disabled,
-              [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']),
+              [aria-disabled]:where(
+                  :not([aria-disabled=''], [aria-disabled='false'])
+                ),
               .ld-select__btn-trigger--detached,
               [aria-expanded='true']
             )
@@ -278,7 +295,10 @@
   &:where(
       :not(
           :disabled,
-          [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+          [aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            )
+        )
     ) {
     &:where(:not(:focus:focus-visible)) {
       background-color: var(--ld-select-invalid-disabled-bg-col);
@@ -437,7 +457,10 @@
   border-radius: var(--ld-br-m);
 
   :where(
-      .ld-select__btn-trigger[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+      .ld-select__btn-trigger[aria-disabled]:where(
+          :not([aria-disabled=''], [aria-disabled='false'])
+        )
+    )
     & {
     background-color: var(--ld-select-col-disabled);
   }
@@ -475,11 +498,17 @@
   pointer-events: none;
 
   :where(
-      select[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+      select[aria-disabled]:where(
+          :not([aria-disabled=''], [aria-disabled='false'])
+        )
+    )
     &,
   :where(select:disabled) &,
   :where(
-      .ld-select__btn-trigger[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+      .ld-select__btn-trigger[aria-disabled]:where(
+          :not([aria-disabled=''], [aria-disabled='false'])
+        )
+    )
     & {
     color: var(--ld-select-col-disabled);
   }
@@ -577,7 +606,8 @@
     .ld-select:not(
         .ld-select--disabled,
         [aria-disabled],
-        [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+        [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+      )
   ) {
   .ld-select__selection-list-more {
     color: var(--ld-select-thm-col);

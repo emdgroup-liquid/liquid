@@ -60,7 +60,8 @@
 
     &:where(:disabled),
     &:where(
-        [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+        [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+      ) {
       ~ .ld-radio__dot {
         background-color: var(--ld-radio-disabled-col);
       }
@@ -79,7 +80,10 @@
     &:where(
         :not(
             :disabled,
-            [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+            [aria-disabled]:where(
+                :not([aria-disabled=''], [aria-disabled='false'])
+              )
+          )
       ) {
       cursor: pointer;
 
@@ -139,7 +143,10 @@
   :where(
       input:not(
           :disabled,
-          input[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+          input[aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            )
+        )
     ) {
     ~ .ld-radio__box {
       background-color: var(--ld-radio-bg-col);
@@ -171,7 +178,9 @@
   :where(input) {
     &:not(
         :disabled,
-        input[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']),
+        input[aria-disabled]:where(
+            :not([aria-disabled=''], [aria-disabled='false'])
+          ),
         :checked
       ) {
       ~ .ld-radio__box {

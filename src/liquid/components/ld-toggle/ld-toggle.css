@@ -54,7 +54,8 @@
 
     &:not(
         :disabled,
-        [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+        [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+      ) {
       cursor: pointer;
     }
 
@@ -62,7 +63,9 @@
       background-color: var(--ld-toggle-checked-bg-col);
 
       &:disabled,
-      &[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']) {
+      &[aria-disabled]:where(
+          :not([aria-disabled=''], [aria-disabled='false'])
+        ) {
         background-color: var(--ld-toggle-disabled-input-bg-col);
       }
 
@@ -82,7 +85,7 @@
     }
 
     &:disabled,
-    &[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']) {
+    &[aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false'])) {
       background-color: var(--ld-toggle-disabled-input-bg-col);
 
       &:checked ~ .ld-toggle__icon-start,
@@ -112,7 +115,10 @@
   input:where(
       :not(
           :disabled,
-          [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+          [aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            )
+        )
     ):invalid {
     background-color: var(--ld-toggle-invalid-input-bg-col);
   }
@@ -153,7 +159,7 @@
     }
 
     &:disabled,
-    &[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']) {
+    &[aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false'])) {
       background-color: var(--ld-toggle-with-icons-disabled-input-bg-col);
 
       ~ .ld-toggle__knob {
