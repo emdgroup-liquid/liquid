@@ -208,14 +208,18 @@
 
   &:where(:disabled),
   &:where(
-      [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    ) {
     opacity: 0.2;
   }
 
   &:where(
       :not(
           :disabled,
-          [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+          [aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            )
+        )
     ) {
     cursor: pointer;
 
@@ -360,7 +364,10 @@
   &:where(
       :not(
           :disabled,
-          [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+          [aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            )
+        )
     ) {
     &:where(:focus:focus-visible) .ld-button__progress::after {
       background-color: var(--ld-button-ghost-progress-color-focus);
@@ -424,7 +431,10 @@
       &:where(
           &:not(
               :disabled,
-              [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+              [aria-disabled]:where(
+                  :not([aria-disabled=''], [aria-disabled='false'])
+                )
+            )
         ) {
         &:where(:focus:focus-visible) {
           color: var(--ld-button-brand-text-color-focus);
@@ -489,7 +499,10 @@
   &:where(
       :not(
           :disabled,
-          [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+          [aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            )
+        )
     ) {
     &:where(:active),
     &:where(:active:focus-visible) {
@@ -514,7 +527,10 @@
   &:where(
       :not(
           :disabled,
-          [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+          [aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            )
+        )
     ) {
     &:where(:focus:focus-visible) {
       .ld-button__progress::after {
@@ -583,7 +599,10 @@
   &:where(
       :not(
           :disabled,
-          [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+          [aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            )
+        )
     ) {
     &:where(:focus:focus-visible) {
       .ld-button__progress::after {

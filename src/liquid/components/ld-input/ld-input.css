@@ -371,13 +371,15 @@
   :host(
       :not(
           .ld-input--invalid,
-          [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']),
+          [aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            ),
           .ld-input--disabled
         ):hover:not(:focus-within)
     ),
   .ld-input:not(
       .ld-input--invalid,
-      [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']),
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false'])),
       .ld-input--disabled
     ):hover:not(:focus-within) {
     &::before {
@@ -406,11 +408,13 @@
 :host(
     .ld-input--invalid:not(
         .ld-input--disabled,
-        [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])):where(:not(:focus))
+        [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+      ):where(:not(:focus))
   ),
 .ld-input--invalid:not(
     .ld-input--disabled,
-    [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])):where(:not(:focus)) {
+    [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+  ):where(:not(:focus)) {
   background-color: var(--ld-input-bg-col-invalid);
   color: var(--ld-input-text-col-invalid);
   -webkit-text-fill-color: var(--ld-input-text-col-invalid);
@@ -419,11 +423,13 @@
 :host(
     .ld-input--invalid:not(
         .ld-input--disabled,
-        [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+        [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+      )
   ),
 .ld-input--invalid:not(
     .ld-input--disabled,
-    [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+    [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+  ) {
   &::before {
     box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-input-text-col-invalid);
   }
@@ -454,11 +460,13 @@
 :host(
     .ld-input--invalid:not(
         .ld-input--disabled,
-        [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])):focus-within
+        [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+      ):focus-within
   ),
 .ld-input--invalid:not(
     .ld-input--disabled,
-    [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])):focus-within {
+    [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+  ):focus-within {
   background-color: var(--ld-input-bg-col-invalid-focus);
 
   > input,
@@ -469,9 +477,11 @@
 }
 
 :host(.ld-input--disabled),
-:host([aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])),
+:host([aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))),
 .ld-input.ld-input--disabled,
-.ld-input[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']) {
+.ld-input[aria-disabled]:where(
+    :not([aria-disabled=''], [aria-disabled='false'])
+  ) {
   color: var(--ld-input-text-col-disabled);
   background-color: var(--ld-input-bg-col-disabled);
 

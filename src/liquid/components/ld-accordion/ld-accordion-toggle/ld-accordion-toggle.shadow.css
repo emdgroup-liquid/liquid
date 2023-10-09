@@ -81,7 +81,8 @@
     )
     & {
     &:not(
-        [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+        [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+      ) {
       &:where(:focus:focus-visible) {
         --ld-accordion-toggle-col: var(--ld-accordion-col-focus);
       }
@@ -97,7 +98,9 @@
     }
   }
 
-  &:not([aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+  &:not(
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    ) {
     .ld-accordion-toggle__trigger {
       color: var(--ld-accordion-trigger-icon-col);
     }
@@ -113,7 +116,9 @@
 button.ld-accordion-toggle__button,
 button.ld-accordion-toggle__label,
 button.ld-accordion-toggle__trigger {
-  &:not([aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+  &:not(
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    ) {
     cursor: pointer;
   }
 }
@@ -147,7 +152,8 @@ button.ld-accordion-toggle__trigger {
 
 .ld-accordion-toggle__label-content {
   .ld-accordion-toggle__label:not(
-      [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    )
     & {
     color: var(--ld-accordion-toggle-col);
   }
@@ -190,12 +196,14 @@ button.ld-accordion-toggle__trigger {
   }
 
   .ld-accordion-toggle__button:not(
-      [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    ) {
     background-color: var(--ld-accordion-bg-col);
   }
 
   .ld-accordion-toggle__label:not(
-      [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    ) {
     &:where(:focus:focus-visible) {
       --ld-accordion-toggle-label-indicator-bg-col: var(
         --ld-accordion-bg-col-focus
@@ -217,7 +225,8 @@ button.ld-accordion-toggle__trigger {
   }
 
   .ld-accordion-toggle__trigger:not(
-      [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
+      [aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false']))
+    ) {
     &:where(:focus:focus-visible) {
       --ld-accordion-toggle-trigger-col: var(--ld-accordion-col-focus);
       --ld-accordion-toggle-trigger-indicator-bg-col: var(

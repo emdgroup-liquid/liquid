@@ -217,14 +217,18 @@
     outline: none;
   }
 
-  &[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']) {
+  &[aria-disabled]:where(:not([aria-disabled=''], [aria-disabled='false'])) {
     svg {
       opacity: 0.25;
     }
   }
 
   &:where(
-      :not([aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+      :not(
+          [aria-disabled]:where(
+              :not([aria-disabled=''], [aria-disabled='false'])
+            )
+        )
     ) {
     cursor: pointer;
 
