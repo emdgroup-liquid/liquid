@@ -34,8 +34,7 @@
   --ld-input-icon-col-focus: var(--ld-thm-primary-focus);
   --ld-input-icon-col-invalid-focus: var(--ld-thm-error-focus);
   --ld-input-icon-col: var(--ld-thm-primary);
-  --ld-input-placeholder-col-invalid: var(--ld-thm-error-focus);
-  --ld-input-placeholder-col: var(--ld-col-neutral-600);
+  --ld-input-placeholder-opacity: 0.6;
   --ld-input-text-col-disabled: var(--ld-col-neutral-300);
   --ld-input-text-col-invalid-focus: var(--ld-col-neutral-900);
   --ld-input-text-col-invalid: var(--ld-thm-error);
@@ -164,7 +163,7 @@
     box-sizing: border-box;
 
     &::placeholder {
-      color: var(--ld-input-placeholder-col);
+      opacity: var(--ld-input-placeholder-opacity);
     }
   }
 
@@ -438,10 +437,6 @@
   > textarea {
     color: var(--ld-input-text-col-invalid);
     -webkit-text-fill-color: var(--ld-input-text-col-invalid);
-
-    &::placeholder {
-      color: var(--ld-input-placeholder-col-invalid);
-    }
   }
 
   > input::-webkit-calendar-picker-indicator {
@@ -450,10 +445,6 @@
     &:focus:focus-visible {
       background: var(--ld-input-icon-col-invalid-focus);
     }
-  }
-
-  .ld-input__placeholder {
-    color: var(--ld-input-placeholder-col-invalid);
   }
 }
 
@@ -494,10 +485,6 @@
     color: var(--ld-input-text-col-disabled);
     caret-color: transparent;
     -webkit-text-fill-color: var(--ld-input-text-col-disabled);
-
-    &::placeholder {
-      opacity: 0.25;
-    }
   }
 
   input::-webkit-calendar-picker-indicator {
@@ -519,18 +506,13 @@
   height: 100%;
   align-items: center;
   pointer-events: none;
-  color: var(--ld-input-placeholder-col);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   right: var(--ld-input-padding-x-md);
   left: var(--ld-input-padding-x-md);
   margin-right: 0;
-
-  :host(.ld-input--disabled) &,
-  .ld-input.ld-input--disabled & {
-    opacity: 0.25;
-  }
+  opacity: var(--ld-input-placeholder-opacity);
 }
 
 .ld-select__slot-container {
