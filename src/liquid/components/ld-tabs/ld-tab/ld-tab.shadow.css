@@ -53,7 +53,7 @@
   box-sizing: border-box;
   margin: 0;
 
-  &[aria-disabled='true'] {
+  &[aria-disabled]:not([aria-disabled='false']) {
     color: var(--ld-tab-disabled-text-col);
     opacity: var(--ld-tab-disabled-opacity);
 
@@ -90,7 +90,7 @@
       color: var(--ld-tab-text-col-focus);
     }
 
-    &[aria-disabled='true'] {
+    &[aria-disabled]:not([aria-disabled='false']) {
       background-color: var(--ld-tab-disabled-bg-col-focus);
       color: var(--ld-tab-disabled-text-col-focus);
     }
@@ -110,7 +110,7 @@
     }
   }
 
-  &:where(:not([aria-disabled='true'])) {
+  &:where(:not([aria-disabled]:not([aria-disabled='false']))) {
     cursor: pointer;
 
     @media (hover: hover) {

@@ -33,7 +33,7 @@
     }
 
     &:where(:disabled),
-    &:where([aria-disabled='true']) {
+    &:where([aria-disabled]:not([aria-disabled='false'])) {
       ~ .ld-switch-item__content {
         opacity: 0.2;
       }
@@ -63,7 +63,13 @@
       }
     }
 
-    &:where(:not(:disabled, [aria-disabled='true'], [readonly])) {
+    &:where(
+        :not(
+            :disabled,
+            [aria-disabled]:not([aria-disabled='false']),
+            [readonly]
+          )
+      ) {
       ~ .ld-switch-item__content {
         cursor: pointer;
 

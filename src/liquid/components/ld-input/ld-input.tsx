@@ -378,6 +378,13 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
         <Host class={cl} onClick={this.handleClick}>
           <textarea
             {...clonedAttributesWithoutType}
+            aria-disabled={
+              this.disabled || isAriaDisabled(this.ariaDisabled)
+                ? 'true'
+                : undefined
+            }
+            disabled={this.disabled}
+            readonly={this.readonly}
             onChange={this.handleChange}
             onInput={this.handleInput}
             part="input focusable"
@@ -399,12 +406,19 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
         <slot name="start"></slot>
         <input
           {...this.clonedAttributes}
+          aria-disabled={
+            this.disabled || isAriaDisabled(this.ariaDisabled)
+              ? 'true'
+              : undefined
+          }
           autocomplete={this.autocomplete}
+          disabled={this.disabled}
           onChange={this.handleChange}
           onInput={this.handleInput}
           onKeyDown={this.handleKeyDown}
           part="input focusable"
           placeholder={this.placeholder}
+          readonly={this.readonly}
           ref={(el) => (this.input = el)}
           tabIndex={this.ldTabindex}
           type={this.type}
