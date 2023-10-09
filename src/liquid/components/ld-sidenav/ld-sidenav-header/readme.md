@@ -122,11 +122,15 @@ If your logo takes up a lot of horizontal space, you can omit the title and use 
 
 ## Shadow Parts
 
-| Part            | Description |
-| --------------- | ----------- |
-| `"anchor"`      |             |
-| `"toggle"`      |             |
-| `"toggle-icon"` |             |
+| Part              | Description |
+| ----------------- | ----------- |
+| `"anchor"`        |             |
+| `"logo"`          |             |
+| `"title"`         |             |
+| `"toggle"`        |             |
+| `"toggle-icon"`   |             |
+| `"tooltip"`       |             |
+| `"tooltip-label"` |             |
 
 
 ## Dependencies
