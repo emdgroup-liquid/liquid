@@ -217,13 +217,15 @@
     outline: none;
   }
 
-  &[aria-disabled]:not([aria-disabled='false']) {
+  &[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']) {
     svg {
       opacity: 0.25;
     }
   }
 
-  &:where(:not([aria-disabled]:not([aria-disabled='false']))) {
+  &:where(
+      :not([aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+    ) {
     cursor: pointer;
 
     @media (hover: hover) {
@@ -257,14 +259,15 @@
   will-change: transform, width;
   z-index: -1;
 
+  /* stylelint-disable plugin/no-low-performance-animation-properties */
   .ld-tablist--initialized & {
-    /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
     transition:
       width var(--ld-tablist-transition-duration) ease,
       transform var(--ld-tablist-transition-duration) ease,
       opacity var(--ld-tablist-transition-duration)
         var(--ld-tablist-transition-duration) linear;
   }
+  /* stylelint-enable plugin/no-low-performance-animation-properties */
 
   .ld-tablist--focus-visible.ld-tablist--selected-focused:focus-within & {
     background-color: var(--ld-thm-primary-focus);
