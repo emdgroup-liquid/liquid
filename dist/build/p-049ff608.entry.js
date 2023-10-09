@@ -1,2 +1,0 @@
-import{r as a,h as s,H as d}from"./p-b9c388ee.js";const r=":host{color:var(--ld-col-neutral-600);display:block;padding:0 var(--ld-sidenav-padding-x)}";const l=class{constructor(s){a(this,s)}render(){return s(d,{class:"ld-sidenav-heading"},s("ld-typo",{variant:"cap-m",part:"typo"},s("slot",null)))}};l.style=r;export{l as ld_sidenav_heading};
-//# sourceMappingURL=p-049ff608.entry.js.map
