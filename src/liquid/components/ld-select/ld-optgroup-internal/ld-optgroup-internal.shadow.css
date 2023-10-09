@@ -83,11 +83,11 @@
     }
   }
 
-  &:not([aria-disabled='true']) {
+  &:not([aria-disabled]:not([aria-disabled='false'])) {
     cursor: pointer;
   }
 
-  &[aria-disabled='true'] {
+  &[aria-disabled]:not([aria-disabled='false']) {
     color: var(--ld-optgroup-disabled-text-col);
   }
 
@@ -110,7 +110,12 @@
     }
   }
 
-  &:where(:not(.ld-optgroup-internal--disabled, [aria-disabled='true'])) {
+  &:where(
+      :not(
+          .ld-optgroup-internal--disabled,
+          [aria-disabled]:not([aria-disabled='false'])
+        )
+    ) {
     :where(.ld-optgroup-internal__check) {
       color: var(--ld-optgroup-thm-col);
     }

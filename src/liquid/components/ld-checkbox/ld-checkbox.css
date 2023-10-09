@@ -71,7 +71,7 @@
     }
 
     &:where(:disabled),
-    &:where([aria-disabled='true']) {
+    &:where([aria-disabled]:not([aria-disabled='false'])) {
       ~ .ld-checkbox__check {
         color: var(--ld-checkbox-disabled-col);
       }
@@ -88,7 +88,7 @@
       }
     }
 
-    &:where(:not(:disabled, [aria-disabled='true'])) {
+    &:where(:not(:disabled, [aria-disabled]:not([aria-disabled='false']))) {
       cursor: pointer;
 
       ~ .ld-checkbox__check {
@@ -144,7 +144,9 @@
     }
   }
 
-  :where(input:not(:disabled, input[aria-disabled='true'])) {
+  :where(
+      input:not(:disabled, input[aria-disabled]:not([aria-disabled='false']))
+    ) {
     ~ .ld-checkbox__box {
       background-color: var(--ld-checkbox-bg-col);
     }
@@ -173,7 +175,11 @@
 .ld-checkbox.ld-checkbox--dark,
 :host(.ld-checkbox.ld-checkbox--dark) {
   :where(input) {
-    &:not(:disabled, input[aria-disabled='true'], :checked) {
+    &:not(
+        :disabled,
+        input[aria-disabled]:not([aria-disabled='false']),
+        :checked
+      ) {
       ~ .ld-checkbox__box {
         background-color: var(--ld-checkbox-dark-bg-col);
       }

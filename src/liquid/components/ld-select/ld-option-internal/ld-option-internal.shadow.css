@@ -82,11 +82,11 @@
     }
   }
 
-  &:not([aria-disabled='true']) {
+  &:not([aria-disabled]:not([aria-disabled='false'])) {
     cursor: pointer;
   }
 
-  &[aria-disabled='true'] {
+  &[aria-disabled]:not([aria-disabled='false']) {
     color: var(--ld-option-disabled-text-col);
   }
 
@@ -112,7 +112,7 @@
     }
   }
 
-  &:where(:not([aria-disabled='true'])) {
+  &:where(:not([aria-disabled]:not([aria-disabled='false']))) {
     :where(.ld-option-internal__check) {
       color: var(--ld-option-thm-col);
     }

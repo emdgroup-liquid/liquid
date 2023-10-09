@@ -52,7 +52,7 @@
     width: 100%;
     z-index: 0;
 
-    &:not(:disabled, [aria-disabled='true']) {
+    &:not(:disabled, [aria-disabled]:not([aria-disabled='false'])) {
       cursor: pointer;
     }
 
@@ -60,7 +60,7 @@
       background-color: var(--ld-toggle-checked-bg-col);
 
       &:disabled,
-      &[aria-disabled='true'] {
+      &[aria-disabled]:not([aria-disabled='false']) {
         background-color: var(--ld-toggle-disabled-input-bg-col);
       }
 
@@ -80,7 +80,7 @@
     }
 
     &:disabled,
-    &[aria-disabled='true'] {
+    &[aria-disabled]:not([aria-disabled='false']) {
       background-color: var(--ld-toggle-disabled-input-bg-col);
 
       &:checked ~ .ld-toggle__icon-start,
@@ -107,7 +107,9 @@
     z-index: 1;
   }
 
-  input:where(:not(:disabled, [aria-disabled='true'])):invalid {
+  input:where(
+      :not(:disabled, [aria-disabled]:not([aria-disabled='false']))
+    ):invalid {
     background-color: var(--ld-toggle-invalid-input-bg-col);
   }
 }
@@ -147,7 +149,7 @@
     }
 
     &:disabled,
-    &[aria-disabled='true'] {
+    &[aria-disabled]:not([aria-disabled='false']) {
       background-color: var(--ld-toggle-with-icons-disabled-input-bg-col);
 
       ~ .ld-toggle__knob {

@@ -309,7 +309,8 @@
   text-align: center;
   text-decoration: none;
 
-  .ld-step:not(.ld-step--current) &:not([aria-disabled='true']) {
+  .ld-step:not(.ld-step--current)
+    &:not([aria-disabled]:not([aria-disabled='false'])) {
     cursor: pointer;
 
     &:focus {
@@ -339,7 +340,8 @@
      But due to a bug (assumably) it inherits the same color than the element it inherits
      the variable assignment from, instead of the color for `--ld-step-dot-col` set a few
      lines above this comment. Thus the color needs to be overwritten explicitly. */
-  .ld-step--optional:not(.ld-step--current) &:not([aria-disabled='true']) {
+  .ld-step--optional:not(.ld-step--current)
+    &:not([aria-disabled]:not([aria-disabled='false'])) {
     &:focus {
       + .ld-icon {
         --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-focus);

@@ -15,7 +15,7 @@
   text-decoration: none;
   touch-action: manipulation;
 
-  &:not([aria-disabled='true']) {
+  &:not([aria-disabled]:not([aria-disabled='false'])) {
     &:hover {
       --ld-link-col: var(--ld-thm-primary-hover);
     }
@@ -29,7 +29,7 @@
     }
   }
 
-  &:where([aria-disabled='true']) {
+  &:where([aria-disabled]:not([aria-disabled='false'])) {
     --ld-link-col: var(--ld-thm-primary);
     cursor: default;
     opacity: 0.3;

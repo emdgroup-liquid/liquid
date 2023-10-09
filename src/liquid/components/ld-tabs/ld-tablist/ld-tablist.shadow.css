@@ -217,13 +217,13 @@
     outline: none;
   }
 
-  &[aria-disabled='true'] {
+  &[aria-disabled]:not([aria-disabled='false']) {
     svg {
       opacity: 0.25;
     }
   }
 
-  &:where(:not([aria-disabled='true'])) {
+  &:where(:not([aria-disabled]:not([aria-disabled='false']))) {
     cursor: pointer;
 
     @media (hover: hover) {
@@ -259,7 +259,8 @@
 
   .ld-tablist--initialized & {
     /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
-    transition: width var(--ld-tablist-transition-duration) ease,
+    transition:
+      width var(--ld-tablist-transition-duration) ease,
       transform var(--ld-tablist-transition-duration) ease,
       opacity var(--ld-tablist-transition-duration)
         var(--ld-tablist-transition-duration) linear;
