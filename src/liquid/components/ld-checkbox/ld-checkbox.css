@@ -71,7 +71,8 @@
     }
 
     &:where(:disabled),
-    &:where([aria-disabled]:not([aria-disabled='false'])) {
+    &:where(
+        [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
       ~ .ld-checkbox__check {
         color: var(--ld-checkbox-disabled-col);
       }
@@ -88,7 +89,11 @@
       }
     }
 
-    &:where(:not(:disabled, [aria-disabled]:not([aria-disabled='false']))) {
+    &:where(
+        :not(
+            :disabled,
+            [aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
+      ) {
       cursor: pointer;
 
       ~ .ld-checkbox__check {
@@ -145,7 +150,9 @@
   }
 
   :where(
-      input:not(:disabled, input[aria-disabled]:not([aria-disabled='false']))
+      input:not(
+          :disabled,
+          input[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']))
     ) {
     ~ .ld-checkbox__box {
       background-color: var(--ld-checkbox-bg-col);
@@ -177,7 +184,7 @@
   :where(input) {
     &:not(
         :disabled,
-        input[aria-disabled]:not([aria-disabled='false']),
+        input[aria-disabled]:not([aria-disabled=''], [aria-disabled='false']),
         :checked
       ) {
       ~ .ld-checkbox__box {

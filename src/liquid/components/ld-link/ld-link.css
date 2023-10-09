@@ -15,7 +15,7 @@
   text-decoration: none;
   touch-action: manipulation;
 
-  &:not([aria-disabled]:not([aria-disabled='false'])) {
+  &:not([aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
     &:hover {
       --ld-link-col: var(--ld-thm-primary-hover);
     }
@@ -29,7 +29,8 @@
     }
   }
 
-  &:where([aria-disabled]:not([aria-disabled='false'])) {
+  &:where(
+      [aria-disabled]:not([aria-disabled=''], [aria-disabled='false'])) {
     --ld-link-col: var(--ld-thm-primary);
     cursor: default;
     opacity: 0.3;
