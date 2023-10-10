@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.5](https://github.com/emdgroup-liquid/liquid/compare/v5.12.4...v5.12.5) (2023-10-10)
+
+
+### Bug Fixes
+
+* css selectors for aria-disabled elements ([462aa5f](https://github.com/emdgroup-liquid/liquid/commit/462aa5f6439b9d1f9b1e4c7671f28f45beb26f3d))
+* **ld-input:** disabled, aria-disabled and readonly props ([2f9d8c1](https://github.com/emdgroup-liquid/liquid/commit/2f9d8c13958b795edd03f46cff636ab3721da6c4)), closes [#973](https://github.com/emdgroup-liquid/liquid/issues/973)
+* **ld-input:** use placeholder opacity instead of color ([ab72034](https://github.com/emdgroup-liquid/liquid/commit/ab72034649f5104f95a35596707b32f4ce4a07a0))
+* make sure css specificity doesn't change for aria-disabled selector ([77cb5fa](https://github.com/emdgroup-liquid/liquid/commit/77cb5fab266207141d48a5c9fe1d6791f72dac4a))
+
 ## [5.12.4](https://github.com/emdgroup-liquid/liquid/compare/v5.12.3...v5.12.4) (2023-10-02)
 
 
