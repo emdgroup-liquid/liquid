@@ -19,6 +19,7 @@ File upload allows the user to upload files.
 <ld-file-upload></ld-file-upload>
 
 <!-- React component -->
+<LdFileUpload />
 
 <!-- CSS component -->
 
@@ -38,6 +39,7 @@ State management such as changing the upload state or progress of a file has to 
   fileSize: number
   fileType: string
   progress: number
+  file: File
 }`) or an array of upload items. For each event, the states need to be changed using methods.
 
 {% example '{ "opened": false }' %}
@@ -49,7 +51,153 @@ State management such as changing the upload state or progress of a file has to 
     const ldUpload = document.currentScript.previousElementSibling
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
-      console.log('ldchoosefiles', ev.detail)
+      /* console.log('ldchoosefiles', ev.detail) */
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      /* console.log('ldfileuploadready', ev.detail) */
+      uploadItems = ev.detail
+      uploadingItems = []
+      for (let item in uploadItems) {
+        /* console.log(item) */
+        newItem = uploadItems[item]
+        /* console.log(newItem) */
+        newItem.state = 'uploading'
+        uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+      uploadItem = ev.detail
+      /* ldUpload.deleteUploadItem(uploadItem) */
+      uploadItem.state = 'cancelled'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- <LdFileUpload
+onLdchoosefiles={async (ev) => {
+uploadItems = ev.detail
+ldUpload.updateUploadItems(uploadItems)
+}}
+
+onLdfileuploadready={async (ev) => {
+uploadItems = ev.detail
+uploadingItems = []
+for (let item in uploadItems) {
+newItem = uploadItems[item]
+newItem.state = 'uploading'
+uploadingItems.push(newItem)
+ldUpload.updateUploadItem(newItem)
+}
+}}
+
+onLduploaditempause={async (ev) => {
+uploadItem = ev.detail
+uploadItem.state = 'paused'
+ldUpload.updateUploadItem(uploadItem)
+}}
+
+onLduploaditemcontinue={async (ev) => {
+uploadItem = ev.detail
+uploadItem.state = 'uploading'
+ldUpload.updateUploadItem(uploadItem)
+}}
+
+onLduploaditemremove={async (ev) => {
+uploadItem = ev.detail
+uploadItem.state = 'cancelled'
+ldUpload.updateUploadItem(uploadItem)
+}}
+
+onLduploaditemdelete={async (ev) => {
+uploadItem = ev.detail
+ldUpload.deleteUploadItem(uploadItem)
+}}
+
+onLduploaditemdeleteall={async (ev) => {
+ldUpload.deleteUploadItems()
+}}
+
+onLdfileuploadpausealluploads={async (ev) => {
+uploadItems = ev.detail
+for (let item in uploadItems) {
+newItem = uploadItems[item]
+newItem.state = 'paused'
+ldUpload.updateUploadItem(newItem)
+}}}
+
+onLdfileuploadcontinueuploads={async (ev) => {
+uploadItems = ev.detail
+for (let item in uploadItems) {
+newItem = uploadItems[item]
+newItem.state = 'uploading'
+ldUpload.updateUploadItem(newItem)
+}
+}}
+
+/> -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+#### Fake Upload
+
+{% example '{ "opened": false }' %}
+<ld-file-upload select-multiple>
+</ld-file-upload>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
       ldUpload.updateUploadItems(uploadItems)
     })
@@ -59,13 +207,76 @@ State management such as changing the upload state or progress of a file has to 
       uploadItems = ev.detail
       uploadingItems = []
       for (let item in uploadItems) {
-        console.log(item)
         newItem = uploadItems[item]
-        console.log(newItem)
         newItem.state = 'uploading'
         uploadingItems.push(newItem)
         ldUpload.updateUploadItem(newItem)
       }
+
+      const files = ev.detail[0].file
+      console.log('files', files)
+
+      /* for (let file in ev.detail) {
+        var files = []
+        files.append(file.file)
+      } */
+
+      const data = new FormData()
+      /* data.append('userfile', files[0]) */
+      /* data.append('userfile', files) */
+      /* for (let file in ev.detail) {
+        console.log('file.file', file.file)
+        console.log('file.file.name', file.file.name)
+        data.append('userfile', file.file, file.file.name)
+      } */
+      console.log('ev.detail.length', ev.detail.length)
+      for (let i = 0; i < ev.detail.length; i++) {
+        console.log('ev.detail[i].file', ev.detail[i].file)
+        console.log('ev.detail[i].file.name', ev.detail[i].file.name)
+        data.append('userfile', ev.detail[i].file, ev.detail[i].file.name)
+      }
+
+      for (const value of data.values()) {
+        console.log('data values', value);
+        }
+
+      console.log('data', data)
+      const requestOptions = {
+        method: 'POST',
+        body: data,
+      }
+      const delay = ms => new Promise(res => setTimeout(res, ms));
+      try {
+        await fetch(/* 'https://api.escuelajs.co/api/v1/files/upload' */ 'https://v2.convertapi.com/upload' , {
+          method: 'POST',
+          body: data,
+        })
+        console.log('File uploaded')
+        // Fake progress, th file is being uploaded but the progress simulated here does not represent the actual progress
+        for (const value of data.values()) {
+          await delay(1000)
+          updatedItem = uploadItems.find((item) => item.fileName === value.name)
+          updatedItem.state = 'uploaded'
+          updatedItem.progress = 100
+          uploadingItems.push(updatedItem)
+          ldUpload.updateUploadItem(updatedItem)
+          }
+      } catch (err) {
+        console.log('File could not be uploaded')
+      }
+
+      /* const requestOptions = {
+        method: 'GET',
+        body: data,
+      } */
+      /* try {
+        await fetch(`https://api.escuelajs.co/api/v1/files/${ev.detail[0].file.name}` , {
+          method: 'GET',
+          body: data,
+        })
+      } catch (err) {
+        console.log('File not found on server')
+      } */
     })
 
     ldUpload.addEventListener('lduploaditempause', async (ev) => {
@@ -149,6 +360,46 @@ State management such as changing the upload state or progress of a file has to 
         newItem.state = 'uploading'
         uploadingItems.push(newItem)
         ldUpload.updateUploadItem(newItem)
+      }
+
+      const files = ev.detail[0].file
+      console.log('files', files)
+
+      const data = new FormData()
+
+      console.log('ev.detail.length', ev.detail.length)
+      for (let i = 0; i < ev.detail.length; i++) {
+        console.log('ev.detail[i].file', ev.detail[i].file)
+        console.log('ev.detail[i].file.name', ev.detail[i].file.name)
+        data.append('userfile', ev.detail[i].file, ev.detail[i].file.name)
+      }
+
+      for (const value of data.values()) {
+        console.log('data values', value);
+        }
+
+      console.log('data', data)
+      const requestOptions = {
+        method: 'POST',
+        body: data,
+      }
+      const delay = ms => new Promise(res => setTimeout(res, ms));
+      try {
+        await fetch(/* 'https://api.escuelajs.co/api/v1/files/upload' */ 'https://v2.convertapi.com/upload' , {
+          method: 'POST',
+          body: data,
+        })
+        console.log('File uploaded')
+        for (const value of data.values()) {
+          await delay(1000)
+          updatedItem = uploadItems.find((item) => item.fileName === value.name)
+          updatedItem.state = 'uploaded'
+          updatedItem.progress = 100
+          uploadingItems.push(updatedItem)
+          ldUpload.updateUploadItem(updatedItem)
+          }
+      } catch (err) {
+        console.log('File could not be uploaded')
       }
     })
 
@@ -993,9 +1244,9 @@ TODO:
 | Event                         | Description | Type                        |
 | ----------------------------- | ----------- | --------------------------- |
 | `ldchoosefiles`               |             | `CustomEvent<UploadItem[]>` |
-| `ldfileuploadcontinueuploads` |             | `CustomEvent<any>`          |
-| `ldfileuploaddeleteall`       |             | `CustomEvent<any>`          |
-| `ldfileuploadpausealluploads` |             | `CustomEvent<any>`          |
+| `ldfileuploadcontinueuploads` |             | `CustomEvent<UploadItem[]>` |
+| `ldfileuploaddeleteall`       |             | `CustomEvent<UploadItem[]>` |
+| `ldfileuploadpausealluploads` |             | `CustomEvent<UploadItem[]>` |
 | `ldfileuploadready`           |             | `CustomEvent<UploadItem[]>` |
 
 

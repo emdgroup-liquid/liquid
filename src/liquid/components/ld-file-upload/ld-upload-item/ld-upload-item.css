@@ -3,7 +3,7 @@
   box-sizing: border-box;
   list-style: none;
   margin: 0;
-  padding: var(--ld-sp-24);
+  padding: var(--ld-sp-16);
   width: 100%;
   display: flex;
   flex-direction: column;

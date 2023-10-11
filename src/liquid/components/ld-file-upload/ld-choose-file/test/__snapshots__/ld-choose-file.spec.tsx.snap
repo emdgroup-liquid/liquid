@@ -7,14 +7,14 @@ exports[`ld-choose-file renders default 1`] = `
       <img alt="" class="ld-choose-file__image" height="122" src="/dist/liquid/assets/file-upload.svg" width="142">
       <div class="ld-choose-file__text">
         <ld-typo variant="h5">
-          Drag your file(s) here or browse
+          Drag your file here or browse
         </ld-typo>
         <ld-typo>
           max. 1.5 mb file size
         </ld-typo>
         <slot></slot>
         <ld-button>
-          Upload a file
+          Select a file
         </ld-button>
       </div>
     </div>

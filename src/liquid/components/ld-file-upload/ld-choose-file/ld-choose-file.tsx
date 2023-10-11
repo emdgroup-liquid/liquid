@@ -213,7 +213,9 @@ export class LdChooseFile {
                   }{' '}
                   of {this.uploadItems.length} file(s) uploaded.
                 </ld-typo>
-                <ld-typo>{calculateProgress()} % uploaded.</ld-typo>
+                <ld-typo>
+                  {(calculateProgress() * 100).toFixed(2)} % uploaded.
+                </ld-typo>
               </Fragment>
             )}
           </div>

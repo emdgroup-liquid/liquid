@@ -26,6 +26,7 @@ export type UploadItem = {
   fileSize: number
   fileType: string
   progress: number
+  file: File
 }
 
 /**
@@ -118,11 +119,11 @@ export class LdFileUpload {
 
   @Event() ldfileuploadready: EventEmitter<UploadItem[]>
 
-  @Event() ldfileuploaddeleteall: EventEmitter
+  @Event() ldfileuploaddeleteall: EventEmitter<UploadItem[]>
 
-  @Event() ldfileuploadpausealluploads: EventEmitter
+  @Event() ldfileuploadpausealluploads: EventEmitter<UploadItem[]>
 
-  @Event() ldfileuploadcontinueuploads: EventEmitter
+  @Event() ldfileuploadcontinueuploads: EventEmitter<UploadItem[]>
 
   /* @Listen('lduploaditempause')
   pauseClickHandler(ev: CustomEvent<UploadItem>) {
@@ -268,7 +269,10 @@ export class LdFileUpload {
   }
 
   @Watch('uploadItems')
-  changeProgressVisualisation() {
+  async changeProgressVisualisation() {
+    if (this.uploadItems.length == 0) {
+      this.continueClicked = false
+    }
     if (this.uploadItems.length == 0 && this.renderOnlyChooseFile == false) {
       this.renderOnlyChooseFile = true
       this.continueClicked = false
@@ -280,6 +284,22 @@ export class LdFileUpload {
       this.uploadItems.length != 0
     ) {
       this.allUploadsFinished = true
+    }
+
+    if (
+      this.uploadItems.filter((item) => item.state == 'uploaded').length ==
+        this.uploadItems.length &&
+      this.uploadItems.length != 0 &&
+      this.circularProgress
+    ) {
+      this.allUploadsFinished = true
+      const delay = (ms) => new Promise((res) => setTimeout(res, ms))
+      await delay(1000)
+      this.uploadItems = []
+      this.renderOnlyChooseFile = true
+      this.continueClicked = false
+      this.renderCircularProgress = false
+      this.allUploadsFinished = false
     }
   }
 
@@ -348,6 +368,7 @@ export class LdFileUpload {
           fileSize: chosenFiles[i].size,
           fileType: chosenFiles[i].type,
           progress: 0,
+          file: chosenFiles[i],
         })
       } else {
         if (
@@ -430,16 +451,6 @@ export class LdFileUpload {
     this.pauseAllClicked = false
   }
 
-  componentWillLoad() {
-    if (this.form) {
-      this.fileInput.setAttribute('form', this.form)
-    }
-
-    if (this.value) {
-      this.fileInput.value = this.value
-    }
-  }
-
   render() {
     const cl = getClassNames([
       'ld-file-upload',
@@ -475,8 +486,8 @@ export class LdFileUpload {
                   ).length != 0 && 'ld-file-upload--circular-progress-error',
                 ])}
                 aria-labelledby="progress-label"
-                aria-valuenow={this.calculateTotalProgress() * 100}
-                /* aria-valuenow="25" */
+                /* aria-valuenow={this.calculateTotalProgress() * 100} */
+                aria-valuenow="25"
               >
                 <ld-typo variant="b6">
                   {(this.calculateTotalProgress() * 100).toFixed(2)}%
