@@ -19,9 +19,8 @@ describe('ld-upload-progress', () => {
       template: () => (
         <ld-upload-progress
           uploadItems={[
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
             {
+              file: undefined,
               state: 'uploading',
               fileName: 'file1.png',
               fileSize: 100000,
