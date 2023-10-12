@@ -7,18 +7,90 @@ const { join, dirname } = require('path')
 const isBin = __filename.endsWith('.cjs')
 const stylesDir = isBin ? './liquid_tmp/styles' : './src/liquid/global/styles'
 
-type TypoToken = {
-  fontFamily: string
-  fontSize: string
-  fontWeight: number
-  lineHeight: string
+type Color = {
+  r: number
+  g: number
+  b: number
+  a: number
+}
+type Offset = {
+  x: number
+  y: number
 }
 
-async function ensureWriteFile(path, data, options) {
+type Fill = {
+  opacity: number
+  type: string
+  color: Color
+}
+
+type Font = {
+  fontFamily: string
+  fontSize: number | string
+  fontWeight: number | string | undefined
+  lineHeight: number | string
+  lineHeightPercentFontSize?: number
+}
+
+type Variant = {
+  id: string
+  name: string
+  type: string
+  children: Variant[]
+  fills: Fill[]
+  style: Font
+  styles: {
+    fill: string
+    text: string
+  }
+  cornerRadius: number
+  effects: {
+    color: Color
+    offset: Offset
+    radius: string
+  }[]
+  absoluteBoundingBox: {
+    width: number
+    height: number
+  }
+}
+
+type Styles = Record<
+  string,
+  {
+    description: string
+    key: string
+    name: string
+    styleType: string
+  }
+>
+
+type Nodes = Record<
+  string,
+  {
+    document: {
+      id: string
+      name: string
+      children: Variant[]
+    }
+    styles: Styles
+  }
+>
+
+type TokenCollection = {
+  themes: Record<string, Record<string, string>>
+  shadows: Record<string, string>
+  spacings: Record<number, string>
+  colors: Record<string, string>
+  typography: Record<string, Font>
+  borderRadii: Record<string, string>
+}
+
+async function ensureWriteFile(path: string, data: string) {
   const dir = dirname(path)
   if (!existsSync(dir)) await mkdir(dir, { recursive: true })
 
-  return writeFile(path, data, options)
+  return writeFile(path, data, 'utf8')
 }
 
 function pxToRem(px: string | number) {
@@ -27,7 +99,7 @@ function pxToRem(px: string | number) {
   return val + 'rem'
 }
 
-function getColorTokenValue(variant, styles) {
+function getColorTokenValue(variant: Variant, styles: Styles) {
   if (variant.styles?.fill) {
     const style = styles[variant.styles.fill]
     const { name, description } = style
@@ -36,7 +108,7 @@ function getColorTokenValue(variant, styles) {
     const referenceName =
       (baseColorName === 'Neutral'
         ? baseColorName
-        : baseColorName.replaceAll(/[a-z]/g, '')
+        : baseColorName['replaceAll'](/[a-z]/g, '')
       ).toLowerCase() +
       (variants.includes('Default')
         ? ''
@@ -49,7 +121,7 @@ function getColorTokenValue(variant, styles) {
   }
 }
 
-function relRGBToAbsRGB(fill) {
+function relRGBToAbsRGB(fill: Fill) {
   const r = Math.round(fill.color.r * 255)
   const g = Math.round(fill.color.g * 255)
   const b = Math.round(fill.color.b * 255)
@@ -58,15 +130,15 @@ function relRGBToAbsRGB(fill) {
   return a === 1 ? `rgb(${r}, ${g}, ${b})` : `rgba(${r}, ${g}, ${b}, ${a})`
 }
 
-function parseThemes(items, styles) {
+function parseThemes(variants: Variant[], styles: Styles) {
   const themes = {}
 
-  items.forEach((item) => {
-    if (!item.name.startsWith('_')) {
+  variants.forEach((variant) => {
+    if (!variant.name.startsWith('_')) {
       const theme = {}
-      const themeName = item.name.toLowerCase().replace(/ /g, '-')
+      const themeName = variant.name.toLowerCase().replace(/ /g, '-')
 
-      const colorGroups = item.children
+      const colorGroups = variant.children
       colorGroups.forEach((colorGroup) => {
         const groupName = colorGroup.name.toLowerCase().replace(/ /g, '-')
         const variants = colorGroup.children
@@ -106,10 +178,10 @@ function parseThemes(items, styles) {
   return themes
 }
 
-function parseBorderRadii(items) {
+function parseBorderRadii(variants: Variant[]) {
   const borderRadii = {}
 
-  items.forEach((item) => {
+  variants.forEach((item) => {
     borderRadii[item.name.toLowerCase()] = item.cornerRadius
       ? pxToRem(item.cornerRadius)
       : '0'
@@ -118,11 +190,11 @@ function parseBorderRadii(items) {
   return borderRadii
 }
 
-function parseShadows(items) {
+function parseShadows(variants: Variant[]) {
   const shadows = {}
 
-  for (const item of items) {
-    shadows[item.name.split(' ')[0].toLowerCase()] = item.effects
+  for (const variant of variants) {
+    shadows[variant.name.split(' ')[0].toLowerCase()] = variant.effects
       .map((effect) => {
         const col = effect.color
         return `${pxToRem(effect.offset.x)} ${pxToRem(
@@ -139,18 +211,18 @@ function parseShadows(items) {
   return shadows
 }
 
-function parseColors(items, styles: { name: string; description: string }[]) {
+function parseColors(variants: Variant[], styles: Styles) {
   const colors = {}
 
-  for (const item of items) {
-    if (item.name.startsWith('_')) {
+  for (const variant of variants) {
+    if (variant.name.startsWith('_')) {
       continue
     }
 
-    if (item.children) {
-      Object.assign(colors, parseColors(item.children, styles))
-    } else if (item.fills?.length && item.styles?.fill) {
-      const style = styles[item.styles.fill]
+    if (variant.children) {
+      Object.assign(colors, parseColors(variant.children, styles))
+    } else if (variant.fills?.length && variant.styles?.fill) {
+      const style = styles[variant.styles.fill]
       const { name, description } = style
       const variants = description.split(', ')
       const pathParts = name.split('/')
@@ -166,7 +238,7 @@ function parseColors(items, styles: { name: string; description: string }[]) {
         colorShortName +
         (defaultOnly ? '' : '-' + rest.join('-')) +
         (variants.includes('Default') ? '/default' : '')
-      const colorValue = relRGBToAbsRGB(item.fills[0])
+      const colorValue = relRGBToAbsRGB(variant.fills[0])
       colors[colorName] = colorValue
     }
   }
@@ -174,17 +246,17 @@ function parseColors(items, styles: { name: string; description: string }[]) {
   return colors
 }
 
-function parseTypography(items, styles) {
-  const typography: Record<string, TypoToken> = {}
+function parseTypography(variants: Variant[], styles: Styles) {
+  const typography: Record<string, Font> = {}
 
-  items.forEach((item) => {
-    const [, styleName] = styles[item.styles.text].name.split('/')
+  variants.forEach((variant) => {
+    const [, styleName] = styles[variant.styles.text].name.split('/')
     const typoName = styleName
       .toLowerCase()
       .replace(/^pg-/, 'body-')
       .replace(/^caption-/, 'cap-')
     const { fontFamily, fontSize, fontWeight, lineHeightPercentFontSize } =
-      item.style
+      variant.style
     const baseFontName =
       fontFamily === 'Merck'
         ? 'MWeb'
@@ -205,12 +277,12 @@ function parseTypography(items, styles) {
   return typography
 }
 
-function parseSpacings(items) {
+function parseSpacings(items: Variant[]) {
   const spacings = {}
 
-  for (const item of items) {
-    spacings[item.name.split('$spacing-')[1]] = pxToRem(
-      item.absoluteBoundingBox.height
+  for (const variant of items) {
+    spacings[variant.name.split('$spacing-')[1]] = pxToRem(
+      variant.absoluteBoundingBox.height
     )
   }
 
@@ -218,8 +290,8 @@ function parseSpacings(items) {
 }
 
 async function getTokensFromFigma(figmaFileURL: string) {
-  let figmaId
-  let nodeId
+  let figmaId: string
+  let nodeId: string
   try {
     const url = new URL(figmaFileURL)
     figmaId = url.pathname.split('/file/')[1].split('/')[0]
@@ -243,10 +315,10 @@ async function getTokensFromFigma(figmaFileURL: string) {
             'X-Figma-Token': process.env.FIGMA_API_KEY,
           },
         },
-        (resp) => {
+        (resp: typeof https.IncomingMessage) => {
           let data = ''
 
-          resp.on('data', (chunk) => {
+          resp.on('data', (chunk: string) => {
             data += chunk
           })
 
@@ -255,40 +327,40 @@ async function getTokensFromFigma(figmaFileURL: string) {
           })
         }
       )
-      .on('error', (err) => {
+      .on('error', (err: unknown) => {
         reject(err)
       })
   })
 
-  const { document, styles } = (result as { nodes }).nodes[nodeId]
-  const { children: figmaData } = document
+  const { document, styles } = (result as { nodes: Nodes }).nodes[nodeId]
+  const { children: variants } = document
 
-  const tokens = {
+  const tokens: TokenCollection = {
     themes: parseThemes(
-      figmaData.find(({ name }) => name === 'Themes').children,
+      variants.find(({ name }) => name === 'Themes').children,
       styles
     ),
     shadows: parseShadows(
-      figmaData.find((child) => child.name === 'Shadows').children
+      variants.find((variant) => variant.name === 'Shadows').children
     ),
     spacings: parseSpacings(
-      figmaData.find((child) => child.name === 'Spacings').children
+      variants.find((variant) => variant.name === 'Spacings').children
     ),
     colors: {
       ...parseColors(
-        figmaData.find((child) => child.name === 'Colors').children,
+        variants.find((variant) => variant.name === 'Colors').children,
         styles
       ),
     },
     typography: parseTypography(
       [
-        ...figmaData.find((child) => child.name === 'Headlines').children,
-        ...figmaData.find((child) => child.name === 'Paragraphs').children,
+        ...variants.find((variant) => variant.name === 'Headlines').children,
+        ...variants.find((variant) => variant.name === 'Paragraphs').children,
       ],
       styles
     ),
     borderRadii: parseBorderRadii(
-      figmaData.find((child) => child.name === 'Border Radius').children
+      variants.find((variant) => variant.name === 'Border Radius').children
     ),
   }
 
@@ -307,7 +379,7 @@ function boxShadowToDropShadow(boxShadow: string): string {
     .join(' ')
 }
 
-function generateShadows(tokens) {
+function generateShadows(tokens: TokenCollection['shadows']) {
   return ensureWriteFile(
     join(stylesDir, 'shadows/shadows.css'),
     '/* autogenerated */\n/* prettier-ignore */\n:root {\n' +
@@ -323,12 +395,11 @@ function generateShadows(tokens) {
             `  --ld-drop-shadow-${key}: ${boxShadowToDropShadow(tokens[key])};`
         )
         .join('\n') +
-      '\n}\n',
-    'utf8'
+      '\n}\n'
   )
 }
 
-function generateColors(colorTokens) {
+function generateColors(colorTokens: TokenCollection['colors']) {
   const colorVariables = []
 
   // Basic colors
@@ -356,12 +427,11 @@ function generateColors(colorTokens) {
     join(stylesDir, 'colors/colors.css'),
     ['/* autogenerated */', ':root {', ...colorVariables.sort(), '}', ''].join(
       '\n'
-    ),
-    'utf8'
+    )
   )
 }
 
-function generateSpacings(tokens) {
+function generateSpacings(tokens: TokenCollection['spacings']) {
   return ensureWriteFile(
     join(stylesDir, 'spacings/spacings.css'),
     '/* autogenerated */\n/* prettier-ignore */\n:root {\n' +
@@ -369,12 +439,11 @@ function generateSpacings(tokens) {
         .sort((key) => parseInt(key))
         .map((key) => `  --ld-sp-${key}: ${tokens[key]};`)
         .join('\n') +
-      '\n}\n',
-    'utf8'
+      '\n}\n'
   )
 }
 
-function generateTheming(themes) {
+function generateTheming(themes: TokenCollection['themes']) {
   const themeColorVariables = []
   const defaultThemeColorVariables = []
   const themeSelectors = []
@@ -424,12 +493,11 @@ function generateTheming(themes) {
       '}',
       ...themeSelectors,
       '',
-    ].join('\n'),
-    'utf8'
+    ].join('\n')
   )
 }
 
-function generateTypography(tokens: TypoToken[]) {
+function generateTypography(tokens: TokenCollection['typography']) {
   const tokenEntries = Object.entries(tokens)
   const [, { fontFamily: bodyFontFamily }] = tokenEntries.find(([key]) =>
     key.startsWith('body')
@@ -461,12 +529,11 @@ function generateTypography(tokens: TypoToken[]) {
           )};`
         })
         .join('\n') +
-      '\n}\n',
-    'utf8'
+      '\n}\n'
   )
 }
 
-function generateBorderRadii(tokens) {
+function generateBorderRadii(tokens: TokenCollection['borderRadii']) {
   return ensureWriteFile(
     join(stylesDir, 'border-radius/border-radius.css'),
     '/* autogenerated */\n/* prettier-ignore */\n:root {\n' +
@@ -474,12 +541,11 @@ function generateBorderRadii(tokens) {
         .sort((key) => parseInt(key))
         .map((key) => `  --ld-br-${key}: ${tokens[key]};`)
         .join('\n') +
-      '\n}\n',
-    'utf8'
+      '\n}\n'
   )
 }
 
-function generateCSSTokenFiles(tokenCollection) {
+function generateCSSTokenFiles(tokenCollection: TokenCollection) {
   return Promise.all([
     generateShadows(tokenCollection.shadows),
     generateColors(tokenCollection.colors),
@@ -490,11 +556,10 @@ function generateCSSTokenFiles(tokenCollection) {
   ])
 }
 
-function generateJSONTokenFile(tokenCollection) {
+function generateJSONTokenFile(tokenCollection: TokenCollection) {
   return ensureWriteFile(
     join(stylesDir, 'design-tokens.json'),
-    JSON.stringify(tokenCollection, null, 2),
-    'utf8'
+    JSON.stringify(tokenCollection, null, 2)
   )
 }
 
