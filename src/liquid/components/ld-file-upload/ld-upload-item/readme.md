@@ -143,6 +143,7 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 | Property       | Attribute       | Description                                                                                                     | Type                                                                                   | Default     |
 | -------------- | --------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----------- |
 | `allowPause`   | `allow-pause`   | allowPause defines whether the user will be able to pause uploads.                                              | `boolean`                                                                              | `undefined` |
+| `file`         | --              |                                                                                                                 | `File`                                                                                 | `undefined` |
 | `fileName`     | `file-name`     | Name of the uploaded file.                                                                                      | `string`                                                                               | `undefined` |
 | `fileSize`     | `file-size`     | Size of the uploaded file in bytes.                                                                             | `number`                                                                               | `undefined` |
 | `fileType`     | `file-type`     | Type of the uploaded file.                                                                                      | `string`                                                                               | `undefined` |
@@ -151,6 +152,7 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 | `ref`          | `ref`           | reference to component                                                                                          | `any`                                                                                  | `undefined` |
 | `showProgress` | `show-progress` | showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button | `boolean`                                                                              | `false`     |
 | `state`        | `state`         | State of the file.                                                                                              | `"cancelled" \| "paused" \| "pending" \| "upload failed" \| "uploaded" \| "uploading"` | `'pending'` |
+| `uploadItems`  | --              | List of files                                                                                                   | `UploadItem[]`                                                                         | `[]`        |
 
 
 ## Dependencies

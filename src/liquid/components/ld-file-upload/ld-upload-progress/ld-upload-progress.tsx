@@ -29,17 +29,20 @@ export class LdUploadProgress {
 
   private renderListItems = () =>
     this.uploadItems.map((item) => (
-      <li>
+      <li key={item.fileName}>
         <ld-upload-item
-          key={item.fileName + '_' + item.fileSize + '_' + item.progress}
+          // key={item.fileName + '_' + item.fileSize + '_' + item.progress}
           state={item.state}
           fileName={item.fileName}
           fileSize={item.fileSize}
           fileType={item.fileType}
           progress={item.progress}
+          file={item.file}
           allowPause={this.allowPause}
           showProgress={this.showProgress}
-        ></ld-upload-item>
+          uploadItems={this.uploadItems}
+          // style={{ height: '7rem' }}
+        />
       </li>
     ))
 

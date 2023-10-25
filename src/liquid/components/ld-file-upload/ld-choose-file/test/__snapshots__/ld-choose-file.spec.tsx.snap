@@ -13,7 +13,7 @@ exports[`ld-choose-file renders default 1`] = `
           max. 1.5 mb file size
         </ld-typo>
         <slot></slot>
-        <ld-button>
+        <ld-button class="ld-choose-file__upload-button">
           Select a file
         </ld-button>
       </div>

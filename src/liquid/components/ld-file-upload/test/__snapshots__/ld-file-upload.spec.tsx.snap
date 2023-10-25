@@ -1,23 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ld-file-upload allows pausing the uploads 1`] = `
-<ld-file-upload allow-pause="" class="ld-file-upload ld-file-upload--only-choose-file">
-  <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" size="bg"></ld-choose-file>
-    <input class="ld-file-upload__input" tabindex="-1" type="file">
-  </mock:shadow-root>
-</ld-file-upload>
-`;
-
-exports[`ld-file-upload allows selection of multiple files 1`] = `
-<ld-file-upload class="ld-file-upload ld-file-upload--only-choose-file" select-multiple="">
-  <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" selectmultiple="" size="bg"></ld-choose-file>
-    <input class="ld-file-upload__input" multiple="" tabindex="-1" type="file">
-  </mock:shadow-root>
-</ld-file-upload>
-`;
-
 exports[`ld-file-upload renders default 1`] = `
 <ld-file-upload class="ld-file-upload ld-file-upload--only-choose-file">
   <mock:shadow-root>
@@ -34,41 +16,5 @@ exports[`ld-file-upload sets custom icons 1`] = `
     <input class="ld-file-upload__input" tabindex="-1" type="file">
   </mock:shadow-root>
   <ld-icon data-upload-icon="application/pdf" name="pdf" size="lg" slot="icons"></ld-icon>
-</ld-file-upload>
-`;
-
-exports[`ld-file-upload sets maximum file size 1`] = `
-<ld-file-upload class="ld-file-upload ld-file-upload--only-choose-file" max-size="500">
-  <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" size="bg"></ld-choose-file>
-    <input class="ld-file-upload__input" tabindex="-1" type="file">
-  </mock:shadow-root>
-</ld-file-upload>
-`;
-
-exports[`ld-file-upload shows circular progress 1`] = `
-<ld-file-upload circular-progress="" class="ld-file-upload ld-file-upload--only-choose-file">
-  <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" size="bg"></ld-choose-file>
-    <input class="ld-file-upload__input" tabindex="-1" type="file">
-  </mock:shadow-root>
-</ld-file-upload>
-`;
-
-exports[`ld-file-upload shows progress bars for files 1`] = `
-<ld-file-upload class="ld-file-upload ld-file-upload--only-choose-file" show-progress="">
-  <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" size="bg"></ld-choose-file>
-    <input class="ld-file-upload__input" tabindex="-1" type="file">
-  </mock:shadow-root>
-</ld-file-upload>
-`;
-
-exports[`ld-file-upload starts upload immediately after choosing files 1`] = `
-<ld-file-upload class="ld-file-upload ld-file-upload--only-choose-file" start-upload="">
-  <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" size="bg" start-upload=""></ld-choose-file>
-    <input class="ld-file-upload__input" tabindex="-1" type="file">
-  </mock:shadow-root>
 </ld-file-upload>
 `;

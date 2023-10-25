@@ -161,7 +161,7 @@ export class LdFileUpload {
     }
   }
 
-  @Listen('ldfileuploadready')
+  /* @Listen('ldfileuploadready')
   updateFileTypes() {
     const fileListArray = Array.from(this.fileList)
     fileListArray.forEach((file) =>
@@ -170,7 +170,7 @@ export class LdFileUpload {
         fileType: file.type,
       })
     )
-  }
+  } */
 
   @Listen('ldfileuploadready')
   /** After the ldfileuploadready event is emitted, the list of all chosen files is cleared */
@@ -292,6 +292,13 @@ export class LdFileUpload {
       this.uploadItems.length != 0 &&
       this.circularProgress
     ) {
+      console.log({
+        uploadedItems:
+          this.uploadItems.filter((item) => item.state == 'uploaded').length ==
+          this.uploadItems.length,
+        uploadItemslength: this.uploadItems.length != 0,
+        cicularProgress: this.circularProgress,
+      })
       this.allUploadsFinished = true
       const delay = (ms) => new Promise((res) => setTimeout(res, ms))
       await delay(1000)
@@ -371,7 +378,7 @@ export class LdFileUpload {
           file: chosenFiles[i],
         })
       } else {
-        if (
+        /* if (
           this.chosenFiles.some(
             (chosenFile) => chosenFile.fileName == chosenFiles[i].name
           ) ||
@@ -387,7 +394,7 @@ export class LdFileUpload {
         }
         if (chosenFiles[i].size > this.maxSize && this.maxSize != undefined) {
           this.exceedMaxSize.push(chosenFiles[i].name)
-        }
+        } */
       }
     }
   }
@@ -486,8 +493,8 @@ export class LdFileUpload {
                   ).length != 0 && 'ld-file-upload--circular-progress-error',
                 ])}
                 aria-labelledby="progress-label"
-                /* aria-valuenow={this.calculateTotalProgress() * 100} */
-                aria-valuenow="25"
+                aria-valuenow={this.calculateTotalProgress() * 100}
+                /* aria-valuenow="25" */
               >
                 <ld-typo variant="b6">
                   {(this.calculateTotalProgress() * 100).toFixed(2)}%
@@ -497,7 +504,7 @@ export class LdFileUpload {
               <ld-typo variant="h5">
                 Uploading {this.uploadItems.length} files
               </ld-typo>
-              <ld-typo>
+              <ld-typo class="ld-file-upload__circular-progress-total-upload-size">
                 {this.bytesToSize(
                   this.uploadItems.reduce(
                     (partialSum, file) => partialSum + file.fileSize,
@@ -540,6 +547,26 @@ export class LdFileUpload {
       )
     }
 
+    const progress =
+      this.showProgress &&
+      this.continueClicked &&
+      this.uploadItems.filter(
+        (item) =>
+          item.state == 'pending' ||
+          item.state == 'paused' ||
+          item.state == 'uploading'
+      ).length != 0
+        ? this.calculateTotalProgress()
+        : !this.showProgress &&
+          this.continueClicked &&
+          this.uploadItems.filter(
+            (item) =>
+              item.state == 'pending' ||
+              item.state == 'paused' ||
+              item.state == 'uploading'
+          ).length != 0
+        ? 'pending'
+        : undefined
     return (
       <Host class={cl}>
         <ld-choose-file
@@ -577,33 +604,23 @@ export class LdFileUpload {
               startUpload={false}
               allowPause={this.allowPause}
               showProgress={this.showProgress}
-            />
+              // style={{
+              //   height:
+              //     this.uploadItems.length == 1
+              //       ? '7rem'
+              //       : this.uploadItems.length == 2
+              //       ? '14rem'
+              //       : this.uploadItems.length == 3
+              //       ? '21rem'
+              //       : '22rem',
+              // }}
+            ></ld-upload-progress>
             {!this.startUpload && (
               <ld-button
                 class="ld-file-upload__continue-button"
                 onClick={this.handleContinueClick}
                 /* disabled={this.continueClicked} */
-                progress={
-                  this.showProgress &&
-                  this.continueClicked &&
-                  this.uploadItems.filter(
-                    (item) =>
-                      item.state == 'pending' ||
-                      item.state == 'paused' ||
-                      item.state == 'uploading'
-                  ).length != 0
-                    ? this.calculateTotalProgress()
-                    : !this.showProgress &&
-                      this.continueClicked &&
-                      this.uploadItems.filter(
-                        (item) =>
-                          item.state == 'pending' ||
-                          item.state == 'paused' ||
-                          item.state == 'uploading'
-                      ).length != 0
-                    ? 'pending'
-                    : undefined
-                }
+                progress={progress}
               >
                 {!this.continueClicked
                   ? 'Start upload'

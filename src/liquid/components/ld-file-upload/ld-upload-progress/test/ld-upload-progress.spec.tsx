@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdUploadProgress } from '../ld-upload-progress'
+import '../../../../utils/mutationObserver'
 import { h } from '@stencil/core'
 
 describe('ld-upload-progress', () => {
@@ -31,6 +32,8 @@ describe('ld-upload-progress', () => {
         ></ld-upload-progress>
       ),
     })
-    expect(page.root).toMatchSnapshot()
+
+    const listItems = page.root.shadowRoot.querySelectorAll('li')
+    expect(listItems.length).toEqual(1)
   })
 })

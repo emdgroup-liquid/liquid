@@ -193,7 +193,10 @@ export class LdChooseFile {
                 </ld-typo>
                 <ld-typo>max. 1.5 mb file size</ld-typo>
                 <slot></slot>
-                <ld-button onClick={this.handleUploadClick}>
+                <ld-button
+                  class="ld-choose-file__upload-button"
+                  onClick={this.handleUploadClick}
+                >
                   {this.startUpload
                     ? this.selectMultiple
                       ? 'Upload file(s)'

@@ -9,6 +9,7 @@ import {
 } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
 import { closest } from '../../../utils/closest'
+import type { UploadItem } from '../ld-file-upload'
 
 /**
  * @virtualProp ref - reference to component
@@ -57,6 +58,11 @@ export class LdUploadItem {
   /** Upload progress in percent. */
   @Prop() progress?: number = 0
 
+  @Prop() file?: File
+
+  /** List of files */
+  @Prop() uploadItems: UploadItem[] = []
+
   /**
    * @internal
    * Emitted on pause button click.
@@ -100,6 +106,7 @@ export class LdUploadItem {
       fileSize: this.fileSize,
       fileType: this.fileType,
       progress: this.progress,
+      file: this.file,
     })
   }
 
@@ -110,6 +117,7 @@ export class LdUploadItem {
       fileSize: this.fileSize,
       fileType: this.fileType,
       progress: this.progress,
+      file: this.file,
     })
   }
 
@@ -120,6 +128,7 @@ export class LdUploadItem {
       fileSize: this.fileSize,
       fileType: this.fileType,
       progress: this.progress,
+      file: this.file,
     })
   }
 
@@ -130,6 +139,7 @@ export class LdUploadItem {
       fileSize: this.fileSize,
       fileType: this.fileType,
       progress: this.progress,
+      file: this.file,
     })
   }
 
@@ -140,6 +150,7 @@ export class LdUploadItem {
       fileSize: this.fileSize,
       fileType: this.fileType,
       progress: this.progress,
+      file: this.file,
     })
   }
 
@@ -150,6 +161,7 @@ export class LdUploadItem {
       fileSize: this.fileSize,
       fileType: this.fileType,
       progress: this.progress,
+      file: this.file,
     })
   }
 
@@ -182,19 +194,18 @@ export class LdUploadItem {
       clonedIcon.style.height = 'auto' */
       // this.customIcon = <div class="ld-upload-item__icon">{clonedIcon}</div>
       this.el.appendChild(clonedIcon)
-    } /* else {
-      // this.customIcon = (
-      //   <ld-icon
-      //     class="ld-upload-item__icon"
-      //     name="documents"
-      //     size="lg"
-      //   ></ld-icon>
-      // )
-      this.el.appendChild(
-        <ld-icon slot="icons" name="documents" size="lg"></ld-icon>
-      )
-    } */
-
+      // } else {
+      //   // this.customIcon = (
+      //   //   <ld-icon
+      //   //     class="ld-upload-item__icon"
+      //   //     name="documents"
+      //   //     size="lg"
+      //   //   ></ld-icon>
+      //   // )
+      //   this.el.appendChild(
+      //     <ld-icon slot="icons" name="documents" size="lg"></ld-icon>
+      //   )
+    }
     /* if (customIcon) {
       this.customIcon = customIcon.cloneNode(true) as HTMLElement
     } */
@@ -230,15 +241,11 @@ export class LdUploadItem {
               <ld-icon name="documents" size="lg"></ld-icon>
             )}
           </div> */}
-          {
-            <div class="ld-upload-item__icon">
-              <slot name="icons">
-                <pre>
-                  <ld-icon name="documents" size="lg"></ld-icon>
-                </pre>
-              </slot>
-            </div>
-          }
+          <div class="ld-upload-item__icon">
+            <slot name="icons">
+              <ld-icon name="documents" size="lg"></ld-icon>
+            </slot>
+          </div>
 
           <div class="ld-upload-item__file-details">
             <ld-typo class="ld-upload-item__file-name" variant="h5">
@@ -260,6 +267,7 @@ export class LdUploadItem {
             {this.state == 'uploading' && this.allowPause ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
+                  class="ld-upload-item__pause-button"
                   mode="ghost"
                   size="sm"
                   onClick={this.pauseClick}
@@ -278,6 +286,7 @@ export class LdUploadItem {
             {this.state == 'paused' && this.allowPause ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
+                  class="ld-upload-item__continue-button"
                   mode="ghost"
                   size="sm"
                   onClick={this.continueUploadClick}
@@ -298,6 +307,7 @@ export class LdUploadItem {
             this.state == 'uploading' ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
+                  class="ld-upload-item__remove-button"
                   mode="ghost"
                   size="sm"
                   onClick={this.removeClick}
@@ -316,6 +326,7 @@ export class LdUploadItem {
             {this.state == 'uploaded' ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
+                  class="ld-upload-item__download-button"
                   mode="ghost"
                   size="sm"
                   onClick={this.downloadClick}
@@ -331,9 +342,12 @@ export class LdUploadItem {
                 <ld-typo>Download</ld-typo>
               </ld-tooltip>
             ) : undefined}
-            {this.state == 'upload failed' ? (
+            {this.state == 'upload failed' &&
+            this.uploadItems.filter((item) => item.state == 'uploading')
+              .length == 0 ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
+                  class="ld-upload-item__retry-button"
                   mode="ghost"
                   size="sm"
                   onClick={this.retryClick}
@@ -354,6 +368,7 @@ export class LdUploadItem {
             this.state == 'upload failed' ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
+                  class="ld-upload-item__delete-button"
                   mode="ghost"
                   size="sm"
                   onClick={this.deleteClick}

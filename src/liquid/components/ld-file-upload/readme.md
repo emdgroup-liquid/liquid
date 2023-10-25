@@ -187,6 +187,612 @@ ldUpload.updateUploadItem(newItem)
 
 {% endexample %}
 
+#### Upload with XMLHttpRequest
+
+{% example '{ "opened": false }' %}
+<ld-file-upload select-multiple show-progress style="width: 30rem">
+</ld-file-upload>
+
+<!-- style="width: 30rem, height: 50rem"> -->
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      uploadItems = ev.detail
+      // uploadingItems = []
+      for (let item in uploadItems) {
+        console.log("item in uploadItems:", item)
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        // uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+        file = uploadItems[item].file
+        console.log("file:", file)
+
+        const xhr = new XMLHttpRequest()
+        const success = await new Promise((resolve) => {
+          xhr.upload.addEventListener("progress", (event) => {
+            if (event.lengthComputable) {
+              console.log("upload progress:", event.loaded / event.total)
+              // uploadProgress.value = event.loaded / event.total
+              newItem = uploadItems[item]
+              newItem.progress = event.loaded / event.total * 100
+              ldUpload.updateUploadItem(newItem)
+            }
+          });
+          xhr.addEventListener("loadend", () => {
+            // console.log("xhr.response:", xhr.response)
+            resolve(xhr.readyState === 4 && xhr.status === 200)
+          })
+          ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+            uploadItem = ev.detail
+            /* ldUpload.deleteUploadItem(uploadItem) */
+            if (uploadItem.fileName == uploadItems[item].fileName) {
+              newItem = uploadItems[item]
+              newItem.state = 'cancelled'
+              ldUpload.updateUploadItem(newItem)
+              xhr.abort(ev.detail.file)
+            }
+            // uploadItem.state = 'cancelled'
+            // ldUpload.updateUploadItem(uploadItem)
+            // xhr.abort(ev.detail.file)
+          })
+          // ldUpload.addEventListener('lduploaditemdownload', async (ev) => {
+          //   uploadItem = ev.detail
+          //   if (uploadItem.fileName == uploadItems[item].fileName) {
+          //     // location.replace("https://liquid.merck.design/liquid/")
+          //     window.open("https://liquid.merck.design/liquid/")
+          //   }
+          // })
+          xhr.open("PUT", "https://httpbin.org/put", true)
+          xhr.setRequestHeader("Content-Type", "application/octet-stream")
+          xhr.send(file)
+        })
+        console.log("success:", success)
+        // success2 = Math.floor(Math.random() * 2) == 1 ? true : false
+        if (success) {
+          newItem = uploadItems[item]
+        newItem.state = 'uploaded'
+        ldUpload.updateUploadItem(newItem)
+        } else if (uploadItems[item].state != 'cancelled') {
+          newItem = uploadItems[item]
+        newItem.state = "upload failed"
+        ldUpload.updateUploadItem(newItem)
+        }
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditemdownload', async (ev) => {
+      uploadItem = ev.detail
+      // location.replace("https://liquid.merck.design/liquid/")
+      window.open("https://liquid.merck.design/liquid/")
+    })
+
+    ldUpload.addEventListener('lduploaditemretry', async (ev) => {
+      uploadItem = ev.detail
+      uploadItems = []
+      uploadItems.push(uploadItem)
+      event = new CustomEvent('ldfileuploadready', { detail: uploadItems });
+      ldUpload.dispatchEvent(event)
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    // ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+    //   uploadItem = ev.detail
+    //   /* ldUpload.deleteUploadItem(uploadItem) */
+    //   uploadItem.state = 'cancelled'
+    //   ldUpload.updateUploadItem(uploadItem)
+    //   xhr.abort(ev.detail.file)
+    // })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+#### Upload with XMLHttpRequest with random success
+
+{% example '{ "opened": false }' %}
+<ld-file-upload select-multiple show-progress style="width: 30rem">
+</ld-file-upload>
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      uploadItems = ev.detail
+      // uploadingItems = []
+      for (let item in uploadItems) {
+        console.log("item in uploadItems:", item)
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        // uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+        file = uploadItems[item].file
+        console.log("file:", file)
+
+        const xhr = new XMLHttpRequest()
+        const success = await new Promise((resolve) => {
+          xhr.upload.addEventListener("progress", (event) => {
+            if (event.lengthComputable) {
+              console.log("upload progress:", event.loaded / event.total)
+              // uploadProgress.value = event.loaded / event.total
+              newItem = uploadItems[item]
+              newItem.progress = event.loaded / event.total * 100
+              ldUpload.updateUploadItem(newItem)
+            }
+          });
+          xhr.addEventListener("loadend", () => {
+            // console.log("xhr.response:", xhr.response)
+            resolve(xhr.readyState === 4 && xhr.status === 200)
+          })
+          ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+            uploadItem = ev.detail
+            /* ldUpload.deleteUploadItem(uploadItem) */
+            if (uploadItem.fileName == uploadItems[item].fileName) {
+              newItem = uploadItems[item]
+              newItem.state = 'cancelled'
+              ldUpload.updateUploadItem(newItem)
+              xhr.abort(ev.detail.file)
+            }
+            // uploadItem.state = 'cancelled'
+            // ldUpload.updateUploadItem(uploadItem)
+            // xhr.abort(ev.detail.file)
+          })
+          // ldUpload.addEventListener('lduploaditemdownload', async (ev) => {
+          //   uploadItem = ev.detail
+          //   if (uploadItem.fileName == uploadItems[item].fileName) {
+          //     // location.replace("https://liquid.merck.design/liquid/")
+          //     window.open("https://liquid.merck.design/liquid/")
+          //   }
+          // })
+          xhr.open("PUT", "https://httpbin.org/put", true)
+          xhr.setRequestHeader("Content-Type", "application/octet-stream")
+          xhr.send(file)
+        })
+        console.log("success:", success)
+        success2 = Math.floor(Math.random() * 2) == 1 ? true : false
+        if (success2) {
+          newItem = uploadItems[item]
+        newItem.state = 'uploaded'
+        ldUpload.updateUploadItem(newItem)
+        } else if (uploadItems[item].state != 'cancelled') {
+          newItem = uploadItems[item]
+        newItem.state = "upload failed"
+        ldUpload.updateUploadItem(newItem)
+        }
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditemdownload', async (ev) => {
+      uploadItem = ev.detail
+      // location.replace("https://liquid.merck.design/liquid/")
+      window.open("https://liquid.merck.design/liquid/")
+    })
+
+    ldUpload.addEventListener('lduploaditemretry', async (ev) => {
+      uploadItem = ev.detail
+      uploadItems = []
+      uploadItems.push(uploadItem)
+      event = new CustomEvent('ldfileuploadready', { detail: uploadItems });
+      ldUpload.dispatchEvent(event)
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    // ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+    //   uploadItem = ev.detail
+    //   /* ldUpload.deleteUploadItem(uploadItem) */
+    //   uploadItem.state = 'cancelled'
+    //   ldUpload.updateUploadItem(uploadItem)
+    //   xhr.abort(ev.detail.file)
+    // })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+#### Upload with XMLHttpRequest, starting upload immediately
+
+{% example '{ "opened": false }' %}
+<ld-file-upload select-multiple show-progress start-upload style="width: 30rem">
+</ld-file-upload>
+
+<!-- style="width: 30rem, height: 50rem"> -->
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      uploadItems = ev.detail
+      // uploadingItems = []
+      for (let item in uploadItems) {
+        console.log("item in uploadItems:", item)
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        // uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+        file = uploadItems[item].file
+        console.log("file:", file)
+
+        const xhr = new XMLHttpRequest()
+        const success = await new Promise((resolve) => {
+          xhr.upload.addEventListener("progress", (event) => {
+            if (event.lengthComputable) {
+              console.log("upload progress:", event.loaded / event.total)
+              // uploadProgress.value = event.loaded / event.total
+              newItem = uploadItems[item]
+              newItem.progress = event.loaded / event.total * 100
+              ldUpload.updateUploadItem(newItem)
+            }
+          });
+          xhr.addEventListener("loadend", () => {
+            // console.log("xhr.response:", xhr.response)
+            resolve(xhr.readyState === 4 && xhr.status === 200)
+          })
+          ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+            uploadItem = ev.detail
+            /* ldUpload.deleteUploadItem(uploadItem) */
+            if (uploadItem.fileName == uploadItems[item].fileName) {
+              newItem = uploadItems[item]
+              newItem.state = 'cancelled'
+              ldUpload.updateUploadItem(newItem)
+              xhr.abort(ev.detail.file)
+            }
+            // uploadItem.state = 'cancelled'
+            // ldUpload.updateUploadItem(uploadItem)
+            // xhr.abort(ev.detail.file)
+          })
+          // ldUpload.addEventListener('lduploaditemdownload', async (ev) => {
+          //   uploadItem = ev.detail
+          //   if (uploadItem.fileName == uploadItems[item].fileName) {
+          //     // location.replace("https://liquid.merck.design/liquid/")
+          //     window.open("https://liquid.merck.design/liquid/")
+          //   }
+          // })
+          xhr.open("PUT", "https://httpbin.org/put", true)
+          xhr.setRequestHeader("Content-Type", "application/octet-stream")
+          xhr.send(file)
+        })
+        console.log("success:", success)
+        // success2 = Math.floor(Math.random() * 2) == 1 ? true : false
+        if (success) {
+          newItem = uploadItems[item]
+        newItem.state = 'uploaded'
+        ldUpload.updateUploadItem(newItem)
+        } else if (uploadItems[item].state != 'cancelled') {
+          newItem = uploadItems[item]
+        newItem.state = "upload failed"
+        ldUpload.updateUploadItem(newItem)
+        }
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditemdownload', async (ev) => {
+      uploadItem = ev.detail
+      // location.replace("https://liquid.merck.design/liquid/")
+      window.open("https://liquid.merck.design/liquid/")
+    })
+
+    ldUpload.addEventListener('lduploaditemretry', async (ev) => {
+      uploadItem = ev.detail
+      uploadItems = []
+      uploadItems.push(uploadItem)
+      event = new CustomEvent('ldfileuploadready', { detail: uploadItems });
+      ldUpload.dispatchEvent(event)
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    // ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+    //   uploadItem = ev.detail
+    //   /* ldUpload.deleteUploadItem(uploadItem) */
+    //   uploadItem.state = 'cancelled'
+    //   ldUpload.updateUploadItem(uploadItem)
+    //   xhr.abort(ev.detail.file)
+    // })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
+#### Upload with XMLHttpRequest with circular progress
+
+{% example '{ "opened": false }' %}
+<ld-file-upload select-multiple show-progress circular-progress style="width: 30rem">
+</ld-file-upload>
+
+<!-- style="width: 30rem, height: 50rem"> -->
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      uploadItems = ev.detail
+      ldUpload.updateUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      console.log('ldfileuploadready', ev.detail)
+      uploadItems = ev.detail
+      // uploadingItems = []
+      for (let item in uploadItems) {
+        console.log("item in uploadItems:", item)
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        // uploadingItems.push(newItem)
+        ldUpload.updateUploadItem(newItem)
+        file = uploadItems[item].file
+        console.log("file:", file)
+
+        const xhr = new XMLHttpRequest()
+        const success = await new Promise((resolve) => {
+          xhr.upload.addEventListener("progress", (event) => {
+            if (event.lengthComputable) {
+              console.log("upload progress:", event.loaded / event.total)
+              // uploadProgress.value = event.loaded / event.total
+              newItem = uploadItems[item]
+              newItem.progress = event.loaded / event.total * 100
+              ldUpload.updateUploadItem(newItem)
+            }
+          });
+          xhr.addEventListener("loadend", () => {
+            // console.log("xhr.response:", xhr.response)
+            resolve(xhr.readyState === 4 && xhr.status === 200)
+          })
+          ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+            uploadItem = ev.detail
+            /* ldUpload.deleteUploadItem(uploadItem) */
+            if (uploadItem.fileName == uploadItems[item].fileName) {
+              newItem = uploadItems[item]
+              newItem.state = 'cancelled'
+              ldUpload.updateUploadItem(newItem)
+              xhr.abort(ev.detail.file)
+            }
+            // uploadItem.state = 'cancelled'
+            // ldUpload.updateUploadItem(uploadItem)
+            // xhr.abort(ev.detail.file)
+          })
+          // ldUpload.addEventListener('lduploaditemdownload', async (ev) => {
+          //   uploadItem = ev.detail
+          //   if (uploadItem.fileName == uploadItems[item].fileName) {
+          //     // location.replace("https://liquid.merck.design/liquid/")
+          //     window.open("https://liquid.merck.design/liquid/")
+          //   }
+          // })
+          xhr.open("PUT", "https://httpbin.org/put", true)
+          xhr.setRequestHeader("Content-Type", "application/octet-stream")
+          xhr.send(file)
+        })
+        console.log("success:", success)
+        // success2 = Math.floor(Math.random() * 2) == 1 ? true : false
+        if (success) {
+          newItem = uploadItems[item]
+        newItem.state = 'uploaded'
+        ldUpload.updateUploadItem(newItem)
+        } else if (uploadItems[item].state != 'cancelled') {
+          newItem = uploadItems[item]
+        newItem.state = "upload failed"
+        ldUpload.updateUploadItem(newItem)
+        }
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditemdownload', async (ev) => {
+      uploadItem = ev.detail
+      // location.replace("https://liquid.merck.design/liquid/")
+      window.open("https://liquid.merck.design/liquid/")
+    })
+
+    ldUpload.addEventListener('lduploaditemretry', async (ev) => {
+      uploadItem = ev.detail
+      uploadItems = []
+      uploadItems.push(uploadItem)
+      event = new CustomEvent('ldfileuploadready', { detail: uploadItems });
+      ldUpload.dispatchEvent(event)
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    // ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+    //   uploadItem = ev.detail
+    //   /* ldUpload.deleteUploadItem(uploadItem) */
+    //   uploadItem.state = 'cancelled'
+    //   ldUpload.updateUploadItem(uploadItem)
+    //   xhr.abort(ev.detail.file)
+    // })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<!-- CSS component -->
+
+{% endexample %}
+
 #### Fake Upload
 
 {% example '{ "opened": false }' %}
@@ -390,14 +996,14 @@ ldUpload.updateUploadItem(newItem)
           body: data,
         })
         console.log('File uploaded')
-        for (const value of data.values()) {
-          await delay(1000)
+        /* for (const value of data.values()) {
+          await delay(5000)
           updatedItem = uploadItems.find((item) => item.fileName === value.name)
           updatedItem.state = 'uploaded'
           updatedItem.progress = 100
           uploadingItems.push(updatedItem)
           ldUpload.updateUploadItem(updatedItem)
-          }
+          } */
       } catch (err) {
         console.log('File could not be uploaded')
       }
