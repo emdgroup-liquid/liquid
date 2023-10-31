@@ -8,7 +8,6 @@ updates:
       - dependency-name: 'jest'
       - dependency-name: 'jest-cli'
     groups:
-      production-dependencies:
-        dependency-type: 'production'
-      development-dependencies:
-        dependency-type: 'development'
+      update-types:
+        - 'minor'
+        - 'patch'
