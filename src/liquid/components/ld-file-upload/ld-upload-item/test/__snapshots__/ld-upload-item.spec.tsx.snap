@@ -3,7 +3,7 @@
 exports[`ld-upload-item clones custom icon 1`] = `
 <ld-file-upload class="ld-file-upload ld-file-upload--only-choose-file">
   <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" size="bg"></ld-choose-file>
+    <ld-choose-file class="ld-file-upload__choose-file" maxsize="1572864" size="bg"></ld-choose-file>
     <input class="ld-file-upload__input" tabindex="-1" type="file">
   </mock:shadow-root>
   <ld-icon data-upload-icon="application/pdf" name="pdf" size="lg" slot="icons"></ld-icon>
@@ -49,7 +49,7 @@ exports[`ld-upload-item renders default 1`] = `
 exports[`ld-upload-item renders with custom icon 1`] = `
 <ld-file-upload class="ld-file-upload">
   <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" size="sm"></ld-choose-file>
+    <ld-choose-file class="ld-file-upload__choose-file" maxsize="1572864" size="sm"></ld-choose-file>
     <ld-upload-progress class="ld-file-upload__progress">
       <mock:shadow-root>
         <ul class="ld-upload-progress">
@@ -140,7 +140,7 @@ exports[`ld-upload-item renders with custom icon 1`] = `
     <ld-button class="ld-file-upload__delete-button" mode="secondary">
       Delete all files
     </ld-button>
-    <input class="ld-file-upload__input" tabindex="-1" type="file">
+    <input class="ld-file-upload__input" tabindex="-1" type="file" value="null">
   </mock:shadow-root>
   <ld-icon data-upload-icon="application/pdf" name="pdf" size="lg" slot="icons"></ld-icon>
   <ld-icon data-upload-icon="text/rtf" name="document" size="lg" slot="icons"></ld-icon>

@@ -9,9 +9,7 @@ exports[`ld-choose-file renders default 1`] = `
         <ld-typo variant="h5">
           Drag your file here or browse
         </ld-typo>
-        <ld-typo>
-          max. 1.5 mb file size
-        </ld-typo>
+        <ld-typo></ld-typo>
         <slot></slot>
         <ld-button class="ld-choose-file__upload-button">
           Select a file

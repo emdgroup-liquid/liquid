@@ -27,6 +27,18 @@ export class LdUploadProgress {
   /** List of files */
   @Prop() uploadItems: UploadItem[] = []
 
+  /** Label to be used for the tooltip of the remove button. */
+  @Prop() labelTooltipRemove = `Remove`
+
+  /** Label to be used for the tooltip of the download button. */
+  @Prop() labelTooltipDownload = `Download`
+
+  /** Label to be used for the tooltip of the retry button. */
+  @Prop() labelTooltipRetry = `Retry`
+
+  /** Label to be used for the tooltip of the delete button. */
+  @Prop() labelTooltipDelete = `Delete`
+
   private renderListItems = () =>
     this.uploadItems.map((item) => (
       <li key={item.fileName}>
@@ -41,7 +53,10 @@ export class LdUploadProgress {
           allowPause={this.allowPause}
           showProgress={this.showProgress}
           uploadItems={this.uploadItems}
-          // style={{ height: '7rem' }}
+          labelTooltipRemove={this.labelTooltipRemove}
+          labelTooltipDownload={this.labelTooltipDownload}
+          labelTooltipRetry={this.labelTooltipRetry}
+          labelTooltipDelete={this.labelTooltipDelete}
         />
       </li>
     ))

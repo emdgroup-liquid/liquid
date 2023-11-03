@@ -26,13 +26,13 @@ export class LdChooseFile {
   @Element() el: HTMLLdChooseFileElement
 
   /** Max. file size in bytes */
-  @Prop() maxSize?: number = 1572864
+  @Prop() maxSize?: number
 
   /** startUpload defines whether upload starts immediately after choosing files or after confirmation. */
   @Prop() startUpload?: boolean = false
 
-  /** contineClicked defines whether the continue button has been clicked while startUpload = false */
-  @Prop() continueClicked?: boolean = false
+  /** contineClicked defines whether start upload button has been clicked while startUpload = false */
+  @Prop() startUploadClicked?: boolean = false
 
   /** selectMultiple defines whether selection of multiple input files is allowed. */
   @Prop() selectMultiple?: boolean = false
@@ -72,6 +72,37 @@ export class LdChooseFile {
   /** Size of the choose file area */
   @Prop() size?: 'sm' | 'bg' = 'bg'
 
+  /** Label to be used as a header with instructions for drag and drop or file upload. */
+  @Prop() labelDragInstructions = `Drag your file${
+    this.selectMultiple ? '(s)' : ''
+  } here or browse`
+
+  /** Label to be used to describe upload constraints like the maximum file size. */
+  @Prop() labelUploadConstraints = `${
+    this.maxSize !== undefined ? 'max. $maxSize file size' : ''
+  }`
+
+  /** Label to be used for the select files button. */
+  @Prop() labelSelectFile = `Select ${this.selectMultiple ? '' : 'a'} file${
+    this.selectMultiple ? '(s)' : ''
+  }`
+
+  /** Label to be used for the upload files button. */
+  @Prop() labelUploadFile = `Upload ${this.selectMultiple ? '' : 'a'} file${
+    this.selectMultiple ? '(s)' : ''
+  }`
+
+  /** Label to be used for the upload state header. */
+  @Prop() labelUploadState = `Upload state:`
+
+  /** Label to be used to count the amount of files that have been uploaded. */
+  @Prop() labelUploadCount = `$filesUploaded of $filesTotal file${
+    this.selectMultiple ? 's' : ''
+  } uploaded.`
+
+  /** Label to be used to show the total upload percentage. */
+  @Prop() labelUploadPercentage = `$uploadProgress % uploaded.`
+
   /** Represents whether a file is currently being dragged over the drop area */
   @State() highlighted? = false
 
@@ -83,6 +114,21 @@ export class LdChooseFile {
   /** Emitted on upload click. */
   @Event() lduploadclick: EventEmitter
 
+  private bytesToSize = (bytes: number) => {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
+
+    let sizeIndex = 0
+
+    while (bytes >= 1024 && sizeIndex < sizes.length - 1) {
+      bytes /= 1024
+      sizeIndex++
+    }
+
+    const roundedSize = Number(bytes.toFixed(2))
+
+    return roundedSize + ' ' + sizes[sizeIndex]
+  }
+
   private handleUploadClick = () => {
     this.lduploadclick.emit()
   }
@@ -93,7 +139,7 @@ export class LdChooseFile {
     const fileList = ev.dataTransfer.files
     if (
       (this.selectMultiple || (!this.selectMultiple && fileList.length <= 1)) &&
-      (this.startUpload || (!this.startUpload && !this.continueClicked))
+      (this.startUpload || (!this.startUpload && !this.startUploadClicked))
     ) {
       this.highlighted = true
     }
@@ -105,7 +151,7 @@ export class LdChooseFile {
     const fileList = ev.dataTransfer.files
     if (
       (this.selectMultiple || (!this.selectMultiple && fileList.length <= 1)) &&
-      (this.startUpload || (!this.startUpload && !this.continueClicked))
+      (this.startUpload || (!this.startUpload && !this.startUploadClicked))
     ) {
       this.highlighted = true
     }
@@ -128,7 +174,7 @@ export class LdChooseFile {
 
     if (
       (this.selectMultiple || (!this.selectMultiple && fileList.length <= 1)) &&
-      (this.startUpload || (!this.startUpload && !this.continueClicked))
+      (this.startUpload || (!this.startUpload && !this.startUploadClicked))
     ) {
       this.ldchoosefiles.emit(fileList)
     }
@@ -184,40 +230,83 @@ export class LdChooseFile {
 
           <div class="ld-choose-file__text">
             {this.startUpload ||
-            (!this.startUpload && !this.continueClicked) ? (
+            (!this.startUpload && !this.startUploadClicked) ? (
               <Fragment>
-                <ld-typo variant="h5">
+                {/* <ld-typo variant="h5">
                   {this.selectMultiple
                     ? 'Drag your file(s) here or browse'
                     : 'Drag your file here or browse'}
-                </ld-typo>
-                <ld-typo>max. 1.5 mb file size</ld-typo>
+                </ld-typo> */}
+                <ld-typo variant="h5">{this.labelDragInstructions}</ld-typo>
+                {/* {this.maxSize != null ? (
+                  <ld-typo>
+                    max. {this.bytesToSize(this.maxSize)} file size
+                  </ld-typo>
+                ) : (
+                  // <ld-typo></ld-typo>
+                  // undefined
+                  <slot name="upload-constraints"></slot>
+                )} */}
+                {this.labelUploadConstraints != '' ? (
+                  <ld-typo>
+                    {this.labelUploadConstraints.replace(
+                      '$maxSize',
+                      this.bytesToSize(this.maxSize)
+                    )}
+                  </ld-typo>
+                ) : undefined}
+                {/* <ld-typo>max. 1.5 mb file size</ld-typo> */}
+                {/* <ld-typo>
+                  max. {this.bytesToSize(this.maxSize)} file size
+                </ld-typo> */}
                 <slot></slot>
                 <ld-button
                   class="ld-choose-file__upload-button"
                   onClick={this.handleUploadClick}
                 >
-                  {this.startUpload
+                  {/* {this.startUpload
                     ? this.selectMultiple
                       ? 'Upload file(s)'
                       : 'Upload a file'
                     : this.selectMultiple
                     ? 'Select file(s)'
-                    : 'Select a file'}
+                    : 'Select a file'} */}
+                  {this.startUpload
+                    ? this.labelUploadFile
+                    : this.labelSelectFile}
                 </ld-button>
               </Fragment>
             ) : (
               <Fragment>
-                <ld-typo variant="h5">Upload state:</ld-typo>
-                <ld-typo>
+                {/* <ld-typo variant="h5">Upload state:</ld-typo> */}
+                <ld-typo variant="h5">{this.labelUploadState}</ld-typo>
+                {/* <ld-typo>
                   {
                     this.uploadItems.filter((item) => item.state == 'uploaded')
                       .length
                   }{' '}
                   of {this.uploadItems.length} file(s) uploaded.
-                </ld-typo>
+                </ld-typo> */}
                 <ld-typo>
+                  {this.labelUploadCount
+                    .replace(
+                      '$filesUploaded',
+                      String(
+                        this.uploadItems.filter(
+                          (item) => item.state == 'uploaded'
+                        ).length
+                      )
+                    )
+                    .replace('$filesTotal', String(this.uploadItems.length))}
+                </ld-typo>
+                {/* <ld-typo>
                   {(calculateProgress() * 100).toFixed(2)} % uploaded.
+                </ld-typo> */}
+                <ld-typo>
+                  {this.labelUploadPercentage.replace(
+                    '$uploadProgress',
+                    String((calculateProgress() * 100).toFixed(2))
+                  )}
                 </ld-typo>
               </Fragment>
             )}

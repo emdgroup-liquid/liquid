@@ -21,7 +21,7 @@
   flex-direction: row;
   gap: var(--ld-sp-40);
   align-items: center;
-  margin: var(--ld-sp-16) var(--ld-sp-40) var(--ld-sp-16) var(--ld-sp-40);
+  margin: var(--ld-sp-24) var(--ld-sp-40) var(--ld-sp-24) var(--ld-sp-40);
   justify-content: center;
 
   .ld-choose-file__image {
@@ -39,10 +39,13 @@
 }
 
 .ld-choose-file__text {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-sp-8);
+  /* display: grid;
+  grid-template-rows: 1fr 1fr 1fr; */
   align-items: center;
-  grid-gap: var(--ld-sp-8);
+  /* grid-gap: var(--ld-sp-8); */
   justify-items: center;
   position: relative;
   text-align: center;

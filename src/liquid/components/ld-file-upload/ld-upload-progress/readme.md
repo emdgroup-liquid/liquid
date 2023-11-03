@@ -15,7 +15,7 @@ The `ld-upload-progress` component is used internally for the `ld-file-upload`. 
 
 ### Default
 
-{% example '{ "opened": true }' %}
+{% example '{ "opened": false }' %}
 <ld-upload-progress>
 </ld-upload-progress>
 
@@ -91,7 +91,7 @@ The `ld-upload-progress` component is used internally for the `ld-file-upload`. 
 
 ### Allow pause
 
-{% example '{ "opened": true }' %}
+{% example '{ "opened": false }' %}
 <ld-upload-progress allow-pause>
 </ld-upload-progress>
 
@@ -262,14 +262,18 @@ The `ld-upload-progress` component is used internally for the `ld-file-upload`. 
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                     | Type           | Default     |
-| -------------- | --------------- | --------------------------------------------------------------------------------------------------------------- | -------------- | ----------- |
-| `allowPause`   | `allow-pause`   | allowPause defines whether the user will be able to pause uploads.                                              | `boolean`      | `undefined` |
-| `ref`          | `ref`           | reference to component                                                                                          | `any`          | `undefined` |
-| `showProgress` | `show-progress` | showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button | `boolean`      | `false`     |
-| `size`         | `size`          | Size of the context menu.                                                                                       | `"lg" \| "sm"` | `undefined` |
-| `startUpload`  | `start-upload`  | startUpload defines whether upload starts immediately after choosing files or after confirmation.               | `boolean`      | `false`     |
-| `uploadItems`  | --              | List of files                                                                                                   | `UploadItem[]` | `[]`        |
+| Property               | Attribute                | Description                                                                                                     | Type           | Default      |
+| ---------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| `allowPause`           | `allow-pause`            | allowPause defines whether the user will be able to pause uploads.                                              | `boolean`      | `undefined`  |
+| `labelTooltipDelete`   | `label-tooltip-delete`   | Label to be used for the tooltip of the delete button.                                                          | `string`       | ``Delete``   |
+| `labelTooltipDownload` | `label-tooltip-download` | Label to be used for the tooltip of the download button.                                                        | `string`       | ``Download`` |
+| `labelTooltipRemove`   | `label-tooltip-remove`   | Label to be used for the tooltip of the remove button.                                                          | `string`       | ``Remove``   |
+| `labelTooltipRetry`    | `label-tooltip-retry`    | Label to be used for the tooltip of the retry button.                                                           | `string`       | ``Retry``    |
+| `ref`                  | `ref`                    | reference to component                                                                                          | `any`          | `undefined`  |
+| `showProgress`         | `show-progress`          | showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button | `boolean`      | `false`      |
+| `size`                 | `size`                   | Size of the context menu.                                                                                       | `"lg" \| "sm"` | `undefined`  |
+| `startUpload`          | `start-upload`           | startUpload defines whether upload starts immediately after choosing files or after confirmation.               | `boolean`      | `false`      |
+| `uploadItems`          | --                       | List of files                                                                                                   | `UploadItem[]` | `[]`         |
 
 
 ## Dependencies

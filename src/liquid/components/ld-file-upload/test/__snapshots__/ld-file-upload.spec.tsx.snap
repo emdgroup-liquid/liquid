@@ -3,7 +3,7 @@
 exports[`ld-file-upload renders default 1`] = `
 <ld-file-upload class="ld-file-upload ld-file-upload--only-choose-file">
   <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" size="bg"></ld-choose-file>
+    <ld-choose-file class="ld-file-upload__choose-file" maxsize="1572864" size="bg"></ld-choose-file>
     <input class="ld-file-upload__input" tabindex="-1" type="file">
   </mock:shadow-root>
 </ld-file-upload>
@@ -12,7 +12,7 @@ exports[`ld-file-upload renders default 1`] = `
 exports[`ld-file-upload sets custom icons 1`] = `
 <ld-file-upload class="ld-file-upload ld-file-upload--only-choose-file">
   <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" size="bg"></ld-choose-file>
+    <ld-choose-file class="ld-file-upload__choose-file" maxsize="1572864" size="bg"></ld-choose-file>
     <input class="ld-file-upload__input" tabindex="-1" type="file">
   </mock:shadow-root>
   <ld-icon data-upload-icon="application/pdf" name="pdf" size="lg" slot="icons"></ld-icon>
