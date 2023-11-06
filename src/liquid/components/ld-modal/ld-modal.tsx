@@ -9,8 +9,8 @@ import {
   Method,
   Prop,
   Watch,
-} from '@stencil/core'
-import { getClassNames } from '../../utils/getClassNames'
+} from "@stencil/core";
+import { getClassNames } from "../../utils/getClassNames";
 
 /**
  * @virtualProp ref - reference to component
@@ -21,55 +21,55 @@ import { getClassNames } from '../../utils/getClassNames'
  * @part header - `header` element
  */
 @Component({
-  tag: 'ld-modal',
-  styleUrl: 'ld-modal.css',
+  tag: "ld-modal",
+  styleUrl: "ld-modal.css",
   shadow: true,
 })
 export class LdModal {
-  @Element() el: HTMLElement
-  private dialogRef: HTMLDialogElement
+  @Element() el: HTMLElement;
+  private dialogRef: HTMLDialogElement;
 
   /** The modal is cancelable by default. However, you can change this using this prop. */
-  @Prop() cancelable? = true
+  @Prop() cancelable? = true;
 
   /** Indicates that the modal dialog is active and can be interacted with. */
-  @Prop({ mutable: true, reflect: true }) open?: boolean
+  @Prop({ mutable: true, reflect: true }) open?: boolean;
 
   /** Use a blurry backdrop. */
-  @Prop() blurryBackdrop? = false
+  @Prop() blurryBackdrop? = false;
 
   /** Emitted when modal is opening (before transition). */
-  @Event() ldmodalopening: EventEmitter
+  @Event() ldmodalopening: EventEmitter;
 
   /** Emitted when modal has opened (after transition). */
-  @Event() ldmodalopened: EventEmitter
+  @Event() ldmodalopened: EventEmitter;
 
   /** Emitted when modal is closing (before transition). */
-  @Event() ldmodalclosing: EventEmitter
+  @Event() ldmodalclosing: EventEmitter;
 
   /** Emitted when modal has closed (after transition). */
-  @Event() ldmodalclosed: EventEmitter
+  @Event() ldmodalclosed: EventEmitter;
 
   /** Opens the modal dialog. */
   @Method()
   async showModal() {
-    this.open = true
+    this.open = true;
   }
 
   /** Closes the modal dialog. */
   @Method()
   async close() {
-    this.open = false
+    this.open = false;
   }
 
-  @Listen('keydown', { passive: true, target: 'window' })
+  @Listen("keydown", { passive: true, target: "window" })
   handleKeyDown(ev: KeyboardEvent) {
-    if (ev.key === 'Escape' && this.cancelable) {
-      this.open = false
+    if (ev.key === "Escape" && this.cancelable) {
+      this.open = false;
     }
   }
 
-  @Watch('open')
+  @Watch("open")
   onOpenChange(open: boolean) {
     // Calling the showModal and close methods on the dialog element here
     // is super important, because these make the native focus trap and
@@ -78,58 +78,58 @@ export class LdModal {
     if (open) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      this.dialogRef.showModal()
-      this.ldmodalopening.emit()
+      this.dialogRef.showModal();
+      this.ldmodalopening.emit();
     } else {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      this.dialogRef.close()
-      this.ldmodalclosing.emit()
+      this.dialogRef.close();
+      this.ldmodalclosing.emit();
     }
   }
 
   private handleClose = () => {
     // When the dialog is closed with the Esc key we need to
     // update the open prop explicitly.
-    this.open = false
-  }
+    this.open = false;
+  };
 
   private handleCancel = (ev: Event) => {
     if (!this.cancelable) {
-      ev.preventDefault()
+      ev.preventDefault();
     }
-  }
+  };
 
   private handleClick = (ev: MouseEvent) => {
-    if (this.cancelable && (ev.target as HTMLElement).tagName === 'DIALOG') {
-      this.close()
+    if (this.cancelable && (ev.target as HTMLElement).tagName === "DIALOG") {
+      this.close();
     }
-  }
+  };
 
   private handleTransitionEnd = () => {
     if (this.open) {
-      this.ldmodalopened.emit()
+      this.ldmodalopened.emit();
     } else {
-      this.ldmodalclosed.emit()
+      this.ldmodalclosed.emit();
     }
-  }
+  };
 
   componentDidLoad() {
-    this.dialogRef.addEventListener('cancel', this.handleCancel)
+    this.dialogRef.addEventListener("cancel", this.handleCancel);
   }
 
   disconnectedCallback() {
     /* istanbul ignore if */
     if (this.dialogRef) {
-      this.dialogRef.removeEventListener('cancel', this.handleCancel)
+      this.dialogRef.removeEventListener("cancel", this.handleCancel);
     }
   }
 
   render() {
     const cl = getClassNames([
-      'ld-modal',
-      this.blurryBackdrop && 'ld-modal--blurry-backdrop',
-    ])
+      "ld-modal",
+      this.blurryBackdrop && "ld-modal--blurry-backdrop",
+    ]);
 
     return (
       <Host class={cl}>
@@ -159,6 +159,6 @@ export class LdModal {
           </footer>
         </dialog>
       </Host>
-    )
+    );
   }
 }

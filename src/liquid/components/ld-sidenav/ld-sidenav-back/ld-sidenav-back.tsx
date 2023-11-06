@@ -8,49 +8,49 @@ import {
   Method,
   Prop,
   State,
-} from '@stencil/core'
-import { getClassNames } from '../../../utils/getClassNames'
-import { closest } from '../../../utils/closest'
+} from "@stencil/core";
+import { getClassNames } from "../../../utils/getClassNames";
+import { closest } from "../../../utils/closest";
 
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
 @Component({
-  tag: 'ld-sidenav-back',
-  styleUrl: 'ld-sidenav-back.shadow.css',
+  tag: "ld-sidenav-back",
+  styleUrl: "ld-sidenav-back.shadow.css",
   shadow: true,
 })
 export class LdSidenavBack {
-  @Element() el: HTMLElement
-  private sidenav: HTMLLdSidenavElement
+  @Element() el: HTMLElement;
+  private sidenav: HTMLLdSidenavElement;
 
   /** Emitted on click. */
-  @Event() ldSidenavBack: EventEmitter
+  @Event() ldSidenavBack: EventEmitter;
 
   /** Used as aria-label for the back button */
-  @Prop() backLabel? = 'Back'
+  @Prop() backLabel? = "Back";
 
-  @State() parentLabel = ''
-  @State() rounded = false
-  @State() sidenavCollapsed: boolean
-  @State() sidenavClosable: boolean
+  @State() parentLabel = "";
+  @State() rounded = false;
+  @State() sidenavCollapsed: boolean;
+  @State() sidenavClosable: boolean;
 
-  @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
+  @Listen("ldSidenavCollapsedChange", { target: "window", passive: true })
   handleSidenavCollapsedChange(
     ev: CustomEvent<{
-      collapsed: boolean
-      fully: boolean
-    }>
+      collapsed: boolean;
+      fully: boolean;
+    }>,
   ) {
-    if (ev.target !== this.sidenav) return
-    this.sidenavCollapsed = ev.detail.collapsed
+    if (ev.target !== this.sidenav) return;
+    this.sidenavCollapsed = ev.detail.collapsed;
   }
 
-  @Listen('ldSidenavBreakpointChange', { target: 'window', passive: true })
+  @Listen("ldSidenavBreakpointChange", { target: "window", passive: true })
   handleSidenavBreakpointChange(ev) {
-    if (ev.target !== this.sidenav) return
-    this.sidenavClosable = ev.detail
+    if (ev.target !== this.sidenav) return;
+    this.sidenavClosable = ev.detail;
   }
 
   /**
@@ -59,39 +59,39 @@ export class LdSidenavBack {
    */
   @Method()
   async updateLabel(text?: string) {
-    this.parentLabel = text || ''
+    this.parentLabel = text || "";
   }
 
   private onClick = () => {
-    this.ldSidenavBack.emit()
-  }
+    this.ldSidenavBack.emit();
+  };
 
   private onKeyDown = (ev) => {
-    if ([' ', 'Enter'].includes(ev.key)) {
-      ev.preventDefault()
-      this.ldSidenavBack.emit()
+    if ([" ", "Enter"].includes(ev.key)) {
+      ev.preventDefault();
+      this.ldSidenavBack.emit();
     }
-  }
+  };
 
   componentWillLoad() {
-    this.sidenav = closest('ld-sidenav', this.el)
-    this.rounded = !!this.el.querySelector('ld-sidenav-navitem[rounded]')
+    this.sidenav = closest("ld-sidenav", this.el);
+    this.rounded = !!this.el.querySelector("ld-sidenav-navitem[rounded]");
   }
 
   render() {
     const cl = getClassNames([
-      'ld-sidenav-back',
-      this.parentLabel && 'ld-sidenav-back--is-back',
-      this.rounded && 'ld-sidenav-back--rounded',
+      "ld-sidenav-back",
+      this.parentLabel && "ld-sidenav-back--is-back",
+      this.rounded && "ld-sidenav-back--rounded",
       this.sidenavCollapsed &&
         !this.sidenavClosable &&
-        'ld-sidenav-back--collapsed',
-    ])
+        "ld-sidenav-back--collapsed",
+    ]);
 
     return (
       <div
         tabIndex={this.parentLabel ? 0 : undefined}
-        role={this.parentLabel ? 'button' : undefined}
+        role={this.parentLabel ? "button" : undefined}
         aria-label={this.backLabel}
         class={cl}
         onClick={this.onClick}
@@ -123,6 +123,6 @@ export class LdSidenavBack {
           <slot></slot>
         </div>
       </div>
-    )
+    );
   }
 }

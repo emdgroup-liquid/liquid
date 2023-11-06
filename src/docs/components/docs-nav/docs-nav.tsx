@@ -1,35 +1,35 @@
-import { Component, h, Host, State, Listen, Element } from '@stencil/core'
-import eventBus from '../../utils/eventBus'
-import { NavEventType } from '../../utils/eventTypes'
+import { Component, h, Host, State, Listen, Element } from "@stencil/core";
+import eventBus from "../../utils/eventBus";
+import { NavEventType } from "../../utils/eventTypes";
 
 /** @internal **/
 @Component({
-  tag: 'docs-nav',
-  styleUrl: 'docs-nav.css',
+  tag: "docs-nav",
+  styleUrl: "docs-nav.css",
   shadow: false,
-  assetsDirs: ['assets'],
+  assetsDirs: ["assets"],
 })
 export class DocsNav {
-  @Element() el: HTMLElement
+  @Element() el: HTMLElement;
 
-  @State() isNavOpen = false
+  @State() isNavOpen = false;
 
   private onNavOpen() {
-    this.isNavOpen = true
-    document.getElementById('main').setAttribute('inert', 'true')
+    this.isNavOpen = true;
+    document.getElementById("main").setAttribute("inert", "true");
   }
   private onNavClose() {
-    this.isNavOpen = false
-    document.getElementById('main').removeAttribute('inert')
+    this.isNavOpen = false;
+    document.getElementById("main").removeAttribute("inert");
   }
 
-  @Listen('resize', { target: 'window' })
+  @Listen("resize", { target: "window" })
   handleResize() {
-    const isNarrow = window.matchMedia('(max-width: 52rem)').matches
+    const isNarrow = window.matchMedia("(max-width: 52rem)").matches;
     if (!isNarrow) {
-      document.getElementById('main').removeAttribute('inert')
+      document.getElementById("main").removeAttribute("inert");
     } else if (this.isNavOpen) {
-      document.getElementById('main').setAttribute('inert', 'true')
+      document.getElementById("main").setAttribute("inert", "true");
     }
   }
 
@@ -37,32 +37,32 @@ export class DocsNav {
    * This click handler is needed on mobile safari.
    * @param ev
    */
-  @Listen('click', { capture: false })
+  @Listen("click", { capture: false })
   handleClick(ev) {
-    const closestLink = ev.target.closest('.docs-nav__li a')
+    const closestLink = ev.target.closest(".docs-nav__li a");
     if (closestLink) {
-      window.location.href = closestLink.href
+      window.location.href = closestLink.href;
     }
   }
 
   componentWillLoad() {
     // Make sure the sidenav-open hash is removed on page reload
     // when the sidenav is open.
-    if (location.hash === '#sidenav-open') {
-      location.hash = ''
+    if (location.hash === "#sidenav-open") {
+      location.hash = "";
       setTimeout(() => {
-        history.replaceState({}, '', window.location.pathname)
-      })
+        history.replaceState({}, "", window.location.pathname);
+      });
     }
   }
 
   componentDidLoad() {
-    eventBus.on(NavEventType.open, this.onNavOpen.bind(this))
-    eventBus.on(NavEventType.close, this.onNavClose.bind(this))
+    eventBus.on(NavEventType.open, this.onNavOpen.bind(this));
+    eventBus.on(NavEventType.close, this.onNavClose.bind(this));
 
     // Scroll current nav item into view.
-    const link = this.el.querySelector(`[href='${location.pathname}']`)
-    link?.scrollIntoView({ block: 'center' })
+    const link = this.el.querySelector(`[href='${location.pathname}']`);
+    link?.scrollIntoView({ block: "center" });
   }
 
   render() {
@@ -117,6 +117,6 @@ export class DocsNav {
           </div>
         </div>
       </Host>
-    )
+    );
   }
 }

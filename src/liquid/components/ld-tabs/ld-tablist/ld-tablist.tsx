@@ -7,9 +7,9 @@ import {
   Prop,
   State,
   Watch,
-} from '@stencil/core'
-import { getClassNames } from '../../../utils/getClassNames'
-import { isInnerFocusable } from '../../../utils/focus'
+} from "@stencil/core";
+import { getClassNames } from "../../../utils/getClassNames";
+import { isInnerFocusable } from "../../../utils/focus";
 
 /**
  * @virtualProp ref - reference to component
@@ -25,92 +25,92 @@ import { isInnerFocusable } from '../../../utils/focus'
  * @part wrapper - Container wrapping the arrows and the scroll-container
  */
 @Component({
-  tag: 'ld-tablist',
-  styleUrl: 'ld-tablist.shadow.css',
+  tag: "ld-tablist",
+  styleUrl: "ld-tablist.shadow.css",
   shadow: true,
 })
 export class LdTablist {
-  @Element() el: HTMLElement
+  @Element() el: HTMLElement;
 
   /** Size of the tabs. */
-  @Prop() size?: 'sm' | 'lg'
+  @Prop() size?: "sm" | "lg";
 
   /** Display mode. */
   @Prop() mode?:
-    | 'ghost'
-    | 'brand-color'
-    | 'floating'
-    | 'floating-on-brand-color'
+    | "ghost"
+    | "brand-color"
+    | "floating"
+    | "floating-on-brand-color";
 
   /** Sets border radii. */
-  @Prop() rounded?: 'all' | 'all-lg' | 'top' | 'top-lg'
+  @Prop() rounded?: "all" | "all-lg" | "top" | "top-lg";
 
-  private slotContainerRef!: HTMLElement
-  private selectedTabIndicatorRef: HTMLElement
-  private btnScrollLeftRef!: HTMLButtonElement
-  private resizeObserver: ResizeObserver
-  private mutationObserver: MutationObserver
+  private slotContainerRef!: HTMLElement;
+  private selectedTabIndicatorRef: HTMLElement;
+  private btnScrollLeftRef!: HTMLButtonElement;
+  private resizeObserver: ResizeObserver;
+  private mutationObserver: MutationObserver;
 
-  @State() initialized = false
-  @State() selectedTab?: HTMLLdTabElement
-  @State() scrollable: boolean
-  @State() scrollLeftEnabled: boolean
-  @State() scrollRightEnabled: boolean
-  @State() focusVisible = true
-  @State() selectedIsFocused = true
+  @State() initialized = false;
+  @State() selectedTab?: HTMLLdTabElement;
+  @State() scrollable: boolean;
+  @State() scrollLeftEnabled: boolean;
+  @State() scrollRightEnabled: boolean;
+  @State() focusVisible = true;
+  @State() selectedIsFocused = true;
 
   private isFloating = () =>
-    ['floating', 'floating-on-brand-color'].includes(this.mode)
+    ["floating", "floating-on-brand-color"].includes(this.mode);
 
   private updateScrollable() {
-    if (this.isFloating()) return
+    if (this.isFloating()) return;
 
     // We must round all width values to prevent circular painting!
     const scrollButtonsWidth = this.scrollable
       ? Math.round(2 * this.btnScrollLeftRef.getBoundingClientRect().width)
-      : 0
+      : 0;
     const scrollContainerWidth = Math.round(
-      this.slotContainerRef.getBoundingClientRect().width
-    )
+      this.slotContainerRef.getBoundingClientRect().width,
+    );
     const contentWidth = Math.round(
       Array.from(this.el.children)
         .map((child) => child.getBoundingClientRect().width)
-        .reduce((a, b) => a + b)
-    )
-    this.scrollable = scrollContainerWidth + scrollButtonsWidth < contentWidth
+        .reduce((a, b) => a + b),
+    );
+    this.scrollable = scrollContainerWidth + scrollButtonsWidth < contentWidth;
   }
 
   private updateScrollButtons() {
-    if (this.isFloating()) return
-    if (!this.scrollable) return
-    this.scrollLeftEnabled = this.slotContainerRef.scrollLeft > 0
+    if (this.isFloating()) return;
+    if (!this.scrollable) return;
+    this.scrollLeftEnabled = this.slotContainerRef.scrollLeft > 0;
     this.scrollRightEnabled =
       this.slotContainerRef.scrollLeft +
         this.slotContainerRef.getBoundingClientRect().width -
         this.slotContainerRef.scrollWidth <
-      0
+      0;
   }
 
-  private scroll(dir: 'left' | 'right') {
+  private scroll(dir: "left" | "right") {
     this.slotContainerRef.scrollTo({
       left:
         this.slotContainerRef.scrollLeft +
-        ((dir === 'left' ? -1 : 1) *
+        ((dir === "left" ? -1 : 1) *
           this.slotContainerRef.getBoundingClientRect().width) /
           2,
-      behavior: 'smooth',
-    })
+      behavior: "smooth",
+    });
   }
 
-  private focusTab(prevLdTab: HTMLLdTabElement, dir: 'left' | 'right') {
+  private focusTab(prevLdTab: HTMLLdTabElement, dir: "left" | "right") {
     const currentTab =
-      dir === 'left'
+      dir === "left"
         ? prevLdTab.previousElementSibling
-        : prevLdTab.nextElementSibling
+        : prevLdTab.nextElementSibling;
     if (isInnerFocusable(currentTab)) {
-      currentTab.focusInner()
-      this.scrollTabIntoView(currentTab as HTMLLdTabElement)
-      this.selectedIsFocused = currentTab === this.selectedTab
+      currentTab.focusInner();
+      this.scrollTabIntoView(currentTab as HTMLLdTabElement);
+      this.selectedIsFocused = currentTab === this.selectedTab;
     }
   }
 
@@ -119,167 +119,167 @@ export class LdTablist {
     // ;(this.el
     //   .closest('ld-tabs')
     //   .querySelector('ld-tabpanel:not([hidden])') as HTMLElement)?.focus()
-    Array.from(this.el.closest('ld-tabs').querySelectorAll('ld-tabpanel'))
-      .find((tabpanel) => !tabpanel.hasAttribute('hidden'))
-      ?.focus()
+    Array.from(this.el.closest("ld-tabs").querySelectorAll("ld-tabpanel"))
+      .find((tabpanel) => !tabpanel.hasAttribute("hidden"))
+      ?.focus();
   }
 
   private onClick = (ev) => {
-    if (ev.pointerType === 'mouse') {
-      this.focusVisible = false
+    if (ev.pointerType === "mouse") {
+      this.focusVisible = false;
     }
-  }
+  };
 
   private onFocusout = (ev) => {
     if (
       !ev.relatedTarget ||
-      ev.relatedTarget.closest('ld-tablist') !== this.el
+      ev.relatedTarget.closest("ld-tablist") !== this.el
     ) {
-      this.focusVisible = true
-      this.selectedIsFocused = true
+      this.focusVisible = true;
+      this.selectedIsFocused = true;
     }
-  }
+  };
 
   private onKeydown = (ev) => {
     switch (ev.key) {
-      case 'ArrowLeft':
-        ev.preventDefault()
-        this.focusVisible = true
-        this.focusTab(ev.target, 'left')
-        return
-      case 'ArrowRight': {
-        ev.preventDefault()
-        this.focusVisible = true
-        this.focusTab(ev.target, 'right')
-        return
+      case "ArrowLeft":
+        ev.preventDefault();
+        this.focusVisible = true;
+        this.focusTab(ev.target, "left");
+        return;
+      case "ArrowRight": {
+        ev.preventDefault();
+        this.focusVisible = true;
+        this.focusTab(ev.target, "right");
+        return;
       }
-      case 'ArrowDown': {
-        ev.preventDefault()
-        this.focusVisible = true
-        this.setFocusOnSelectedTabpanel()
-        return
+      case "ArrowDown": {
+        ev.preventDefault();
+        this.focusVisible = true;
+        this.setFocusOnSelectedTabpanel();
+        return;
       }
     }
-  }
+  };
 
   private handleResize = () => {
     if (this.isFloating()) {
-      this.updateSelectedTabIndicator()
+      this.updateSelectedTabIndicator();
     } else {
-      this.updateScrollable()
-      this.updateScrollButtons()
+      this.updateScrollable();
+      this.updateScrollButtons();
     }
-  }
+  };
 
   private updateSelectedTab = () => {
-    this.selectedTab = Array.from(this.el.querySelectorAll('ld-tab')).find(
-      (tab) => tab.selected
-    )
-  }
+    this.selectedTab = Array.from(this.el.querySelectorAll("ld-tab")).find(
+      (tab) => tab.selected,
+    );
+  };
 
   private scrollTabIntoView(tab: HTMLLdTabElement) {
     if (!tab || !this.slotContainerRef) {
-      return
+      return;
     }
     const scrollContainerWidth =
-      this.slotContainerRef.getBoundingClientRect().width
+      this.slotContainerRef.getBoundingClientRect().width;
     const scrollButtonWidth = this.scrollable
       ? this.btnScrollLeftRef.getBoundingClientRect().width
-      : 0
+      : 0;
     this.slotContainerRef.scrollTo({
       left:
         tab.offsetLeft +
         tab.getBoundingClientRect().width / 2 -
         scrollContainerWidth / 2 -
         scrollButtonWidth,
-      behavior: 'smooth',
-    })
+      behavior: "smooth",
+    });
   }
 
-  @Listen('ldtabselect')
+  @Listen("ldtabselect")
   handleTabSelect(ev) {
-    this.selectedIsFocused = true
-    this.selectedTab = ev.target
+    this.selectedIsFocused = true;
+    this.selectedTab = ev.target;
   }
 
-  @Watch('selectedTab')
+  @Watch("selectedTab")
   private updateSelectedTabIndicator() {
     // Scroll tab into view.
-    this.scrollTabIntoView(this.selectedTab)
+    this.scrollTabIntoView(this.selectedTab);
 
-    if (!this.selectedTabIndicatorRef) return
+    if (!this.selectedTabIndicatorRef) return;
 
-    const indicatorStyle = this.selectedTabIndicatorRef.style
+    const indicatorStyle = this.selectedTabIndicatorRef.style;
     if (!this.selectedTab) {
       // hide indicator
-      indicatorStyle.opacity = '0'
-      return
+      indicatorStyle.opacity = "0";
+      return;
     }
 
-    const selectedTabBcr = this.selectedTab.getBoundingClientRect()
-    const scrollContainerBcr = this.slotContainerRef.getBoundingClientRect()
-    const scrollContainerScrollLeft = this.slotContainerRef.scrollLeft
+    const selectedTabBcr = this.selectedTab.getBoundingClientRect();
+    const scrollContainerBcr = this.slotContainerRef.getBoundingClientRect();
+    const scrollContainerScrollLeft = this.slotContainerRef.scrollLeft;
     const offsetLeft =
-      selectedTabBcr.left - scrollContainerBcr.left + scrollContainerScrollLeft
-    indicatorStyle.transform = `translateX(${offsetLeft - 8}px)`
-    indicatorStyle.width = `${selectedTabBcr.width}px`
-    indicatorStyle.opacity = '1'
+      selectedTabBcr.left - scrollContainerBcr.left + scrollContainerScrollLeft;
+    indicatorStyle.transform = `translateX(${offsetLeft - 8}px)`;
+    indicatorStyle.width = `${selectedTabBcr.width}px`;
+    indicatorStyle.opacity = "1";
   }
 
-  @Watch('size')
+  @Watch("size")
   updateIconSize() {
-    this.el.querySelectorAll('ld-icon').forEach((icon) => {
+    this.el.querySelectorAll("ld-icon").forEach((icon) => {
       if (this.size !== undefined) {
-        icon.size = this.size
+        icon.size = this.size;
       } else {
-        icon.size = undefined
+        icon.size = undefined;
       }
-    })
-    this.el.querySelectorAll('.ld-icon').forEach((icon) => {
-      if (this.size === 'sm') {
-        icon.classList.remove('ld-icon--lg')
-        icon.classList.add('ld-icon--sm')
-      } else if (this.size === 'lg') {
-        icon.classList.remove('ld-icon--sm')
-        icon.classList.add('ld-icon--lg')
+    });
+    this.el.querySelectorAll(".ld-icon").forEach((icon) => {
+      if (this.size === "sm") {
+        icon.classList.remove("ld-icon--lg");
+        icon.classList.add("ld-icon--sm");
+      } else if (this.size === "lg") {
+        icon.classList.remove("ld-icon--sm");
+        icon.classList.add("ld-icon--lg");
       } else {
-        icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
+        icon.classList.remove("ld-icon--sm", "ld-icon--lg");
       }
-    })
+    });
   }
 
   componentWillLoad() {
     // Attribute selector fails in test env, hance filtering with js below.
-    this.selectedTab = Array.from(this.el.querySelectorAll('ld-tab')).find(
-      (tab) => tab.selected
-    )
-    this.updateIconSize()
+    this.selectedTab = Array.from(this.el.querySelectorAll("ld-tab")).find(
+      (tab) => tab.selected,
+    );
+    this.updateIconSize();
 
-    this.mutationObserver = new MutationObserver(this.updateSelectedTab)
+    this.mutationObserver = new MutationObserver(this.updateSelectedTab);
     this.mutationObserver.observe(this.el, {
       subtree: true,
       childList: true,
       attributes: false,
-    })
+    });
   }
 
   componentDidLoad() {
     setTimeout(() => {
-      this.updateScrollable()
-      this.updateScrollButtons()
-      this.initialized = true
-    })
-    this.resizeObserver = new ResizeObserver(this.handleResize)
-    this.resizeObserver.observe(this.slotContainerRef)
+      this.updateScrollable();
+      this.updateScrollButtons();
+      this.initialized = true;
+    });
+    this.resizeObserver = new ResizeObserver(this.handleResize);
+    this.resizeObserver.observe(this.slotContainerRef);
   }
 
   disconnectedCallback() {
     /* istanbul ignore if */
     if (this.resizeObserver) {
-      this.resizeObserver.unobserve(this.slotContainerRef)
+      this.resizeObserver.unobserve(this.slotContainerRef);
     }
     /* istanbul ignore if */
-    if (this.mutationObserver) this.mutationObserver.disconnect()
+    if (this.mutationObserver) this.mutationObserver.disconnect();
   }
 
   render() {
@@ -292,10 +292,10 @@ export class LdTablist {
       >
         <div
           class={getClassNames([
-            'ld-tablist',
-            this.initialized && 'ld-tablist--initialized',
-            this.focusVisible && 'ld-tablist--focus-visible',
-            this.selectedIsFocused && 'ld-tablist--selected-focused',
+            "ld-tablist",
+            this.initialized && "ld-tablist--initialized",
+            this.focusVisible && "ld-tablist--focus-visible",
+            this.selectedIsFocused && "ld-tablist--selected-focused",
             this.size && `ld-tablist--${this.size}`,
             this.mode && `ld-tablist--${this.mode}`,
             this.rounded && `ld-tablist--rounded-${this.rounded}`,
@@ -304,10 +304,10 @@ export class LdTablist {
         >
           {!this.isFloating() && (
             <button
-              aria-disabled={this.scrollLeftEnabled ? undefined : 'true'}
+              aria-disabled={this.scrollLeftEnabled ? undefined : "true"}
               class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left"
               hidden={!this.scrollable}
-              onClick={this.scroll.bind(this, 'left')}
+              onClick={this.scroll.bind(this, "left")}
               part="arrow arrow-left"
               ref={(el) => (this.btnScrollLeftRef = el)}
               tabindex="-1"
@@ -348,10 +348,10 @@ export class LdTablist {
           </div>
           {!this.isFloating() && (
             <button
-              aria-disabled={this.scrollRightEnabled ? undefined : 'true'}
+              aria-disabled={this.scrollRightEnabled ? undefined : "true"}
               class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right"
               hidden={!this.scrollable}
-              onClick={this.scroll.bind(this, 'right')}
+              onClick={this.scroll.bind(this, "right")}
               part="arrow arrow-right"
               tabindex="-1"
             >
@@ -376,6 +376,6 @@ export class LdTablist {
           )}
         </div>
       </Host>
-    )
+    );
   }
 }

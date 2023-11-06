@@ -1,4 +1,4 @@
-import { Component, h, Element } from '@stencil/core'
+import { Component, h, Element } from "@stencil/core";
 
 /**
  * @part list - Breadcrumbs list
@@ -7,39 +7,39 @@ import { Component, h, Element } from '@stencil/core'
  */
 
 @Component({
-  tag: 'ld-breadcrumbs',
-  styleUrl: 'ld-breadcrumbs.css',
+  tag: "ld-breadcrumbs",
+  styleUrl: "ld-breadcrumbs.css",
   shadow: true,
 })
 export class LdBreadcrumbs {
-  @Element() el: HTMLElement
+  @Element() el: HTMLElement;
 
-  private observer: MutationObserver
+  private observer: MutationObserver;
 
   private updateCurrent = () => {
-    const crumbs = this.el.querySelectorAll('ld-crumb')
-    if (!crumbs.length) return
+    const crumbs = this.el.querySelectorAll("ld-crumb");
+    if (!crumbs.length) return;
 
     crumbs.forEach((crumb) => {
-      crumb.current = undefined
-    })
-    crumbs[crumbs.length - 1].current = true
-  }
+      crumb.current = undefined;
+    });
+    crumbs[crumbs.length - 1].current = true;
+  };
 
   componentDidLoad() {
-    this.observer = new MutationObserver(this.updateCurrent)
+    this.observer = new MutationObserver(this.updateCurrent);
     this.observer.observe(this.el, {
       subtree: true,
       childList: true,
       attributes: false,
-    })
+    });
 
-    this.updateCurrent()
+    this.updateCurrent();
   }
 
   disconnectedCallback() {
     /* istanbul ignore if */
-    if (this.observer) this.observer.disconnect()
+    if (this.observer) this.observer.disconnect();
   }
 
   render() {
@@ -49,6 +49,6 @@ export class LdBreadcrumbs {
           <slot></slot>
         </ol>
       </nav>
-    )
+    );
   }
 }

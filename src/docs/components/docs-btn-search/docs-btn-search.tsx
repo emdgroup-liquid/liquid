@@ -1,47 +1,47 @@
-import { Component, h, Host, Listen } from '@stencil/core'
-import eventBus from '../../utils/eventBus'
-import { SearchEventType } from '../../utils/eventTypes'
+import { Component, h, Host, Listen } from "@stencil/core";
+import eventBus from "../../utils/eventBus";
+import { SearchEventType } from "../../utils/eventTypes";
 
 /** @internal **/
 @Component({
-  tag: 'docs-btn-search',
-  styleUrl: 'docs-btn-search.css',
+  tag: "docs-btn-search",
+  styleUrl: "docs-btn-search.css",
   shadow: false,
 })
 export class DocsBtnSearch {
-  private btnSearch!: HTMLButtonElement
+  private btnSearch!: HTMLButtonElement;
 
-  @Listen('click', { capture: true })
+  @Listen("click", { capture: true })
   handleClick() {
-    eventBus.emit(SearchEventType.open)
+    eventBus.emit(SearchEventType.open);
   }
 
-  @Listen('keydown', {
-    target: 'document',
+  @Listen("keydown", {
+    target: "document",
     passive: true,
   })
   handleKeyDown(ev: KeyboardEvent) {
-    if (ev.key === 'S') {
+    if (ev.key === "S") {
       if (
-        ['input', 'textarea'].includes(
-          document.activeElement?.tagName.toLowerCase()
+        ["input", "textarea"].includes(
+          document.activeElement?.tagName.toLowerCase(),
         )
       ) {
-        return
+        return;
       }
-      if (document.activeElement?.tagName === 'textarea') return
-      eventBus.emit(SearchEventType.open)
+      if (document.activeElement?.tagName === "textarea") return;
+      eventBus.emit(SearchEventType.open);
     }
   }
 
   private onSearchClose() {
     setTimeout(() => {
-      this.btnSearch.focus()
-    })
+      this.btnSearch.focus();
+    });
   }
 
   componentDidLoad() {
-    eventBus.on(SearchEventType.close, this.onSearchClose.bind(this))
+    eventBus.on(SearchEventType.close, this.onSearchClose.bind(this));
   }
 
   render() {
@@ -84,6 +84,6 @@ export class DocsBtnSearch {
           </svg>
         </button>
       </Host>
-    )
+    );
   }
 }

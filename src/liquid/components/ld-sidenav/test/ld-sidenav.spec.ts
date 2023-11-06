@@ -1,56 +1,58 @@
-import { LdAccordion } from '../../ld-accordion/ld-accordion'
+import { LdAccordion } from "../../ld-accordion/ld-accordion";
 
-jest.mock('../../../utils/focus')
+jest.mock("../../../utils/focus");
 
-import MatchMediaMock from 'jest-matchmedia-mock'
-import { MockHTMLElement } from '@stencil/core/mock-doc'
-import { newSpecPage } from '@stencil/core/testing'
-import { LdAccordionSection } from '../../ld-accordion/ld-accordion-section/ld-accordion-section'
-import { LdAccordionToggle } from '../../ld-accordion/ld-accordion-toggle/ld-accordion-toggle'
-import { LdAccordionPanel } from '../../ld-accordion/ld-accordion-panel/ld-accordion-panel'
-import { LdButton } from '../../ld-button/ld-button'
-import { LdSidenav } from '../ld-sidenav'
-import { LdSidenavAccordion } from '../ld-sidenav-accordion/ld-sidenav-accordion'
-import { LdSidenavBack } from '../ld-sidenav-back/ld-sidenav-back'
-import { LdSidenavHeader } from '../ld-sidenav-header/ld-sidenav-header'
-import { LdSidenavHeading } from '../ld-sidenav-heading/ld-sidenav-heading'
-import { LdSidenavNavitem } from '../ld-sidenav-navitem/ld-sidenav-navitem'
-import { LdSidenavScrollerInternal } from '../ld-sidenav-scroller-internal/ld-sidenav-scroller-internal'
-import { LdSidenavSeparator } from '../ld-sidenav-separator/ld-sidenav-separator'
-import { LdSidenavSlider } from '../ld-sidenav-slider/ld-sidenav-slider'
-import { LdSidenavSubnav } from '../ld-sidenav-subnav/ld-sidenav-subnav'
-import { LdSidenavToggleOutside } from '../ld-sidenav-toggle-outside/ld-sidenav-toggle-outside'
-import { LdTooltip } from '../../ld-tooltip/ld-tooltip'
-import { getFirstFocusable } from '../../../utils/focus'
-import { getSidenavWithAccordion, getSidenavWithSubnavigation } from './utils'
-import '../../../utils/resizeObserver'
-import '../../../utils/mutationObserver'
+import MatchMediaMock from "jest-matchmedia-mock";
+import { MockHTMLElement } from "@stencil/core/mock-doc";
+import { newSpecPage } from "@stencil/core/testing";
+import { LdAccordionSection } from "../../ld-accordion/ld-accordion-section/ld-accordion-section";
+import { LdAccordionToggle } from "../../ld-accordion/ld-accordion-toggle/ld-accordion-toggle";
+import { LdAccordionPanel } from "../../ld-accordion/ld-accordion-panel/ld-accordion-panel";
+import { LdButton } from "../../ld-button/ld-button";
+import { LdSidenav } from "../ld-sidenav";
+import { LdSidenavAccordion } from "../ld-sidenav-accordion/ld-sidenav-accordion";
+import { LdSidenavBack } from "../ld-sidenav-back/ld-sidenav-back";
+import { LdSidenavHeader } from "../ld-sidenav-header/ld-sidenav-header";
+import { LdSidenavHeading } from "../ld-sidenav-heading/ld-sidenav-heading";
+import { LdSidenavNavitem } from "../ld-sidenav-navitem/ld-sidenav-navitem";
+import { LdSidenavScrollerInternal } from "../ld-sidenav-scroller-internal/ld-sidenav-scroller-internal";
+import { LdSidenavSeparator } from "../ld-sidenav-separator/ld-sidenav-separator";
+import { LdSidenavSlider } from "../ld-sidenav-slider/ld-sidenav-slider";
+import { LdSidenavSubnav } from "../ld-sidenav-subnav/ld-sidenav-subnav";
+import { LdSidenavToggleOutside } from "../ld-sidenav-toggle-outside/ld-sidenav-toggle-outside";
+import { LdTooltip } from "../../ld-tooltip/ld-tooltip";
+import { getFirstFocusable } from "../../../utils/focus";
+import { getSidenavWithAccordion, getSidenavWithSubnavigation } from "./utils";
+import "../../../utils/resizeObserver";
+import "../../../utils/mutationObserver";
 
-let matchMedia
-const mockedGetFirstFocusable = getFirstFocusable as jest.Mock
+let matchMedia;
+const mockedGetFirstFocusable = getFirstFocusable as jest.Mock;
 
 async function transitionEnd(page, transitionTarget = undefined) {
-  const ldSidenav = page.body.querySelector('ld-sidenav')
+  const ldSidenav = page.body.querySelector("ld-sidenav");
   if (!transitionTarget) {
-    transitionTarget = ldSidenav
+    transitionTarget = ldSidenav;
   }
-  const transitionEndHandler = transitionTarget['__listeners'].find(
-    (l) => l.type === 'transitionEnd'
-  ).handler
-  transitionEndHandler({ target: transitionTarget })
-  await page.waitForChanges()
+  const transitionEndHandler = transitionTarget["__listeners"].find(
+    (l) => l.type === "transitionEnd",
+  ).handler;
+  transitionEndHandler({ target: transitionTarget });
+  await page.waitForChanges();
 }
 
 function mockFocus(ldSidenav) {
   ldSidenav
-    .querySelectorAll('ld-sidenav-navitem')
+    .querySelectorAll("ld-sidenav-navitem")
     .forEach(
       (item) =>
-        (item.shadowRoot.querySelector('.ld-sidenav-navitem').focus = jest.fn())
-    )
-  const ldSidenavBack = ldSidenav.querySelector('ld-sidenav-back')
+        (item.shadowRoot.querySelector(".ld-sidenav-navitem").focus =
+          jest.fn()),
+    );
+  const ldSidenavBack = ldSidenav.querySelector("ld-sidenav-back");
   if (ldSidenavBack) {
-    ldSidenavBack.shadowRoot.querySelector('.ld-sidenav-back').focus = jest.fn()
+    ldSidenavBack.shadowRoot.querySelector(".ld-sidenav-back").focus =
+      jest.fn();
   }
 }
 
@@ -72,97 +74,97 @@ const sidenavComponents = [
   LdSidenavSubnav,
   LdSidenavToggleOutside,
   LdTooltip,
-]
+];
 
-describe('ld-sidenav', () => {
+describe("ld-sidenav", () => {
   beforeAll(() => {
-    Object.defineProperty(MockHTMLElement.prototype, 'assignedElements', {
+    Object.defineProperty(MockHTMLElement.prototype, "assignedElements", {
       value: () => [],
       configurable: true,
       writable: true,
-    })
-    Object.defineProperty(MockHTMLElement.prototype, 'assignedNodes', {
+    });
+    Object.defineProperty(MockHTMLElement.prototype, "assignedNodes", {
       value: () => [],
       configurable: true,
       writable: true,
-    })
-  })
+    });
+  });
 
   beforeEach(() => {
-    matchMedia = new MatchMediaMock()
-  })
+    matchMedia = new MatchMediaMock();
+  });
 
   afterEach(() => {
-    jest.clearAllTimers()
-    jest.clearAllMocks()
-  })
+    jest.clearAllTimers();
+    jest.clearAllMocks();
+  });
 
-  it('renders', async () => {
+  it("renders", async () => {
     const page = await newSpecPage({
       components: [LdSidenav],
-      html: '<ld-sidenav></ld-sidenav>',
-    })
-    expect(page.body).toMatchSnapshot()
-  })
+      html: "<ld-sidenav></ld-sidenav>",
+    });
+    expect(page.body).toMatchSnapshot();
+  });
 
-  it('sets initialized class after timeout in order to enable transitions', async () => {
+  it("sets initialized class after timeout in order to enable transitions", async () => {
     const page = await newSpecPage({
       components: [LdSidenav],
-      html: '<ld-sidenav></ld-sidenav>',
-    })
-    expect(page.root).not.toHaveClass('ld-sidenav--transitions')
+      html: "<ld-sidenav></ld-sidenav>",
+    });
+    expect(page.root).not.toHaveClass("ld-sidenav--transitions");
 
-    jest.advanceTimersByTime(0)
-    await page.waitForChanges()
+    jest.advanceTimersByTime(0);
+    await page.waitForChanges();
 
-    expect(page.root).toHaveClass('ld-sidenav--transitions')
-  })
+    expect(page.root).toHaveClass("ld-sidenav--transitions");
+  });
 
-  it('updates closable state on breakpoint change', async () => {
+  it("updates closable state on breakpoint change", async () => {
     const page = await newSpecPage({
       components: [LdSidenav],
-      html: '<ld-sidenav></ld-sidenav>',
-    })
-    expect(page.root).not.toHaveClass('ld-sidenav--closable')
+      html: "<ld-sidenav></ld-sidenav>",
+    });
+    expect(page.root).not.toHaveClass("ld-sidenav--closable");
 
-    const mediaQueries = matchMedia.getMediaQueries()
-    matchMedia.useMediaQuery(mediaQueries[0])
-    await page.waitForChanges()
+    const mediaQueries = matchMedia.getMediaQueries();
+    matchMedia.useMediaQuery(mediaQueries[0]);
+    await page.waitForChanges();
 
-    expect(page.root).toHaveClass('ld-sidenav--closable')
-  })
+    expect(page.root).toHaveClass("ld-sidenav--closable");
+  });
 
-  it('applies open class', async () => {
+  it("applies open class", async () => {
     const page = await newSpecPage({
       components: [LdSidenav],
-      html: '<ld-sidenav></ld-sidenav>',
-    })
-    expect(page.root).not.toHaveClass('ld-sidenav--open')
-    page.root.setAttribute('open', '')
-    await page.waitForChanges()
-    expect(page.root).toHaveClass('ld-sidenav--open')
-  })
+      html: "<ld-sidenav></ld-sidenav>",
+    });
+    expect(page.root).not.toHaveClass("ld-sidenav--open");
+    page.root.setAttribute("open", "");
+    await page.waitForChanges();
+    expect(page.root).toHaveClass("ld-sidenav--open");
+  });
 
-  it('aligns to the right', async () => {
+  it("aligns to the right", async () => {
     const page = await newSpecPage({
       components: [LdSidenav],
       html: '<ld-sidenav align="right"></ld-sidenav>',
-    })
-    expect(page.body).toMatchSnapshot()
-  })
+    });
+    expect(page.body).toMatchSnapshot();
+  });
 
-  it('aligns toggle outside to the right', async () => {
+  it("aligns toggle outside to the right", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: `
         <ld-sidenav-toggle-outside></ld-sidenav-toggle-outside>
         <ld-sidenav align="right"></ld-sidenav>
       `,
-    })
-    expect(page.body).toMatchSnapshot()
-  })
+    });
+    expect(page.body).toMatchSnapshot();
+  });
 
-  it('aligns header to the right', async () => {
+  it("aligns header to the right", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: `
@@ -170,32 +172,32 @@ describe('ld-sidenav', () => {
           <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
         </ld-sidenav>
       `,
-    })
-    expect(page.body).toMatchSnapshot()
-  })
+    });
+    expect(page.body).toMatchSnapshot();
+  });
 
-  describe('collapsible mode', () => {
+  describe("collapsible mode", () => {
     beforeAll(() => {
-      matchMedia = new MatchMediaMock()
-    })
+      matchMedia = new MatchMediaMock();
+    });
 
-    it('is collapsible', async () => {
+    it("is collapsible", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
-        html: '<ld-sidenav collapsible></ld-sidenav>',
-      })
-      expect(page.body).toMatchSnapshot()
-    })
+        html: "<ld-sidenav collapsible></ld-sidenav>",
+      });
+      expect(page.body).toMatchSnapshot();
+    });
 
-    it('is collapsed', async () => {
+    it("is collapsed", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
-        html: '<ld-sidenav collapsible collapsed></ld-sidenav>',
-      })
-      expect(page.body).toMatchSnapshot()
-    })
+        html: "<ld-sidenav collapsible collapsed></ld-sidenav>",
+      });
+      expect(page.body).toMatchSnapshot();
+    });
 
-    it('does not expand on mouse enter when narrow', async () => {
+    it("does not expand on mouse enter when narrow", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `
@@ -205,17 +207,17 @@ describe('ld-sidenav', () => {
               <ld-sidenav-navitem>Mathematical foundations</ld-sidenav-navitem>
             </ld-sidenav-slider>
           </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
 
-      const ev = new MouseEvent('mouseenter')
-      ldSidenav.dispatchEvent(ev)
-      await page.waitForChanges()
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-    })
+      const ev = new MouseEvent("mouseenter");
+      ldSidenav.dispatchEvent(ev);
+      await page.waitForChanges();
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('expands on toggle', async () => {
+    it("expands on toggle", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `
@@ -225,21 +227,21 @@ describe('ld-sidenav', () => {
               <ld-sidenav-navitem>Mathematical foundations</ld-sidenav-navitem>
             </ld-sidenav-slider>
           </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
 
       const btnToggle =
         ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
-      btnToggle.click()
-      await page.waitForChanges()
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    })
+          'button[role="switch"]',
+        );
+      btnToggle.click();
+      await page.waitForChanges();
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('expands on toggle outside', async () => {
+    it("expands on toggle outside", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `
@@ -250,40 +252,40 @@ describe('ld-sidenav', () => {
               <ld-sidenav-navitem>Mathematical foundations</ld-sidenav-navitem>
             </ld-sidenav-slider>
           </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-      expect(ldSidenav).toHaveClass('ld-sidenav--fully-collapsible')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+      expect(ldSidenav).toHaveClass("ld-sidenav--fully-collapsible");
 
       const ldSidenavToggleOutside = page.body.querySelector(
-        'ld-sidenav-toggle-outside'
-      )
+        "ld-sidenav-toggle-outside",
+      );
       const btnToggleOutside =
         ldSidenavToggleOutside.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
+          'button[role="switch"]',
+        );
 
-      const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+      const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
       const btnHeaderToggle =
         ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
-      btnHeaderToggle.focus = jest.fn()
+          'button[role="switch"]',
+        );
+      btnHeaderToggle.focus = jest.fn();
 
-      const ev = new MouseEvent('click', { bubbles: true, cancelable: true })
-      btnToggleOutside.dispatchEvent(ev)
-      await page.waitForChanges()
+      const ev = new MouseEvent("click", { bubbles: true, cancelable: true });
+      btnToggleOutside.dispatchEvent(ev);
+      await page.waitForChanges();
 
       // event propagation must be stopped to prevent call of click outside handler
-      expect(ev.cancelBubble).toBeTruthy()
+      expect(ev.cancelBubble).toBeTruthy();
 
-      jest.advanceTimersByTime(200)
-      await page.waitForChanges()
+      jest.advanceTimersByTime(200);
+      await page.waitForChanges();
 
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    })
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('expands on mouse enter when narrow with explicit expand-trigger', async () => {
+    it("expands on mouse enter when narrow with explicit expand-trigger", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `
@@ -293,232 +295,232 @@ describe('ld-sidenav', () => {
               <ld-sidenav-navitem>Mathematical foundations</ld-sidenav-navitem>
             </ld-sidenav-slider>
           </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
 
-      const ev = new MouseEvent('mouseenter')
-      ldSidenav.dispatchEvent(ev)
-      await page.waitForChanges()
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    })
+      const ev = new MouseEvent("mouseenter");
+      ldSidenav.dispatchEvent(ev);
+      await page.waitForChanges();
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('does not expands on focus inside', async () => {
+    it("does not expands on focus inside", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav collapsible collapsed>
           <button>foobar</button>
         </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-      const button = ldSidenav.querySelector('button')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+      const button = ldSidenav.querySelector("button");
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: button,
         bubbles: true,
-      } as unknown as FocusEvent
-      ldSidenav.dispatchEvent(ev)
-      await page.waitForChanges()
+      } as unknown as FocusEvent;
+      ldSidenav.dispatchEvent(ev);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-    })
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('expands on focus inside with expand trigger mouseenter', async () => {
+    it("expands on focus inside with expand trigger mouseenter", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav collapsible collapsed expand-trigger="mouseenter">
           <button>foobar</button>
         </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-      const button = ldSidenav.querySelector('button')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+      const button = ldSidenav.querySelector("button");
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: button,
         bubbles: true,
-      } as unknown as FocusEvent
-      ldSidenav.dispatchEvent(ev)
-      await page.waitForChanges()
+      } as unknown as FocusEvent;
+      ldSidenav.dispatchEvent(ev);
+      await page.waitForChanges();
 
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    })
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('collapses on toggle', async () => {
+    it("collapses on toggle", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `
           <ld-sidenav collapsible>
             <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
           </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
-      const ev = new MouseEvent('mouseout', {
+      const ev = new MouseEvent("mouseout", {
         relatedTarget: page.body,
-      })
-      ldSidenav.dispatchEvent(ev)
+      });
+      ldSidenav.dispatchEvent(ev);
 
-      await page.waitForChanges()
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      await page.waitForChanges();
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
-      page.body.click()
-      await page.waitForChanges()
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      page.body.click();
+      await page.waitForChanges();
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
-      const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+      const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
       const btnToggle =
         ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
+          'button[role="switch"]',
+        );
 
-      btnToggle.click()
-      await page.waitForChanges()
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-    })
+      btnToggle.click();
+      await page.waitForChanges();
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('collapses on click outside', async () => {
+    it("collapses on click outside", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `
           <ld-sidenav collapsible collapse-trigger="clickoutside">
             <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
           </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
-      const ev = new MouseEvent('mouseout', {
+      const ev = new MouseEvent("mouseout", {
         relatedTarget: page.body,
-      })
-      ldSidenav.dispatchEvent(ev)
+      });
+      ldSidenav.dispatchEvent(ev);
 
-      await page.waitForChanges()
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      await page.waitForChanges();
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
       const event = {
-        type: 'click',
+        type: "click",
         isTrusted: true,
         composedPath: () => [page.body],
-      }
-      page.body.dispatchEvent(event as unknown as Event)
-      await page.waitForChanges()
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      };
+      page.body.dispatchEvent(event as unknown as Event);
+      await page.waitForChanges();
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
 
-      const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+      const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
       const btnToggle =
         ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
+          'button[role="switch"]',
+        );
 
-      btnToggle.click()
-      await page.waitForChanges()
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      btnToggle.click();
+      await page.waitForChanges();
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
-      btnToggle.click()
-      await page.waitForChanges()
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-    })
+      btnToggle.click();
+      await page.waitForChanges();
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('collapses on mouse out', async () => {
+    it("collapses on mouse out", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `
           <ld-sidenav collapsible collapse-trigger="mouseout">
             <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
           </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
-      const ev = new MouseEvent('mouseout', {
+      const ev = new MouseEvent("mouseout", {
         relatedTarget: page.body,
-      })
-      ldSidenav.dispatchEvent(ev)
+      });
+      ldSidenav.dispatchEvent(ev);
 
-      await page.waitForChanges()
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      await page.waitForChanges();
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
 
-      const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+      const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
       const btnToggle =
         ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
+          'button[role="switch"]',
+        );
 
-      btnToggle.click()
-      await page.waitForChanges()
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      btnToggle.click();
+      await page.waitForChanges();
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
       const event = {
-        type: 'click',
+        type: "click",
         isTrusted: true,
         composedPath: () => [page.body],
-      }
-      page.body.dispatchEvent(event as unknown as Event)
-      await page.waitForChanges()
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      };
+      page.body.dispatchEvent(event as unknown as Event);
+      await page.waitForChanges();
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
 
-      btnToggle.click()
-      await page.waitForChanges()
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      btnToggle.click();
+      await page.waitForChanges();
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
-      btnToggle.click()
-      await page.waitForChanges()
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-    })
+      btnToggle.click();
+      await page.waitForChanges();
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('collapses on focus out', async () => {
+    it("collapses on focus out", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `
           <ld-sidenav collapsible collapse-trigger="mouseout">
             <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
           </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
-      const ev = new FocusEvent('focusout', {
+      const ev = new FocusEvent("focusout", {
         relatedTarget: page.body,
-      })
-      window.dispatchEvent(ev)
+      });
+      window.dispatchEvent(ev);
 
-      await page.waitForChanges()
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      await page.waitForChanges();
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
 
-      const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+      const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
       const btnToggle =
         ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
+          'button[role="switch"]',
+        );
 
-      btnToggle.click()
-      await page.waitForChanges()
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      btnToggle.click();
+      await page.waitForChanges();
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
       const event = {
-        type: 'click',
+        type: "click",
         isTrusted: true,
         composedPath: () => [page.body],
-      }
-      page.body.dispatchEvent(event as unknown as Event)
-      await page.waitForChanges()
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      };
+      page.body.dispatchEvent(event as unknown as Event);
+      await page.waitForChanges();
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
 
-      btnToggle.click()
-      await page.waitForChanges()
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      btnToggle.click();
+      await page.waitForChanges();
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
 
-      btnToggle.click()
-      await page.waitForChanges()
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-    })
+      btnToggle.click();
+      await page.waitForChanges();
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('does not expand on click of navitem without to prop', async () => {
+    it("does not expand on click of navitem without to prop", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `<ld-sidenav collapsible collapsed>
@@ -526,21 +528,21 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem>Mathematical foundations</ld-sidenav-navitem>
           </ld-sidenav-slider>
         </ld-sidenav>`,
-      })
+      });
 
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-      const ldSidenavNavitem = ldSidenav.querySelector('ld-sidenav-navitem')
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+      const ldSidenavNavitem = ldSidenav.querySelector("ld-sidenav-navitem");
 
       ldSidenavNavitem.shadowRoot
-        .querySelector('button')
-        .dispatchEvent(new Event('mousedown'))
-      await page.waitForChanges()
+        .querySelector("button")
+        .dispatchEvent(new Event("mousedown"));
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-    })
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('expands on click of navitem with to prop', async () => {
+    it("expands on click of navitem with to prop", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `<ld-sidenav collapsible collapsed narrow>
@@ -548,19 +550,19 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem to="mathematical-foundations">Mathematical foundations</ld-sidenav-navitem>
           </ld-sidenav-slider>
         </ld-sidenav>`,
-      })
+      });
 
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-      const ldSidenavNavitem = ldSidenav.querySelector('ld-sidenav-navitem')
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+      const ldSidenavNavitem = ldSidenav.querySelector("ld-sidenav-navitem");
 
-      ldSidenavNavitem.shadowRoot.querySelector('button').click()
-      await page.waitForChanges()
+      ldSidenavNavitem.shadowRoot.querySelector("button").click();
+      await page.waitForChanges();
 
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    })
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('does not expands on click of navitem with to prop with expand-on-click set to false', async () => {
+    it("does not expands on click of navitem with to prop with expand-on-click set to false", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `<ld-sidenav collapsible collapsed>
@@ -568,19 +570,19 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem to="mathematical-foundations" expand-on-click="false">Mathematical foundations</ld-sidenav-navitem>
           </ld-sidenav-slider>
         </ld-sidenav>`,
-      })
+      });
 
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-      const ldSidenavNavitem = ldSidenav.querySelector('ld-sidenav-navitem')
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+      const ldSidenavNavitem = ldSidenav.querySelector("ld-sidenav-navitem");
 
-      ldSidenavNavitem.shadowRoot.querySelector('button').click()
-      await page.waitForChanges()
+      ldSidenavNavitem.shadowRoot.querySelector("button").click();
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-    })
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('expands on click of navitem without to prop with expand-on-click set to true', async () => {
+    it("expands on click of navitem without to prop with expand-on-click set to true", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `<ld-sidenav collapsible collapsed>
@@ -588,19 +590,19 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem expand-on-click="true">Mathematical foundations</ld-sidenav-navitem>
           </ld-sidenav-slider>
         </ld-sidenav>`,
-      })
+      });
 
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-      const ldSidenavNavitem = ldSidenav.querySelector('ld-sidenav-navitem')
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+      const ldSidenavNavitem = ldSidenav.querySelector("ld-sidenav-navitem");
 
-      ldSidenavNavitem.shadowRoot.querySelector('button').click()
-      await page.waitForChanges()
+      ldSidenavNavitem.shadowRoot.querySelector("button").click();
+      await page.waitForChanges();
 
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    })
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    });
 
-    it('expands on click of sidenav accordion toggle', async () => {
+    it("expands on click of sidenav accordion toggle", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `<ld-sidenav collapsible collapsed>
@@ -611,28 +613,28 @@ describe('ld-sidenav', () => {
             </ld-sidenav-accordion>
           </ld-sidenav-slider>
         </ld-sidenav>`,
-      })
+      });
 
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
       const ldSidenavNavitem = ldSidenav.querySelector(
-        'ld-sidenav-navitem:first-of-type'
-      )
+        "ld-sidenav-navitem:first-of-type",
+      );
       const ldAccordionSection = ldSidenav
-        .querySelector('ld-sidenav-accordion')
-        .shadowRoot.querySelector('ld-accordion-section')
+        .querySelector("ld-sidenav-accordion")
+        .shadowRoot.querySelector("ld-accordion-section");
       expect(ldAccordionSection).not.toHaveClass(
-        'ld-accordion-section--expanded'
-      )
+        "ld-accordion-section--expanded",
+      );
 
-      ldSidenavNavitem.shadowRoot.querySelector('button').click()
-      await page.waitForChanges()
+      ldSidenavNavitem.shadowRoot.querySelector("button").click();
+      await page.waitForChanges();
 
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-      expect(ldAccordionSection).toHaveClass('ld-accordion-section--expanded')
-    })
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+      expect(ldAccordionSection).toHaveClass("ld-accordion-section--expanded");
+    });
 
-    it('is expanded initially', async () => {
+    it("is expanded initially", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `<ld-sidenav>
@@ -643,16 +645,16 @@ describe('ld-sidenav', () => {
             </ld-sidenav-accordion>
           </ld-sidenav-slider>
         </ld-sidenav>`,
-      })
+      });
 
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      const ldSidenav = page.body.querySelector("ld-sidenav");
       const ldAccordionSection = ldSidenav
-        .querySelector('ld-sidenav-accordion')
-        .shadowRoot.querySelector('ld-accordion-section')
-      expect(ldAccordionSection).toHaveClass('ld-accordion-section--expanded')
-    })
+        .querySelector("ld-sidenav-accordion")
+        .shadowRoot.querySelector("ld-accordion-section");
+      expect(ldAccordionSection).toHaveClass("ld-accordion-section--expanded");
+    });
 
-    it('does not expands on click of sidenav accordion toggle with expand-on-click set to false', async () => {
+    it("does not expands on click of sidenav accordion toggle with expand-on-click set to false", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `<ld-sidenav collapsible collapsed>
@@ -663,122 +665,126 @@ describe('ld-sidenav', () => {
             </ld-sidenav-accordion>
           </ld-sidenav-slider>
         </ld-sidenav>`,
-      })
+      });
 
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
       const ldSidenavNavitem = ldSidenav.querySelector(
-        'ld-sidenav-navitem:first-of-type'
-      )
+        "ld-sidenav-navitem:first-of-type",
+      );
       const ldAccordionSection = ldSidenav
-        .querySelector('ld-sidenav-accordion')
-        .shadowRoot.querySelector('ld-accordion-section')
+        .querySelector("ld-sidenav-accordion")
+        .shadowRoot.querySelector("ld-accordion-section");
       expect(ldAccordionSection).not.toHaveClass(
-        'ld-accordion-section--expanded'
-      )
+        "ld-accordion-section--expanded",
+      );
 
-      ldSidenavNavitem.shadowRoot.querySelector('button').click()
-      await page.waitForChanges()
+      ldSidenavNavitem.shadowRoot.querySelector("button").click();
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
       expect(ldAccordionSection).not.toHaveClass(
-        'ld-accordion-section--expanded'
-      )
-    })
-  })
+        "ld-accordion-section--expanded",
+      );
+    });
+  });
 
-  it('opens and closes via prop', async () => {
+  it("opens and closes via prop", async () => {
     const page = await newSpecPage({
       components: [LdSidenav],
-      html: '<ld-sidenav></ld-sidenav>',
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
+      html: "<ld-sidenav></ld-sidenav>",
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--open");
 
-    ldSidenav.setAttribute('open', '')
-    await page.waitForChanges()
-    expect(ldSidenav).toHaveClass('ld-sidenav--open')
+    ldSidenav.setAttribute("open", "");
+    await page.waitForChanges();
+    expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-    ldSidenav.removeAttribute('open')
-    await page.waitForChanges()
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
-  })
+    ldSidenav.removeAttribute("open");
+    await page.waitForChanges();
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--open");
+  });
 
-  it('opens and closes via events', async () => {
+  it("opens and closes via events", async () => {
     const page = await newSpecPage({
       components: [LdSidenav],
-      html: '<ld-sidenav></ld-sidenav>',
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
+      html: "<ld-sidenav></ld-sidenav>",
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--open");
 
-    ldSidenav.dispatchEvent(new CustomEvent('ldSidenavOpen'))
-    await page.waitForChanges()
-    expect(ldSidenav).toHaveClass('ld-sidenav--open')
+    ldSidenav.dispatchEvent(new CustomEvent("ldSidenavOpen"));
+    await page.waitForChanges();
+    expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-    ldSidenav.dispatchEvent(new CustomEvent('ldSidenavClose'))
-    await page.waitForChanges()
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
-  })
+    ldSidenav.dispatchEvent(new CustomEvent("ldSidenavClose"));
+    await page.waitForChanges();
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--open");
+  });
 
-  it('slides', async () => {
+  it("slides", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation(),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    const changeHandler = jest.fn()
-    const changedHandler = jest.fn()
-    ldSidenav.addEventListener('ldSidenavSliderChange', changeHandler)
-    ldSidenav.addEventListener('ldSidenavSliderChanged', changedHandler)
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    const changeHandler = jest.fn();
+    const changedHandler = jest.fn();
+    ldSidenav.addEventListener("ldSidenavSliderChange", changeHandler);
+    ldSidenav.addEventListener("ldSidenavSliderChanged", changedHandler);
 
-    mockFocus(ldSidenav)
-    await page.waitForChanges()
-    expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
-      false
-    )
+    mockFocus(ldSidenav);
+    await page.waitForChanges();
+    expect(ldSidenav.classList.contains("ld-sidenav--has-active-subnav")).toBe(
+      false,
+    );
 
     const ldSidenavBack =
-      ldSidenav.querySelector<HTMLLdSidenavBackElement>('ld-sidenav-back')
+      ldSidenav.querySelector<HTMLLdSidenavBackElement>("ld-sidenav-back");
     const ldSidenavBackButton =
-      ldSidenavBack.shadowRoot.querySelector('.ld-sidenav-back')
-    expect(ldSidenavBack.textContent.trim()).toBe('Outline of Computer Science')
+      ldSidenavBack.shadowRoot.querySelector(".ld-sidenav-back");
+    expect(ldSidenavBack.textContent.trim()).toBe(
+      "Outline of Computer Science",
+    );
     expect(
-      ldSidenavBackButton.classList.contains('ld-sidenav-back--is-back')
-    ).toBe(false)
+      ldSidenavBackButton.classList.contains("ld-sidenav-back--is-back"),
+    ).toBe(false);
 
-    expect(changeHandler).not.toHaveBeenCalled()
-    expect(changedHandler).not.toHaveBeenCalled()
+    expect(changeHandler).not.toHaveBeenCalled();
+    expect(changedHandler).not.toHaveBeenCalled();
 
     const ldSidenavNavitemArtInt =
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
-        'ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)'
-      )
-    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').click()
-    await page.waitForChanges()
-    expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
-      true
-    )
+        "ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)",
+      );
+    ldSidenavNavitemArtInt.shadowRoot.querySelector("button").click();
+    await page.waitForChanges();
+    expect(ldSidenav.classList.contains("ld-sidenav--has-active-subnav")).toBe(
+      true,
+    );
     expect(
       ldSidenav
-        .querySelector('#artificial-intelligence')
-        .classList.contains('ld-sidenav-subnav--active')
-    ).toBe(true)
+        .querySelector("#artificial-intelligence")
+        .classList.contains("ld-sidenav-subnav--active"),
+    ).toBe(true);
 
-    expect(changeHandler).toHaveBeenCalledTimes(1)
-    expect(changedHandler).not.toHaveBeenCalled()
+    expect(changeHandler).toHaveBeenCalledTimes(1);
+    expect(changedHandler).not.toHaveBeenCalled();
 
-    expect(ldSidenavBack.textContent.trim()).toBe('Outline of Computer Science')
+    expect(ldSidenavBack.textContent.trim()).toBe(
+      "Outline of Computer Science",
+    );
     expect(
-      ldSidenavBackButton.classList.contains('ld-sidenav-back--is-back')
-    ).toBe(true)
+      ldSidenavBackButton.classList.contains("ld-sidenav-back--is-back"),
+    ).toBe(true);
 
-    await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
-    expect(changeHandler).toHaveBeenCalledTimes(1)
-    expect(changedHandler).toHaveBeenCalledTimes(1)
-  })
+    await transitionEnd(page, ldSidenav.querySelector("ld-sidenav-slider"));
+    expect(changeHandler).toHaveBeenCalledTimes(1);
+    expect(changedHandler).toHaveBeenCalledTimes(1);
+  });
 
-  it('expands on slide', async () => {
+  it("expands on slide", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation({
@@ -786,218 +792,220 @@ describe('ld-sidenav', () => {
         collapsed: true,
         narrow: true,
       }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    jest.advanceTimersByTime(0)
-    await page.waitForChanges()
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    jest.advanceTimersByTime(0);
+    await page.waitForChanges();
 
-    expect(ldSidenav).toHaveClass('ld-sidenav--transitions')
-    expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+    expect(ldSidenav).toHaveClass("ld-sidenav--transitions");
+    expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
 
     const ldSidenavNavitemArtInt =
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
-        'ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)'
-      )
-    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').click()
-    await page.waitForChanges()
+        "ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)",
+      );
+    ldSidenavNavitemArtInt.shadowRoot.querySelector("button").click();
+    await page.waitForChanges();
 
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-  })
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+  });
 
-  it('slides back', async () => {
+  it("slides back", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation({
-        currentSubnav: 'artificial-intelligence',
+        currentSubnav: "artificial-intelligence",
       }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    await page.waitForChanges()
-    expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
-      true
-    )
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    await page.waitForChanges();
+    expect(ldSidenav.classList.contains("ld-sidenav--has-active-subnav")).toBe(
+      true,
+    );
 
     const ldSidenavBack =
-      ldSidenav.querySelector<HTMLLdSidenavBackElement>('ld-sidenav-back')
+      ldSidenav.querySelector<HTMLLdSidenavBackElement>("ld-sidenav-back");
     const ldSidenavBackButton =
-      ldSidenavBack.shadowRoot.querySelector('.ld-sidenav-back')
-    expect(ldSidenavBack.textContent.trim()).toBe('Outline of Computer Science')
+      ldSidenavBack.shadowRoot.querySelector(".ld-sidenav-back");
+    expect(ldSidenavBack.textContent.trim()).toBe(
+      "Outline of Computer Science",
+    );
     expect(
-      ldSidenavBackButton.classList.contains('ld-sidenav-back--is-back')
-    ).toBe(true)
+      ldSidenavBackButton.classList.contains("ld-sidenav-back--is-back"),
+    ).toBe(true);
 
     ldSidenavBack.shadowRoot
       .querySelector<HTMLElement>('[role="button"]')
-      .click()
-    await page.waitForChanges()
+      .click();
+    await page.waitForChanges();
 
-    await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
+    await transitionEnd(page, ldSidenav.querySelector("ld-sidenav-slider"));
     expect(
-      ldSidenavBackButton.classList.contains('ld-sidenav-back--is-back')
-    ).toBe(false)
-  })
+      ldSidenavBackButton.classList.contains("ld-sidenav-back--is-back"),
+    ).toBe(false);
+  });
 
-  it('hides subnavs when navigating to other subnavs', async () => {
+  it("hides subnavs when navigating to other subnavs", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation({
-        currentSubnav: 'artificial-intelligence',
+        currentSubnav: "artificial-intelligence",
       }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    await page.waitForChanges()
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    await page.waitForChanges();
 
     const subnavArtInt = ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
-      '#artificial-intelligence'
-    )
+      "#artificial-intelligence",
+    );
     expect(
-      subnavArtInt.shadowRoot.querySelector('ld-sidenav-scroller-internal')
-        .style.visibility
-    ).not.toBe('hidden')
+      subnavArtInt.shadowRoot.querySelector("ld-sidenav-scroller-internal")
+        .style.visibility,
+    ).not.toBe("hidden");
 
     const ldSidenavNavitemSoftComp =
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
-        '#artificial-intelligence > ld-sidenav-navitem:nth-child(6)'
-      )
-    ldSidenavNavitemSoftComp.shadowRoot.querySelector('button').click()
-    await page.waitForChanges()
+        "#artificial-intelligence > ld-sidenav-navitem:nth-child(6)",
+      );
+    ldSidenavNavitemSoftComp.shadowRoot.querySelector("button").click();
+    await page.waitForChanges();
 
-    await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
+    await transitionEnd(page, ldSidenav.querySelector("ld-sidenav-slider"));
     expect(
-      subnavArtInt.shadowRoot.querySelector('ld-sidenav-scroller-internal')
-        .style.visibility
-    ).toBe('hidden')
-  })
+      subnavArtInt.shadowRoot.querySelector("ld-sidenav-scroller-internal")
+        .style.visibility,
+    ).toBe("hidden");
+  });
 
-  it('navigates to subnav on current subnav prop change', async () => {
+  it("navigates to subnav on current subnav prop change", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation({
-        currentSubnav: 'algorithms-and-data-structures',
+        currentSubnav: "algorithms-and-data-structures",
       }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    await page.waitForChanges()
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    await page.waitForChanges();
 
     const subnavAlgDS = ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
-      '#algorithms-and-data-structures'
-    )
+      "#algorithms-and-data-structures",
+    );
     const subnavMath = ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
-      '#mathematical-foundations'
-    )
+      "#mathematical-foundations",
+    );
     expect(
-      subnavAlgDS.shadowRoot.querySelector('ld-sidenav-scroller-internal').style
-        .visibility
-    ).not.toBe('hidden')
+      subnavAlgDS.shadowRoot.querySelector("ld-sidenav-scroller-internal").style
+        .visibility,
+    ).not.toBe("hidden");
     expect(
-      subnavMath.shadowRoot.querySelector('ld-sidenav-scroller-internal').style
-        .visibility
-    ).toBe('hidden')
+      subnavMath.shadowRoot.querySelector("ld-sidenav-scroller-internal").style
+        .visibility,
+    ).toBe("hidden");
 
     const ldSidenavNavitemMath =
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
-        '#algorithms-and-data-structures > ld-sidenav-navitem:nth-child(4)'
-      )
-    ldSidenavNavitemMath.shadowRoot.querySelector('button').click()
-    await page.waitForChanges()
+        "#algorithms-and-data-structures > ld-sidenav-navitem:nth-child(4)",
+      );
+    ldSidenavNavitemMath.shadowRoot.querySelector("button").click();
+    await page.waitForChanges();
 
-    await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
+    await transitionEnd(page, ldSidenav.querySelector("ld-sidenav-slider"));
     expect(
-      subnavAlgDS.shadowRoot.querySelector('ld-sidenav-scroller-internal').style
-        .visibility
-    ).toBe('hidden')
+      subnavAlgDS.shadowRoot.querySelector("ld-sidenav-scroller-internal").style
+        .visibility,
+    ).toBe("hidden");
     expect(
-      subnavMath.shadowRoot.querySelector('ld-sidenav-scroller-internal').style
-        .visibility
-    ).not.toBe('hidden')
-  })
+      subnavMath.shadowRoot.querySelector("ld-sidenav-scroller-internal").style
+        .visibility,
+    ).not.toBe("hidden");
+  });
 
-  it('slides back via keyboard', async () => {
+  it("slides back via keyboard", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation({
-        currentSubnav: 'artificial-intelligence',
+        currentSubnav: "artificial-intelligence",
       }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
     const ldSidenavBack =
-      ldSidenav.querySelector<HTMLLdSidenavBackElement>('ld-sidenav-back')
+      ldSidenav.querySelector<HTMLLdSidenavBackElement>("ld-sidenav-back");
     const ldSidenavBackButton =
-      ldSidenavBack.shadowRoot.querySelector('.ld-sidenav-back')
+      ldSidenavBack.shadowRoot.querySelector(".ld-sidenav-back");
     ldSidenavBack.shadowRoot
       .querySelector<HTMLElement>('[role="button"]')
-      .dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
-    await page.waitForChanges()
+      .dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
+    await page.waitForChanges();
 
-    await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
+    await transitionEnd(page, ldSidenav.querySelector("ld-sidenav-slider"));
     expect(
-      ldSidenavBackButton.classList.contains('ld-sidenav-back--is-back')
-    ).toBe(false)
-  })
+      ldSidenavBackButton.classList.contains("ld-sidenav-back--is-back"),
+    ).toBe(false);
+  });
 
-  it('collapses', async () => {
+  it("collapses", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation({
-        currentSubnav: 'artificial-intelligence',
+        currentSubnav: "artificial-intelligence",
         collapsible: true,
       }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    expect(ldSidenav).toHaveClass('ld-sidenav--collapsible')
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    expect(ldSidenav.classList.contains('ld-sidenav--fully-collapsible')).toBe(
-      true
-    )
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    expect(ldSidenav).toHaveClass("ld-sidenav--collapsible");
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    expect(ldSidenav.classList.contains("ld-sidenav--fully-collapsible")).toBe(
+      true,
+    );
 
-    const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+    const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
     const btnToggle =
       ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-        'button[role="switch"]'
-      )
-    btnToggle.click()
+        'button[role="switch"]',
+      );
+    btnToggle.click();
 
-    await page.waitForChanges()
-    expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-  })
+    await page.waitForChanges();
+    expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+  });
 
-  it('collapses to narrow', async () => {
+  it("collapses to narrow", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation({
-        currentSubnav: 'artificial-intelligence',
+        currentSubnav: "artificial-intelligence",
         collapsible: true,
         narrow: true,
       }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    expect(ldSidenav).toHaveClass('ld-sidenav--collapsible')
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    expect(ldSidenav.classList.contains('ld-sidenav--fully-collapsible')).toBe(
-      false
-    )
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    expect(ldSidenav).toHaveClass("ld-sidenav--collapsible");
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    expect(ldSidenav.classList.contains("ld-sidenav--fully-collapsible")).toBe(
+      false,
+    );
 
-    const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+    const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
     const btnToggle =
       ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-        'button[role="switch"]'
-      )
-    btnToggle.click()
+        'button[role="switch"]',
+      );
+    btnToggle.click();
 
-    await page.waitForChanges()
-    expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+    await page.waitForChanges();
+    expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
 
-    expect(page.body).toMatchSnapshot()
-  })
+    expect(page.body).toMatchSnapshot();
+  });
 
-  it('collapses to narrow if it has a back button', async () => {
+  it("collapses to narrow if it has a back button", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: `
@@ -1020,20 +1028,20 @@ describe('ld-sidenav', () => {
           </ld-sidenav-slider>
         </ld-sidenav>
       `,
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    expect(ldSidenav).toHaveClass('ld-sidenav--collapsible')
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
-      true
-    )
-    expect(ldSidenav.classList.contains('ld-sidenav--fully-collapsible')).toBe(
-      false
-    )
-  })
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    expect(ldSidenav).toHaveClass("ld-sidenav--collapsible");
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    expect(ldSidenav.classList.contains("ld-sidenav--has-active-subnav")).toBe(
+      true,
+    );
+    expect(ldSidenav.classList.contains("ld-sidenav--fully-collapsible")).toBe(
+      false,
+    );
+  });
 
-  it('collapses to narrow if it has a nav item as a direct child', async () => {
+  it("collapses to narrow if it has a nav item as a direct child", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: `
@@ -1054,20 +1062,20 @@ describe('ld-sidenav', () => {
           <ld-sidenav-navitem slot="bottom" rounded>Student profile</ld-sidenav-navitem>
         </ld-sidenav>
       `,
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    expect(ldSidenav).toHaveClass('ld-sidenav--collapsible')
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
-      true
-    )
-    expect(ldSidenav.classList.contains('ld-sidenav--fully-collapsible')).toBe(
-      false
-    )
-  })
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    expect(ldSidenav).toHaveClass("ld-sidenav--collapsible");
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    expect(ldSidenav.classList.contains("ld-sidenav--has-active-subnav")).toBe(
+      true,
+    );
+    expect(ldSidenav.classList.contains("ld-sidenav--fully-collapsible")).toBe(
+      false,
+    );
+  });
 
-  it('does not collapse to narrow if it has only non-primary nav items as a direct children', async () => {
+  it("does not collapse to narrow if it has only non-primary nav items as a direct children", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: `
@@ -1089,462 +1097,462 @@ describe('ld-sidenav', () => {
           <ld-sidenav-navitem slot="bottom" mode="tertiary" rounded>Logout</ld-sidenav-navitem>
         </ld-sidenav>
       `,
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    expect(ldSidenav).toHaveClass('ld-sidenav--collapsible')
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
-      true
-    )
-    expect(ldSidenav.classList.contains('ld-sidenav--fully-collapsible')).toBe(
-      true
-    )
-  })
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    expect(ldSidenav).toHaveClass("ld-sidenav--collapsible");
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    expect(ldSidenav.classList.contains("ld-sidenav--has-active-subnav")).toBe(
+      true,
+    );
+    expect(ldSidenav.classList.contains("ld-sidenav--fully-collapsible")).toBe(
+      true,
+    );
+  });
 
-  it('updates back button collapsed state', async () => {
+  it("updates back button collapsed state", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation({
-        currentSubnav: 'artificial-intelligence',
+        currentSubnav: "artificial-intelligence",
         collapsible: true,
         narrow: true,
       }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
 
-    const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+    const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
     const btnToggle =
       ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-        'button[role="switch"]'
-      )
-    btnToggle.click()
+        'button[role="switch"]',
+      );
+    btnToggle.click();
 
-    await page.waitForChanges()
+    await page.waitForChanges();
 
     const ldSidenavBack =
-      ldSidenav.querySelector<HTMLLdSidenavBackElement>('ld-sidenav-back')
+      ldSidenav.querySelector<HTMLLdSidenavBackElement>("ld-sidenav-back");
     const ldSidenavBackButton =
-      ldSidenavBack.shadowRoot.querySelector('.ld-sidenav-back')
+      ldSidenavBack.shadowRoot.querySelector(".ld-sidenav-back");
     expect(
-      ldSidenavBackButton.classList.contains('ld-sidenav-back--collapsed')
-    ).toBe(true)
+      ldSidenavBackButton.classList.contains("ld-sidenav-back--collapsed"),
+    ).toBe(true);
 
-    btnToggle.click()
+    btnToggle.click();
 
-    await page.waitForChanges()
-
-    expect(
-      ldSidenavBackButton.classList.contains('ld-sidenav-back--collapsed')
-    ).toBe(false)
-
-    btnToggle.click()
-
-    await page.waitForChanges()
+    await page.waitForChanges();
 
     expect(
-      ldSidenavBackButton.classList.contains('ld-sidenav-back--collapsed')
-    ).toBe(true)
+      ldSidenavBackButton.classList.contains("ld-sidenav-back--collapsed"),
+    ).toBe(false);
 
-    const mediaQueries = matchMedia.getMediaQueries()
-    matchMedia.useMediaQuery(mediaQueries[0])
-    await page.waitForChanges()
+    btnToggle.click();
+
+    await page.waitForChanges();
 
     expect(
-      ldSidenavBackButton.classList.contains('ld-sidenav-back--collapsed')
-    ).toBe(false)
-  })
+      ldSidenavBackButton.classList.contains("ld-sidenav-back--collapsed"),
+    ).toBe(true);
 
-  it('applies rounded prop to back button', async () => {
+    const mediaQueries = matchMedia.getMediaQueries();
+    matchMedia.useMediaQuery(mediaQueries[0]);
+    await page.waitForChanges();
+
+    expect(
+      ldSidenavBackButton.classList.contains("ld-sidenav-back--collapsed"),
+    ).toBe(false);
+  });
+
+  it("applies rounded prop to back button", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation({
-        currentSubnav: 'artificial-intelligence',
+        currentSubnav: "artificial-intelligence",
         collapsible: true,
         narrow: true,
         roundedBackButton: true,
       }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
 
     const ldSidenavBack =
-      ldSidenav.querySelector<HTMLLdSidenavBackElement>('ld-sidenav-back')
+      ldSidenav.querySelector<HTMLLdSidenavBackElement>("ld-sidenav-back");
     const ldSidenavBackButton =
-      ldSidenavBack.shadowRoot.querySelector('.ld-sidenav-back')
+      ldSidenavBack.shadowRoot.querySelector(".ld-sidenav-back");
     expect(
-      ldSidenavBackButton.classList.contains('ld-sidenav-back--rounded')
-    ).toBe(true)
-  })
+      ldSidenavBackButton.classList.contains("ld-sidenav-back--rounded"),
+    ).toBe(true);
+  });
 
-  it('shows slider on load if active', async () => {
+  it("shows slider on load if active", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation(),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    await page.waitForChanges()
-    jest.advanceTimersByTime(0)
-    await page.waitForChanges()
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    await page.waitForChanges();
+    jest.advanceTimersByTime(0);
+    await page.waitForChanges();
 
-    const ldSidenavSlider = ldSidenav.querySelector('ld-sidenav-slider')
-    expect(ldSidenavSlider.style.visibility).not.toBe('hidden')
-  })
+    const ldSidenavSlider = ldSidenav.querySelector("ld-sidenav-slider");
+    expect(ldSidenavSlider.style.visibility).not.toBe("hidden");
+  });
 
-  it('hides slider on load if inactive', async () => {
+  it("hides slider on load if inactive", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation({
-        currentSubnav: 'artificial-intelligence',
+        currentSubnav: "artificial-intelligence",
       }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    await page.waitForChanges()
-    jest.advanceTimersByTime(0)
-    await page.waitForChanges()
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    await page.waitForChanges();
+    jest.advanceTimersByTime(0);
+    await page.waitForChanges();
 
-    const ldSidenavSlider = ldSidenav.querySelector('ld-sidenav-slider')
-    expect(ldSidenavSlider.style.visibility).toBe('hidden')
-  })
+    const ldSidenavSlider = ldSidenav.querySelector("ld-sidenav-slider");
+    expect(ldSidenavSlider.style.visibility).toBe("hidden");
+  });
 
-  it('ignores invalid prop for current subnav', async () => {
+  it("ignores invalid prop for current subnav", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
-      html: getSidenavWithSubnavigation({ currentSubnav: 'yolo' }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    await page.waitForChanges()
-    expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
-      false
-    )
-  })
+      html: getSidenavWithSubnavigation({ currentSubnav: "yolo" }),
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    await page.waitForChanges();
+    expect(ldSidenav.classList.contains("ld-sidenav--has-active-subnav")).toBe(
+      false,
+    );
+  });
 
-  describe('keyboard navigation', () => {
+  describe("keyboard navigation", () => {
     beforeEach(() => {
-      matchMedia = new MatchMediaMock()
-    })
+      matchMedia = new MatchMediaMock();
+    });
 
-    it('navigates back on escape key press', async () => {
+    it("navigates back on escape key press", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: getSidenavWithSubnavigation({
-          currentSubnav: 'artificial-intelligence',
+          currentSubnav: "artificial-intelligence",
         }),
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      mockFocus(ldSidenav)
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      mockFocus(ldSidenav);
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--has-active-subnav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--has-active-subnav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      const doc = document as unknown as { activeElement: Element }
-      doc.activeElement = document.body
-      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
-      await page.waitForChanges()
-      await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
+      const doc = document as unknown as { activeElement: Element };
+      doc.activeElement = document.body;
+      window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+      await page.waitForChanges();
+      await transitionEnd(page, ldSidenav.querySelector("ld-sidenav-slider"));
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--has-active-subnav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--has-active-subnav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      doc.activeElement = ldSidenav
-      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
-      await page.waitForChanges()
-      await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
+      doc.activeElement = ldSidenav;
+      window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+      await page.waitForChanges();
+      await transitionEnd(page, ldSidenav.querySelector("ld-sidenav-slider"));
 
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--has-active-subnav')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
-    })
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--has-active-subnav");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
+    });
 
-    it('does not close on escape key press when not closable', async () => {
+    it("does not close on escape key press when not closable", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
-        html: '<ld-sidenav open></ld-sidenav>',
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+        html: "<ld-sidenav open></ld-sidenav>",
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--closable");
 
-      const doc = document as unknown as { activeElement: Element }
-      doc.activeElement = document.body
-      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
-      await page.waitForChanges()
+      const doc = document as unknown as { activeElement: Element };
+      doc.activeElement = document.body;
+      window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
-    })
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
+    });
 
-    it('closes on escape key press when closable', async () => {
+    it("closes on escape key press when closable", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
-        html: '<ld-sidenav open></ld-sidenav>',
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+        html: "<ld-sidenav open></ld-sidenav>",
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
 
-      const doc = document as unknown as { activeElement: Element }
-      doc.activeElement = document.body
-      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
-      await page.waitForChanges()
+      const doc = document as unknown as { activeElement: Element };
+      doc.activeElement = document.body;
+      window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+      await page.waitForChanges();
 
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
-    })
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--open");
+    });
 
-    it('closes on escape key press when in first level and closable', async () => {
+    it("closes on escape key press when in first level and closable", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: getSidenavWithSubnavigation(),
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      mockFocus(ldSidenav)
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      mockFocus(ldSidenav);
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
 
-      const doc = document as unknown as { activeElement: Element }
-      doc.activeElement = document.body
-      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
-      await page.waitForChanges()
-      await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
+      const doc = document as unknown as { activeElement: Element };
+      doc.activeElement = document.body;
+      window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+      await page.waitForChanges();
+      await transitionEnd(page, ldSidenav.querySelector("ld-sidenav-slider"));
 
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
-    })
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--open");
+    });
 
-    it('does not trap the focus if the trap-focus prop is is not set', async () => {
+    it("does not trap the focus if the trap-focus prop is is not set", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav open>
           <a href="#">I'm focusable</a>
         </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      const anchor = ldSidenav.querySelector('a')
-      anchor.focus = jest.fn()
+      const anchor = ldSidenav.querySelector("a");
+      anchor.focus = jest.fn();
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: page.body,
         bubbles: true,
-      } as unknown as FocusEvent
-      anchor.dispatchEvent(ev)
+      } as unknown as FocusEvent;
+      anchor.dispatchEvent(ev);
 
-      expect(anchor.focus).not.toHaveBeenCalled()
-    })
+      expect(anchor.focus).not.toHaveBeenCalled();
+    });
 
-    it('does not trap the focus if the sidebar is not closable', async () => {
+    it("does not trap the focus if the sidebar is not closable", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav open trap-focus="">
           <a href="#">I'm focusable</a>
         </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--closable");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      const anchor = ldSidenav.querySelector('a')
-      anchor.focus = jest.fn()
+      const anchor = ldSidenav.querySelector("a");
+      anchor.focus = jest.fn();
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: page.body,
         bubbles: true,
-      } as unknown as FocusEvent
-      anchor.dispatchEvent(ev)
+      } as unknown as FocusEvent;
+      anchor.dispatchEvent(ev);
 
-      expect(anchor.focus).not.toHaveBeenCalled()
-    })
+      expect(anchor.focus).not.toHaveBeenCalled();
+    });
 
-    it('does not trap the focus if the sidebar is closable but not open', async () => {
+    it("does not trap the focus if the sidebar is closable but not open", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav trap-focus="">
           <a href="#">I'm focusable</a>
         </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
+      expect(ldSidenav).not.toHaveClass("ld-sidenav--open");
 
-      const anchor = ldSidenav.querySelector('a')
-      anchor.focus = jest.fn()
+      const anchor = ldSidenav.querySelector("a");
+      anchor.focus = jest.fn();
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: page.body,
         bubbles: true,
-      } as unknown as FocusEvent
-      anchor.dispatchEvent(ev)
+      } as unknown as FocusEvent;
+      anchor.dispatchEvent(ev);
 
-      expect(anchor.focus).not.toHaveBeenCalled()
-    })
+      expect(anchor.focus).not.toHaveBeenCalled();
+    });
 
-    it('does not trap the focus as long as the focus remains in the sidenav', async () => {
+    it("does not trap the focus as long as the focus remains in the sidenav", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav open trap-focus="">
           <a href="#">I'm focusable</a>
           <button>I'm also focusable</button>
         </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      const anchor = ldSidenav.querySelector('a')
-      anchor.focus = jest.fn()
+      const anchor = ldSidenav.querySelector("a");
+      anchor.focus = jest.fn();
 
-      const button = ldSidenav.querySelector('button')
-      button.focus = jest.fn()
+      const button = ldSidenav.querySelector("button");
+      button.focus = jest.fn();
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: button,
         bubbles: true,
-      } as unknown as FocusEvent
-      anchor.dispatchEvent(ev)
+      } as unknown as FocusEvent;
+      anchor.dispatchEvent(ev);
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      expect(anchor.focus).not.toHaveBeenCalled()
-    })
+      expect(anchor.focus).not.toHaveBeenCalled();
+    });
 
-    it('does not trap the focus when it moves to an element which matches the trap focus selector', async () => {
+    it("does not trap the focus when it moves to an element which matches the trap focus selector", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav open trap-focus="#asdf">
           <a href="#">I'm focusable</a>
         </ld-sidenav><button id="asdf">I'm also focusable</button>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      const anchor = ldSidenav.querySelector('a')
-      anchor.focus = jest.fn()
+      const anchor = ldSidenav.querySelector("a");
+      anchor.focus = jest.fn();
 
-      const button = page.body.querySelector('button')
-      button.focus = jest.fn()
+      const button = page.body.querySelector("button");
+      button.focus = jest.fn();
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: button,
         bubbles: true,
-      } as unknown as FocusEvent
-      anchor.dispatchEvent(ev)
+      } as unknown as FocusEvent;
+      anchor.dispatchEvent(ev);
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      expect(anchor.focus).not.toHaveBeenCalled()
-    })
+      expect(anchor.focus).not.toHaveBeenCalled();
+    });
 
-    it('traps the focus if the sidebar is closable and open with trap-focus set', async () => {
+    it("traps the focus if the sidebar is closable and open with trap-focus set", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav open trap-focus="">
           <a href="#">I'm focusable</a>
         </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      const anchor = ldSidenav.querySelector('a')
-      anchor.focus = jest.fn()
-      mockedGetFirstFocusable.mockImplementationOnce(() => anchor)
+      const anchor = ldSidenav.querySelector("a");
+      anchor.focus = jest.fn();
+      mockedGetFirstFocusable.mockImplementationOnce(() => anchor);
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: page.body,
         bubbles: true,
-      } as unknown as FocusEvent
-      anchor.dispatchEvent(ev)
+      } as unknown as FocusEvent;
+      anchor.dispatchEvent(ev);
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      expect(anchor.focus).toHaveBeenCalled()
-    })
+      expect(anchor.focus).toHaveBeenCalled();
+    });
 
-    it('traps the focus in the shadow dom of a web component within the sidenav', async () => {
+    it("traps the focus in the shadow dom of a web component within the sidenav", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav open trap-focus="">
           <a href="#">I'm focusable</a>
         </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      await page.waitForChanges()
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      await page.waitForChanges();
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      const anchor = ldSidenav.querySelector('a')
-      jest.advanceTimersToNextTimer()
-      await page.waitForChanges()
+      const anchor = ldSidenav.querySelector("a");
+      jest.advanceTimersToNextTimer();
+      await page.waitForChanges();
 
-      anchor.focus = jest.fn()
-      mockedGetFirstFocusable.mockImplementationOnce(() => anchor)
+      anchor.focus = jest.fn();
+      mockedGetFirstFocusable.mockImplementationOnce(() => anchor);
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: page.body,
         bubbles: true,
         composed: true,
-      } as unknown as FocusEvent
-      anchor.dispatchEvent(ev)
+      } as unknown as FocusEvent;
+      anchor.dispatchEvent(ev);
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      expect(anchor.focus).toHaveBeenCalledTimes(1)
-    })
+      expect(anchor.focus).toHaveBeenCalledTimes(1);
+    });
 
-    it('loops the focus back to the first focusable element in the sidenav, when it moves out from an element which matches the trap focus selector', async () => {
+    it("loops the focus back to the first focusable element in the sidenav, when it moves out from an element which matches the trap focus selector", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav open trap-focus="#asdf">
@@ -1552,39 +1560,39 @@ describe('ld-sidenav', () => {
         </ld-sidenav>
         <button id="asdf">I'm also focusable</button>
         <main tabindex="-1"></main>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      const anchor = ldSidenav.querySelector('a')
-      anchor.focus = jest.fn()
+      const anchor = ldSidenav.querySelector("a");
+      anchor.focus = jest.fn();
 
-      const button = page.body.querySelector('button')
+      const button = page.body.querySelector("button");
       mockedGetFirstFocusable
         .mockImplementationOnce(() => anchor)
-        .mockImplementationOnce(() => button)
+        .mockImplementationOnce(() => button);
 
-      const main = page.body.querySelector('main')
+      const main = page.body.querySelector("main");
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: main,
         bubbles: true,
-      } as unknown as FocusEvent
-      button.dispatchEvent(ev)
+      } as unknown as FocusEvent;
+      button.dispatchEvent(ev);
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      expect(anchor.focus).toHaveBeenCalled()
-    })
+      expect(anchor.focus).toHaveBeenCalled();
+    });
 
-    it('loops the focus back to the first focusable element matching the focus selector, when it moves out from the sidenav', async () => {
+    it("loops the focus back to the first focusable element matching the focus selector, when it moves out from the sidenav", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav open trap-focus="#asdf">
@@ -1592,39 +1600,39 @@ describe('ld-sidenav', () => {
         </ld-sidenav>
         <button id="asdf">I'm also focusable</button>
         <main tabindex="-1"></main>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      const anchor = ldSidenav.querySelector('a')
+      const anchor = ldSidenav.querySelector("a");
 
-      const button = page.body.querySelector('button')
-      button.focus = jest.fn()
+      const button = page.body.querySelector("button");
+      button.focus = jest.fn();
       mockedGetFirstFocusable
         .mockImplementationOnce(() => anchor)
-        .mockImplementationOnce(() => button)
+        .mockImplementationOnce(() => button);
 
-      const main = page.body.querySelector('main')
+      const main = page.body.querySelector("main");
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: main,
         bubbles: true,
-      } as unknown as FocusEvent
-      anchor.dispatchEvent(ev)
+      } as unknown as FocusEvent;
+      anchor.dispatchEvent(ev);
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      expect(button.focus).toHaveBeenCalled()
-    })
+      expect(button.focus).toHaveBeenCalled();
+    });
 
-    it('loops the focus back to the last focusable element in the sidenav, when it moves out from the first element matching the trap focus selector', async () => {
+    it("loops the focus back to the last focusable element in the sidenav, when it moves out from the first element matching the trap focus selector", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<div id="asdf">
@@ -1636,43 +1644,43 @@ describe('ld-sidenav', () => {
           <a id="anchor2" href="#">I'm focusable</a>
         </ld-sidenav>
         <main tabindex="-1"></main>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      const anchor1 = ldSidenav.querySelector<HTMLElement>('#anchor1')
-      const anchor2 = ldSidenav.querySelector<HTMLElement>('#anchor2')
-      anchor2.focus = jest.fn()
+      const anchor1 = ldSidenav.querySelector<HTMLElement>("#anchor1");
+      const anchor2 = ldSidenav.querySelector<HTMLElement>("#anchor2");
+      anchor2.focus = jest.fn();
 
-      const button1 = page.body.querySelector<HTMLElement>('#button1')
-      const button2 = page.body.querySelector<HTMLElement>('#button2')
+      const button1 = page.body.querySelector<HTMLElement>("#button1");
+      const button2 = page.body.querySelector<HTMLElement>("#button2");
       mockedGetFirstFocusable
         .mockImplementationOnce(() => anchor1)
         .mockImplementationOnce(() => button1)
         .mockImplementationOnce(() => button2)
-        .mockImplementationOnce(() => anchor2)
+        .mockImplementationOnce(() => anchor2);
 
-      const main = page.body.querySelector('main')
+      const main = page.body.querySelector("main");
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: main,
         bubbles: true,
-      } as unknown as FocusEvent
-      button1.dispatchEvent(ev)
+      } as unknown as FocusEvent;
+      button1.dispatchEvent(ev);
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      expect(anchor2.focus).toHaveBeenCalled()
-    })
+      expect(anchor2.focus).toHaveBeenCalled();
+    });
 
-    it('loops the focus back to the last focusable element matching the focus selector, when it moves out backwards from the sidenav', async () => {
+    it("loops the focus back to the last focusable element matching the focus selector, when it moves out backwards from the sidenav", async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav open trap-focus="#asdf *">
@@ -1684,43 +1692,43 @@ describe('ld-sidenav', () => {
           <button id="button2">I'm also focusable</button>
         </div>
         <main tabindex="-1"></main>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
+      const mediaQueries = matchMedia.getMediaQueries();
+      matchMedia.useMediaQuery(mediaQueries[0]);
+      await page.waitForChanges();
 
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass("ld-sidenav--closable");
+      expect(ldSidenav).toHaveClass("ld-sidenav--open");
 
-      const anchor1 = ldSidenav.querySelector<HTMLElement>('#anchor1')
-      const anchor2 = ldSidenav.querySelector<HTMLElement>('#anchor2')
+      const anchor1 = ldSidenav.querySelector<HTMLElement>("#anchor1");
+      const anchor2 = ldSidenav.querySelector<HTMLElement>("#anchor2");
 
-      const button1 = page.body.querySelector<HTMLElement>('#button1')
-      const button2 = page.body.querySelector<HTMLElement>('#button2')
-      button2.focus = jest.fn()
+      const button1 = page.body.querySelector<HTMLElement>("#button1");
+      const button2 = page.body.querySelector<HTMLElement>("#button2");
+      button2.focus = jest.fn();
       mockedGetFirstFocusable
         .mockImplementationOnce(() => anchor1)
         .mockImplementationOnce(() => button1)
         .mockImplementationOnce(() => button2)
-        .mockImplementationOnce(() => anchor2)
+        .mockImplementationOnce(() => anchor2);
 
-      const main = page.body.querySelector('main')
+      const main = page.body.querySelector("main");
 
       const ev = {
-        type: 'focusout',
+        type: "focusout",
         relatedTarget: main,
         bubbles: true,
-      } as unknown as FocusEvent
-      anchor1.dispatchEvent(ev)
+      } as unknown as FocusEvent;
+      anchor1.dispatchEvent(ev);
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      expect(button2.focus).toHaveBeenCalled()
-    })
+      expect(button2.focus).toHaveBeenCalled();
+    });
 
-    it('sets focus on toggle outside, when the sidenav collapses fully', async () => {
+    it("sets focus on toggle outside, when the sidenav collapses fully", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `
@@ -1733,35 +1741,35 @@ describe('ld-sidenav', () => {
               </ld-sidenav-navitem>
             </ld-sidenav-slider>
           </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
       const ldSidenavToggleOutside = page.body.querySelector(
-        'ld-sidenav-toggle-outside'
-      )
+        "ld-sidenav-toggle-outside",
+      );
       const btnToggleOutside =
         ldSidenavToggleOutside.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
-      btnToggleOutside.focus = jest.fn()
+          'button[role="switch"]',
+        );
+      btnToggleOutside.focus = jest.fn();
 
-      const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+      const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
       const btnHeaderToggle =
         ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
+          'button[role="switch"]',
+        );
 
-      const doc = document as unknown as { activeElement: Element }
-      doc.activeElement = ldSidenav
+      const doc = document as unknown as { activeElement: Element };
+      doc.activeElement = ldSidenav;
 
-      btnHeaderToggle.click()
-      await page.waitForChanges()
-      await transitionEnd(page)
+      btnHeaderToggle.click();
+      await page.waitForChanges();
+      await transitionEnd(page);
 
-      expect(btnToggleOutside.focus).toHaveBeenCalled()
-    })
+      expect(btnToggleOutside.focus).toHaveBeenCalled();
+    });
 
-    it('does not set focus on toggle outside, when the sidenav collapses fully, if sidenav is not active element', async () => {
+    it("does not set focus on toggle outside, when the sidenav collapses fully, if sidenav is not active element", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `
@@ -1774,37 +1782,37 @@ describe('ld-sidenav', () => {
               </ld-sidenav-navitem>
             </ld-sidenav-slider>
           </ld-sidenav>`,
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
 
       const ldSidenavToggleOutside = page.body.querySelector(
-        'ld-sidenav-toggle-outside'
-      )
+        "ld-sidenav-toggle-outside",
+      );
       const btnToggleOutside =
         ldSidenavToggleOutside.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
-      btnToggleOutside.focus = jest.fn()
+          'button[role="switch"]',
+        );
+      btnToggleOutside.focus = jest.fn();
 
-      const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+      const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
       const btnHeaderToggle =
         ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
+          'button[role="switch"]',
+        );
 
-      const doc = document as unknown as { activeElement: Element }
-      doc.activeElement = document.body
+      const doc = document as unknown as { activeElement: Element };
+      doc.activeElement = document.body;
 
-      btnHeaderToggle.click()
-      await page.waitForChanges()
-      await transitionEnd(page)
+      btnHeaderToggle.click();
+      await page.waitForChanges();
+      await transitionEnd(page);
 
-      expect(btnToggleOutside.focus).not.toHaveBeenCalled()
-    })
-  })
+      expect(btnToggleOutside.focus).not.toHaveBeenCalled();
+    });
+  });
 
-  describe('navitem abbreviation', () => {
-    it('should abbreviate to two character if M is not included', async () => {
+  describe("navitem abbreviation", () => {
+    it("should abbreviate to two character if M is not included", async () => {
       const page = await newSpecPage({
         components: [LdSidenav, LdSidenavSlider, LdSidenavNavitem, LdTooltip],
         html: `<ld-sidenav open>
@@ -1814,18 +1822,18 @@ describe('ld-sidenav', () => {
             </ld-sidenav-navitem>
           </ld-sidenav-slider>
         </ld-sidenav>`,
-      })
-      await page.waitForChanges()
+      });
+      await page.waitForChanges();
 
-      const ldSidenavNavitem = page.root.querySelector('ld-sidenav-navitem')
+      const ldSidenavNavitem = page.root.querySelector("ld-sidenav-navitem");
       const abbr = ldSidenavNavitem.shadowRoot.querySelector(
-        '.ld-sidenav-navitem__abbr'
-      )
+        ".ld-sidenav-navitem__abbr",
+      );
 
-      expect(abbr.textContent).toEqual('AI')
-    })
+      expect(abbr.textContent).toEqual("AI");
+    });
 
-    it('should abbreviate and ignore special characters', async () => {
+    it("should abbreviate and ignore special characters", async () => {
       const page = await newSpecPage({
         components: [LdSidenav, LdSidenavSlider, LdSidenavNavitem, LdTooltip],
         html: `<ld-sidenav open>
@@ -1835,208 +1843,208 @@ describe('ld-sidenav', () => {
             </ld-sidenav-navitem>
           </ld-sidenav-slider>
         </ld-sidenav>`,
-      })
-      await page.waitForChanges()
+      });
+      await page.waitForChanges();
 
-      const ldSidenavNavitem = page.root.querySelector('ld-sidenav-navitem')
+      const ldSidenavNavitem = page.root.querySelector("ld-sidenav-navitem");
       const abbr = ldSidenavNavitem.shadowRoot.querySelector(
-        '.ld-sidenav-navitem__abbr'
-      )
+        ".ld-sidenav-navitem__abbr",
+      );
 
-      expect(abbr.textContent).toEqual('AD')
-    })
-  })
+      expect(abbr.textContent).toEqual("AD");
+    });
+  });
 
-  describe('sidenav accordion', () => {
-    it('renders with expanded accordion section', async () => {
+  describe("sidenav accordion", () => {
+    it("renders with expanded accordion section", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: getSidenavWithAccordion({
-          currentSubnav: 'artificial-intelligence',
+          currentSubnav: "artificial-intelligence",
         }),
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      mockFocus(ldSidenav)
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      mockFocus(ldSidenav);
 
       const ldSidenavAccordionSoftComputing =
         ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
-          '#artificial-intelligence > ld-sidenav-accordion'
-        )
+          "#artificial-intelligence > ld-sidenav-accordion",
+        );
       const ldSidenavAccordionSoftComputingSection =
         ldSidenavAccordionSoftComputing.shadowRoot.querySelector(
-          'ld-accordion-section'
-        )
+          "ld-accordion-section",
+        );
       const ldSidenavAccordionMachineLearning =
         ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
-          '#artificial-intelligence > ld-sidenav-accordion > ld-sidenav-accordion'
-        )
+          "#artificial-intelligence > ld-sidenav-accordion > ld-sidenav-accordion",
+        );
       const ldSidenavAccordionMachineLearningSection =
         ldSidenavAccordionMachineLearning.shadowRoot.querySelector(
-          'ld-accordion-section'
-        )
+          "ld-accordion-section",
+        );
 
-      ldSidenavAccordionSoftComputing.expanded = true
+      ldSidenavAccordionSoftComputing.expanded = true;
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
       expect(ldSidenavAccordionSoftComputingSection).toHaveClass(
-        'ld-accordion-section--expanded'
-      )
+        "ld-accordion-section--expanded",
+      );
       expect(ldSidenavAccordionMachineLearningSection).not.toHaveClass(
-        'ld-accordion-section--expanded'
-      )
-    })
+        "ld-accordion-section--expanded",
+      );
+    });
 
-    it('accordion does not collapses on sidenav slide change by default', async () => {
+    it("accordion does not collapses on sidenav slide change by default", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: getSidenavWithAccordion({
-          currentSubnav: 'artificial-intelligence',
+          currentSubnav: "artificial-intelligence",
         }),
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      mockFocus(ldSidenav)
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      mockFocus(ldSidenav);
 
       const ldSidenavAccordionSoftComputing =
         ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
-          '#artificial-intelligence > ld-sidenav-accordion'
-        )
+          "#artificial-intelligence > ld-sidenav-accordion",
+        );
       const ldSidenavAccordionSoftComputingSection =
         ldSidenavAccordionSoftComputing.shadowRoot.querySelector(
-          'ld-accordion-section'
-        )
+          "ld-accordion-section",
+        );
       const ldSidenavAccordionMachineLearning =
         ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
-          '#artificial-intelligence > ld-sidenav-accordion > ld-sidenav-accordion'
-        )
+          "#artificial-intelligence > ld-sidenav-accordion > ld-sidenav-accordion",
+        );
       const ldSidenavAccordionMachineLearningSection =
         ldSidenavAccordionMachineLearning.shadowRoot.querySelector(
-          'ld-accordion-section'
-        )
+          "ld-accordion-section",
+        );
 
-      ldSidenavAccordionSoftComputing.expanded = true
-      ldSidenavAccordionMachineLearning.expanded = true
+      ldSidenavAccordionSoftComputing.expanded = true;
+      ldSidenavAccordionMachineLearning.expanded = true;
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
       expect(ldSidenavAccordionSoftComputingSection).toHaveClass(
-        'ld-accordion-section--expanded'
-      )
+        "ld-accordion-section--expanded",
+      );
       expect(ldSidenavAccordionMachineLearningSection).toHaveClass(
-        'ld-accordion-section--expanded'
-      )
+        "ld-accordion-section--expanded",
+      );
 
       const ldSidenavBack =
-        ldSidenav.querySelector<HTMLLdSidenavBackElement>('ld-sidenav-back')
+        ldSidenav.querySelector<HTMLLdSidenavBackElement>("ld-sidenav-back");
 
       ldSidenavBack.shadowRoot
         .querySelector<HTMLElement>('[role="button"]')
-        .click()
+        .click();
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
+      await transitionEnd(page, ldSidenav.querySelector("ld-sidenav-slider"));
       expect(ldSidenavAccordionSoftComputingSection).toHaveClass(
-        'ld-accordion-section--expanded'
-      )
+        "ld-accordion-section--expanded",
+      );
       expect(ldSidenavAccordionMachineLearningSection).toHaveClass(
-        'ld-accordion-section--expanded'
-      )
-    })
+        "ld-accordion-section--expanded",
+      );
+    });
 
-    it('accordion collapses on sidenav slide change with preserve state set to false', async () => {
+    it("accordion collapses on sidenav slide change with preserve state set to false", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: getSidenavWithAccordion({
-          currentSubnav: 'artificial-intelligence',
+          currentSubnav: "artificial-intelligence",
           preserveAccordionState: false,
         }),
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      mockFocus(ldSidenav)
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      mockFocus(ldSidenav);
 
       const ldSidenavAccordionSoftComputing =
         ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
-          '#artificial-intelligence > ld-sidenav-accordion'
-        )
+          "#artificial-intelligence > ld-sidenav-accordion",
+        );
       const ldSidenavAccordionSoftComputingSection =
         ldSidenavAccordionSoftComputing.shadowRoot.querySelector(
-          'ld-accordion-section'
-        )
+          "ld-accordion-section",
+        );
       const ldSidenavAccordionMachineLearning =
         ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
-          '#artificial-intelligence > ld-sidenav-accordion > ld-sidenav-accordion'
-        )
+          "#artificial-intelligence > ld-sidenav-accordion > ld-sidenav-accordion",
+        );
       const ldSidenavAccordionMachineLearningSection =
         ldSidenavAccordionMachineLearning.shadowRoot.querySelector(
-          'ld-accordion-section'
-        )
+          "ld-accordion-section",
+        );
 
-      ldSidenavAccordionSoftComputing.expanded = true
-      ldSidenavAccordionMachineLearning.expanded = true
+      ldSidenavAccordionSoftComputing.expanded = true;
+      ldSidenavAccordionMachineLearning.expanded = true;
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
       expect(ldSidenavAccordionSoftComputingSection).toHaveClass(
-        'ld-accordion-section--expanded'
-      )
+        "ld-accordion-section--expanded",
+      );
       expect(ldSidenavAccordionMachineLearningSection).toHaveClass(
-        'ld-accordion-section--expanded'
-      )
+        "ld-accordion-section--expanded",
+      );
 
       const ldSidenavBack =
-        ldSidenav.querySelector<HTMLLdSidenavBackElement>('ld-sidenav-back')
+        ldSidenav.querySelector<HTMLLdSidenavBackElement>("ld-sidenav-back");
 
       ldSidenavBack.shadowRoot
         .querySelector<HTMLElement>('[role="button"]')
-        .click()
+        .click();
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
+      await transitionEnd(page, ldSidenav.querySelector("ld-sidenav-slider"));
       expect(ldSidenavAccordionSoftComputingSection).not.toHaveClass(
-        'ld-accordion-section--expanded'
-      )
+        "ld-accordion-section--expanded",
+      );
       expect(ldSidenavAccordionMachineLearningSection).not.toHaveClass(
-        'ld-accordion-section--expanded'
-      )
-    })
+        "ld-accordion-section--expanded",
+      );
+    });
 
-    it('accordion collapses to narrow', async () => {
+    it("accordion collapses to narrow", async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: getSidenavWithAccordion({
-          currentSubnav: 'artificial-intelligence',
+          currentSubnav: "artificial-intelligence",
           collapsible: true,
           narrow: true,
         }),
-      })
-      const ldSidenav = page.body.querySelector('ld-sidenav')
-      mockFocus(ldSidenav)
+      });
+      const ldSidenav = page.body.querySelector("ld-sidenav");
+      mockFocus(ldSidenav);
 
       const ldSidenavAccordionSoftComputing =
         ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
-          '#artificial-intelligence > ld-sidenav-accordion'
-        )
+          "#artificial-intelligence > ld-sidenav-accordion",
+        );
 
-      ldSidenavAccordionSoftComputing.expanded = true
+      ldSidenavAccordionSoftComputing.expanded = true;
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+      const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
       const btnToggle =
         ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
-          'button[role="switch"]'
-        )
-      btnToggle.click()
+          'button[role="switch"]',
+        );
+      btnToggle.click();
 
-      await page.waitForChanges()
+      await page.waitForChanges();
 
-      expect(page.body).toMatchSnapshot()
-    })
-  })
+      expect(page.body).toMatchSnapshot();
+    });
+  });
 
-  it('updates hidden state for compoenents in slider and subnavs on slide change when closable', async () => {
+  it("updates hidden state for compoenents in slider and subnavs on slide change when closable", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: getSidenavWithSubnavigation({
@@ -2044,45 +2052,45 @@ describe('ld-sidenav', () => {
         collapsed: true,
         narrow: true,
       }),
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    mockFocus(ldSidenav)
-    jest.advanceTimersByTime(0)
-    await page.waitForChanges()
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    mockFocus(ldSidenav);
+    jest.advanceTimersByTime(0);
+    await page.waitForChanges();
 
-    expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--closable')
+    expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--closable");
 
-    const mediaQueries = matchMedia.getMediaQueries()
-    matchMedia.useMediaQuery(mediaQueries[0])
-    await page.waitForChanges()
+    const mediaQueries = matchMedia.getMediaQueries();
+    matchMedia.useMediaQuery(mediaQueries[0]);
+    await page.waitForChanges();
 
-    expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
-    expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+    expect(ldSidenav).toHaveClass("ld-sidenav--collapsed");
+    expect(ldSidenav).toHaveClass("ld-sidenav--closable");
 
     const ldSidenavNavitemArtInt =
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
-        'ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)'
-      )
-    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').click()
-    await page.waitForChanges()
-    expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
-      true
-    )
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
-    expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+        "ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)",
+      );
+    ldSidenavNavitemArtInt.shadowRoot.querySelector("button").click();
+    await page.waitForChanges();
+    expect(ldSidenav.classList.contains("ld-sidenav--has-active-subnav")).toBe(
+      true,
+    );
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsed");
+    expect(ldSidenav).toHaveClass("ld-sidenav--closable");
 
     expect(
-      ldSidenav.querySelectorAll('.ld-sidenav-slider__hidden').length
-    ).toEqual(0)
+      ldSidenav.querySelectorAll(".ld-sidenav-slider__hidden").length,
+    ).toEqual(0);
 
     expect(
-      ldSidenav.querySelectorAll('.ld-sidenav-subnav__hidden').length
-    ).toEqual(0)
-  })
+      ldSidenav.querySelectorAll(".ld-sidenav-subnav__hidden").length,
+    ).toEqual(0);
+  });
 
-  it('throws if ld-sidenav-toggle-outside component does not have an ld-sidenav component as its next element sibling', async () => {
-    expect.assertions(1)
+  it("throws if ld-sidenav-toggle-outside component does not have an ld-sidenav component as its next element sibling", async () => {
+    expect.assertions(1);
     try {
       const page = await newSpecPage({
         components: sidenavComponents,
@@ -2096,62 +2104,62 @@ describe('ld-sidenav', () => {
             </ld-sidenav-slider>
           </ld-sidenav>
         `,
-      })
+      });
 
-      await page.waitForChanges()
+      await page.waitForChanges();
     } catch (err) {
       expect(err).toStrictEqual(
         Error(
-          'The ld-sidenav-toggle-outside component is expecting to have an ld-sidenav component as its next element sibling, but instead there was: Something else.'
-        )
-      )
+          "The ld-sidenav-toggle-outside component is expecting to have an ld-sidenav component as its next element sibling, but instead there was: Something else.",
+        ),
+      );
     }
-  })
+  });
 
-  it('dispatches collapsed change event on collapsible change', async () => {
+  it("dispatches collapsed change event on collapsible change", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
-      html: '<ld-sidenav collapsible collapsed />',
-    })
-    const handler = jest.fn()
-    window.addEventListener('ldSidenavCollapsedChange', handler)
+      html: "<ld-sidenav collapsible collapsed />",
+    });
+    const handler = jest.fn();
+    window.addEventListener("ldSidenavCollapsedChange", handler);
 
-    const ldSidenav = page.body.querySelector('ld-sidenav')
+    const ldSidenav = page.body.querySelector("ld-sidenav");
 
-    expect(ldSidenav).toHaveClass('ld-sidenav--collapsible')
-    expect(handler).not.toHaveBeenCalled()
+    expect(ldSidenav).toHaveClass("ld-sidenav--collapsible");
+    expect(handler).not.toHaveBeenCalled();
 
-    ldSidenav.removeAttribute('collapsible')
-    await page.waitForChanges()
+    ldSidenav.removeAttribute("collapsible");
+    await page.waitForChanges();
 
-    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsible')
-    expect(handler).toHaveBeenCalled()
-  })
+    expect(ldSidenav).not.toHaveClass("ld-sidenav--collapsible");
+    expect(handler).toHaveBeenCalled();
+  });
 
-  it('updates collapsible state on sidenav header', async () => {
+  it("updates collapsible state on sidenav header", async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
       html: `<ld-sidenav>
         <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
       </ld-sidenav>`,
-    })
-    const ldSidenav = page.body.querySelector('ld-sidenav')
-    const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+    });
+    const ldSidenav = page.body.querySelector("ld-sidenav");
+    const ldSidenavHeader = ldSidenav.querySelector("ld-sidenav-header");
 
     expect(
-      ldSidenavHeader.shadowRoot.querySelector('.ld-sidenav-header__toggle')
-    ).toBeNull()
+      ldSidenavHeader.shadowRoot.querySelector(".ld-sidenav-header__toggle"),
+    ).toBeNull();
 
-    ldSidenav.setAttribute('collapsible', 'true')
-    await page.waitForChanges()
+    ldSidenav.setAttribute("collapsible", "true");
+    await page.waitForChanges();
 
     expect(
-      ldSidenavHeader.shadowRoot.querySelector('.ld-sidenav-header__toggle')
-    ).not.toBeNull()
-  })
+      ldSidenavHeader.shadowRoot.querySelector(".ld-sidenav-header__toggle"),
+    ).not.toBeNull();
+  });
 
-  it('does not throw when disconnecting before hydration', () => {
-    const component = new LdSidenav()
-    component.disconnectedCallback()
-  })
-})
+  it("does not throw when disconnecting before hydration", () => {
+    const component = new LdSidenav();
+    component.disconnectedCallback();
+  });
+});

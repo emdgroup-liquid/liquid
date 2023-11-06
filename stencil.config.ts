@@ -1,84 +1,91 @@
-import { Config } from '@stencil/core'
-import { postcss } from '@stencil/postcss'
-import { reactOutputTarget } from '@stencil/react-output-target'
-import { WebTypesGenerator } from 'stenciljs-web-types-generator/web-types-generator'
+import { Config } from "@stencil/core";
+import { postcss } from "@stencil/postcss";
+import { reactOutputTarget } from "@stencil/react-output-target";
+import { WebTypesGenerator } from "stenciljs-web-types-generator/web-types-generator";
 import {
   ComponentModelConfig,
   vueOutputTarget,
-} from '@stencil/vue-output-target'
-import * as postcssConfig from './config/postcss.config.cjs'
+} from "@stencil/vue-output-target";
+import { angularOutputTarget } from "@stencil/angular-output-target";
+import * as postcssConfig from "./config/postcss.config.cjs";
 
 const vueComponentModels: ComponentModelConfig[] = [
   {
-    elements: ['ld-input', 'ld-slider'],
-    event: 'input',
-    externalEvent: 'input',
-    targetAttr: 'value',
+    elements: ["ld-input", "ld-slider"],
+    event: "input",
+    externalEvent: "input",
+    targetAttr: "value",
   },
   {
-    elements: ['ld-checkbox', 'ld-toggle'],
-    event: 'input',
-    externalEvent: 'input',
-    targetAttr: 'checked',
+    elements: ["ld-checkbox", "ld-toggle"],
+    event: "input",
+    externalEvent: "input",
+    targetAttr: "checked",
   },
-]
+];
 
 export const config: Config = {
-  namespace: 'liquid',
-  srcDir: 'src/liquid',
-  globalStyle: 'src/liquid/global/styles/global.css',
+  namespace: "liquid",
+  srcDir: "src/liquid",
+  globalStyle: "src/liquid/global/styles/global.css",
   outputTargets: [
     reactOutputTarget({
-      componentCorePackage: '../dist/components',
-      proxiesFile: './out/react.ts',
+      componentCorePackage: "../dist/components",
+      proxiesFile: "./out/react.ts",
       includeDefineCustomElements: true,
     }),
     vueOutputTarget({
-      componentCorePackage: '../dist/components',
-      proxiesFile: './out/vue.ts',
+      componentCorePackage: "../dist/components",
+      proxiesFile: "./out/vue.ts",
       includeDefineCustomElements: true,
       componentModels: vueComponentModels,
     }),
+    angularOutputTarget({
+      componentCorePackage: "../dist/components",
+      outputType: "component",
+      directivesProxyFile: "./out/angular/angular-components.ts",
+      directivesArrayFile: "./out/angular/angular-directives.ts",
+    }),
     {
-      type: 'dist',
+      type: "dist",
     },
     {
-      type: 'dist-custom-elements',
-      customElementsExportBehavior: 'auto-define-custom-elements',
+      type: "dist-custom-elements",
+      customElementsExportBehavior: "auto-define-custom-elements",
     },
     {
-      type: 'docs-readme',
+      type: "docs-readme",
     },
     {
-      type: 'docs-vscode',
-      file: 'tmp/web-components.html-data.json',
+      type: "docs-vscode",
+      file: "tmp/web-components.html-data.json",
     },
     {
-      type: 'docs-json',
-      file: 'dist/web-components.json',
+      type: "docs-json",
+      file: "dist/web-components.json",
     },
     {
-      type: 'dist-hydrate-script',
+      type: "dist-hydrate-script",
     },
     {
-      type: 'docs-custom',
+      type: "docs-custom",
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       generator: new WebTypesGenerator({
-        name: '@emdgroup-liquid/liquid',
-        version: 'latest',
+        name: "@emdgroup-liquid/liquid",
+        version: "latest",
         defaultIconPath:
-          'https://liquid.merck.design/liquid/dist/build/assets/logo.svg',
-        outputPath: 'dist/web-types.json',
+          "https://liquid.merck.design/liquid/dist/build/assets/logo.svg",
+        outputPath: "dist/web-types.json",
       }).generateWebTypesJson,
     },
   ],
   plugins: [postcss(postcssConfig)],
   testing: {
     allowableMismatchedPixels: 10,
-    setupFiles: ['./config/jest.setup.js'],
-    moduleDirectories: ['node_modules', './'],
-    timers: 'legacy',
+    setupFiles: ["./config/jest.setup.js"],
+    moduleDirectories: ["node_modules", "./"],
+    timers: "legacy",
     emulate: [
       {
         viewport: {
@@ -104,4 +111,4 @@ export const config: Config = {
     cloneNodeFix: false,
     slotChildNodesFix: false,
   },
-}
+};

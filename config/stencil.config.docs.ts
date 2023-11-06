@@ -1,17 +1,17 @@
-import { Config } from '@stencil/core'
+import { Config } from "@stencil/core";
 
-import { config as configProd } from '../stencil.config'
+import { config as configProd } from "../stencil.config";
 
 export const config: Config = {
   ...configProd,
-  tsconfig: './tsconfig.docs.json',
-  srcDir: '../src',
-  globalStyle: '../src/liquid/global/styles/global.css',
+  tsconfig: "./tsconfig.docs.json",
+  srcDir: "../src",
+  globalStyle: "../src/liquid/global/styles/global.css",
   outputTargets: [
     {
-      type: 'www',
+      type: "www",
       serviceWorker: null, // disable service workers
-      dir: '../dist_docs/dist',
+      dir: "../dist_docs/dist",
     },
   ],
-}
+};

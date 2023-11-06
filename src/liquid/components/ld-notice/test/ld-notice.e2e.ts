@@ -1,143 +1,143 @@
 import {
   analyzeAccessibility,
   getPageWithContent,
-} from '../../../utils/e2e-tests'
-import { LdIcon } from '../../ld-icon/ld-icon'
-import { LdTypo } from '../../ld-typo/ld-typo'
-import { LdNotice } from '../ld-notice'
+} from "../../../utils/e2e-tests";
+import { LdIcon } from "../../ld-icon/ld-icon";
+import { LdTypo } from "../../ld-typo/ld-typo";
+import { LdNotice } from "../ld-notice";
 
-describe('ld-notice', () => {
-  describe('web component', () => {
-    describe('with headline', () => {
-      it('info', async () => {
+describe("ld-notice", () => {
+  describe("web component", () => {
+    describe("with headline", () => {
+      it("info", async () => {
         const page = await getPageWithContent(
-          '<ld-notice headline="Headline">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>'
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
+          '<ld-notice headline="Headline">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>',
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
 
-        const accessibilityReport = await analyzeAccessibility(page)
-        expect(accessibilityReport).toHaveNoAccessibilityIssues()
-      })
+        const accessibilityReport = await analyzeAccessibility(page);
+        expect(accessibilityReport).toHaveNoAccessibilityIssues();
+      });
 
-      it('warning', async () => {
+      it("warning", async () => {
         const page = await getPageWithContent(
-          '<ld-notice headline="Headline" mode="warning">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>'
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
+          '<ld-notice headline="Headline" mode="warning">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>',
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
 
-        const accessibilityReport = await analyzeAccessibility(page)
-        expect(accessibilityReport).toHaveNoAccessibilityIssues()
-      })
+        const accessibilityReport = await analyzeAccessibility(page);
+        expect(accessibilityReport).toHaveNoAccessibilityIssues();
+      });
 
-      it('error', async () => {
+      it("error", async () => {
         const page = await getPageWithContent(
-          '<ld-notice headline="Headline" mode="error">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>'
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
+          '<ld-notice headline="Headline" mode="error">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>',
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
 
-        const accessibilityReport = await analyzeAccessibility(page)
-        expect(accessibilityReport).toHaveNoAccessibilityIssues()
-      })
+        const accessibilityReport = await analyzeAccessibility(page);
+        expect(accessibilityReport).toHaveNoAccessibilityIssues();
+      });
 
-      it('success', async () => {
+      it("success", async () => {
         const page = await getPageWithContent(
-          '<ld-notice headline="Headline" mode="success">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>'
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
+          '<ld-notice headline="Headline" mode="success">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>',
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
 
-        const accessibilityReport = await analyzeAccessibility(page)
-        expect(accessibilityReport).toHaveNoAccessibilityIssues()
-      })
-    })
+        const accessibilityReport = await analyzeAccessibility(page);
+        expect(accessibilityReport).toHaveNoAccessibilityIssues();
+      });
+    });
 
-    describe('without headline', () => {
-      it('info', async () => {
+    describe("without headline", () => {
+      it("info", async () => {
         const page = await getPageWithContent(
-          '<ld-notice>Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>'
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          '<ld-notice>Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>',
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('warning', async () => {
+      it("warning", async () => {
         const page = await getPageWithContent(
-          '<ld-notice mode="warning">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>'
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          '<ld-notice mode="warning">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>',
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('error', async () => {
+      it("error", async () => {
         const page = await getPageWithContent(
-          '<ld-notice mode="error">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>'
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          '<ld-notice mode="error">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>',
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('success', async () => {
+      it("success", async () => {
         const page = await getPageWithContent(
-          '<ld-notice mode="success">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>'
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-    })
+          '<ld-notice mode="success">Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>',
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
+    });
 
-    describe('with custom icon', () => {
-      it('info', async () => {
+    describe("with custom icon", () => {
+      it("info", async () => {
         const page = await getPageWithContent(
           `<ld-notice headline="With custom icon" mode="info">
               <ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
-            </ld-notice>`
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+            </ld-notice>`,
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('error', async () => {
+      it("error", async () => {
         const page = await getPageWithContent(
           `<ld-notice headline="With custom icon" mode="error">
               <ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
-            </ld-notice>`
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+            </ld-notice>`,
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('warning', async () => {
+      it("warning", async () => {
         const page = await getPageWithContent(
           `<ld-notice headline="With custom icon" mode="warning">
               <ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
-            </ld-notice>`
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+            </ld-notice>`,
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('success', async () => {
+      it("success", async () => {
         const page = await getPageWithContent(
           `<ld-notice headline="With custom icon" mode="success">
               <ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
-            </ld-notice>`
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-    })
-  })
+            </ld-notice>`,
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
+    });
+  });
 
-  describe('css component', () => {
-    describe('with headline', () => {
-      it('info', async () => {
+  describe("css component", () => {
+    describe("with headline", () => {
+      it("info", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--info">
@@ -149,16 +149,16 @@ describe('ld-notice', () => {
             <p class="ld-notice__headline ld-typo--h4">Headline</p>
             Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice, LdTypo] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
+          { components: [LdIcon, LdNotice, LdTypo] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
 
-        const accessibilityReport = await analyzeAccessibility(page)
-        expect(accessibilityReport).toHaveNoAccessibilityIssues()
-      })
+        const accessibilityReport = await analyzeAccessibility(page);
+        expect(accessibilityReport).toHaveNoAccessibilityIssues();
+      });
 
-      it('warning', async () => {
+      it("warning", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--warning">
@@ -170,16 +170,16 @@ describe('ld-notice', () => {
             <p class="ld-notice__headline ld-typo--h4">Headline</p>
             Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice, LdTypo] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
+          { components: [LdIcon, LdNotice, LdTypo] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
 
-        const accessibilityReport = await analyzeAccessibility(page)
-        expect(accessibilityReport).toHaveNoAccessibilityIssues()
-      })
+        const accessibilityReport = await analyzeAccessibility(page);
+        expect(accessibilityReport).toHaveNoAccessibilityIssues();
+      });
 
-      it('error', async () => {
+      it("error", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--error">
@@ -191,16 +191,16 @@ describe('ld-notice', () => {
             <p class="ld-notice__headline ld-typo--h4">Headline</p>
             Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice, LdTypo] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
+          { components: [LdIcon, LdNotice, LdTypo] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
 
-        const accessibilityReport = await analyzeAccessibility(page)
-        expect(accessibilityReport).toHaveNoAccessibilityIssues()
-      })
+        const accessibilityReport = await analyzeAccessibility(page);
+        expect(accessibilityReport).toHaveNoAccessibilityIssues();
+      });
 
-      it('success', async () => {
+      it("success", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--success">
@@ -211,18 +211,18 @@ describe('ld-notice', () => {
             <p class="ld-notice__headline ld-typo--h4">Success message</p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice, LdTypo] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
+          { components: [LdIcon, LdNotice, LdTypo] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
 
-        const accessibilityReport = await analyzeAccessibility(page)
-        expect(accessibilityReport).toHaveNoAccessibilityIssues()
-      })
-    })
+        const accessibilityReport = await analyzeAccessibility(page);
+        expect(accessibilityReport).toHaveNoAccessibilityIssues();
+      });
+    });
 
-    describe('without headline', () => {
-      it('info', async () => {
+    describe("without headline", () => {
+      it("info", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--info">
@@ -233,13 +233,13 @@ describe('ld-notice', () => {
             </svg>
             Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          { components: [LdIcon, LdNotice] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('warning', async () => {
+      it("warning", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--warning">
@@ -250,13 +250,13 @@ describe('ld-notice', () => {
             </svg>
             Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          { components: [LdIcon, LdNotice] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('error', async () => {
+      it("error", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--error">
@@ -267,13 +267,13 @@ describe('ld-notice', () => {
             </svg>
             Lorem ipsum <a href="https://example.com/">dolor sit amet</a>, consectetur adipiscing elit. Metus pellentesque facilisi <code>nunc iaculis</code>. Laoreet eget eu lacus cursus <b>odio quam</b> ut elementum. Faucibus cursus <strong>in placerat</strong> enim non senectus. In molestie volutpat at <i>sem bibendum</i> ac id. Suspendisse erat <u>malesuada vulputate</u> et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          { components: [LdIcon, LdNotice] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('success', async () => {
+      it("success", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--success">
@@ -283,15 +283,15 @@ describe('ld-notice', () => {
             </svg>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-    })
+          { components: [LdIcon, LdNotice] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
+    });
 
-    describe('with custom icon', () => {
-      it('info', async () => {
+    describe("with custom icon", () => {
+      it("info", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--info">
@@ -302,13 +302,13 @@ describe('ld-notice', () => {
             <p class="ld-notice__headline ld-typo--h4">With custom icon</p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          { components: [LdIcon, LdNotice] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('error', async () => {
+      it("error", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--error">
@@ -319,13 +319,13 @@ describe('ld-notice', () => {
             <p class="ld-notice__headline ld-typo--h4">With custom icon</p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          { components: [LdIcon, LdNotice] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('warning', async () => {
+      it("warning", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--warning">
@@ -336,13 +336,13 @@ describe('ld-notice', () => {
             <p class="ld-notice__headline ld-typo--h4">With custom icon</p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          { components: [LdIcon, LdNotice] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
-      it('success', async () => {
+      it("success", async () => {
         const page = await getPageWithContent(
           `
           <div class="ld-notice ld-notice--success">
@@ -353,11 +353,11 @@ describe('ld-notice', () => {
             <p class="ld-notice__headline ld-typo--h4">With custom icon</p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
           </div>`,
-          { components: [LdIcon, LdNotice] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-    })
-  })
-})
+          { components: [LdIcon, LdNotice] },
+        );
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
+    });
+  });
+});

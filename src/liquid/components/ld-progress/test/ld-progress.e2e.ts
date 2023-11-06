@@ -1,18 +1,18 @@
 import {
   analyzeAccessibility,
   getPageWithContent,
-} from '../../../utils/e2e-tests'
-import { LdProgress } from '../ld-progress'
+} from "../../../utils/e2e-tests";
+import { LdProgress } from "../ld-progress";
 
-describe('ld-progress', () => {
-  it('renders as Web Component', async () => {
-    const page = await getPageWithContent(`<ld-progress aria-valuenow="25" />`)
+describe("ld-progress", () => {
+  it("renders as Web Component", async () => {
+    const page = await getPageWithContent(`<ld-progress aria-valuenow="25" />`);
 
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
+    const results = await page.compareScreenshot();
+    expect(results).toMatchScreenshot();
+  });
 
-  it('renders as CSS Component', async () => {
+  it("renders as CSS Component", async () => {
     const page = await getPageWithContent(
       `<div class="ld-progress"
           aria-valuenow="25"
@@ -20,27 +20,27 @@ describe('ld-progress', () => {
           style="--ld-progress-valuenow: 25"></div>`,
       {
         components: [LdProgress],
-      }
-    )
+      },
+    );
 
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
+    const results = await page.compareScreenshot();
+    expect(results).toMatchScreenshot();
+  });
 
-  describe('accessibility', () => {
-    it('is accessible as a Web Component', async () => {
+  describe("accessibility", () => {
+    it("is accessible as a Web Component", async () => {
       const page = await getPageWithContent(
         `
           <span id="loadinglabel">Loading:</span>
-          <ld-progress aria-labelledby="loadinglabel" aria-valuenow="25" />`
-      )
-      page.waitForChanges()
+          <ld-progress aria-labelledby="loadinglabel" aria-valuenow="25" />`,
+      );
+      page.waitForChanges();
 
-      const accessibilityReport = await analyzeAccessibility(page)
-      expect(accessibilityReport).toHaveNoAccessibilityIssues()
-    })
+      const accessibilityReport = await analyzeAccessibility(page);
+      expect(accessibilityReport).toHaveNoAccessibilityIssues();
+    });
 
-    it('is accessible as a CSS Component', async () => {
+    it("is accessible as a CSS Component", async () => {
       const page = await getPageWithContent(
         `
         <span id="loadinglabel">Loading:</span>
@@ -51,29 +51,29 @@ describe('ld-progress', () => {
           style="--ld-progress-valuenow: 25"></div>`,
         {
           components: [LdProgress],
-        }
-      )
-      page.waitForChanges()
+        },
+      );
+      page.waitForChanges();
 
-      const accessibilityReport = await analyzeAccessibility(page)
-      expect(accessibilityReport).toHaveNoAccessibilityIssues()
-    })
-  })
+      const accessibilityReport = await analyzeAccessibility(page);
+      expect(accessibilityReport).toHaveNoAccessibilityIssues();
+    });
+  });
 
-  describe('max min now', () => {
-    it('300 100 150 Web Component', async () => {
+  describe("max min now", () => {
+    it("300 100 150 Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-progress
           aria-valuemax="300"
           aria-valuemin="100"
-          aria-valuenow="150" />`
-      )
+          aria-valuenow="150" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('300 100 150 CSS component', async () => {
+    it("300 100 150 CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress"
           aria-valuemax="300"
@@ -83,26 +83,26 @@ describe('ld-progress', () => {
           style="--ld-progress-valuemax: 300; --ld-progress-valuemin: 100; --ld-progress-valuenow: 150"></div>`,
         {
           components: [LdProgress],
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('100 -100 -50 Web Component', async () => {
+    it("100 -100 -50 Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-progress
           aria-valuemax="100"
           aria-valuemin="-100"
-          aria-valuenow="-50" />`
-      )
+          aria-valuenow="-50" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('100 -100 -50 CSS component', async () => {
+    it("100 -100 -50 CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress"
           aria-valuemax="100"
@@ -112,26 +112,26 @@ describe('ld-progress', () => {
           style="--ld-progress-valuemax: 100; --ld-progress-valuemin: -100; --ld-progress-valuenow: -50"></div>`,
         {
           components: [LdProgress],
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('175 -25 25 Web Component', async () => {
+    it("175 -25 25 Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-progress
           aria-valuemax="175"
           aria-valuemin="-25"
-          aria-valuenow="25" />`
-      )
+          aria-valuenow="25" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('175 -25 25 CSS component', async () => {
+    it("175 -25 25 CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress"
           aria-valuemax="175"
@@ -141,26 +141,26 @@ describe('ld-progress', () => {
           style="--ld-progress-valuemax: 175; --ld-progress-valuemin: -25; --ld-progress-valuenow: 25"></div>`,
         {
           components: [LdProgress],
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('-200 -400 -350 Web Component', async () => {
+    it("-200 -400 -350 Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-progress
           aria-valuemax="-200"
           aria-valuemin="-400"
-          aria-valuenow="-350" />`
-      )
+          aria-valuenow="-350" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('-200 -400 -350 CSS component', async () => {
+    it("-200 -400 -350 CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress"
           aria-valuemax="-200"
@@ -170,26 +170,26 @@ describe('ld-progress', () => {
           style="--ld-progress-valuemax: -200; --ld-progress-valuemin: -400; --ld-progress-valuenow: -350"></div>`,
         {
           components: [LdProgress],
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
 
-  describe('steps max now', () => {
+  describe("steps max now", () => {
     for (const now of [0, 1, 2, 3]) {
       it(`3 ${now} Web Component`, async () => {
         const page = await getPageWithContent(
           `<ld-progress steps
             aria-valuemax="4"
-            aria-valuenow="${now}" />`
-        )
+            aria-valuenow="${now}" />`,
+        );
 
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
       it(`3 ${now} CSS component`, async () => {
         const page = await getPageWithContent(
@@ -200,12 +200,12 @@ describe('ld-progress', () => {
             style="--ld-progress-valuemax: 4; --ld-progress-valuenow: ${now}"></div>`,
           {
             components: [LdProgress],
-          }
-        )
+          },
+        );
 
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
     }
 
     for (const now of [0, 1, 2, 3, 4]) {
@@ -213,12 +213,12 @@ describe('ld-progress', () => {
         const page = await getPageWithContent(
           `<ld-progress steps
             aria-valuemax="4"
-            aria-valuenow="${now}" />`
-        )
+            aria-valuenow="${now}" />`,
+        );
 
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
 
       it(`4 ${now} CSS component`, async () => {
         const page = await getPageWithContent(
@@ -229,41 +229,41 @@ describe('ld-progress', () => {
             style="--ld-progress-valuemax: 4; --ld-progress-valuenow: ${now}"></div>`,
           {
             components: [LdProgress],
-          }
-        )
+          },
+        );
 
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+        const results = await page.compareScreenshot();
+        expect(results).toMatchScreenshot();
+      });
     }
-  })
+  });
 
-  describe('steps min max now', () => {
+  describe("steps min max now", () => {
     it(`1 -4 -3 Web Component`, async () => {
       const page = await getPageWithContent(
         `
         <ld-progress steps
           aria-valuemax="1"
           aria-valuemin="-4"
-          aria-valuenow="-3" steps/>`
-      )
+          aria-valuenow="-3" steps/>`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
 
-  describe('overflow', () => {
-    it('less than double max Web Component', async () => {
+  describe("overflow", () => {
+    it("less than double max Web Component", async () => {
       const page = await getPageWithContent(
-        `<ld-progress aria-valuenow="125" />`
-      )
+        `<ld-progress aria-valuenow="125" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('less than double max CSS component', async () => {
+    it("less than double max CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress"
           aria-valuenow="125"
@@ -271,23 +271,23 @@ describe('ld-progress', () => {
           style="--ld-progress-valuenow: 125"></div>`,
         {
           components: [LdProgress],
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('more than double max Web Component', async () => {
+    it("more than double max Web Component", async () => {
       const page = await getPageWithContent(
-        `<ld-progress aria-valuenow="225" />`
-      )
+        `<ld-progress aria-valuenow="225" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('more than double max CSS component', async () => {
+    it("more than double max CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress"
           aria-valuenow="125"
@@ -295,23 +295,23 @@ describe('ld-progress', () => {
           style="--ld-progress-valuenow: 225"></div>`,
         {
           components: [LdProgress],
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('steps Web Component', async () => {
+    it("steps Web Component", async () => {
       const page = await getPageWithContent(
-        `<ld-progress aria-valuemax="5" aria-valuenow="7" steps />`
-      )
+        `<ld-progress aria-valuemax="5" aria-valuenow="7" steps />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('steps CSS component', async () => {
+    it("steps CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress ld-progress--steps"
           aria-valuemax="5"
@@ -320,26 +320,26 @@ describe('ld-progress', () => {
           style="--ld-progress-valuemax: 5; --ld-progress-valuenow: 7"></div>`,
         {
           components: [LdProgress],
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
 
-  describe('pending', () => {
-    it('indeterminate Web Component', async () => {
+  describe("pending", () => {
+    it("indeterminate Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-progress pending aria-valuetext="indeterminate" />`,
-        { reducedMotion: true }
-      )
+        { reducedMotion: true },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('indeterminate CSS component', async () => {
+    it("indeterminate CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress ld-progress--pending"
           aria-valuetext="indeterminate"
@@ -348,24 +348,24 @@ describe('ld-progress', () => {
         {
           components: [LdProgress],
           reducedMotion: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('valuenow Web Component', async () => {
+    it("valuenow Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-progress pending aria-valuenow="25" />`,
-        { reducedMotion: true }
-      )
+        { reducedMotion: true },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('valuenow CSS component', async () => {
+    it("valuenow CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress ld-progress--pending"
           aria-valuenow="25"
@@ -374,24 +374,24 @@ describe('ld-progress', () => {
         {
           components: [LdProgress],
           reducedMotion: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('overflow Web Component', async () => {
+    it("overflow Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-progress pending aria-valuenow="125" />`,
-        { reducedMotion: true }
-      )
+        { reducedMotion: true },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('overflow CSS component', async () => {
+    it("overflow CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress ld-progress--pending"
           aria-valuenow="125"
@@ -400,24 +400,24 @@ describe('ld-progress', () => {
         {
           components: [LdProgress],
           reducedMotion: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('overflow steps Web Component', async () => {
+    it("overflow steps Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-progress pending aria-valuemax="5" aria-valuenow="7" steps />`,
-        { reducedMotion: true }
-      )
+        { reducedMotion: true },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('overflow steps CSS component', async () => {
+    it("overflow steps CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress ld-progress--pending ld-progress--steps"
           aria-valuemax="5"
@@ -427,53 +427,53 @@ describe('ld-progress', () => {
         {
           components: [LdProgress],
           reducedMotion: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
 
-  describe('on brcolor', () => {
-    it('valuenow Web Component', async () => {
+  describe("on brcolor", () => {
+    it("valuenow Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-progress brand-color aria-valuenow="25" />`,
         {
-          bgColor: 'var(--ld-thm-primary)',
-        }
-      )
+          bgColor: "var(--ld-thm-primary)",
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('valuenow CSS component', async () => {
+    it("valuenow CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress ld-progress--brand-color"
           aria-valuenow="25"
           role="progressbar"
           style="--ld-progress-valuenow: 25"></div>`,
         {
-          bgColor: 'var(--ld-thm-primary)',
+          bgColor: "var(--ld-thm-primary)",
           components: [LdProgress],
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('overflow Web Component', async () => {
+    it("overflow Web Component", async () => {
       const page = await getPageWithContent(
-        `<ld-progress brand-color aria-valuenow="125" />`
-      )
+        `<ld-progress brand-color aria-valuenow="125" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('overflow CSS component', async () => {
+    it("overflow CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress ld-progress--brand-color"
           aria-valuenow="125"
@@ -481,27 +481,27 @@ describe('ld-progress', () => {
           style="--ld-progress-valuenow: 125"></div>`,
         {
           components: [LdProgress],
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('pending steps Web Component', async () => {
+    it("pending steps Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-progress brand-color pending aria-valuemax="5" aria-valuenow="2" steps />`,
         {
-          bgColor: 'var(--ld-thm-primary)',
+          bgColor: "var(--ld-thm-primary)",
           reducedMotion: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('pending steps CSS component', async () => {
+    it("pending steps CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress ld-progress--brand-color ld-progress--pending ld-progress--steps"
           aria-valuemax="5"
@@ -509,30 +509,30 @@ describe('ld-progress', () => {
           role="progressbar"
           style="--ld-progress-valuemax: 5; --ld-progress-valuenow: 2"></div>`,
         {
-          bgColor: 'var(--ld-thm-primary)',
+          bgColor: "var(--ld-thm-primary)",
           components: [LdProgress],
           reducedMotion: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('overflow pending steps Web Component', async () => {
+    it("overflow pending steps Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-progress brand-color pending aria-valuemax="5" aria-valuenow="7" steps />`,
         {
-          bgColor: 'var(--ld-thm-primary)',
+          bgColor: "var(--ld-thm-primary)",
           reducedMotion: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('overflow pending steps CSS component', async () => {
+    it("overflow pending steps CSS component", async () => {
       const page = await getPageWithContent(
         `<div class="ld-progress ld-progress--brand-color ld-progress--pending ld-progress--steps"
           aria-valuemax="5"
@@ -540,14 +540,14 @@ describe('ld-progress', () => {
           role="progressbar"
           style="--ld-progress-valuemax: 5; --ld-progress-valuenow: 7"></div>`,
         {
-          bgColor: 'var(--ld-thm-primary)',
+          bgColor: "var(--ld-thm-primary)",
           components: [LdProgress],
           reducedMotion: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
-})
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
+});

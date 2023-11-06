@@ -1,29 +1,29 @@
 import {
   analyzeAccessibility,
   getPageWithContent,
-} from '../../../utils/e2e-tests'
-import { LdIcon } from '../../ld-icon/ld-icon'
-import { LdBreadcrumbs } from '../ld-breadcrumbs'
-import { LdCrumb } from '../ld-crumb/ld-crumb'
-import { LdLink } from '../../ld-link/ld-link'
+} from "../../../utils/e2e-tests";
+import { LdIcon } from "../../ld-icon/ld-icon";
+import { LdBreadcrumbs } from "../ld-breadcrumbs";
+import { LdCrumb } from "../ld-crumb/ld-crumb";
+import { LdLink } from "../../ld-link/ld-link";
 
-const components = [LdBreadcrumbs, LdCrumb, LdLink, LdIcon]
+const components = [LdBreadcrumbs, LdCrumb, LdLink, LdIcon];
 
-describe('ld-breadcrumbs', () => {
-  it('renders as Web Component', async () => {
+describe("ld-breadcrumbs", () => {
+  it("renders as Web Component", async () => {
     const page = await getPageWithContent(
       `<ld-breadcrumbs>
         <ld-crumb href="/foo">foo</ld-crumb>
         <ld-crumb href="/foo/bar">bar</ld-crumb>
         <ld-crumb href="/foo/bar/qux">qux</ld-crumb>
-      </ld-breadcrumbs>`
-    )
+      </ld-breadcrumbs>`,
+    );
 
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
+    const results = await page.compareScreenshot();
+    expect(results).toMatchScreenshot();
+  });
 
-  it('renders as CSS Component', async () => {
+  it("renders as CSS Component", async () => {
     const page = await getPageWithContent(
       `<nav class="ld-breadcrumbs" aria-label="Breadcrumbs">
         <ol>
@@ -40,23 +40,23 @@ describe('ld-breadcrumbs', () => {
       </nav>`,
       {
         components,
-      }
-    )
+      },
+    );
 
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
+    const results = await page.compareScreenshot();
+    expect(results).toMatchScreenshot();
+  });
 
-  describe('accessibility', () => {
-    it('is accessible as a Web Component', async () => {
+  describe("accessibility", () => {
+    it("is accessible as a Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-breadcrumbs>
           <ld-crumb href="/foo">foo</ld-crumb>
           <ld-crumb href="/foo/bar">bar</ld-crumb>
           <ld-crumb href="/foo/bar/qux">qux</ld-crumb>
-        </ld-breadcrumbs>`
-      )
-      page.waitForChanges()
+        </ld-breadcrumbs>`,
+      );
+      page.waitForChanges();
 
       const accessibilityReport = await analyzeAccessibility(page, {
         options: {
@@ -68,11 +68,11 @@ describe('ld-breadcrumbs', () => {
             listitem: { enabled: false },
           },
         },
-      })
-      expect(accessibilityReport).toHaveNoAccessibilityIssues()
-    })
+      });
+      expect(accessibilityReport).toHaveNoAccessibilityIssues();
+    });
 
-    it('is accessible as a CSS Component', async () => {
+    it("is accessible as a CSS Component", async () => {
       const page = await getPageWithContent(
         `<nav class="ld-breadcrumbs" aria-label="Breadcrumbs">
           <ol>
@@ -89,16 +89,16 @@ describe('ld-breadcrumbs', () => {
         </nav>`,
         {
           components,
-        }
-      )
+        },
+      );
 
-      page.waitForChanges()
-      const accessibilityReport = await analyzeAccessibility(page)
-      expect(accessibilityReport).toHaveNoAccessibilityIssues()
-    })
-  })
+      page.waitForChanges();
+      const accessibilityReport = await analyzeAccessibility(page);
+      expect(accessibilityReport).toHaveNoAccessibilityIssues();
+    });
+  });
 
-  it('renders with icons as Web Component', async () => {
+  it("renders with icons as Web Component", async () => {
     const page = await getPageWithContent(
       `<ld-breadcrumbs>
         <ld-crumb href="/foo">
@@ -116,14 +116,14 @@ describe('ld-breadcrumbs', () => {
       </ld-breadcrumbs>`,
       {
         components,
-      }
-    )
+      },
+    );
 
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
+    const results = await page.compareScreenshot();
+    expect(results).toMatchScreenshot();
+  });
 
-  it('renders with icons as CSS component', async () => {
+  it("renders with icons as CSS component", async () => {
     const page = await getPageWithContent(
       `<nav class="ld-breadcrumbs" aria-label="Breadcrumbs">
         <ol>
@@ -164,10 +164,10 @@ describe('ld-breadcrumbs', () => {
       </nav>`,
       {
         components,
-      }
-    )
+      },
+    );
 
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
-})
+    const results = await page.compareScreenshot();
+    expect(results).toMatchScreenshot();
+  });
+});

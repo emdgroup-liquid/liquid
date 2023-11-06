@@ -5,79 +5,79 @@ import {
   State,
   getAssetPath,
   Fragment,
-} from '@stencil/core'
-import { copyToClipboard } from '../../utils/copyToClipboard'
-import { getClassNames } from '../../../liquid/utils/getClassNames'
-import '@lottiefiles/lottie-player'
+} from "@stencil/core";
+import { copyToClipboard } from "../../utils/copyToClipboard";
+import { getClassNames } from "../../../liquid/utils/getClassNames";
+import "@lottiefiles/lottie-player";
 
 /** @internal **/
 @Component({
-  tag: 'docs-icon',
-  styleUrl: 'docs-icon.css',
+  tag: "docs-icon",
+  styleUrl: "docs-icon.css",
   shadow: false,
 })
 export class DocsIcon {
-  private aRef: HTMLAnchorElement
-  private isDownload = false
+  private aRef: HTMLAnchorElement;
+  private isDownload = false;
 
   /** Play the animation back and forth */
-  @Prop() bounce = false
+  @Prop() bounce = false;
 
   /** URL to download from */
-  @Prop({ mutable: true }) downloadUrl: string
+  @Prop({ mutable: true }) downloadUrl: string;
 
   /** Icon file name */
-  @Prop() identifier: string
+  @Prop() identifier: string;
 
   /** Is an animation */
-  @Prop() isAnimation = false
+  @Prop() isAnimation = false;
 
   /** Human readable icon name */
-  @Prop() name: string
+  @Prop() name: string;
 
-  @State() confirm = false
-  @State() isMenuOpen = false
+  @State() confirm = false;
+  @State() isMenuOpen = false;
 
   private handleMenuOpen = () => {
-    this.isMenuOpen = true
-  }
+    this.isMenuOpen = true;
+  };
   private handleMenuClose = () => {
-    this.isMenuOpen = false
-  }
+    this.isMenuOpen = false;
+  };
 
   private copyIdentifier = async () => {
-    await copyToClipboard(this.identifier)
+    await copyToClipboard(this.identifier);
 
-    this.confirm = true
+    this.confirm = true;
 
     setTimeout(() => {
-      this.confirm = false
-    }, 2000)
-  }
+      this.confirm = false;
+    }, 2000);
+  };
 
   private handleClick = (ev: MouseEvent) => {
     if (!this.isDownload) {
-      ev.preventDefault()
+      ev.preventDefault();
 
       if (!this.isAnimation) {
-        this.copyIdentifier()
+        this.copyIdentifier();
       }
     }
-  }
+  };
 
   private handleClickDownload = () => {
-    this.isDownload = true
-    this.aRef.click()
-    this.isDownload = false
-  }
+    this.isDownload = true;
+    this.aRef.click();
+    this.isDownload = false;
+  };
 
   async componentWillLoad(): Promise<void> {
     if (!this.downloadUrl && this.isAnimation) {
       const { buildstamp } =
-        document.querySelector<HTMLMetaElement>('[data-buildstamp]').dataset
-      this.downloadUrl = `../../${buildstamp}assets/animations/${this.identifier}.json`
+        document.querySelector<HTMLMetaElement>("[data-buildstamp]").dataset;
+      this.downloadUrl = `../../${buildstamp}assets/animations/${this.identifier}.json`;
     } else if (!this.downloadUrl) {
-      this.downloadUrl = getAssetPath(`./assets/${this.identifier}.svg`)
+      this.downloadUrl = getAssetPath(`./assets/${this.identifier}.svg`);
     }
   }
 
@@ -92,8 +92,8 @@ export class DocsIcon {
       >
         <a
           class={getClassNames([
-            'docs-icon',
-            this.isMenuOpen && 'docs-icon--active',
+            "docs-icon",
+            this.isMenuOpen && "docs-icon--active",
           ])}
           href={this.downloadUrl}
           ref={(el) => (this.aRef = el)}
@@ -106,7 +106,7 @@ export class DocsIcon {
               class="docs-icon__player"
               autoplay
               loop
-              mode={this.bounce ? 'bounce' : undefined}
+              mode={this.bounce ? "bounce" : undefined}
               src={this.downloadUrl}
             />
           ) : (
@@ -117,8 +117,8 @@ export class DocsIcon {
           <div class="docs-icon__action">
             <ld-typo
               class={getClassNames([
-                'docs-icon__instructions',
-                this.confirm && 'docs-icon__instructions--hidden',
+                "docs-icon__instructions",
+                this.confirm && "docs-icon__instructions--hidden",
               ])}
               variant="body-xs"
             >
@@ -133,8 +133,8 @@ export class DocsIcon {
             {!this.isAnimation && (
               <ld-typo
                 class={getClassNames([
-                  'docs-icon__confirmation',
-                  this.confirm && 'docs-icon__confirmation--visible',
+                  "docs-icon__confirmation",
+                  this.confirm && "docs-icon__confirmation--visible",
                 ])}
                 variant="label-s"
               >
@@ -147,6 +147,6 @@ export class DocsIcon {
           <ld-icon name="download" /> Download
         </ld-menuitem>
       </ld-context-menu>
-    )
+    );
   }
 }

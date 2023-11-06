@@ -1,31 +1,31 @@
 import {
   analyzeAccessibility,
   getPageWithContent,
-} from '../../../utils/e2e-tests'
-import { LdCircularProgress } from '../ld-circular-progress'
-import { LdTypo } from '../../ld-typo/ld-typo'
+} from "../../../utils/e2e-tests";
+import { LdCircularProgress } from "../ld-circular-progress";
+import { LdTypo } from "../../ld-typo/ld-typo";
 
 const svg = `
 <svg class="ld-circular-progress__stroke" viewBox="0 0 10 10">
   <circle cx="5" cy="5" r="5" />
   <circle cx="5" cy="5" r="5" />
-</svg>`
+</svg>`;
 
-describe('ld-circular-progress', () => {
-  it('renders as Web Component', async () => {
+describe("ld-circular-progress", () => {
+  it("renders as Web Component", async () => {
     const page = await getPageWithContent(
       `
       <ld-circular-progress aria-valuenow="25">
         <ld-typo variant="b6">25%</ld-typo>
         <ld-typo variant="label-s">complete</ld-typo>
-      </ld-circular-progress>`
-    )
+      </ld-circular-progress>`,
+    );
 
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
+    const results = await page.compareScreenshot();
+    expect(results).toMatchScreenshot();
+  });
 
-  it('renders as CSS component', async () => {
+  it("renders as CSS component", async () => {
     const page = await getPageWithContent(
       `
         <div class="ld-circular-progress"
@@ -39,38 +39,38 @@ describe('ld-circular-progress', () => {
       {
         components: [LdCircularProgress, LdTypo],
         disableAllTransitions: true,
-      }
-    )
+      },
+    );
 
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
+    const results = await page.compareScreenshot();
+    expect(results).toMatchScreenshot();
+  });
 
-  describe('accessibility', () => {
-    it('is accessible as a Web Component', async () => {
+  describe("accessibility", () => {
+    it("is accessible as a Web Component", async () => {
       const page = await getPageWithContent(
         `
           <span id="loadinglabel">Loading:</span>
           <ld-circular-progress aria-labelledby="loadinglabel" aria-valuenow="25">
             <ld-typo variant="b6">25%</ld-typo>
             <ld-typo variant="label-s">complete</ld-typo>
-          </ld-circular-progress>`
-      )
-      page.waitForChanges()
+          </ld-circular-progress>`,
+      );
+      page.waitForChanges();
 
       const accessibilityReport = await analyzeAccessibility(page, {
         options: {
           rules: {
             // Disabling color-contrast rule here due to:
             // "Element's background color could not be determined due to a pseudo-element"
-            'color-contrast': { enabled: false },
+            "color-contrast": { enabled: false },
           },
         },
-      })
-      expect(accessibilityReport).toHaveNoAccessibilityIssues()
-    })
+      });
+      expect(accessibilityReport).toHaveNoAccessibilityIssues();
+    });
 
-    it('is accessible as a CSS component', async () => {
+    it("is accessible as a CSS component", async () => {
       const page = await getPageWithContent(
         `
         <span id="loadinglabel">Loading:</span>
@@ -86,37 +86,37 @@ describe('ld-circular-progress', () => {
         {
           components: [LdCircularProgress, LdTypo],
           disableAllTransitions: true,
-        }
-      )
-      page.waitForChanges()
+        },
+      );
+      page.waitForChanges();
 
       const accessibilityReport = await analyzeAccessibility(page, {
         options: {
           rules: {
             // Disabling color-contrast rule here due to:
             // "Element's background color could not be determined due to a pseudo-element"
-            'color-contrast': { enabled: false },
+            "color-contrast": { enabled: false },
           },
         },
-      })
-      expect(accessibilityReport).toHaveNoAccessibilityIssues()
-    })
-  })
+      });
+      expect(accessibilityReport).toHaveNoAccessibilityIssues();
+    });
+  });
 
-  describe('max min now', () => {
-    it('300 100 150 Web Component', async () => {
+  describe("max min now", () => {
+    it("300 100 150 Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-circular-progress
           aria-valuemax="300"
           aria-valuemin="100"
-          aria-valuenow="150" />`
-      )
+          aria-valuenow="150" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('300 100 150 CSS component', async () => {
+    it("300 100 150 CSS component", async () => {
       const page = await getPageWithContent(
         `
         <div class="ld-circular-progress"
@@ -130,26 +130,26 @@ describe('ld-circular-progress', () => {
         {
           components: [LdCircularProgress],
           disableAllTransitions: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('100 -100 -50 Web Component', async () => {
+    it("100 -100 -50 Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-circular-progress
           aria-valuemax="100"
           aria-valuemin="-100"
-          aria-valuenow="-50" />`
-      )
+          aria-valuenow="-50" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('100 -100 -50 CSS component', async () => {
+    it("100 -100 -50 CSS component", async () => {
       const page = await getPageWithContent(
         `
         <div class="ld-circular-progress"
@@ -163,26 +163,26 @@ describe('ld-circular-progress', () => {
         {
           components: [LdCircularProgress],
           disableAllTransitions: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('175 -25 25 Web Component', async () => {
+    it("175 -25 25 Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-circular-progress
           aria-valuemax="175"
           aria-valuemin="-25"
-          aria-valuenow="25" />`
-      )
+          aria-valuenow="25" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('175 -25 25 CSS component', async () => {
+    it("175 -25 25 CSS component", async () => {
       const page = await getPageWithContent(
         `
         <div class="ld-circular-progress"
@@ -196,26 +196,26 @@ describe('ld-circular-progress', () => {
         {
           components: [LdCircularProgress],
           disableAllTransitions: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('-200 -400 -350 Web Component', async () => {
+    it("-200 -400 -350 Web Component", async () => {
       const page = await getPageWithContent(
         `<ld-circular-progress
           aria-valuemax="-200"
           aria-valuemin="-400"
-          aria-valuenow="-350" />`
-      )
+          aria-valuenow="-350" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('-200 -400 -350 CSS component', async () => {
+    it("-200 -400 -350 CSS component", async () => {
       const page = await getPageWithContent(
         `
         <div class="ld-circular-progress"
@@ -229,25 +229,25 @@ describe('ld-circular-progress', () => {
         {
           components: [LdCircularProgress],
           disableAllTransitions: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
 
-  describe('overflow', () => {
-    it('less than double max Web Component', async () => {
+  describe("overflow", () => {
+    it("less than double max Web Component", async () => {
       const page = await getPageWithContent(
-        `<ld-circular-progress aria-valuenow="125" />`
-      )
+        `<ld-circular-progress aria-valuenow="125" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('less than double max CSS component', async () => {
+    it("less than double max CSS component", async () => {
       const page = await getPageWithContent(
         `
         <div class="ld-circular-progress ld-circular-progress--overflow"
@@ -259,23 +259,23 @@ describe('ld-circular-progress', () => {
         {
           components: [LdCircularProgress],
           disableAllTransitions: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('more than double max Web Component', async () => {
+    it("more than double max Web Component", async () => {
       const page = await getPageWithContent(
-        `<ld-circular-progress aria-valuenow="225" />`
-      )
+        `<ld-circular-progress aria-valuenow="225" />`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('more than double max CSS component', async () => {
+    it("more than double max CSS component", async () => {
       const page = await getPageWithContent(
         `
         <div class="ld-circular-progress ld-circular-progress--overflow"
@@ -287,31 +287,31 @@ describe('ld-circular-progress', () => {
         {
           components: [LdCircularProgress],
           disableAllTransitions: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
 
-  describe('on brand color', () => {
-    it('valuenow Web Component', async () => {
+  describe("on brand color", () => {
+    it("valuenow Web Component", async () => {
       const page = await getPageWithContent(
         `
         <ld-circular-progress brand-color aria-valuemax="360" aria-valuenow="90">
           <ld-typo variant="b6" style="color: var(--ld-col-wht)">90&#xb0;</ld-typo>
         </ld-circular-progress>`,
         {
-          bgColor: 'var(--ld-thm-primary)',
-        }
-      )
+          bgColor: "var(--ld-thm-primary)",
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('valuenow CSS component', async () => {
+    it("valuenow CSS component", async () => {
       const page = await getPageWithContent(
         `
         <div class="ld-circular-progress ld-circular-progress--brand-color"
@@ -323,17 +323,17 @@ describe('ld-circular-progress', () => {
           ${svg}
         </div>`,
         {
-          bgColor: 'var(--ld-thm-primary)',
+          bgColor: "var(--ld-thm-primary)",
           components: [LdCircularProgress, LdTypo],
           disableAllTransitions: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('overflow Web Component', async () => {
+    it("overflow Web Component", async () => {
       const page = await getPageWithContent(
         `
         <ld-circular-progress brand-color
@@ -343,15 +343,15 @@ describe('ld-circular-progress', () => {
         </ld-circular-progress>
         `,
         {
-          bgColor: 'var(--ld-thm-primary)',
-        }
-      )
+          bgColor: "var(--ld-thm-primary)",
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('overflow CSS component', async () => {
+    it("overflow CSS component", async () => {
       const page = await getPageWithContent(
         `
         <div class="ld-circular-progress ld-circular-progress--brand-color ld-circular-progress--overflow"
@@ -363,32 +363,32 @@ describe('ld-circular-progress', () => {
           ${svg}
         </div>`,
         {
-          bgColor: 'var(--ld-thm-primary)',
+          bgColor: "var(--ld-thm-primary)",
           components: [LdCircularProgress, LdTypo],
           disableAllTransitions: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
 
-  describe('custom color', () => {
-    it('Web Component', async () => {
+  describe("custom color", () => {
+    it("Web Component", async () => {
       const page = await getPageWithContent(
         `
       <ld-circular-progress aria-valuenow="25" style="--ld-circular-progress-bar-col: var(--ld-thm-secondary)">
         <ld-typo variant="b6">25%</ld-typo>
         <ld-typo variant="label-s">complete</ld-typo>
-      </ld-circular-progress>`
-      )
+      </ld-circular-progress>`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('CSS component', async () => {
+    it("CSS component", async () => {
       const page = await getPageWithContent(
         `
         <div class="ld-circular-progress"
@@ -402,28 +402,28 @@ describe('ld-circular-progress', () => {
         {
           components: [LdCircularProgress, LdTypo],
           disableAllTransitions: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
 
-  describe('custom size', () => {
-    it('Web Component', async () => {
+  describe("custom size", () => {
+    it("Web Component", async () => {
       const page = await getPageWithContent(
         `
         <ld-circular-progress aria-valuenow="75" style="--ld-circular-progress-size: 4rem">
           <ld-typo class="report-value" variant="b6" style="transform: scale(0.8)">75</ld-typo>
-        </ld-circular-progress>`
-      )
+        </ld-circular-progress>`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('CSS component', async () => {
+    it("CSS component", async () => {
       const page = await getPageWithContent(
         `
         <div class="ld-circular-progress"
@@ -436,16 +436,16 @@ describe('ld-circular-progress', () => {
         {
           components: [LdCircularProgress, LdTypo],
           disableAllTransitions: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
 
-  describe('reset', () => {
-    it('renders with box-sizing reset as Web Component', async () => {
+  describe("reset", () => {
+    it("renders with box-sizing reset as Web Component", async () => {
       const page = await getPageWithContent(
         `
         <style>
@@ -456,14 +456,14 @@ describe('ld-circular-progress', () => {
         <ld-circular-progress aria-valuenow="25">
           <ld-typo variant="b6">25%</ld-typo>
           <ld-typo variant="label-s">complete</ld-typo>
-        </ld-circular-progress>`
-      )
+        </ld-circular-progress>`,
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders with box-sizing reset as CSS component', async () => {
+    it("renders with box-sizing reset as CSS component", async () => {
       const page = await getPageWithContent(
         `
           <style>
@@ -482,11 +482,11 @@ describe('ld-circular-progress', () => {
         {
           components: [LdCircularProgress, LdTypo],
           disableAllTransitions: true,
-        }
-      )
+        },
+      );
 
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
-})
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
+});

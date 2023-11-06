@@ -1,14 +1,14 @@
-import { Component, h, getAssetPath } from '@stencil/core'
+import { Component, h, getAssetPath } from "@stencil/core";
 
 /** @internal **/
 @Component({
-  tag: 'docs-topbar',
-  styleUrl: 'docs-topbar.css',
+  tag: "docs-topbar",
+  styleUrl: "docs-topbar.css",
   shadow: false,
-  assetsDirs: ['assets'],
+  assetsDirs: ["assets"],
 })
 export class DocsTopbar {
-  private base = document.querySelector('base').href
+  private base = document.querySelector("base").href;
 
   render() {
     return (
@@ -23,7 +23,7 @@ export class DocsTopbar {
           class="docs-topbar__logo"
           role="presentation"
           slot="logo"
-          src={getAssetPath('./assets/logo.svg')}
+          src={getAssetPath("./assets/logo.svg")}
         />
         <a class="docs-topbar__headline-link" href={this.base} title="Home">
           <p class="docs-topbar__headline docs-topbar__headline--long">
@@ -46,10 +46,10 @@ export class DocsTopbar {
               arrow
               position="bottom right"
               tetherOptions={JSON.stringify({
-                offset: '0px -12px',
+                offset: "0px -12px",
                 constraints: [
                   {
-                    to: 'window',
+                    to: "window",
                   },
                 ],
               })}
@@ -57,7 +57,7 @@ export class DocsTopbar {
               <img
                 class="docs-topbar__tooltip-trigger"
                 slot="trigger"
-                src={getAssetPath('./assets/figma.svg')}
+                src={getAssetPath("./assets/figma.svg")}
                 alt="Liquid Oxygen on Figma"
                 role="presentation"
               />
@@ -72,13 +72,13 @@ export class DocsTopbar {
             target="_blank"
           >
             <img
-              src={getAssetPath('./assets/github.svg')}
+              src={getAssetPath("./assets/github.svg")}
               alt="Liquid Oxygen on GitHub"
               role="presentation"
             />
           </a>
         </div>
       </ld-header>
-    )
+    );
   }
 }

@@ -8,53 +8,53 @@ import {
   Method,
   Prop,
   State,
-} from '@stencil/core'
-import { getClassNames } from '../../../utils/getClassNames'
+} from "@stencil/core";
+import { getClassNames } from "../../../utils/getClassNames";
 
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
 @Component({
-  tag: 'ld-accordion-toggle',
-  styleUrl: 'ld-accordion-toggle.shadow.css',
+  tag: "ld-accordion-toggle",
+  styleUrl: "ld-accordion-toggle.shadow.css",
   shadow: true,
 })
 export class LdAccordionToggle implements InnerFocusable {
-  @Element() el: HTMLElement
+  @Element() el: HTMLElement;
 
-  private btnRef: HTMLButtonElement
+  private btnRef: HTMLButtonElement;
 
   /** Disables the toggle. */
-  @Prop() disabled?: boolean
+  @Prop() disabled?: boolean;
 
   /**
    * Tag to be used for the toggle label in split mode.
    * This prop is especially usefull, if you want to place
    * your own focusable element inside the toggle label element.
    */
-  @Prop() labelTag?: 'button' | 'div' = 'button'
+  @Prop() labelTag?: "button" | "div" = "button";
 
   /** Tab index of the toggle. */
-  @Prop() ldTabindex?: number
+  @Prop() ldTabindex?: number;
 
   /**
    * Split the toggle in two parts with the second part containing
    * the caret icon and being responsible for expanding / collapsing
    * the accordion panel.
    */
-  @Prop() split?: boolean
+  @Prop() split?: boolean;
 
   /** Used as aria-label value on the toggle trigger element. */
-  @Prop() toggleLabel? = 'Toggle'
+  @Prop() toggleLabel? = "Toggle";
 
-  @State() expanded: boolean
-  @State() hasCustomIcon = false
+  @State() expanded: boolean;
+  @State() hasCustomIcon = false;
 
   /** Focuses the toggle */
   @Method()
   async focusInner() {
-    this.btnRef.focus({ preventScroll: true })
+    this.btnRef.focus({ preventScroll: true });
   }
 
   /**
@@ -63,41 +63,41 @@ export class LdAccordionToggle implements InnerFocusable {
    */
   @Method()
   async setExpanded(expanded: boolean) {
-    this.expanded = expanded
+    this.expanded = expanded;
   }
 
   /** Emitted on click of the accordion toggle trigger. */
-  @Event() ldaccordiontoggleclick: EventEmitter<undefined>
+  @Event() ldaccordiontoggleclick: EventEmitter<undefined>;
 
   /** Emitted on click of the accordion toggle label. */
-  @Event() ldaccordionlabelclick: EventEmitter<undefined>
+  @Event() ldaccordionlabelclick: EventEmitter<undefined>;
 
   private handleToggleClick = (ev: MouseEvent) => {
-    ev.preventDefault()
+    ev.preventDefault();
 
-    if (this.disabled) return
+    if (this.disabled) return;
 
-    this.ldaccordiontoggleclick.emit()
-  }
+    this.ldaccordiontoggleclick.emit();
+  };
 
   private handleLabelClick = (ev: MouseEvent) => {
-    ev.preventDefault()
+    ev.preventDefault();
 
-    if (this.disabled) return
+    if (this.disabled) return;
 
-    this.ldaccordionlabelclick.emit()
-  }
+    this.ldaccordionlabelclick.emit();
+  };
 
   componentWillLoad() {
-    this.hasCustomIcon = !!this.el.querySelector('[slot="icon"]')
+    this.hasCustomIcon = !!this.el.querySelector('[slot="icon"]');
   }
 
   render() {
     const cl = getClassNames([
-      'ld-accordion-toggle',
-      this.expanded && 'ld-accordion-toggle--expanded',
-      this.split && 'ld-accordion-toggle--split',
-    ])
+      "ld-accordion-toggle",
+      this.expanded && "ld-accordion-toggle--expanded",
+      this.split && "ld-accordion-toggle--split",
+    ]);
 
     const toggleTriggerContent = (
       <div class="ld-accordion-toggle__trigger-content" part="trigger-content">
@@ -112,14 +112,14 @@ export class LdAccordionToggle implements InnerFocusable {
           />
         )}
       </div>
-    )
+    );
 
     const toggleTrigger = this.split ? (
       <button
         part="trigger focusable"
         class="ld-accordion-toggle__trigger"
-        aria-disabled={this.disabled ? 'true' : undefined}
-        aria-expanded={this.expanded ? 'true' : 'false'}
+        aria-disabled={this.disabled ? "true" : undefined}
+        aria-expanded={this.expanded ? "true" : "false"}
         aria-label={this.toggleLabel}
         onClick={this.handleToggleClick}
         ref={(el) => (this.btnRef = el as HTMLButtonElement)}
@@ -130,13 +130,13 @@ export class LdAccordionToggle implements InnerFocusable {
       <div part="trigger" class="ld-accordion-toggle__trigger">
         {toggleTriggerContent}
       </div>
-    )
+    );
 
-    const ToggleLabelTag = this.labelTag
+    const ToggleLabelTag = this.labelTag;
     const toggleLabel = this.split ? (
       <ToggleLabelTag
-        part={`label${this.labelTag === 'button' ? ' focusable' : ''}`}
-        aria-disabled={this.disabled ? 'true' : undefined}
+        part={`label${this.labelTag === "button" ? " focusable" : ""}`}
+        aria-disabled={this.disabled ? "true" : undefined}
         class="ld-accordion-toggle__label"
         onClick={this.handleLabelClick}
       >
@@ -150,14 +150,14 @@ export class LdAccordionToggle implements InnerFocusable {
           <slot />
         </div>
       </div>
-    )
+    );
 
     const toggleContent = (
       <div part="content" class="ld-accordion-toggle__content">
         {toggleLabel}
         {toggleTrigger}
       </div>
-    )
+    );
 
     const toggle = this.split ? (
       <div part="toggle" class="ld-accordion-toggle__button">
@@ -165,8 +165,8 @@ export class LdAccordionToggle implements InnerFocusable {
       </div>
     ) : (
       <button
-        aria-disabled={this.disabled ? 'true' : undefined}
-        aria-expanded={this.expanded ? 'true' : 'false'}
+        aria-disabled={this.disabled ? "true" : undefined}
+        aria-expanded={this.expanded ? "true" : "false"}
         class="ld-accordion-toggle__button"
         onClick={this.handleToggleClick}
         part="toggle focusable"
@@ -175,8 +175,8 @@ export class LdAccordionToggle implements InnerFocusable {
       >
         {toggleContent}
       </button>
-    )
+    );
 
-    return <Host class={cl}>{toggle}</Host>
+    return <Host class={cl}>{toggle}</Host>;
   }
 }

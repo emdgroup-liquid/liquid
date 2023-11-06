@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core'
+import { Component, h } from "@stencil/core";
 
 /**
  * @part tbody - the actual tbody element
@@ -6,8 +6,8 @@ import { Component, h } from '@stencil/core'
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
 @Component({
-  tag: 'ld-table-body',
-  styleUrl: 'ld-table-body.shadow.css',
+  tag: "ld-table-body",
+  styleUrl: "ld-table-body.shadow.css",
   shadow: true,
 })
 export class LdTableBody {
@@ -16,6 +16,6 @@ export class LdTableBody {
       <tbody class="ld-table-body" part="tbody">
         <slot />
       </tbody>
-    )
+    );
   }
 }

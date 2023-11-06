@@ -1,6 +1,6 @@
-import { Build } from '@stencil/core'
+import { Build } from "@stencil/core";
 
-let missingAssetPathWarningDisplayed = false
+let missingAssetPathWarningDisplayed = false;
 
 /**
  * Reads components asset path config from meta tag or global variable.
@@ -11,40 +11,40 @@ let missingAssetPathWarningDisplayed = false
 export const getAssetPath = (path: string) => {
   // Get asset path from meta tag if available
   const metaLdAssetPath = document.head.querySelector<HTMLMetaElement>(
-    'meta[data-ld-asset-path]'
-  )?.dataset.ldAssetPath
+    "meta[data-ld-asset-path]",
+  )?.dataset.ldAssetPath;
   // Get asset path from window if available
-  const windowLdAssetPath = window.__LD_ASSET_PATH__
+  const windowLdAssetPath = window.__LD_ASSET_PATH__;
   // Uses CDN as fallback if no asset path is set
-  const version = '5.8.1'
+  const version = "5.8.1";
   const cdnAssetPath = `https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid${
-    '@' + version
-  }/dist/liquid/`
+    "@" + version
+  }/dist/liquid/`;
 
   const assetBasePath = Build.isTesting
-    ? '/dist/liquid'
-    : metaLdAssetPath || windowLdAssetPath || cdnAssetPath || '/'
+    ? "/dist/liquid"
+    : metaLdAssetPath || windowLdAssetPath || cdnAssetPath || "/";
 
   // Display warning if assets are fetched from CDN. This is only displayed once.
   if (
-    assetBasePath.startsWith('https://cdn.jsdelivr.net/npm/') &&
+    assetBasePath.startsWith("https://cdn.jsdelivr.net/npm/") &&
     !missingAssetPathWarningDisplayed
   ) {
-    missingAssetPathWarningDisplayed = true
+    missingAssetPathWarningDisplayed = true;
     console.warn(
-      `Fetching Liquid Oxygen assets from jsDelivr CDN.\n\nWe recommend bundling Liquid Oxygen assets with your application and setting the asset path accordingly.\n\nFor more information see the documentation:\nhttps://liquid.merck.design/liquid/guides/component-assets/`
-    )
+      `Fetching Liquid Oxygen assets from jsDelivr CDN.\n\nWe recommend bundling Liquid Oxygen assets with your application and setting the asset path accordingly.\n\nFor more information see the documentation:\nhttps://liquid.merck.design/liquid/guides/component-assets/`,
+    );
   }
 
-  let assetPath = path
+  let assetPath = path;
 
-  if (path.startsWith('./')) {
-    assetPath = path.substring(2)
+  if (path.startsWith("./")) {
+    assetPath = path.substring(2);
   }
 
-  if (!assetBasePath.endsWith('/')) {
-    assetPath = '/' + assetPath
+  if (!assetBasePath.endsWith("/")) {
+    assetPath = "/" + assetPath;
   }
 
-  return assetBasePath + assetPath
-}
+  return assetBasePath + assetPath;
+};

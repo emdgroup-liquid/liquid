@@ -1,105 +1,105 @@
-import { h } from '@stencil/core'
-import { newSpecPage } from '@stencil/core/testing'
-import { LdLink } from '../ld-link'
-import '../../../utils/mutationObserver'
+import { h } from "@stencil/core";
+import { newSpecPage } from "@stencil/core/testing";
+import { LdLink } from "../ld-link";
+import "../../../utils/mutationObserver";
 
-describe('ld-link', () => {
-  it('renders default', async () => {
+describe("ld-link", () => {
+  it("renders default", async () => {
     const page = await newSpecPage({
       components: [LdLink],
       template: () => <ld-link>Link</ld-link>,
-    })
-    expect(page.root).toMatchSnapshot()
-  })
+    });
+    expect(page.root).toMatchSnapshot();
+  });
 
-  it('renders as disabled', async () => {
+  it("renders as disabled", async () => {
     const page = await newSpecPage({
       components: [LdLink],
       template: () => <ld-link disabled>Link</ld-link>,
-    })
-    expect(page.root).toMatchSnapshot()
-  })
+    });
+    expect(page.root).toMatchSnapshot();
+  });
 
-  it('renders with href', async () => {
+  it("renders with href", async () => {
     const page = await newSpecPage({
       components: [LdLink],
       html: '<ld-link href="#">Link</ld-link>',
-    })
-    expect(page.root).toMatchSnapshot()
-  })
+    });
+    expect(page.root).toMatchSnapshot();
+  });
 
-  it('renders with chevron', async () => {
+  it("renders with chevron", async () => {
     const page = await newSpecPage({
       components: [LdLink],
       html: '<ld-link chevron="end" href="#">Link</ld-link>',
-    })
-    expect(page.root).toMatchSnapshot()
-  })
+    });
+    expect(page.root).toMatchSnapshot();
+  });
 
-  it('renders with target _blank and rel', async () => {
+  it("renders with target _blank and rel", async () => {
     const page = await newSpecPage({
       components: [LdLink],
       html: '<ld-link href="#" target="_blank">Link</ld-link>',
-    })
-    expect(page.root).toMatchSnapshot()
-  })
+    });
+    expect(page.root).toMatchSnapshot();
+  });
 
-  it('allows to set inner focus', async () => {
+  it("allows to set inner focus", async () => {
     const page = await newSpecPage({
       components: [LdLink],
       html: '<ld-link href="#">Link</ld-link>',
-    })
-    const ldLink = page.root
-    const anchor = ldLink.shadowRoot.children[0] as HTMLAnchorElement
+    });
+    const ldLink = page.root;
+    const anchor = ldLink.shadowRoot.children[0] as HTMLAnchorElement;
 
-    anchor.focus = jest.fn()
-    await ldLink.focusInner()
+    anchor.focus = jest.fn();
+    await ldLink.focusInner();
 
-    expect(anchor.focus).toHaveBeenCalled()
-  })
+    expect(anchor.focus).toHaveBeenCalled();
+  });
 
-  it('prevents default when disabled', () => {
-    const component = new LdLink()
-    component.disabled = true
-    const ev = new MouseEvent('click')
-    component['handleClick'](ev)
-    expect(ev.defaultPrevented).toBeTruthy()
-  })
+  it("prevents default when disabled", () => {
+    const component = new LdLink();
+    component.disabled = true;
+    const ev = new MouseEvent("click");
+    component["handleClick"](ev);
+    expect(ev.defaultPrevented).toBeTruthy();
+  });
 
-  it('prevents default when aria-disabled', () => {
-    const component = new LdLink()
-    component.el.ariaDisabled = 'true'
-    const ev = new MouseEvent('click')
-    component['handleClick'](ev)
-    expect(ev.defaultPrevented).toBeTruthy()
-  })
+  it("prevents default when aria-disabled", () => {
+    const component = new LdLink();
+    component.el.ariaDisabled = "true";
+    const ev = new MouseEvent("click");
+    component["handleClick"](ev);
+    expect(ev.defaultPrevented).toBeTruthy();
+  });
 
-  it('prevents default when aria-disabled is truethy', () => {
-    const component = new LdLink()
-    component.el.ariaDisabled = 'yes'
-    const ev = new MouseEvent('click')
-    component['handleClick'](ev)
-    expect(ev.defaultPrevented).toBeTruthy()
-  })
+  it("prevents default when aria-disabled is truethy", () => {
+    const component = new LdLink();
+    component.el.ariaDisabled = "yes";
+    const ev = new MouseEvent("click");
+    component["handleClick"](ev);
+    expect(ev.defaultPrevented).toBeTruthy();
+  });
 
-  it('does not prevents default when aria-disabled is false', () => {
-    const component = new LdLink()
-    component.el.ariaDisabled = 'false'
-    const ev = new MouseEvent('click')
-    component['handleClick'](ev)
-    expect(ev.defaultPrevented).toBeFalsy()
-  })
+  it("does not prevents default when aria-disabled is false", () => {
+    const component = new LdLink();
+    component.el.ariaDisabled = "false";
+    const ev = new MouseEvent("click");
+    component["handleClick"](ev);
+    expect(ev.defaultPrevented).toBeFalsy();
+  });
 
-  it('does not prevents default when aria-disabled is falsy', () => {
-    const component = new LdLink()
-    component.el.ariaDisabled = ''
-    const ev = new MouseEvent('click')
-    component['handleClick'](ev)
-    expect(ev.defaultPrevented).toBeFalsy()
-  })
+  it("does not prevents default when aria-disabled is falsy", () => {
+    const component = new LdLink();
+    component.el.ariaDisabled = "";
+    const ev = new MouseEvent("click");
+    component["handleClick"](ev);
+    expect(ev.defaultPrevented).toBeFalsy();
+  });
 
-  it('does not throw when disconnecting before hydration', () => {
-    const component = new LdLink()
-    component.disconnectedCallback()
-  })
-})
+  it("does not throw when disconnecting before hydration", () => {
+    const component = new LdLink();
+    component.disconnectedCallback();
+  });
+});

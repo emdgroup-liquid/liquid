@@ -1,4 +1,4 @@
-import { Component, h, Prop, Host } from '@stencil/core'
+import { Component, h, Prop, Host } from "@stencil/core";
 
 /**
  * @virtualProp ref - reference to component
@@ -6,21 +6,21 @@ import { Component, h, Prop, Host } from '@stencil/core'
  * @part icon - Image tag used for the icon
  */
 @Component({
-  assetsDirs: ['assets'],
-  tag: 'ld-input-message',
-  styleUrl: 'ld-input-message.css',
+  assetsDirs: ["assets"],
+  tag: "ld-input-message",
+  styleUrl: "ld-input-message.css",
   shadow: true,
 })
 export class LdInputMessage {
   /** Input message mode. */
-  @Prop() mode?: 'error' | 'info' | 'valid' = 'error'
+  @Prop() mode?: "error" | "info" | "valid" = "error";
 
   render() {
     return (
       <Host class={`ld-input-message ld-input-message--${this.mode}`}>
         <ld-icon
           class="ld-input-message__icon"
-          name={'ld-input-message-' + this.mode}
+          name={"ld-input-message-" + this.mode}
           part="icon"
           size="sm"
         />
@@ -28,6 +28,6 @@ export class LdInputMessage {
           <slot></slot>
         </span>
       </Host>
-    )
+    );
   }
 }

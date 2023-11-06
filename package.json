@@ -31,7 +31,7 @@
   ],
   "scripts": {
     "apply_design_tokens": "dotenv -e .env -- ts-node scripts/applyDesignTokens.ts",
-    "build": "run-s build:stencil:components build:stencil:react build:stencil:vue build:patch_loader build:styles build:copy_design_tokens build:tailwind_preset build:bin",
+    "build": "run-s build:stencil:components build:stencil:react build:stencil:vue build:stencil:angular build:patch_loader build:styles build:copy_design_tokens build:tailwind_preset build:bin",
     "build:bin": "run-p build:bin:cli build:bin:apply_design_tokens",
     "build:bin:cli": "tsc scripts/cli.ts --skipLibCheck --moduleResolution node --target esnext --outfile bin/cli.cjs",
     "build:bin:apply_design_tokens": "tsc --skipLibCheck scripts/applyDesignTokens.ts --moduleResolution node --target esnext --outfile bin/applyDesignTokens.cjs",
@@ -43,6 +43,7 @@
     "build:stencil:docs": "stencil build --config=config/stencil.config.docs.ts",
     "build:stencil:react": "ts-node scripts/patchOutput.ts react && tsc -p config/tsconfig.react.json && (shx rm out/react.ts & shx rm out/react-define-excluded.ts & shx rm -r out/react-component-lib)",
     "build:stencil:vue": "ts-node scripts/patchOutput.ts vue && tsc -p config/tsconfig.vue.json && (shx rm out/vue.ts & shx rm out/vue-define-excluded.ts & shx rm -r out/vue-component-lib)",
+    "build:stencil:angular": "ts-node scripts/patchOutput.ts angular && tsc -p config/tsconfig.angular.json",
     "build:styles": "run-s build:styles:liquid:globals build:styles:liquid:globals_no_fonts build:styles:liquid:components",
     "build:styles:liquid:components": "postcss src/liquid/components/*/*.css src/liquid/components/*/*/*.css --config=config/postcss.config.cjs --no-map -d dist/css/ && trash dist/css/liquid.css 'dist/css/*.shadow.css' && bash scripts/concatStyles.sh",
     "build:styles:liquid:globals": "postcss src/liquid/global/styles/global.css --config=config/postcss.config.cjs --no-map -o dist/css/liquid.global.css",
@@ -55,6 +56,7 @@
     "icons:update": "dotenv -e .env -- ts-node scripts/iconsUpdate.ts",
     "lint": "run-s lint:ts lint:eslint lint:styles",
     "lint:eslint": "eslint .",
+    "lint:eslint:fix": "eslint . --fix",
     "lint:styles": "stylelint ./src/**/*css",
     "lint:styles:fix": "stylelint ./src/**/*css --fix",
     "lint:ts": "tsc --noemit -p config/tsconfig.docs.json",
@@ -87,6 +89,8 @@
     "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@angular/common": "^15.2.10",
+    "@angular/core": "^15.2.10",
     "@commitlint/cli": "^17.4.3",
     "@commitlint/config-conventional": "^17.4.3",
     "@lottiefiles/lottie-player": "^2.0.2",
@@ -96,6 +100,7 @@
     "@semantic-release/github": "^9.0.3",
     "@semantic-release/npm": "^11.0.0",
     "@semantic-release/release-notes-generator": "^12.0.0",
+    "@stencil/angular-output-target": "^0.8.3",
     "@stencil/eslint-plugin": "^0.4.0",
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.5.3",
@@ -144,6 +149,7 @@
     "postcss-preset-env": "^9.0.0",
     "prettier": "^3.0.0",
     "puppeteer": "^21.0.1",
+    "rxjs": "^7.8.1",
     "semantic-release": "^22.0.0",
     "shx": "^0.3.4",
     "stenciljs-web-types-generator": "^1.0.4",
@@ -210,15 +216,7 @@
       "./config/.eslintrc.cjs"
     ]
   },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "tabWidth": 2,
-    "endOfLine": "lf",
-    "useTabs": false,
-    "printWidth": 80,
-    "semi": false
-  },
+  "prettier": {},
   "stylelint": {
     "extends": [
       "./config/stylelint.config.cjs"

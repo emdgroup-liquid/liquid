@@ -1,1 +1,1 @@
-export { Components, JSX } from './liquid/components'
+export { Components, JSX } from "./liquid/components";

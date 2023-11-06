@@ -1,182 +1,182 @@
-import 'wicg-inert'
-import { Component, h, Listen, State, Host } from '@stencil/core'
-import Fuse from 'fuse.js'
-import eventBus from '../../utils/eventBus'
-import { SearchEventType } from '../../utils/eventTypes'
+import "wicg-inert";
+import { Component, h, Listen, State, Host } from "@stencil/core";
+import Fuse from "fuse.js";
+import eventBus from "../../utils/eventBus";
+import { SearchEventType } from "../../utils/eventTypes";
 
 interface SearchResult {
-  breadcrumbs: string[]
-  headings: ''
-  tags: string
-  title: string
-  url: string
+  breadcrumbs: string[];
+  headings: "";
+  tags: string;
+  title: string;
+  url: string;
 }
 
 /** @internal **/
 @Component({
-  tag: 'docs-search',
-  styleUrl: 'docs-search.css',
+  tag: "docs-search",
+  styleUrl: "docs-search.css",
   shadow: false,
-  assetsDirs: ['assets'],
+  assetsDirs: ["assets"],
 })
 export class DocsSearch {
-  private searchInput!: HTMLLdInputElement
-  private searchResults!: HTMLOListElement
-  private fuse: Fuse<SearchResult>
+  private searchInput!: HTMLLdInputElement;
+  private searchResults!: HTMLOListElement;
+  private fuse: Fuse<SearchResult>;
 
-  @State() results: Fuse.FuseResult<SearchResult>[] = []
-  @State() isActive: boolean
+  @State() results: Fuse.FuseResult<SearchResult>[] = [];
+  @State() isActive: boolean;
 
-  @Listen('click', { capture: true })
+  @Listen("click", { capture: true })
   handleClick(ev) {
-    if (ev.target.id === 'docs-search-backdrop') {
-      ev.preventDefault()
-      this.onSearchClose()
+    if (ev.target.id === "docs-search-backdrop") {
+      ev.preventDefault();
+      this.onSearchClose();
     }
   }
 
-  @Listen('keydown', {
+  @Listen("keydown", {
     passive: true,
   })
   handleEscapeDown(ev: KeyboardEvent) {
     if (!this.isActive) {
-      return
+      return;
     }
-    if (ev.key === 'Escape') {
-      ev.stopImmediatePropagation()
-      this.onSearchClose()
+    if (ev.key === "Escape") {
+      ev.stopImmediatePropagation();
+      this.onSearchClose();
     }
   }
 
-  @Listen('keydown', {
+  @Listen("keydown", {
     passive: false,
   })
   handleKeyDown(ev: KeyboardEvent) {
     if (!this.isActive) {
-      return
+      return;
     }
     switch (ev.key) {
-      case 'ArrowDown': {
-        ev.preventDefault()
+      case "ArrowDown": {
+        ev.preventDefault();
 
         if (
-          document.activeElement.closest('.docs-search__input') ===
+          document.activeElement.closest(".docs-search__input") ===
           this.searchInput
         ) {
-          ;(
+          (
             this.searchResults.querySelector(
-              '.docs-search__result > a'
+              ".docs-search__result > a",
             ) as HTMLAnchorElement
-          )?.focus()
-          return
+          )?.focus();
+          return;
         }
 
         const nextSibling = document.activeElement.closest(
-          '.docs-search__result'
-        )?.nextElementSibling
-        if (nextSibling?.classList.contains('docs-search__result')) {
-          ;(nextSibling.querySelector('a') as HTMLAnchorElement).focus()
+          ".docs-search__result",
+        )?.nextElementSibling;
+        if (nextSibling?.classList.contains("docs-search__result")) {
+          (nextSibling.querySelector("a") as HTMLAnchorElement).focus();
         }
-        return
+        return;
       }
 
-      case 'ArrowUp': {
-        ev.preventDefault()
+      case "ArrowUp": {
+        ev.preventDefault();
 
         const focusedSearchResult = document.activeElement.closest(
-          '.docs-search__result'
-        )
+          ".docs-search__result",
+        );
 
         if (focusedSearchResult) {
-          const prevSibling = focusedSearchResult.previousElementSibling
-          if (prevSibling?.classList.contains('docs-search__result')) {
-            ;(prevSibling.querySelector('a') as HTMLAnchorElement).focus()
+          const prevSibling = focusedSearchResult.previousElementSibling;
+          if (prevSibling?.classList.contains("docs-search__result")) {
+            (prevSibling.querySelector("a") as HTMLAnchorElement).focus();
           } else {
-            this.searchInput.shadowRoot.querySelector('input').focus()
-            this.searchResults.scrollTo(0, 0)
+            this.searchInput.shadowRoot.querySelector("input").focus();
+            this.searchResults.scrollTo(0, 0);
           }
         }
-        return
+        return;
       }
 
-      case ' ': {
+      case " ": {
         const focusedSearchResult = document.activeElement.closest(
-          '.docs-search__result'
-        )
+          ".docs-search__result",
+        );
 
         if (focusedSearchResult) {
-          ev.preventDefault()
+          ev.preventDefault();
           window.location.href = (
-            focusedSearchResult.querySelector('a') as HTMLAnchorElement
-          ).href
+            focusedSearchResult.querySelector("a") as HTMLAnchorElement
+          ).href;
         }
-        return
+        return;
       }
     }
   }
 
-  @Listen('submit')
+  @Listen("submit")
   handleSubmit(ev: Event) {
-    ev.preventDefault()
+    ev.preventDefault();
   }
 
   private handleChange() {
-    const searchResult = this.fuse.search(this.searchInput.value)
-    this.results = searchResult
+    const searchResult = this.fuse.search(this.searchInput.value);
+    this.results = searchResult;
   }
 
   componentWillLoad() {
-    this.fuse = new Fuse(window['__docsSearchIndex__'], {
+    this.fuse = new Fuse(window["__docsSearchIndex__"], {
       keys: [
         {
-          name: 'title',
+          name: "title",
           weight: 0.4,
         },
         {
-          name: 'tags',
+          name: "tags",
           weight: 0.35,
         },
         {
-          name: 'headings',
+          name: "headings",
           weight: 0.25,
         },
       ],
       distance: 10000,
       threshold: 0.3,
-    })
+    });
   }
 
   componentDidLoad() {
-    eventBus.on(SearchEventType.open, this.onSearchOpen.bind(this))
+    eventBus.on(SearchEventType.open, this.onSearchOpen.bind(this));
   }
 
   private onSearchOpen() {
-    document.getElementById('docs-layout').setAttribute('inert', 'true')
-    this.isActive = true
-    this.searchInput.value = ''
+    document.getElementById("docs-layout").setAttribute("inert", "true");
+    this.isActive = true;
+    this.searchInput.value = "";
     setTimeout(() => {
-      this.searchInput.focusInner()
-    }, 200)
+      this.searchInput.focusInner();
+    }, 200);
   }
 
   private onSearchClose() {
-    document.getElementById('docs-layout').removeAttribute('inert')
-    this.isActive = false
-    this.results = []
-    eventBus.emit(SearchEventType.close)
+    document.getElementById("docs-layout").removeAttribute("inert");
+    this.isActive = false;
+    this.results = [];
+    eventBus.emit(SearchEventType.close);
   }
 
   render() {
     return (
       <Host
         inert={!this.isActive}
-        class={`docs-search${this.isActive ? ' docs-search--active' : ''}`}
+        class={`docs-search${this.isActive ? " docs-search--active" : ""}`}
       >
         <div class="docs-search__content">
           <form role="search" autocomplete="off">
             <ld-input
               size="lg"
-              aria-expanded={this.results.length ? 'true' : 'false'}
+              aria-expanded={this.results.length ? "true" : "false"}
               aria-controls="docs-search-results-list"
               onInput={this.handleChange.bind(this)}
               placeholder="Search in documentation..."
@@ -214,14 +214,14 @@ export class DocsSearch {
           <ol
             id="docs-search-results-list"
             class={`docs-search__results${
-              this.results.length ? ' docs-search__results--expanded' : ''
+              this.results.length ? " docs-search__results--expanded" : ""
             }`}
             aria-label="Search results"
             ref={(el) => (this.searchResults = el as HTMLOListElement)}
           >
             {this.results.length
               ? this.results.map((result) => {
-                  if (!result.item.breadcrumbs.length) return ''
+                  if (!result.item.breadcrumbs.length) return "";
                   return (
                     <li class="docs-search__result" key={result.refIndex}>
                       <a href={result.item.url}>
@@ -235,9 +235,9 @@ export class DocsSearch {
                         </span>
                       </a>
                     </li>
-                  )
+                  );
                 })
-              : ''}
+              : ""}
           </ol>
         </div>
         <button
@@ -246,6 +246,6 @@ export class DocsSearch {
           aria-label="Close search"
         ></button>
       </Host>
-    )
+    );
   }
 }

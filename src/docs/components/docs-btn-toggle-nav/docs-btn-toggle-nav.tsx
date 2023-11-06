@@ -1,62 +1,62 @@
-import { Component, h, Host, Listen, State } from '@stencil/core'
-import { NavEventType } from '../../utils/eventTypes'
-import eventBus from '../../utils/eventBus'
+import { Component, h, Host, Listen, State } from "@stencil/core";
+import { NavEventType } from "../../utils/eventTypes";
+import eventBus from "../../utils/eventBus";
 
 /** @internal **/
 @Component({
-  tag: 'docs-btn-toggle-nav',
-  styleUrl: 'docs-btn-toggle-nav.css',
+  tag: "docs-btn-toggle-nav",
+  styleUrl: "docs-btn-toggle-nav.css",
   shadow: false,
 })
 export class DocsBtnToggleNav {
-  private aOpen!: HTMLAnchorElement
-  private aClose!: HTMLAnchorElement
+  private aOpen!: HTMLAnchorElement;
+  private aClose!: HTMLAnchorElement;
 
-  @State() isNavOpen = false
+  @State() isNavOpen = false;
 
   private onNavOpen(ev) {
-    ev.preventDefault()
-    location.hash = 'sidenav-open'
-    eventBus.emit(NavEventType.open)
-    this.isNavOpen = true
+    ev.preventDefault();
+    location.hash = "sidenav-open";
+    eventBus.emit(NavEventType.open);
+    this.isNavOpen = true;
     setTimeout(() => {
-      this.aClose.focus()
-    })
+      this.aClose.focus();
+    });
   }
   private onNavClose(ev) {
-    ev.preventDefault()
-    location.hash = ''
-    eventBus.emit(NavEventType.close)
-    this.isNavOpen = false
+    ev.preventDefault();
+    location.hash = "";
+    eventBus.emit(NavEventType.close);
+    this.isNavOpen = false;
     setTimeout(() => {
-      history.replaceState({}, '', window.location.pathname)
-      this.aOpen.focus()
-    })
+      history.replaceState({}, "", window.location.pathname);
+      this.aOpen.focus();
+    });
   }
 
-  @Listen('keydown', {
+  @Listen("keydown", {
     passive: false,
   })
   handleKeyDown(ev: KeyboardEvent) {
-    if (ev.key === ' ') {
-      ev.stopImmediatePropagation()
-      ev.preventDefault()
+    if (ev.key === " ") {
+      ev.stopImmediatePropagation();
+      ev.preventDefault();
 
       if (this.isNavOpen) {
-        this.aClose.click()
+        this.aClose.click();
       } else {
-        this.aOpen.click()
+        this.aOpen.click();
       }
     }
   }
 
   componentDidLoad() {
     eventBus.on(NavEventType.open, () => {
-      this.isNavOpen = true
-    })
+      this.isNavOpen = true;
+    });
     eventBus.on(NavEventType.close, () => {
-      this.isNavOpen = false
-    })
+      this.isNavOpen = false;
+    });
   }
 
   render() {
@@ -110,6 +110,6 @@ export class DocsBtnToggleNav {
           </svg>
         </a>
       </Host>
-    )
+    );
   }
 }

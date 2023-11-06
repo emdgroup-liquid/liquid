@@ -1,9 +1,9 @@
-import { Component, h, Host } from '@stencil/core'
+import { Component, h, Host } from "@stencil/core";
 
 /** @internal **/
 @Component({
-  tag: 'docs-btn-dots-grid',
-  styleUrl: 'docs-btn-dots-grid.css',
+  tag: "docs-btn-dots-grid",
+  styleUrl: "docs-btn-dots-grid.css",
   shadow: false,
 })
 export class DocsBtnDotsGrid {
@@ -31,6 +31,6 @@ export class DocsBtnDotsGrid {
           </svg>
         </button>
       </Host>
-    )
+    );
   }
 }

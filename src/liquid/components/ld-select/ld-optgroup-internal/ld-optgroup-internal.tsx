@@ -10,133 +10,133 @@ import {
   Prop,
   State,
   Watch,
-} from '@stencil/core'
-import { getClassNames } from '../../../utils/getClassNames'
+} from "@stencil/core";
+import { getClassNames } from "../../../utils/getClassNames";
 
 /** @internal **/
 @Component({
-  tag: 'ld-optgroup-internal',
-  styleUrl: 'ld-optgroup-internal.shadow.css',
+  tag: "ld-optgroup-internal",
+  styleUrl: "ld-optgroup-internal.shadow.css",
   shadow: true,
 })
 export class LdOptgroupInternal implements InnerFocusable {
-  @Element() el: HTMLElement
+  @Element() el: HTMLElement;
 
-  private optgroupRef: HTMLElement
+  private optgroupRef: HTMLElement;
 
   /** Disables the whole option group. */
-  @Prop() disabled?: boolean
+  @Prop() disabled?: boolean;
 
   /** Set to true on filtering via select input. */
-  @Prop() filtered? = false
+  @Prop() filtered? = false;
 
   /** The name of the group of options. */
-  @Prop() label!: string
+  @Prop() label!: string;
 
   /** Tab index of the option. */
-  @Prop() ldTabindex? = -1
+  @Prop() ldTabindex? = -1;
 
   /** Display mode. */
-  @Prop() mode?: 'checkbox' | undefined
+  @Prop() mode?: "checkbox" | undefined;
 
   /** Size of the option. */
-  @Prop() size?: 'sm' | 'lg'
+  @Prop() size?: "sm" | "lg";
 
-  @State() selected?: boolean | 'indeterminate' = false
+  @State() selected?: boolean | "indeterminate" = false;
 
   /**
    * @internal
    * Emitted on either selection or de-selection of the option.
    */
-  @Event() ldoptgroupselect: EventEmitter<boolean | 'indeterminate'>
+  @Event() ldoptgroupselect: EventEmitter<boolean | "indeterminate">;
 
   /** Sets focus internally. */
   @Method()
   async focusInner() {
-    this.optgroupRef.focus()
+    this.optgroupRef.focus();
   }
 
-  @Listen('ldoptionselect')
+  @Listen("ldoptionselect")
   handleOptionSelect() {
-    if (this.mode !== 'checkbox') return
+    if (this.mode !== "checkbox") return;
 
     const options = Array.from(
-      this.el.children
-    ) as HTMLLdOptionInternalElement[]
-    const totalOptions = options.length
-    const totalSelected = options.filter((o) => o.selected).length
+      this.el.children,
+    ) as HTMLLdOptionInternalElement[];
+    const totalOptions = options.length;
+    const totalSelected = options.filter((o) => o.selected).length;
 
     if (totalSelected === 0) {
-      this.selected = false
-      return
+      this.selected = false;
+      return;
     }
 
     if (totalOptions === totalSelected) {
-      this.selected = true
-      return
+      this.selected = true;
+      return;
     }
 
-    this.selected = 'indeterminate'
+    this.selected = "indeterminate";
   }
 
-  @Listen('keydown', { passive: false })
+  @Listen("keydown", { passive: false })
   handleKeyDown(ev: KeyboardEvent) {
-    if (ev.key === ' ' || ev.key === 'Enter') {
-      ev.preventDefault()
-      ev.stopImmediatePropagation()
-      this.handleClick()
+    if (ev.key === " " || ev.key === "Enter") {
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+      this.handleClick();
     }
   }
 
   private handleClick = () => {
-    if (this.disabled) return
-    if (this.mode !== 'checkbox') return
+    if (this.disabled) return;
+    if (this.mode !== "checkbox") return;
 
     const options = Array.from(
-      this.el.children
-    ) as HTMLLdOptionInternalElement[]
+      this.el.children,
+    ) as HTMLLdOptionInternalElement[];
     const newSelectedState =
-      this.selected === false || this.selected === 'indeterminate'
+      this.selected === false || this.selected === "indeterminate";
     options
       .filter((o) => o.selected !== newSelectedState)
       .forEach((o) => {
-        o.selected = newSelectedState
-      })
-  }
+        o.selected = newSelectedState;
+      });
+  };
 
-  @Watch('selected')
+  @Watch("selected")
   handleSelectedChange() {
-    this.ldoptgroupselect.emit(this.selected)
+    this.ldoptgroupselect.emit(this.selected);
   }
 
   componentWillLoad() {
-    this.handleOptionSelect()
+    this.handleOptionSelect();
   }
 
   render() {
     return (
       <Host
         class={getClassNames([
-          this.disabled && 'ld-optgroup-internal--disabled',
+          this.disabled && "ld-optgroup-internal--disabled",
         ])}
       >
         <div
           class={getClassNames([
-            'ld-optgroup-internal',
+            "ld-optgroup-internal",
             this.size && `ld-optgroup-internal--${this.size}`,
-            this.filtered && 'ld-optgroup-internal--filtered',
-            this.selected === true && 'ld-optgroup-internal--selected',
-            this.selected === 'indeterminate' &&
-              'ld-optgroup-internal--indeterminate',
+            this.filtered && "ld-optgroup-internal--filtered",
+            this.selected === true && "ld-optgroup-internal--selected",
+            this.selected === "indeterminate" &&
+              "ld-optgroup-internal--indeterminate",
           ])}
           role="option"
           ref={(el) => (this.optgroupRef = el as HTMLElement)}
-          aria-disabled={this.disabled ? 'true' : undefined}
+          aria-disabled={this.disabled ? "true" : undefined}
           onClick={this.handleClick}
           tabIndex={this.ldTabindex}
           part="option focusable"
         >
-          {this.mode === 'checkbox' && (
+          {this.mode === "checkbox" && (
             <div
               class="ld-optgroup-internal__checkbox-wrapper"
               role="presentation"
@@ -145,7 +145,7 @@ export class LdOptgroupInternal implements InnerFocusable {
               <ld-checkbox
                 class="ld-optgroup-internal__checkbox"
                 checked={this.selected === true}
-                indeterminate={this.selected === 'indeterminate'}
+                indeterminate={this.selected === "indeterminate"}
                 disabled={this.disabled}
                 part="checkbox"
               />
@@ -161,6 +161,6 @@ export class LdOptgroupInternal implements InnerFocusable {
           <slot></slot>
         </div>
       </Host>
-    )
+    );
   }
 }

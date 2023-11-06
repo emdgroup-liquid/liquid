@@ -8,11 +8,11 @@ import {
   EventEmitter,
   Method,
   State,
-} from '@stencil/core'
-import { cloneAttributes } from '../../../utils/cloneAttributes'
-import { getClassNames } from '../../../utils/getClassNames'
+} from "@stencil/core";
+import { cloneAttributes } from "../../../utils/cloneAttributes";
+import { getClassNames } from "../../../utils/getClassNames";
 
-export type SelectedDetail = { index: number; label: string }
+export type SelectedDetail = { index: number; label: string };
 
 /**
  * @virtualProp ref - reference to component
@@ -24,150 +24,150 @@ export type SelectedDetail = { index: number; label: string }
  * @part li - actual `li` element
  */
 @Component({
-  tag: 'ld-step',
-  styleUrl: 'ld-step.css',
+  tag: "ld-step",
+  styleUrl: "ld-step.css",
   shadow: true,
 })
 export class LdStep implements InnerFocusable {
-  @Element() el: HTMLLdStepElement
-  private attributesObserver?: MutationObserver
-  private focusableElement: HTMLButtonElement | HTMLAnchorElement
+  @Element() el: HTMLLdStepElement;
+  private attributesObserver?: MutationObserver;
+  private focusableElement: HTMLButtonElement | HTMLAnchorElement;
 
   /** Switch colors for brand background */
-  @Prop() brandColor? = false
+  @Prop() brandColor? = false;
 
   /** Step is the current step */
-  @Prop() current? = false
+  @Prop() current? = false;
 
   /** Description text to display below the step name (vertical mode only) */
-  @Prop() description?: string
+  @Prop() description?: string;
 
   /** Step is not clickable */
-  @Prop() disabled? = false
+  @Prop() disabled? = false;
 
   /** Step is done */
-  @Prop() done? = false
+  @Prop() done? = false;
 
   /** Link to the step (makes the step an anchor instead of a button) */
-  @Prop() href?: string
+  @Prop() href?: string;
 
   /** Permanently show a custom icon inside the dot */
-  @Prop() icon?: HTMLLdIconElement['name']
+  @Prop() icon?: HTMLLdIconElement["name"];
 
   /** Label for current step (scree-reader only) */
-  @Prop() labelCurrent? = 'Current'
+  @Prop() labelCurrent? = "Current";
 
   /** Label for step that is done (scree-reader only) */
-  @Prop() labelDone? = 'Done'
+  @Prop() labelDone? = "Done";
 
   /** Label for step that is optional (scree-reader only) */
-  @Prop() labelOptional? = 'Optional'
+  @Prop() labelOptional? = "Optional";
 
   /** Label for step that was skipped (scree-reader only) */
-  @Prop() labelSkipped? = 'Skipped'
+  @Prop() labelSkipped? = "Skipped";
 
   /** Additional hint in label for step that is done and was optional (scree-reader only) */
-  @Prop() labelWasOptional? = 'was optional'
+  @Prop() labelWasOptional? = "was optional";
 
   /** Indicates that the next step is not active */
-  @Prop() lastActive? = false
+  @Prop() lastActive? = false;
 
   /** Tab index of the step */
-  @Prop() ldTabindex?: number
+  @Prop() ldTabindex?: number;
 
   /** Step can be processed next */
-  @Prop() next? = false
+  @Prop() next? = false;
 
   /** Step may be skipped */
-  @Prop() optional? = false
+  @Prop() optional? = false;
 
   /** Step size */
-  @Prop() size?: 'sm' | 'lg'
+  @Prop() size?: "sm" | "lg";
 
   /** Step was skipped */
-  @Prop() skipped? = false
+  @Prop() skipped? = false;
 
   /** Vertical layout */
-  @Prop() vertical? = false
+  @Prop() vertical? = false;
 
   /** Emitted when the focusable element is clicked and step is neither current nor disabled */
-  @Event() ldstepselected: EventEmitter<SelectedDetail>
+  @Event() ldstepselected: EventEmitter<SelectedDetail>;
 
-  @State() clonedAttributes
+  @State() clonedAttributes;
 
   /** Sets focus on the step */
   @Method()
   async focusInner() {
-    this.focusableElement?.focus()
+    this.focusableElement?.focus();
   }
 
   handleClick = () => {
     this.ldstepselected.emit({
       index: Array.from(this.el.parentElement.children).findIndex(
-        (child) => child === this.el
+        (child) => child === this.el,
       ),
       label: this.el.textContent,
-    })
-  }
+    });
+  };
 
   componentWillLoad() {
     this.attributesObserver = cloneAttributes.call(this, [
-      'aria-current',
-      'aria-disabled',
-      'brand-color',
-      'current',
-      'description',
-      'disabled',
-      'done',
-      'href',
-      'icon',
-      'label-current',
-      'label-done',
-      'label-optional',
-      'label-skipped',
-      'label-was-optional',
-      'last-active',
-      'ld-tabindex',
-      'next',
-      'optional',
-      'size',
-      'skipped',
-      'tabindex',
-      'type',
-      'vertical',
-    ])
+      "aria-current",
+      "aria-disabled",
+      "brand-color",
+      "current",
+      "description",
+      "disabled",
+      "done",
+      "href",
+      "icon",
+      "label-current",
+      "label-done",
+      "label-optional",
+      "label-skipped",
+      "label-was-optional",
+      "last-active",
+      "ld-tabindex",
+      "next",
+      "optional",
+      "size",
+      "skipped",
+      "tabindex",
+      "type",
+      "vertical",
+    ]);
   }
 
   componentDidLoad() {
     if (this.current) {
-      this.handleClick()
+      this.handleClick();
     }
   }
 
   disconnectedCallback() {
     /* istanbul ignore if */
-    if (this.attributesObserver) this.attributesObserver.disconnect()
+    if (this.attributesObserver) this.attributesObserver.disconnect();
   }
 
   render() {
-    const FocusableElement = this.href ? 'a' : 'button'
+    const FocusableElement = this.href ? "a" : "button";
 
     return (
       <Host>
         <li
           class={getClassNames([
-            'ld-step',
-            this.brandColor && 'ld-step--brand-color',
-            this.current && 'ld-step--current',
-            this.done && 'ld-step--done',
-            this.icon && 'ld-step--custom-icon',
-            (this.done || this.icon) && 'ld-step--with-icon',
-            this.lastActive && 'ld-step--last-active',
-            this.next && 'ld-step--next',
-            this.optional && 'ld-step--optional',
+            "ld-step",
+            this.brandColor && "ld-step--brand-color",
+            this.current && "ld-step--current",
+            this.done && "ld-step--done",
+            this.icon && "ld-step--custom-icon",
+            (this.done || this.icon) && "ld-step--with-icon",
+            this.lastActive && "ld-step--last-active",
+            this.next && "ld-step--next",
+            this.optional && "ld-step--optional",
             this.size && `ld-step--${this.size}`,
-            this.skipped && 'ld-step--skipped',
-            this.vertical && 'ld-step--vertical',
+            this.skipped && "ld-step--skipped",
+            this.vertical && "ld-step--vertical",
           ])}
           part="li"
           role="listitem"
@@ -175,7 +175,7 @@ export class LdStep implements InnerFocusable {
           {!this.current && this.done && (
             <ld-sr-only>
               {this.labelDone}
-              {this.optional ? ` (${this.labelWasOptional})` : ''}:{' '}
+              {this.optional ? ` (${this.labelWasOptional})` : ""}:{" "}
             </ld-sr-only>
           )}
           {!this.current && this.optional && !this.done && !this.skipped && (
@@ -187,13 +187,13 @@ export class LdStep implements InnerFocusable {
           {this.current && (
             <ld-sr-only>
               {this.labelCurrent}
-              {this.optional ? ` (${this.labelOptional})` : ''}:{' '}
+              {this.optional ? ` (${this.labelOptional})` : ""}:{" "}
             </ld-sr-only>
           )}
           <FocusableElement
             {...this.clonedAttributes}
-            aria-current={this.current ? 'step' : undefined}
-            aria-disabled={this.disabled ? 'true' : undefined}
+            aria-current={this.current ? "step" : undefined}
+            aria-disabled={this.disabled ? "true" : undefined}
             class="ld-step__focusable-element"
             href={!this.disabled && !this.current ? this.href : undefined}
             onClick={
@@ -204,12 +204,12 @@ export class LdStep implements InnerFocusable {
               (this.focusableElement = ref)
             }
             tabIndex={this.ldTabindex}
-            type={FocusableElement === 'button' ? 'button' : undefined}
+            type={FocusableElement === "button" ? "button" : undefined}
           >
             <slot></slot>
           </FocusableElement>
           {(this.done || this.icon) && (
-            <ld-icon name={this.icon || 'checkmark'} />
+            <ld-icon name={this.icon || "checkmark"} />
           )}
           {this.description && this.vertical && (
             <span class="ld-step__description" part="description">
@@ -218,6 +218,6 @@ export class LdStep implements InnerFocusable {
           )}
         </li>
       </Host>
-    )
+    );
   }
 }

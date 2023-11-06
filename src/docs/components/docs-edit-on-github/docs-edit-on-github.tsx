@@ -1,14 +1,14 @@
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Component, h, Host, Prop } from "@stencil/core";
 
 /** @internal **/
 @Component({
-  tag: 'docs-edit-on-github',
-  styleUrl: 'docs-edit-on-github.css',
+  tag: "docs-edit-on-github",
+  styleUrl: "docs-edit-on-github.css",
   shadow: false,
 })
 export class DocsEditOnGithub {
   /** Page input path to be passed from eleventy. */
-  @Prop() path!: string
+  @Prop() path!: string;
 
   render() {
     return (
@@ -32,6 +32,6 @@ export class DocsEditOnGithub {
           Edit this page on GitHub
         </a>
       </Host>
-    )
+    );
   }
 }

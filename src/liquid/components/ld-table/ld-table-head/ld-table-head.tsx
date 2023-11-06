@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core'
+import { Component, h } from "@stencil/core";
 
 /**
  * @part thead - the actual thead element
@@ -6,8 +6,8 @@ import { Component, h } from '@stencil/core'
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
 @Component({
-  tag: 'ld-table-head',
-  styleUrl: 'ld-table-head.shadow.css',
+  tag: "ld-table-head",
+  styleUrl: "ld-table-head.shadow.css",
   shadow: true,
 })
 export class LdTableHead {
@@ -16,6 +16,6 @@ export class LdTableHead {
       <thead class="ld-table-head" part="thead">
         <slot />
       </thead>
-    )
+    );
   }
 }

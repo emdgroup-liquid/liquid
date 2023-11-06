@@ -1,9 +1,9 @@
-import { h } from '@stencil/core'
-import { newSpecPage } from '@stencil/core/testing'
-import { LdMenuitemGroup } from '../ld-menuitem-group'
+import { h } from "@stencil/core";
+import { newSpecPage } from "@stencil/core/testing";
+import { LdMenuitemGroup } from "../ld-menuitem-group";
 
-describe('ld-menuitem-group', () => {
-  it('renders', async () => {
+describe("ld-menuitem-group", () => {
+  it("renders", async () => {
     const page = await newSpecPage({
       components: [LdMenuitemGroup],
       template: () => (
@@ -12,7 +12,7 @@ describe('ld-menuitem-group', () => {
           <ld-menuitem>Menu item 2</ld-menuitem>
         </ld-menuitem-group>
       ),
-    })
-    expect(page.root).toMatchSnapshot()
-  })
-})
+    });
+    expect(page.root).toMatchSnapshot();
+  });
+});

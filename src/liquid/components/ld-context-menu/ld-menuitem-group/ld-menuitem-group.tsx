@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core'
+import { Component, Host, h, Prop } from "@stencil/core";
 
 /**
  * @virtualProp ref - reference to component
@@ -7,13 +7,13 @@ import { Component, Host, h, Prop } from '@stencil/core'
  * @part listitem - `li` element wrapping the `ul` element
  */
 @Component({
-  tag: 'ld-menuitem-group',
-  styleUrl: 'ld-menuitem-group.css',
+  tag: "ld-menuitem-group",
+  styleUrl: "ld-menuitem-group.css",
   shadow: true,
 })
 export class LdMenuitemGroup {
   /** Label for the menu item group. */
-  @Prop() ariaLabel: HTMLUListElement['ariaLabel']
+  @Prop() ariaLabel: HTMLUListElement["ariaLabel"];
 
   render() {
     return (
@@ -28,6 +28,6 @@ export class LdMenuitemGroup {
           </ul>
         </li>
       </Host>
-    )
+    );
   }
 }

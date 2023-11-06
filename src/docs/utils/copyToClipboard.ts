@@ -1,18 +1,18 @@
 export async function copyToClipboard(textToCopy: string) {
   // navigator clipboard api needs a secure context (https)
   if (navigator.clipboard && window.isSecureContext) {
-    await navigator.clipboard.writeText(textToCopy)
+    await navigator.clipboard.writeText(textToCopy);
   } else {
-    const activeElement = document.activeElement as HTMLElement
+    const activeElement = document.activeElement as HTMLElement;
     // text area method
-    const textArea = document.createElement('textarea')
-    textArea.value = textToCopy
-    textArea.classList.add('ld-sr-only')
-    document.body.appendChild(textArea)
-    textArea.focus({ preventScroll: true })
-    textArea.select()
-    document.execCommand('copy')
-    textArea.remove()
-    activeElement.focus({ preventScroll: true })
+    const textArea = document.createElement("textarea");
+    textArea.value = textToCopy;
+    textArea.classList.add("ld-sr-only");
+    document.body.appendChild(textArea);
+    textArea.focus({ preventScroll: true });
+    textArea.select();
+    document.execCommand("copy");
+    textArea.remove();
+    activeElement.focus({ preventScroll: true });
   }
 }

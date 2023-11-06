@@ -8,9 +8,9 @@ import {
   Prop,
   State,
   Watch,
-} from '@stencil/core'
-import { isHtmlElement } from '../../utils/type-checking'
-import { isInnerFocusable } from '../../utils/focus'
+} from "@stencil/core";
+import { isHtmlElement } from "../../utils/type-checking";
+import { isInnerFocusable } from "../../utils/focus";
 
 /**
  * @virtualProp ref - reference to component
@@ -19,122 +19,122 @@ import { isInnerFocusable } from '../../utils/focus'
  * @part tooltip - `ld-tooltip` element
  */
 @Component({
-  tag: 'ld-context-menu',
-  styleUrl: 'ld-context-menu.shadow.css',
+  tag: "ld-context-menu",
+  styleUrl: "ld-context-menu.shadow.css",
   shadow: true,
 })
 export class LdContextMenu {
-  @Element() el: HTMLLdContextMenuElement
-  private menuRef: HTMLLdMenuElement
-  private tooltipRef: HTMLLdTooltipElement
-  private triggerSlotRef: HTMLSlotElement
+  @Element() el: HTMLLdContextMenuElement;
+  private menuRef: HTMLLdMenuElement;
+  private tooltipRef: HTMLLdTooltipElement;
+  private triggerSlotRef: HTMLSlotElement;
 
   /** Position of the context menu relative to the trigger element. */
-  @Prop() position?: HTMLLdTooltipElement['position'] = 'bottom left'
+  @Prop() position?: HTMLLdTooltipElement["position"] = "bottom left";
 
   /** Use right-click. */
-  @Prop() rightClick? = false
+  @Prop() rightClick? = false;
 
   /** Size of the context menu. */
-  @Prop() size?: 'sm' | 'lg'
+  @Prop() size?: "sm" | "lg";
 
   /** Tether options object to be merged with the default options (optionally stringified). */
-  @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
+  @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string;
 
-  @State() initialized = false
+  @State() initialized = false;
 
   private resetFocus = async () => {
-    const [trigger] = this.triggerSlotRef.assignedElements()
+    const [trigger] = this.triggerSlotRef.assignedElements();
 
     if (isInnerFocusable(trigger)) {
-      await trigger.focusInner()
-      return
+      await trigger.focusInner();
+      return;
     }
 
     if (isHtmlElement(trigger)) {
-      trigger.focus()
+      trigger.focus();
     }
-  }
+  };
 
   private focusFirstMenuitem = async (menuInTooltip: HTMLLdMenuElement) => {
-    const firstMenuItem = await menuInTooltip.getFirstMenuItem()
+    const firstMenuItem = await menuInTooltip.getFirstMenuItem();
 
     if (!firstMenuItem) {
-      return
+      return;
     }
 
-    await firstMenuItem.focusInner()
-  }
+    await firstMenuItem.focusInner();
+  };
 
   private handleKeyDown = async (event: KeyboardEvent) => {
     switch (event.key) {
-      case 'Escape':
-        event.preventDefault()
-        await this.tooltipRef.hideTooltip()
-        break
-      case 'Tab':
-        event.preventDefault()
+      case "Escape":
+        event.preventDefault();
+        await this.tooltipRef.hideTooltip();
+        break;
+      case "Tab":
+        event.preventDefault();
     }
-  }
+  };
 
   private handleMenuOpen = async () => {
-    const tooltip = await this.tooltipRef.getTooltip()
-    const menuInTooltip = tooltip.querySelector('ld-menu')
+    const tooltip = await this.tooltipRef.getTooltip();
+    const menuInTooltip = tooltip.querySelector("ld-menu");
 
     if (!this.initialized) {
-      menuInTooltip.addEventListener('keydown', this.handleKeyDown)
-      this.initialized = true
+      menuInTooltip.addEventListener("keydown", this.handleKeyDown);
+      this.initialized = true;
     }
 
-    this.focusFirstMenuitem(menuInTooltip)
-    this.ldcontextmenuopen.emit()
-  }
+    this.focusFirstMenuitem(menuInTooltip);
+    this.ldcontextmenuopen.emit();
+  };
 
   private handleMenuClose = () => {
-    this.resetFocus()
-    this.ldcontextmenuclose.emit()
-  }
+    this.resetFocus();
+    this.ldcontextmenuclose.emit();
+  };
 
   /** Emitted when the context menu is opened. */
-  @Event() ldcontextmenuopen: EventEmitter
+  @Event() ldcontextmenuopen: EventEmitter;
 
   /** Emitted when the context menu is closed. */
-  @Event() ldcontextmenuclose: EventEmitter
+  @Event() ldcontextmenuclose: EventEmitter;
 
   /** Show context menu */
   @Method()
   async showContextMenu() {
-    await this.tooltipRef.showTooltip()
+    await this.tooltipRef.showTooltip();
   }
 
   /** Hide context menu */
   @Method()
   async hideContextMenu() {
-    await this.tooltipRef.hideTooltip()
+    await this.tooltipRef.hideTooltip();
   }
 
-  @Watch('size')
+  @Watch("size")
   private updateSize() {
     if (this.size) {
-      this.menuRef.setAttribute('size', this.size)
+      this.menuRef.setAttribute("size", this.size);
     } else {
-      this.menuRef.removeAttribute('size')
+      this.menuRef.removeAttribute("size");
     }
   }
 
   componentDidLoad() {
-    const style = this.el.getAttribute('style')
+    const style = this.el.getAttribute("style");
 
-    this.updateSize()
+    this.updateSize();
 
     if (style) {
-      this.menuRef.setAttribute('style', style)
-      this.el.removeAttribute('style')
+      this.menuRef.setAttribute("style", style);
+      this.el.removeAttribute("style");
     }
 
     this.triggerSlotRef
       .assignedElements()
-      .forEach((element) => (element.ariaHasPopup = 'menu'))
+      .forEach((element) => (element.ariaHasPopup = "menu"));
   }
 
   render() {
@@ -164,6 +164,6 @@ export class LdContextMenu {
           <slot />
         </ld-menu>
       </ld-tooltip>
-    )
+    );
   }
 }

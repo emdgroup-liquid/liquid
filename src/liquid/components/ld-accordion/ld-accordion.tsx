@@ -7,97 +7,98 @@ import {
   Host,
   Listen,
   Prop,
-} from '@stencil/core'
-import { getClassNames } from '../../utils/getClassNames'
-import { getScrollParent } from '../../utils/scroll'
+} from "@stencil/core";
+import { getClassNames } from "../../utils/getClassNames";
+import { getScrollParent } from "../../utils/scroll";
 
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
 @Component({
-  tag: 'ld-accordion',
-  styleUrl: 'ld-accordion.shadow.css',
+  tag: "ld-accordion",
+  styleUrl: "ld-accordion.shadow.css",
   shadow: true,
 })
 export class LdAccordion {
-  @Element() el: HTMLElement
+  @Element() el: HTMLElement;
 
-  private scrollIntoViewOnTransitionEnd = false
+  private scrollIntoViewOnTransitionEnd = false;
 
   // `onBrandColor` is not possible, as Stencil expects `on*` props to be events.
   /** Style the accordion so that it looks good on the primary color of the current theme. */
-  @Prop() brandColor?: boolean
+  @Prop() brandColor?: boolean;
 
   /** Sets a small gap between each accordion section. */
-  @Prop() detached? = false
+  @Prop() detached? = false;
 
   /** Applies rounded corners. */
-  @Prop() rounded? = false
+  @Prop() rounded? = false;
 
   /** When set to true, an open accordion element closes, if anthorer one opens. */
-  @Prop() single? = false
+  @Prop() single? = false;
 
   /**
    * Use `'dark'` on white backgrounds. Default is a light tone.
    * Takes only effect in conjunction with neutral mode.
    */
-  @Prop() tone?: 'dark'
+  @Prop() tone?: "dark";
 
   // The following event is not used within the ld-accordion component itself.
   // Its only purpose is to create a type definition on the ld-accordion component,
   // in order to be able to add an inline listener in TSX, for listening
   // on the event bubling up from ld-accordion-section components.
   /** Emitted on expansion and collapse of an accordion section element. */
-  @Event() ldaccordionchange: EventEmitter<boolean>
+  @Event() ldaccordionchange: EventEmitter<boolean>;
 
-  @Listen('ldaccordionchange', { passive: true })
+  @Listen("ldaccordionchange", { passive: true })
   handleAccordionExpandChange(ev) {
-    if (ev.target.tagName !== 'LD-ACCORDION-SECTION') return
+    if (ev.target.tagName !== "LD-ACCORDION-SECTION") return;
 
     // In single mode, close sibling sections of open section.
     if (this.single && ev.target.expanded) {
       const siblings = [...ev.target.parentElement.children].filter(
-        (section) => section !== ev.target
-      )
+        (section) => section !== ev.target,
+      );
       siblings.forEach((section) => {
-        section.expanded = false
-      })
+        section.expanded = false;
+      });
     }
 
     if (ev.detail /* expanded */) {
-      this.scrollIntoView(ev.target)
+      this.scrollIntoView(ev.target);
     }
   }
 
   private scrollIntoView = (section: HTMLLdAccordionSectionElement) => {
-    const scrollParent = getScrollParent(section)
+    const scrollParent = getScrollParent(section);
 
-    const toggle = section.querySelector('ld-accordion-toggle')
-    const panel = section.querySelector('ld-accordion-panel')
+    const toggle = section.querySelector("ld-accordion-toggle");
+    const panel = section.querySelector("ld-accordion-panel");
 
     // singleModeDelta is the height of the currently open panel, that needs
     // to be subtracted from the scroll amount in single mode.
-    const allSections = Array.from(section.parentElement.children)
+    const allSections = Array.from(section.parentElement.children);
     const singleModeDelta =
       this.single && !this.scrollIntoViewOnTransitionEnd
         ? allSections
             .slice(
               0,
-              allSections.findIndex((sec) => sec === section)
+              allSections.findIndex((sec) => sec === section),
             )
             .find((sec) =>
-              sec.classList.contains('ld-accordion-section--expanded')
+              sec.classList.contains("ld-accordion-section--expanded"),
             )?.children[1].scrollHeight || 0
-        : 0
+        : 0;
 
     const panelOffsetToScrollParent =
       scrollParent.scrollTop +
       panel.getBoundingClientRect().top -
-      Math.max(0, scrollParent.getBoundingClientRect().top)
+      Math.max(0, scrollParent.getBoundingClientRect().top);
 
     const scrollPaddingTop =
-      parseFloat(window.getComputedStyle(scrollParent)['scrollPaddingTop']) || 0
+      parseFloat(window.getComputedStyle(scrollParent)["scrollPaddingTop"]) ||
+      0;
 
     // targetOffsetBottom is the distance from the scrollParent top to the
     // bottom of the section that is being expanded in its expanded state.
@@ -105,9 +106,9 @@ export class LdAccordion {
       panelOffsetToScrollParent +
       Math.min(
         panel.scrollHeight,
-        scrollParent.clientHeight - toggle.clientHeight - scrollPaddingTop
+        scrollParent.clientHeight - toggle.clientHeight - scrollPaddingTop,
       ) -
-      singleModeDelta
+      singleModeDelta;
 
     // If an accordion section expands at the bottom end of the accordion
     // The scroll container may not have a sufficient height at that time
@@ -117,81 +118,81 @@ export class LdAccordion {
       !this.scrollIntoViewOnTransitionEnd &&
       scrollParent.scrollHeight < targetOffsetBottom
     ) {
-      this.scrollIntoViewOnTransitionEnd = true
-      return
+      this.scrollIntoViewOnTransitionEnd = true;
+      return;
     }
 
     if (
-      !this.el.closest('ld-accordion-panel') &&
+      !this.el.closest("ld-accordion-panel") &&
       scrollParent.clientHeight + scrollParent.scrollTop < targetOffsetBottom
     ) {
       const prefersReducedMotion = window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-      ).matches
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
 
       scrollParent.scrollTo({
         top: targetOffsetBottom - scrollParent.clientHeight,
-        behavior: prefersReducedMotion ? 'auto' : 'smooth',
-      })
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
     }
-  }
+  };
 
   private focusToggle = (
     currentToggle: HTMLLdAccordionToggleElement,
-    dir: 'prev' | 'next'
+    dir: "prev" | "next",
   ) => {
     const toggleToFocus = (
-      dir === 'prev'
+      dir === "prev"
         ? currentToggle.parentElement.previousElementSibling
         : currentToggle.parentElement.nextElementSibling
-    )?.querySelector('ld-accordion-toggle')
+    )?.querySelector("ld-accordion-toggle");
     if (toggleToFocus) {
-      toggleToFocus.focusInner()
+      toggleToFocus.focusInner();
     }
-  }
+  };
 
   private onKeydown = (ev) => {
-    if (ev.target.tagName !== 'LD-ACCORDION-TOGGLE') {
-      return
+    if (ev.target.tagName !== "LD-ACCORDION-TOGGLE") {
+      return;
     }
 
     switch (ev.key) {
-      case 'ArrowUp': {
-        ev.preventDefault()
-        this.focusToggle(ev.target, 'prev')
-        return
+      case "ArrowUp": {
+        ev.preventDefault();
+        this.focusToggle(ev.target, "prev");
+        return;
       }
-      case 'ArrowDown': {
-        ev.preventDefault()
-        this.focusToggle(ev.target, 'next')
-        return
+      case "ArrowDown": {
+        ev.preventDefault();
+        this.focusToggle(ev.target, "next");
+        return;
       }
     }
-  }
+  };
 
   private onTransitionEnd = (ev: TransitionEvent) => {
-    const target = ev.target as HTMLElement
+    const target = ev.target as HTMLElement;
     if (
       !this.scrollIntoViewOnTransitionEnd ||
-      target.tagName !== 'LD-ACCORDION-PANEL' ||
-      target.closest('ld-accordion') !== this.el ||
-      !target.closest('ld-accordion-section').expanded
+      target.tagName !== "LD-ACCORDION-PANEL" ||
+      target.closest("ld-accordion") !== this.el ||
+      !target.closest("ld-accordion-section").expanded
     ) {
-      return
+      return;
     }
 
-    this.scrollIntoView(target.closest('ld-accordion-section'))
-    this.scrollIntoViewOnTransitionEnd = false
-  }
+    this.scrollIntoView(target.closest("ld-accordion-section"));
+    this.scrollIntoViewOnTransitionEnd = false;
+  };
 
   render() {
     const cl = getClassNames([
-      'ld-accordion',
-      this.detached && 'ld-accordion--detached',
-      this.brandColor && 'ld-accordion--brand-color',
+      "ld-accordion",
+      this.detached && "ld-accordion--detached",
+      this.brandColor && "ld-accordion--brand-color",
       !this.brandColor && this.tone && `ld-accordion--${this.tone}`,
-      this.rounded && 'ld-accordion--rounded',
-    ])
+      this.rounded && "ld-accordion--rounded",
+    ]);
 
     return (
       <Host
@@ -201,6 +202,6 @@ export class LdAccordion {
       >
         <slot></slot>
       </Host>
-    )
+    );
   }
 }

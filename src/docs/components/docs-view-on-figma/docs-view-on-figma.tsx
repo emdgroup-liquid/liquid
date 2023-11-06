@@ -1,9 +1,9 @@
-import { Component, h, Host } from '@stencil/core'
+import { Component, h, Host } from "@stencil/core";
 
 /** @internal **/
 @Component({
-  tag: 'docs-view-on-figma',
-  styleUrl: 'docs-view-on-figma.css',
+  tag: "docs-view-on-figma",
+  styleUrl: "docs-view-on-figma.css",
   shadow: false,
 })
 export class DocsViewOnFigma {
@@ -15,10 +15,10 @@ export class DocsViewOnFigma {
           arrow
           position="top right"
           tetherOptions={JSON.stringify({
-            offset: '0px -12px',
+            offset: "0px -12px",
             constraints: [
               {
-                to: 'window',
+                to: "window",
               },
             ],
           })}
@@ -62,6 +62,6 @@ export class DocsViewOnFigma {
           <docs-figma-access-notice />
         </ld-tooltip>
       </Host>
-    )
+    );
   }
 }

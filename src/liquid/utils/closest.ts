@@ -3,7 +3,7 @@
 export const closest = (selector: string, el: Element | Document) => {
   return (
     el &&
-    (('closest' in el && el.closest(selector)) ||
+    (("closest" in el && el.closest(selector)) ||
       closest(selector, (el.getRootNode() as unknown as ShadowRoot).host))
-  )
-}
+  );
+};

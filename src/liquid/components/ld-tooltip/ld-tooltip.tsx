@@ -1,4 +1,4 @@
-import Tether from 'tether'
+import Tether from "tether";
 import {
   Component,
   Element,
@@ -11,71 +11,71 @@ import {
   Prop,
   State,
   Watch,
-} from '@stencil/core'
-import { getClassNames } from '../../utils/getClassNames'
-import { focusableSelector, isInnerFocusable } from '../../utils/focus'
-import { isElement, isSlot } from '../../utils/type-checking'
+} from "@stencil/core";
+import { getClassNames } from "../../utils/getClassNames";
+import { focusableSelector, isInnerFocusable } from "../../utils/focus";
+import { isElement, isSlot } from "../../utils/type-checking";
 
 export type Position =
-  | 'bottom center'
-  | 'bottom left'
-  | 'bottom right'
-  | 'left bottom'
-  | 'left middle'
-  | 'left top'
-  | 'right bottom'
-  | 'right middle'
-  | 'right top'
-  | 'top center'
-  | 'top left'
-  | 'top right'
+  | "bottom center"
+  | "bottom left"
+  | "bottom right"
+  | "left bottom"
+  | "left middle"
+  | "left top"
+  | "right bottom"
+  | "right middle"
+  | "right top"
+  | "top center"
+  | "top left"
+  | "top right";
 
-let tooltipCount = 0
+let tooltipCount = 0;
 
 const mapPositionToAttachment = (position: Position) => {
   return {
-    'bottom center': 'top center',
-    'bottom left': 'top left',
-    'bottom right': 'top right',
-    'left bottom': 'bottom right',
-    'left middle': 'middle right',
-    'left top': 'top right',
-    'right bottom': 'bottom left',
-    'right middle': 'middle left',
-    'right top': 'top left',
-    'top center': 'bottom center',
-    'top left': 'bottom left',
-    'top right': 'bottom right',
-  }[position]
-}
+    "bottom center": "top center",
+    "bottom left": "top left",
+    "bottom right": "top right",
+    "left bottom": "bottom right",
+    "left middle": "middle right",
+    "left top": "top right",
+    "right bottom": "bottom left",
+    "right middle": "middle left",
+    "right top": "top left",
+    "top center": "bottom center",
+    "top left": "bottom left",
+    "top right": "bottom right",
+  }[position];
+};
 
 const mapPositionToTargetAttachment = (position: Position) => {
   return (
     {
-      'left bottom': 'bottom left',
-      'left middle': 'middle left',
-      'left top': 'top left',
-      'right bottom': 'bottom right',
-      'right middle': 'middle right',
-      'right top': 'top right',
+      "left bottom": "bottom left",
+      "left middle": "middle left",
+      "left top": "top left",
+      "right bottom": "bottom right",
+      "right middle": "middle right",
+      "right top": "top right",
     }[position] ?? position
-  )
-}
+  );
+};
 
 const copySlottedNodes = (node: Node) => {
   // text node
   if (!isElement(node)) {
-    return
+    return;
   }
 
-  node.querySelectorAll('slot').forEach((slot) => {
+  node.querySelectorAll("slot").forEach((slot) => {
     slot.assignedNodes().forEach((childNode) => {
-      copySlottedNodes(childNode)
-      slot.parentElement.insertBefore(childNode, slot)
-    })
-    slot.remove()
-  })
-}
+      copySlottedNodes(childNode);
+      slot.parentElement.insertBefore(childNode, slot);
+    });
+    slot.remove();
+  });
+};
 
 /**
  * @virtualProp ref - reference to component
@@ -86,102 +86,104 @@ const copySlottedNodes = (node: Node) => {
  * @part popper - Popper element (can only be styled as long as tooltip is not initialized)
  */
 @Component({
-  tag: 'ld-tooltip',
-  styleUrl: 'ld-tooltip.shadow.css',
+  tag: "ld-tooltip",
+  styleUrl: "ld-tooltip.shadow.css",
   shadow: true,
 })
 export class LdTooltip {
-  @Element() el: HTMLElement
+  @Element() el: HTMLElement;
 
-  private contentRef!: HTMLSpanElement
-  private delayTimeout?: NodeJS.Timeout
-  private idDescriber = `ld-tooltip-${++tooltipCount}`
-  private observer: MutationObserver
-  private popper?: Tether
-  private tooltipRef!: HTMLElement
-  private triggerRef!: HTMLSpanElement
-  private isObserverEnabled = true
+  private contentRef!: HTMLSpanElement;
+  private delayTimeout?: NodeJS.Timeout;
+  private idDescriber = `ld-tooltip-${++tooltipCount}`;
+  private observer: MutationObserver;
+  private popper?: Tether;
+  private tooltipRef!: HTMLElement;
+  private triggerRef!: HTMLSpanElement;
+  private isObserverEnabled = true;
 
   /** Show arrow */
-  @Prop() arrow?: boolean
+  @Prop() arrow?: boolean;
 
   /** Disable tooltip trigger */
-  @Prop() disabled?: boolean
+  @Prop() disabled?: boolean;
 
   /** Delay in ms until tooltip hides (only when trigger type is 'hover') */
-  @Prop() hideDelay? = 0
+  @Prop() hideDelay? = 0;
 
   /** Position of the tooltip relative to the trigger element (also affects the arrow position) */
-  @Prop() position?: Position = 'top center'
+  @Prop() position?: Position = "top center";
 
   /**
    * Do not apply code that triggers screenreaders when tooltip opens.
    * @internal
    */
-  @Prop() preventScreenreader? = false
+  @Prop() preventScreenreader? = false;
 
   /**
    * Use to right-click.
    * @internal
    */
-  @Prop() rightClick? = false
+  @Prop() rightClick? = false;
 
   /** Delay in ms until tooltip shows (only when trigger type is 'hover') */
-  @Prop() showDelay? = 0
+  @Prop() showDelay? = 0;
 
   /** The tooltip size (effects tooltip padding only) */
-  @Prop() size?: 'sm'
+  @Prop() size?: "sm";
 
   /**
    * Render the tooltip without visual styling.
    * @internal
    */
-  @Prop() unstyled?: HTMLLdTooltipPopperElement['unstyled']
+  @Prop() unstyled?: HTMLLdTooltipPopperElement["unstyled"];
 
   /** The rendered HTML tag for the tooltip trigger. */
-  @Prop() tag? = 'button'
+  @Prop() tag? = "button";
 
   /** Tether options object to be merged with the default options (optionally stringified). */
-  @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
+  @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string;
 
   /** Event type that triggers the tooltip */
-  @Prop() triggerType?: 'click' | 'hover' = 'hover'
+  @Prop() triggerType?: "click" | "hover" = "hover";
 
   /** Emitted when the tooltip is opened. */
-  @Event() ldtooltipopen: EventEmitter
+  @Event() ldtooltipopen: EventEmitter;
 
   /** Emitted when the tooltip is closed. */
-  @Event() ldtooltipclose: EventEmitter
+  @Event() ldtooltipclose: EventEmitter;
 
-  @State() hasDefaultTrigger = true
-  @State() triggerTabIndex?: number
-  @State() visible = false
+  @State() hasDefaultTrigger = true;
+  @State() triggerTabIndex?: number;
+  @State() visible = false;
 
-  @Watch('disabled')
+  @Watch("disabled")
   updatePopper(newDisabled: boolean) {
     if (newDisabled) {
-      this.hideTooltip()
+      this.hideTooltip();
     }
   }
 
   private syncContent = () => {
-    this.isObserverEnabled = false
+    this.isObserverEnabled = false;
 
     // Grab the new content in the slot.
-    const tooltipContent = this.contentRef.querySelector('slot').assignedNodes()
+    const tooltipContent = this.contentRef
+      .querySelector("slot")
+      .assignedNodes();
 
     // Delete old content in popper element. Using textContent
     // is faster than innerHTML as no HTML parsers needs to be
     // invoked. Instead, this immediately replaces all children
     // of the tooltip ref with a single #text node.
-    this.tooltipRef.textContent = ''
+    this.tooltipRef.textContent = "";
 
     // Move original nodes to popper element,
     // including all event listeners!
     tooltipContent.forEach((node) => {
-      copySlottedNodes(node)
-      this.tooltipRef.appendChild(node)
-    })
+      copySlottedNodes(node);
+      this.tooltipRef.appendChild(node);
+    });
 
     // The timeout is required. Without the setTimeout,
     // there is a possibility that the observer could be
@@ -191,146 +193,146 @@ export class LdTooltip {
     // observer detecting incomplete or inconsistent changes,
     // leading to unexpected behavior.
     setTimeout(() => {
-      this.isObserverEnabled = true
-    })
-  }
+      this.isObserverEnabled = true;
+    });
+  };
 
   private initTooltip = async () => {
-    const attachment = mapPositionToAttachment(this.position)
-    const targetAttachment = mapPositionToTargetAttachment(this.position)
+    const attachment = mapPositionToAttachment(this.position);
+    const targetAttachment = mapPositionToTargetAttachment(this.position);
 
     const customTetherOptions: Partial<Tether.ITetherOptions> =
-      typeof this.tetherOptions === 'string'
+      typeof this.tetherOptions === "string"
         ? JSON.parse(this.tetherOptions)
-        : this.tetherOptions
+        : this.tetherOptions;
     const tetherOptions: Tether.ITetherOptions = {
       attachment,
-      classPrefix: 'ld-tether',
+      classPrefix: "ld-tether",
       constraints: [
         {
-          attachment: 'together',
-          to: 'window',
+          attachment: "together",
+          to: "window",
         },
       ],
       element: this.tooltipRef,
       target: this.triggerRef,
       targetAttachment,
       ...customTetherOptions,
-    }
+    };
 
-    this.popper = new Tether(tetherOptions)
+    this.popper = new Tether(tetherOptions);
     // Fixes a tether positioning bug
-    this.popper.enable()
-    this.popper.enable()
-    this.popper.enable()
-    await this.showTooltip()
-  }
+    this.popper.enable();
+    this.popper.enable();
+    this.popper.enable();
+    await this.showTooltip();
+  };
 
   /** Get the `ld-tooltip-popper` element. */
   @Method()
   async getTooltip() {
-    return this.tooltipRef
+    return this.tooltipRef;
   }
 
   /** Hide tooltip */
   @Method()
   async hideTooltip() {
-    clearTimeout(this.delayTimeout)
-    this.popper?.disable()
-    this.visible = false
-    this.ldtooltipclose.emit()
+    clearTimeout(this.delayTimeout);
+    this.popper?.disable();
+    this.visible = false;
+    this.ldtooltipclose.emit();
   }
 
   /** Show tooltip */
   @Method()
   async showTooltip() {
-    if (this.disabled) return
+    if (this.disabled) return;
 
     if (!this.popper) {
-      await this.initTooltip()
-      return
+      await this.initTooltip();
+      return;
     }
 
-    clearTimeout(this.delayTimeout)
-    this.popper.enable()
-    this.visible = true
-    this.ldtooltipopen.emit()
+    clearTimeout(this.delayTimeout);
+    this.popper.enable();
+    this.visible = true;
+    this.ldtooltipopen.emit();
   }
 
   /** @internal */
   @Method()
   async handleContextMenu(ev) {
-    if (!this.rightClick || this.disabled) return
+    if (!this.rightClick || this.disabled) return;
 
-    ev.preventDefault()
-    this.toggleTooltip()
+    ev.preventDefault();
+    this.toggleTooltip();
   }
 
   private toggleTooltip = () => {
     if (!this.popper) {
-      this.initTooltip()
-      return
+      this.initTooltip();
+      return;
     }
 
     if (this.visible) {
-      this.hideTooltip()
+      this.hideTooltip();
     } else {
-      this.showTooltip()
+      this.showTooltip();
     }
-  }
+  };
 
   private handleHideTrigger = () => {
-    if (this.triggerType === 'click' || this.disabled) {
-      return
+    if (this.triggerType === "click" || this.disabled) {
+      return;
     }
 
-    clearTimeout(this.delayTimeout)
+    clearTimeout(this.delayTimeout);
 
     if (this.popper) {
       this.delayTimeout = setTimeout(() => {
-        this.hideTooltip()
-      }, this.hideDelay)
+        this.hideTooltip();
+      }, this.hideDelay);
     }
-  }
+  };
 
   private handleShowTrigger = () => {
-    if (this.triggerType === 'click' || this.disabled) {
-      return
+    if (this.triggerType === "click" || this.disabled) {
+      return;
     }
 
-    clearTimeout(this.delayTimeout)
+    clearTimeout(this.delayTimeout);
 
     if (this.popper === undefined) {
-      this.delayTimeout = setTimeout(this.initTooltip, this.showDelay)
+      this.delayTimeout = setTimeout(this.initTooltip, this.showDelay);
     } else {
       this.delayTimeout = setTimeout(
         this.showTooltip.bind(this),
-        this.showDelay
-      )
+        this.showDelay,
+      );
     }
-  }
+  };
 
   private handleClick = () => {
-    if (this.rightClick || this.triggerType === 'hover' || this.disabled) {
-      return
+    if (this.rightClick || this.triggerType === "hover" || this.disabled) {
+      return;
     }
 
-    this.toggleTooltip()
-  }
+    this.toggleTooltip();
+  };
 
   // TODO: maybe this should listen only, if the tooltip was opened by click.
-  @Listen('click', {
-    target: 'window',
+  @Listen("click", {
+    target: "window",
   })
   handleClickOutside(ev: MouseEvent) {
     if (
       this.visible &&
-      this.triggerType === 'click' &&
+      this.triggerType === "click" &&
       ev.isTrusted &&
       !ev.composedPath().includes(this.el) &&
       !ev.composedPath().includes(this.tooltipRef)
     ) {
-      this.hideTooltip()
+      this.hideTooltip();
     }
   }
 
@@ -339,8 +341,8 @@ export class LdTooltip {
   // if another tooltip gets open via right click. Since a right click
   // is not a left click, the click outside handler, which otherwise would
   // close the tooltip, is not sufficient.
-  @Listen('ldtooltipopen', {
-    target: 'window',
+  @Listen("ldtooltipopen", {
+    target: "window",
   })
   handleContextMenuOutside(ev: CustomEvent) {
     if (
@@ -348,103 +350,103 @@ export class LdTooltip {
       !ev.composedPath().includes(this.el) &&
       !ev.composedPath().includes(this.tooltipRef)
     ) {
-      this.hideTooltip()
+      this.hideTooltip();
     }
   }
 
   // Mobile Safari in some cases does not react to click events on elements
   // which are not interactive. But it does to touch events.
   // TODO: maybe this should listen only, if the tooltip was opened by click.
-  @Listen('touchend', {
-    target: 'window',
+  @Listen("touchend", {
+    target: "window",
     passive: true,
   })
   handleTouchOutside(ev) {
-    this.handleClickOutside(ev)
+    this.handleClickOutside(ev);
   }
 
-  @Listen('ldclosetooltip', {
-    target: 'window',
+  @Listen("ldclosetooltip", {
+    target: "window",
     passive: true,
   })
   handleCloseTooltip(ev) {
     if (ev.composedPath().includes(this.tooltipRef)) {
-      this.hideTooltip()
+      this.hideTooltip();
     }
   }
 
   private handleSlotChange = () => {
-    if (!this.isObserverEnabled) return
+    if (!this.isObserverEnabled) return;
 
     // Remove all content from the popper element except for the tether-element-marker.
     this.tooltipRef.childNodes.forEach((node) => {
       if (
         isElement(node) &&
-        node.classList.contains('ld-tether-element-marker')
+        node.classList.contains("ld-tether-element-marker")
       ) {
-        return
+        return;
       }
 
-      node.remove()
-    })
+      node.remove();
+    });
 
     // Put all content from the slot in the popper element.
-    this.syncContent()
-  }
+    this.syncContent();
+  };
 
   private initObserver = () => {
-    this.observer = new MutationObserver(this.handleSlotChange)
+    this.observer = new MutationObserver(this.handleSlotChange);
     this.observer.observe(this.el, {
       subtree: true,
       childList: true,
       attributes: false,
-    })
-  }
+    });
+  };
 
   private findFirstSlottedTrigger = () => {
-    let triggerInSlot = this.el.querySelector('[slot="trigger"]')
+    let triggerInSlot = this.el.querySelector('[slot="trigger"]');
 
     while (triggerInSlot && isSlot(triggerInSlot)) {
-      triggerInSlot = triggerInSlot.assignedElements()[0]
+      triggerInSlot = triggerInSlot.assignedElements()[0];
     }
 
-    return triggerInSlot as HTMLElement
-  }
+    return triggerInSlot as HTMLElement;
+  };
 
   componentWillLoad() {
-    const triggerInSlot = this.findFirstSlottedTrigger()
-    this.hasDefaultTrigger = !triggerInSlot
+    const triggerInSlot = this.findFirstSlottedTrigger();
+    this.hasDefaultTrigger = !triggerInSlot;
 
     if (
       triggerInSlot &&
       (triggerInSlot.matches(focusableSelector) ||
         isInnerFocusable(triggerInSlot))
     ) {
-      this.triggerTabIndex = -1
+      this.triggerTabIndex = -1;
     }
 
-    this.el.addEventListener('focus', this.handleShowTrigger, true)
-    this.el.addEventListener('blur', this.handleHideTrigger, true)
+    this.el.addEventListener("focus", this.handleShowTrigger, true);
+    this.el.addEventListener("blur", this.handleHideTrigger, true);
   }
 
   componentDidLoad() {
     setTimeout(() => {
-      this.syncContent()
-      this.initObserver()
-    })
+      this.syncContent();
+      this.initObserver();
+    });
   }
 
   disconnectedCallback() {
     /* istanbul ignore if */
-    if (this.observer) this.observer.disconnect()
+    if (this.observer) this.observer.disconnect();
     /* istanbul ignore if */
-    if (this.popper) this.popper.destroy()
+    if (this.popper) this.popper.destroy();
     /* istanbul ignore if */
-    if (this.tooltipRef) this.tooltipRef.remove()
+    if (this.tooltipRef) this.tooltipRef.remove();
   }
 
   render() {
-    const TriggerTag = this.tag
+    const TriggerTag = this.tag;
 
     return (
       <Host>
@@ -453,8 +455,8 @@ export class LdTooltip {
             this.preventScreenreader ? undefined : this.idDescriber
           }
           class={getClassNames([
-            'ld-tooltip__trigger',
-            this.triggerType === 'click' && 'ld-tooltip__trigger--clickable',
+            "ld-tooltip__trigger",
+            this.triggerType === "click" && "ld-tooltip__trigger--clickable",
           ])}
           onClick={this.handleClick}
           onContextMenu={this.handleContextMenu.bind(this)}
@@ -462,7 +464,7 @@ export class LdTooltip {
           onMouseLeave={this.handleHideTrigger}
           part="trigger focusable"
           ref={(element) => {
-            this.triggerRef = element
+            this.triggerRef = element;
           }}
           tabIndex={this.triggerTabIndex}
           type="button"
@@ -499,20 +501,20 @@ export class LdTooltip {
           <slot />
         </span>
         <ld-tooltip-popper
-          aria-hidden={this.visible ? undefined : 'true'}
+          aria-hidden={this.visible ? undefined : "true"}
           arrow={this.arrow}
           hasDefaultTrigger={this.hasDefaultTrigger}
           id={this.preventScreenreader ? undefined : this.idDescriber}
           unstyled={this.unstyled}
           part="popper"
           ref={(element: HTMLElement) => {
-            this.tooltipRef = element
+            this.tooltipRef = element;
           }}
           rightClick={this.rightClick}
           size={this.size}
           triggerType={this.triggerType}
         />
       </Host>
-    )
+    );
   }
 }

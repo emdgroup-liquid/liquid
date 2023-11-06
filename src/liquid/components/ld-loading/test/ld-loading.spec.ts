@@ -1,28 +1,28 @@
-import { newSpecPage } from '@stencil/core/testing'
-import { LdLoading } from '../ld-loading'
+import { newSpecPage } from "@stencil/core/testing";
+import { LdLoading } from "../ld-loading";
 
-describe('ld-loading', () => {
-  it('renders', async () => {
+describe("ld-loading", () => {
+  it("renders", async () => {
     const page = await newSpecPage({
       components: [LdLoading],
       html: `<ld-loading />`,
-    })
-    expect(page.root).toMatchSnapshot()
-  })
+    });
+    expect(page.root).toMatchSnapshot();
+  });
 
-  it('is neutral', async () => {
+  it("is neutral", async () => {
     const page = await newSpecPage({
       components: [LdLoading],
       html: `<ld-loading neutral />`,
-    })
-    expect(page.root).toMatchSnapshot()
-  })
+    });
+    expect(page.root).toMatchSnapshot();
+  });
 
-  it('uses custom label', async () => {
+  it("uses custom label", async () => {
     const page = await newSpecPage({
       components: [LdLoading],
       html: `<ld-loading neutral label="Doing stuff..." />`,
-    })
-    expect(page.root).toMatchSnapshot()
-  })
-})
+    });
+    expect(page.root).toMatchSnapshot();
+  });
+});

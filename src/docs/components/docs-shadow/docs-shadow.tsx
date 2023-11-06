@@ -1,17 +1,17 @@
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Component, h, Host, Prop } from "@stencil/core";
 
 /** @internal **/
 @Component({
-  tag: 'docs-shadow',
-  styleUrl: 'docs-shadow.css',
+  tag: "docs-shadow",
+  styleUrl: "docs-shadow.css",
   shadow: false,
 })
 export class DocsShadow {
   /** CSS variable name */
-  @Prop() var: string
+  @Prop() var: string;
 
   /** If set to true the component uses the drop-shadow filter variable instead of box-shadow */
-  @Prop() filter: boolean
+  @Prop() filter: boolean;
 
   render() {
     const style = this.filter
@@ -20,7 +20,7 @@ export class DocsShadow {
         }
       : {
           boxShadow: `var(${this.var})`,
-        }
+        };
 
     return (
       <Host class="docs-shadow">
@@ -29,6 +29,6 @@ export class DocsShadow {
           {this.var}
         </span>
       </Host>
-    )
+    );
   }
 }

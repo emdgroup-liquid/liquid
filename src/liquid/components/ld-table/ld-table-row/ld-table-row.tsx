@@ -1,6 +1,13 @@
-import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
-import { closest } from '../../../utils/closest'
-import { getClassNames } from '../../../utils/getClassNames'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Prop,
+} from "@stencil/core";
+import { closest } from "../../../utils/closest";
+import { getClassNames } from "../../../utils/getClassNames";
 
 /**
  * @part checkbox - the selection checkbox
@@ -11,65 +18,65 @@ import { getClassNames } from '../../../utils/getClassNames'
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
 @Component({
-  tag: 'ld-table-row',
-  styleUrl: 'ld-table-row.shadow.css',
+  tag: "ld-table-row",
+  styleUrl: "ld-table-row.shadow.css",
   shadow: true,
 })
 export class LdTableRow {
-  @Element() el: HTMLLdTableRowElement
+  @Element() el: HTMLLdTableRowElement;
 
   /** Makes the row selectable by adding a checkbox to the start of the row. */
-  @Prop() selectable?: boolean
+  @Prop() selectable?: boolean;
 
   /** In selectable mode the checkbox is sticky by default. */
-  @Prop() selectionSticky? = true
+  @Prop() selectionSticky? = true;
 
   /** Makes the row selectable by adding a checkbox to the start of the row. */
-  @Prop() selectionLabel? = 'Row selection'
+  @Prop() selectionLabel? = "Row selection";
 
   /** Indicates that the row is selected. */
-  @Prop({ mutable: true }) selected?: boolean
+  @Prop({ mutable: true }) selected?: boolean;
 
   /** Indicates that the selection state is indeterminate. */
-  @Prop({ mutable: true }) indeterminate?: boolean
+  @Prop({ mutable: true }) indeterminate?: boolean;
 
   /** Indicates that the row selection is disabled. */
-  @Prop() selectionDisabled?: boolean
+  @Prop() selectionDisabled?: boolean;
 
   /** Emitted with selected state. */
   @Event() ldTableSelectAll: EventEmitter<{
-    selected: boolean
-  }>
+    selected: boolean;
+  }>;
 
   /** Emitted with row index and selected state. */
   @Event() ldTableSelect: EventEmitter<{
-    rowIndex: number
-    selected: boolean
-  }>
+    rowIndex: number;
+    selected: boolean;
+  }>;
 
   handleSelect = (selected: boolean) => {
-    this.indeterminate = false
-    if (closest('ld-table-head', this.el)) {
+    this.indeterminate = false;
+    if (closest("ld-table-head", this.el)) {
       this.ldTableSelectAll.emit({
         selected,
-      })
+      });
     } else {
-      const rowIndex = Array.from(this.el.parentNode.children).indexOf(this.el)
+      const rowIndex = Array.from(this.el.parentNode.children).indexOf(this.el);
       this.ldTableSelect.emit({
         rowIndex,
         selected,
-      })
+      });
     }
-  }
+  };
 
   onSelectInput = (ev: InputEvent) => {
-    this.selected = (ev.target as HTMLInputElement).checked
-    this.handleSelect(this.selected)
-  }
+    this.selected = (ev.target as HTMLInputElement).checked;
+    this.handleSelect(this.selected);
+  };
 
   componentWillLoad() {
     if (this.selected) {
-      this.handleSelect(this.selected)
+      this.handleSelect(this.selected);
     }
   }
 
@@ -79,14 +86,14 @@ export class LdTableRow {
         {this.selectable && (
           <ld-table-cell
             class={getClassNames([
-              'ld-table-row__selection-cell',
-              this.selectionSticky && 'ld-table-row__selection-cell--sticky',
+              "ld-table-row__selection-cell",
+              this.selectionSticky && "ld-table-row__selection-cell--sticky",
             ])}
             part="cell select"
           >
             <div class="ld-table__selection-wrapper" part="selection-wrapper">
               <ld-checkbox
-                aria-disabled={this.selectionDisabled ? 'true' : undefined}
+                aria-disabled={this.selectionDisabled ? "true" : undefined}
                 aria-label={this.selectionLabel}
                 checked={this.selected}
                 indeterminate={this.indeterminate}
@@ -98,6 +105,6 @@ export class LdTableRow {
         )}
         <slot />
       </tr>
-    )
+    );
   }
 }

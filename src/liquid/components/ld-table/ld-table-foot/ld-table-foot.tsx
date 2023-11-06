@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core'
+import { Component, h } from "@stencil/core";
 
 /**
  * @part tfoot - the actual tfoot element
@@ -6,8 +6,8 @@ import { Component, h } from '@stencil/core'
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
 @Component({
-  tag: 'ld-table-foot',
-  styleUrl: 'ld-table-foot.shadow.css',
+  tag: "ld-table-foot",
+  styleUrl: "ld-table-foot.shadow.css",
   shadow: true,
 })
 export class LdTableFoot {
@@ -16,6 +16,6 @@ export class LdTableFoot {
       <tfoot class="ld-table-foot" part="tfoot">
         <slot />
       </tfoot>
-    )
+    );
   }
 }

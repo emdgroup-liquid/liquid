@@ -9,15 +9,15 @@ class RO {
   }
 }
 
-let triggerableResizeObserver
+let triggerableResizeObserver;
 const TriggerableResizeObserver = function (cb) {
-  triggerableResizeObserver = new RO()
-  triggerableResizeObserver.trigger = cb
-  return triggerableResizeObserver
-}
+  triggerableResizeObserver = new RO();
+  triggerableResizeObserver.trigger = cb;
+  return triggerableResizeObserver;
+};
 
-global.ResizeObserver = TriggerableResizeObserver as never
+global.ResizeObserver = TriggerableResizeObserver as never;
 
 export function getTriggerableResizeObserver() {
-  return triggerableResizeObserver
+  return triggerableResizeObserver;
 }

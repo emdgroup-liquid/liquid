@@ -1,38 +1,38 @@
-import { Component, Element, h, Host, Prop, State } from '@stencil/core'
+import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 
 /** @internal **/
 @Component({
-  tag: 'docs-page-nav',
-  styleUrl: 'docs-page-nav.css',
+  tag: "docs-page-nav",
+  styleUrl: "docs-page-nav.css",
   shadow: false,
 })
 export class DocsPageNav {
-  @Element() el: HTMLElement
+  @Element() el: HTMLElement;
 
   /** Href to previous page. */
-  @Prop() prevHref: string
+  @Prop() prevHref: string;
 
   /** Href to next page. */
-  @Prop() nextHref: string
+  @Prop() nextHref: string;
 
   /** Title of previous page. */
-  @Prop() prevTitle = 'Back'
+  @Prop() prevTitle = "Back";
 
   /** Title of next page. */
-  @Prop() nextTitle = 'Next'
+  @Prop() nextTitle = "Next";
 
-  @State() hasSlot = false
+  @State() hasSlot = false;
 
   componentWillLoad() {
-    this.hasSlot = this.el.childNodes.length > 2
+    this.hasSlot = this.el.childNodes.length > 2;
   }
 
   render() {
     return (
       <Host
         class={{
-          'docs-page-nav': true,
-          'docs-page-nav--has-slot': this.hasSlot,
+          "docs-page-nav": true,
+          "docs-page-nav--has-slot": this.hasSlot,
         }}
       >
         <div class="docs-page-nav__container docs-page-nav__dark">
@@ -47,7 +47,7 @@ export class DocsPageNav {
                 {this.prevTitle}
               </ld-button>
             ) : (
-              ''
+              ""
             )}
             {this.nextHref ? (
               <ld-button
@@ -58,7 +58,7 @@ export class DocsPageNav {
                 {this.nextTitle}
               </ld-button>
             ) : (
-              ''
+              ""
             )}
           </div>
         </div>
@@ -73,19 +73,19 @@ export class DocsPageNav {
                 {this.prevTitle}
               </ld-button>
             ) : (
-              ''
+              ""
             )}
             {this.nextHref ? (
               <ld-button class="docs-page-nav__push" href={this.nextHref}>
                 {this.nextTitle}
               </ld-button>
             ) : (
-              ''
+              ""
             )}
           </div>
         </div>
         <slot></slot>
       </Host>
-    )
+    );
   }
 }

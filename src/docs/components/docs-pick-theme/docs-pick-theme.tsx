@@ -1,23 +1,23 @@
-import { Component, h, Host, Event, EventEmitter, State } from '@stencil/core'
+import { Component, h, Host, Event, EventEmitter, State } from "@stencil/core";
 
 /** @internal **/
 @Component({
-  tag: 'docs-pick-theme',
-  styleUrl: 'docs-pick-theme.css',
+  tag: "docs-pick-theme",
+  styleUrl: "docs-pick-theme.css",
   shadow: false,
 })
 export class DocsPickTheme {
-  @State() currentTheme = 'ocean'
+  @State() currentTheme = "ocean";
 
   /** Theme pick change event. */
-  @Event() pickTheme: EventEmitter<string>
+  @Event() pickTheme: EventEmitter<string>;
 
   private handleChange(ev) {
-    this.pickTheme.emit(ev.detail[0])
-    this.currentTheme = ev.detail[0]
+    this.pickTheme.emit(ev.detail[0]);
+    this.currentTheme = ev.detail[0];
   }
 
-  private themes = ['ocean', 'bubblegum', 'shake', 'solvent', 'tea']
+  private themes = ["ocean", "bubblegum", "shake", "solvent", "tea"];
 
   render() {
     return (
@@ -36,9 +36,9 @@ export class DocsPickTheme {
               preventDeselection
               mode="ghost"
               tetherOptions={JSON.stringify({
-                attachment: 'top right',
-                targetAttachment: 'bottom right',
-                offset: '-2px -8px',
+                attachment: "top right",
+                targetAttachment: "bottom right",
+                offset: "-2px -8px",
               })}
               popperClass="docs-pick-theme__popper"
             >
@@ -51,7 +51,7 @@ export class DocsPickTheme {
                   {theme.charAt(0).toUpperCase() + theme.slice(1).toLowerCase()}
 
                   <svg
-                    role={'presentation'}
+                    role={"presentation"}
                     class="docs-pick-theme__option-pattern"
                     fill-rule="evenodd"
                     stroke-linejoin="round"
@@ -99,6 +99,6 @@ export class DocsPickTheme {
           </fieldset>
         </form>
       </Host>
-    )
+    );
   }
 }

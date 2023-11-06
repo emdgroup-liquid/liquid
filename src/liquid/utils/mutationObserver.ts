@@ -1,19 +1,19 @@
-import MutationObserver from 'mutation-observer'
+import MutationObserver from "mutation-observer";
 
-let triggerableMutationObservers = []
+let triggerableMutationObservers = [];
 const TriggerableMutationObserver = function (cb) {
-  const triggerableMutationObserver = new MutationObserver(cb)
-  triggerableMutationObserver.trigger = cb
-  triggerableMutationObservers.push(triggerableMutationObserver)
-  return triggerableMutationObserver
-}
+  const triggerableMutationObserver = new MutationObserver(cb);
+  triggerableMutationObserver.trigger = cb;
+  triggerableMutationObservers.push(triggerableMutationObserver);
+  return triggerableMutationObserver;
+};
 
-global.MutationObserver = TriggerableMutationObserver as MutationObserver
+global.MutationObserver = TriggerableMutationObserver as MutationObserver;
 
 export function getTriggerableMutationObservers() {
-  return triggerableMutationObservers
+  return triggerableMutationObservers;
 }
 
 export function clearTriggerableMutationObservers() {
-  triggerableMutationObservers = []
+  triggerableMutationObservers = [];
 }

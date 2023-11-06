@@ -1,9 +1,9 @@
-import { Component, h, Host } from '@stencil/core'
+import { Component, h, Host } from "@stencil/core";
 
 /** @internal **/
 @Component({
-  tag: 'docs-layout',
-  styleUrl: 'docs-layout.css',
+  tag: "docs-layout",
+  styleUrl: "docs-layout.css",
   shadow: false,
 })
 export class DocsLayout {
@@ -12,6 +12,6 @@ export class DocsLayout {
       <Host class="docs-layout">
         <slot></slot>
       </Host>
-    )
+    );
   }
 }

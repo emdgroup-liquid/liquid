@@ -10,109 +10,109 @@ import {
   State,
   Method,
   Watch,
-} from '@stencil/core'
-import { getClassNames } from '../../../utils/getClassNames'
+} from "@stencil/core";
+import { getClassNames } from "../../../utils/getClassNames";
 
 /** @internal **/
 @Component({
-  tag: 'ld-option-internal',
-  styleUrl: 'ld-option-internal.shadow.css',
+  tag: "ld-option-internal",
+  styleUrl: "ld-option-internal.shadow.css",
   shadow: true,
 })
 export class LdOptionInternal implements InnerFocusable {
-  @Element() el: HTMLElement
+  @Element() el: HTMLElement;
 
-  private optionRef: HTMLElement
+  private optionRef: HTMLElement;
 
   /**
    * The content of this attribute represents the value to be submitted with the form,
    * should this option be selected. If this attribute is omitted, the value is taken
    * from the text content of the option element.
    */
-  @Prop({ mutable: true, reflect: true }) value?: string
+  @Prop({ mutable: true, reflect: true }) value?: string;
 
   /**
    * If present, this boolean attribute indicates that the option is selected.
    */
-  @Prop({ mutable: true, reflect: true }) selected? = false
+  @Prop({ mutable: true, reflect: true }) selected? = false;
 
   /**
    * Disables the option.
    */
-  @Prop() disabled? = false
+  @Prop() disabled? = false;
 
   /**
    * Prevents deselection of a selected options when the selected option
    * is clicked in single select mode.
    */
-  @Prop() preventDeselection?: boolean
+  @Prop() preventDeselection?: boolean;
 
   /**
    * Display mode.
    */
-  @Prop() mode?: 'checkbox'
+  @Prop() mode?: "checkbox";
 
   /** Size of the option. */
-  @Prop() size?: 'sm' | 'lg'
+  @Prop() size?: "sm" | "lg";
 
   /** Set to true on filtering via select input. */
-  @Prop() filtered? = false
+  @Prop() filtered? = false;
 
   /** Tab index of the option. */
-  @Prop() ldTabindex? = -1
+  @Prop() ldTabindex? = -1;
 
   /** Sets focus internally. */
   @Method()
   async focusInner() {
-    this.optionRef.focus()
+    this.optionRef.focus();
   }
 
   /**
    * @internal
    * Emitted on either selection or de-selection of the option.
    */
-  @Event() ldoptionselect: EventEmitter<boolean>
+  @Event() ldoptionselect: EventEmitter<boolean>;
 
-  @State() title: string
+  @State() title: string;
 
-  @State() hasFocus: boolean
-  @State() hasHover: boolean
-  @State() indent?: boolean = false
+  @State() hasFocus: boolean;
+  @State() hasHover: boolean;
+  @State() indent?: boolean = false;
 
-  @Watch('selected')
+  @Watch("selected")
   handleSelectedChange() {
-    this.ldoptionselect.emit(this.selected)
+    this.ldoptionselect.emit(this.selected);
   }
 
   private handleClick = () => {
-    if (this.disabled) return
+    if (this.disabled) return;
 
     if (
       !this.preventDeselection ||
       !this.selected ||
-      this.mode === 'checkbox'
+      this.mode === "checkbox"
     ) {
-      this.selected = !this.selected
+      this.selected = !this.selected;
     }
-  }
+  };
 
-  @Listen('keydown', { passive: false })
+  @Listen("keydown", { passive: false })
   handleKeyDown(ev: KeyboardEvent) {
-    if (ev.key === ' ' || ev.key === 'Enter') {
-      ev.preventDefault()
-      ev.stopImmediatePropagation()
-      this.handleClick()
+    if (ev.key === " " || ev.key === "Enter") {
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+      this.handleClick();
     }
   }
 
   componentWillLoad() {
-    if (typeof this.value === 'undefined') {
+    if (typeof this.value === "undefined") {
       setTimeout(() => {
-        this.value = this.el.innerText
-      })
+        this.value = this.el.innerText;
+      });
     }
-    if (this.mode === 'checkbox' && this.el.closest('ld-optgroup-internal')) {
-      this.indent = true
+    if (this.mode === "checkbox" && this.el.closest("ld-optgroup-internal")) {
+      this.indent = true;
     }
   }
 
@@ -121,20 +121,20 @@ export class LdOptionInternal implements InnerFocusable {
       <Host>
         <div
           class={getClassNames([
-            'ld-option-internal',
+            "ld-option-internal",
             this.indent && `ld-option-internal--indent`,
             this.size && `ld-option-internal--${this.size}`,
-            this.filtered && 'ld-option-internal--filtered',
+            this.filtered && "ld-option-internal--filtered",
           ])}
           role="option"
           ref={(el) => (this.optionRef = el as HTMLElement)}
-          aria-selected={this.selected ? 'true' : undefined}
-          aria-disabled={this.disabled ? 'true' : undefined}
+          aria-selected={this.selected ? "true" : undefined}
+          aria-disabled={this.disabled ? "true" : undefined}
           onClick={this.handleClick}
           tabindex={this.ldTabindex}
           part="option focusable"
         >
-          {this.mode === 'checkbox' ? (
+          {this.mode === "checkbox" ? (
             <div
               class="ld-option-internal__checkbox-wrapper"
               role="presentation"
@@ -149,7 +149,7 @@ export class LdOptionInternal implements InnerFocusable {
             </div>
           ) : (
             <svg
-              role={'presentation'}
+              role={"presentation"}
               class="ld-option-internal__check"
               width="20"
               height="20"
@@ -158,7 +158,7 @@ export class LdOptionInternal implements InnerFocusable {
               part="check"
             >
               <path
-                style={{ visibility: this.selected ? 'inherit' : 'hidden' }}
+                style={{ visibility: this.selected ? "inherit" : "hidden" }}
                 d="M15 7L8.40795 13L5 9.63964"
                 stroke="currentColor"
                 stroke-width="3"
@@ -177,6 +177,6 @@ export class LdOptionInternal implements InnerFocusable {
           </span>
         </div>
       </Host>
-    )
+    );
   }
 }

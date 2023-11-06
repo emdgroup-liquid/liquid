@@ -1,58 +1,58 @@
-import { getPageWithContent } from '../../../utils/e2e-tests'
-import { LdCheckbox } from '../../ld-checkbox/ld-checkbox'
-import { LdIcon } from '../../ld-icon/ld-icon'
-import { LdInputMessage } from '../../ld-input-message/ld-input-message'
-import { LdInput } from '../../ld-input/ld-input'
-import { LdToggle } from '../../ld-toggle/ld-toggle'
-import { LdLabel } from '../ld-label'
+import { getPageWithContent } from "../../../utils/e2e-tests";
+import { LdCheckbox } from "../../ld-checkbox/ld-checkbox";
+import { LdIcon } from "../../ld-icon/ld-icon";
+import { LdInputMessage } from "../../ld-input-message/ld-input-message";
+import { LdInput } from "../../ld-input/ld-input";
+import { LdToggle } from "../../ld-toggle/ld-toggle";
+import { LdLabel } from "../ld-label";
 
-describe('ld-label', () => {
-  it('renders', async () => {
-    const page = await getPageWithContent('<ld-label>Email Address</ld-label>')
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
+describe("ld-label", () => {
+  it("renders", async () => {
+    const page = await getPageWithContent("<ld-label>Email Address</ld-label>");
+    const results = await page.compareScreenshot();
+    expect(results).toMatchScreenshot();
+  });
 
-  it('renders as css component', async () => {
+  it("renders as css component", async () => {
     const page = await getPageWithContent(
       '<label class="ld-label">Email Address</label>',
-      { components: LdLabel }
-    )
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
+      { components: LdLabel },
+    );
+    const results = await page.compareScreenshot();
+    expect(results).toMatchScreenshot();
+  });
 
-  describe('size', () => {
-    it('renders with size m', async () => {
+  describe("size", () => {
+    it("renders with size m", async () => {
       const page = await getPageWithContent(
-        '<ld-label size="m">Email Address</ld-label>'
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        '<ld-label size="m">Email Address</ld-label>',
+      );
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders with size m as css component', async () => {
+    it("renders with size m as css component", async () => {
       const page = await getPageWithContent(
         '<label class="ld-label ld-label--m">Email Address</label>',
-        { components: LdLabel }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
+        { components: LdLabel },
+      );
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
 
-  describe('position', () => {
-    it('renders at the top by default', async () => {
+  describe("position", () => {
+    it("renders at the top by default", async () => {
       const page = await getPageWithContent(`
         <ld-label>
           Email Address
           <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
-        </ld-label>`)
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        </ld-label>`);
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders at the top by default as css component', async () => {
+    it("renders at the top by default as css component", async () => {
       const page = await getPageWithContent(
         `
         <label class="ld-label">
@@ -61,24 +61,24 @@ describe('ld-label', () => {
             <input placeholder="jane.doe@example.com" type="email">
           </div>
         </label>`,
-        { components: [LdInput, LdLabel] }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        { components: [LdInput, LdLabel] },
+      );
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders at the top by default with input message at the bottom', async () => {
+    it("renders at the top by default with input message at the bottom", async () => {
       const page = await getPageWithContent(`
         <ld-label>
           Email Address
           <ld-input invalid placeholder="jane.doe@example.com" type="email"></ld-input>
           <ld-input-message>This field is required.</ld-input-message>
-        </ld-label>`)
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        </ld-label>`);
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders at the top by default with input message at the bottom as css component', async () => {
+    it("renders at the top by default with input message at the bottom as css component", async () => {
       const page = await getPageWithContent(
         `
         <label class="ld-label">
@@ -95,23 +95,23 @@ describe('ld-label', () => {
             This field is required.
           </span>
         </label>`,
-        { components: [LdIcon, LdInput, LdInputMessage, LdLabel] }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        { components: [LdIcon, LdInput, LdInputMessage, LdLabel] },
+      );
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the left', async () => {
+    it("renders on the left", async () => {
       const page = await getPageWithContent(`
         <ld-label position="left" size="m">
           Email Address
           <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
-        </ld-label>`)
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        </ld-label>`);
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the left as css component', async () => {
+    it("renders on the left as css component", async () => {
       const page = await getPageWithContent(
         `
         <label class="ld-label ld-label--left ld-label--m">
@@ -120,24 +120,24 @@ describe('ld-label', () => {
             <input placeholder="jane.doe@example.com" type="email">
           </div>
         </label>`,
-        { components: [LdInput, LdLabel] }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        { components: [LdInput, LdLabel] },
+      );
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the left with input message at the bottom', async () => {
+    it("renders on the left with input message at the bottom", async () => {
       const page = await getPageWithContent(`
         <ld-label position="left" size="m" align-message>
           Email Address
           <ld-input invalid placeholder="jane.doe@example.com" type="email"></ld-input>
           <ld-input-message>This field is required.</ld-input-message>
-        </ld-label>`)
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        </ld-label>`);
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the left with input message at the bottom as css component', async () => {
+    it("renders on the left with input message at the bottom as css component", async () => {
       const page = await getPageWithContent(
         `
         <label class="ld-label ld-label--left ld-label--m ld-label--align-message">
@@ -154,24 +154,24 @@ describe('ld-label', () => {
             This field is required.
           </span>
         </label>`,
-        { components: [LdIcon, LdInput, LdInputMessage, LdLabel] }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        { components: [LdIcon, LdInput, LdInputMessage, LdLabel] },
+      );
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the left with left-aligned input message at the bottom', async () => {
+    it("renders on the left with left-aligned input message at the bottom", async () => {
       const page = await getPageWithContent(`
         <ld-label position="left" size="m">
           Auto-update
           <ld-toggle></ld-toggle>
           <ld-input-message mode="info">Recommended.</ld-input-message>
-        </ld-label>`)
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        </ld-label>`);
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the left with left-aligned input message at the bottom as css component', async () => {
+    it("renders on the left with left-aligned input message at the bottom as css component", async () => {
       const page = await getPageWithContent(
         `
         <label class="ld-label ld-label--left ld-label--m">
@@ -192,23 +192,23 @@ describe('ld-label', () => {
         {
           components: [LdIcon, LdToggle, LdInputMessage, LdLabel],
           disableAllTransitions: true,
-        }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        },
+      );
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the right', async () => {
+    it("renders on the right", async () => {
       const page = await getPageWithContent(`
         <ld-label position="right" size="m">
           Email Address
           <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
-        </ld-label>`)
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        </ld-label>`);
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the right as css component', async () => {
+    it("renders on the right as css component", async () => {
       const page = await getPageWithContent(
         `
         <label class="ld-label ld-label--right ld-label--m">
@@ -217,24 +217,24 @@ describe('ld-label', () => {
             <input placeholder="jane.doe@example.com" type="email">
           </div>
         </label>`,
-        { components: [LdInput, LdLabel] }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        { components: [LdInput, LdLabel] },
+      );
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the right with input message at the bottom', async () => {
+    it("renders on the right with input message at the bottom", async () => {
       const page = await getPageWithContent(`
         <ld-label position="right" size="m">
           Email Address
           <ld-input invalid placeholder="jane.doe@example.com" type="email"></ld-input>
           <ld-input-message>This field is required.</ld-input-message>
-        </ld-label>`)
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        </ld-label>`);
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the right with input message at the bottom as css component', async () => {
+    it("renders on the right with input message at the bottom as css component", async () => {
       const page = await getPageWithContent(
         `
         <label class="ld-label ld-label--right ld-label--m">
@@ -251,24 +251,24 @@ describe('ld-label', () => {
             This field is required.
           </span>
         </label>`,
-        { components: [LdIcon, LdInput, LdInputMessage, LdLabel] }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        { components: [LdIcon, LdInput, LdInputMessage, LdLabel] },
+      );
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the right with left-aligned input message at the bottom', async () => {
+    it("renders on the right with left-aligned input message at the bottom", async () => {
       const page = await getPageWithContent(`
         <ld-label position="right" size="m">
           Auto-update
           <ld-toggle></ld-toggle>
           <ld-input-message mode="info">Recommended.</ld-input-message>
-        </ld-label>`)
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        </ld-label>`);
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders on the right with left-aligned input message at the bottom as css component', async () => {
+    it("renders on the right with left-aligned input message at the bottom as css component", async () => {
       const page = await getPageWithContent(
         `
         <label class="ld-label ld-label--right ld-label--m">
@@ -289,25 +289,25 @@ describe('ld-label', () => {
         {
           components: [LdIcon, LdToggle, LdInputMessage, LdLabel],
           disableAllTransitions: true,
-        }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
+        },
+      );
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
 
-  describe('with html content', () => {
-    it('renders with html content', async () => {
+  describe("with html content", () => {
+    it("renders with html content", async () => {
       const page = await getPageWithContent(`
         <ld-label position="right">
           <span>I love to <code style="line-height: 0">code</code>.</span>
           <ld-checkbox></ld-checkbox>
-        </ld-label>`)
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+        </ld-label>`);
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
 
-    it('renders with html content as css component', async () => {
+    it("renders with html content as css component", async () => {
       const page = await getPageWithContent(
         `
         <label class="ld-label ld-label--right">
@@ -333,10 +333,10 @@ describe('ld-label', () => {
             <div class="ld-checkbox__box"></div>
           </div>
         </label>`,
-        { components: [LdCheckbox, LdLabel] }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-  })
-})
+        { components: [LdCheckbox, LdLabel] },
+      );
+      const results = await page.compareScreenshot();
+      expect(results).toMatchScreenshot();
+    });
+  });
+});

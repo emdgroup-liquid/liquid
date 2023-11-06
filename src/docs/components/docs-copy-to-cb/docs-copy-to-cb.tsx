@@ -1,41 +1,41 @@
-import { Component, Element, h, Listen, Prop, State } from '@stencil/core'
-import { copyToClipboard } from '../../utils/copyToClipboard'
+import { Component, Element, h, Listen, Prop, State } from "@stencil/core";
+import { copyToClipboard } from "../../utils/copyToClipboard";
 
 /** @internal **/
 @Component({
-  tag: 'docs-copy-to-cb',
-  styleUrl: 'docs-copy-to-cb.css',
+  tag: "docs-copy-to-cb",
+  styleUrl: "docs-copy-to-cb.css",
   shadow: false,
 })
 export class DocsCopyToCb {
-  @Element() el: HTMLElement
+  @Element() el: HTMLElement;
 
   /** Text to be copied to clipboard */
-  @Prop() textToCopy!: string
+  @Prop() textToCopy!: string;
 
   /** Display mode. */
-  @Prop() mode?: HTMLLdButtonElement['mode']
+  @Prop() mode?: HTMLLdButtonElement["mode"];
 
-  @State() copyTimeout: number | undefined
+  @State() copyTimeout: number | undefined;
 
   private clearCopyTimeout() {
-    window.clearTimeout(this.copyTimeout)
-    this.copyTimeout = undefined
+    window.clearTimeout(this.copyTimeout);
+    this.copyTimeout = undefined;
   }
 
-  @Listen('click', { capture: true })
+  @Listen("click", { capture: true })
   async handleClick(ev) {
-    ev.preventDefault()
-    await copyToClipboard(this.textToCopy)
-    const timeoutID = window.setTimeout(this.clearCopyTimeout.bind(this), 500)
-    this.copyTimeout = timeoutID
+    ev.preventDefault();
+    await copyToClipboard(this.textToCopy);
+    const timeoutID = window.setTimeout(this.clearCopyTimeout.bind(this), 500);
+    this.copyTimeout = timeoutID;
   }
 
   render() {
     return (
       <ld-button class="docs-copy-to-cb" mode={this.mode} size="sm">
         <ld-sr-only>
-          {this.copyTimeout ? 'Copied to clipboard' : 'Copy to clipboard'}
+          {this.copyTimeout ? "Copied to clipboard" : "Copy to clipboard"}
         </ld-sr-only>
         {this.copyTimeout ? (
           <ld-icon size="sm" name="checkmark" key="check" />
@@ -62,6 +62,6 @@ export class DocsCopyToCb {
           </ld-icon>
         )}
       </ld-button>
-    )
+    );
   }
 }

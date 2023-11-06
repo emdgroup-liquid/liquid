@@ -1,34 +1,36 @@
 export const isLdOption = (
-  el: HTMLElement | Node | EventTarget
+  el: HTMLElement | Node | EventTarget,
 ): el is HTMLLdOptionElement | HTMLLdOptionInternalElement =>
-  ['LD-OPTION', 'LD-OPTION-INTERNAL'].includes((el as HTMLElement)?.tagName)
+  ["LD-OPTION", "LD-OPTION-INTERNAL"].includes((el as HTMLElement)?.tagName);
 
 export const isLdOptgroup = (
-  el: HTMLElement | Node | EventTarget
+  el: HTMLElement | Node | EventTarget,
 ): el is HTMLLdOptgroupElement | HTMLLdOptgroupInternalElement =>
-  ['LD-OPTGROUP', 'LD-OPTGROUP-INTERNAL'].includes((el as HTMLElement)?.tagName)
+  ["LD-OPTGROUP", "LD-OPTGROUP-INTERNAL"].includes(
+    (el as HTMLElement)?.tagName,
+  );
 
 export const isLdOptionInternal = (
-  el: HTMLElement | Node | EventTarget
+  el: HTMLElement | Node | EventTarget,
 ): el is HTMLLdOptionInternalElement =>
-  ['LD-OPTION-INTERNAL'].includes((el as HTMLElement)?.tagName)
+  ["LD-OPTION-INTERNAL"].includes((el as HTMLElement)?.tagName);
 
 export const isLdOptgroupInternal = (
-  el: HTMLElement | Node | EventTarget
+  el: HTMLElement | Node | EventTarget,
 ): el is HTMLLdOptgroupInternalElement =>
-  ['LD-OPTGROUP-INTERNAL'].includes((el as HTMLElement)?.tagName)
+  ["LD-OPTGROUP-INTERNAL"].includes((el as HTMLElement)?.tagName);
 
 type HTMLLdOptInternal =
   | HTMLLdOptionInternalElement
-  | HTMLLdOptgroupInternalElement
+  | HTMLLdOptgroupInternalElement;
 export const isLdOptInternalHidden = (
-  opt: HTMLLdOptInternal
+  opt: HTMLLdOptInternal,
 ): opt is
   | (HTMLLdOptInternal & {
-      hidden: true
+      hidden: true;
     })
   | (HTMLLdOptInternal & {
-      filtered: true
+      filtered: true;
     }) => {
-  return opt.hidden || opt.filtered
-}
+  return opt.hidden || opt.filtered;
+};

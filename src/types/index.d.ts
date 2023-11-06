@@ -1,19 +1,19 @@
 interface InnerFocusable {
-  focusInner: () => Promise<void>
-  ldTabindex?: number
+  focusInner: () => Promise<void>;
+  ldTabindex?: number;
 }
 
 interface ClonesAttributes {
-  clonedAttributes: Record<string, string | number | boolean> // should use State decorator
+  clonedAttributes: Record<string, string | number | boolean>; // should use State decorator
 }
 
-interface SanitizeConfig extends import('dompurify').Config {
-  RETURN_DOM_FRAGMENT?: false | undefined
-  RETURN_DOM?: false | undefined
+interface SanitizeConfig extends import("dompurify").Config {
+  RETURN_DOM_FRAGMENT?: false | undefined;
+  RETURN_DOM?: false | undefined;
 }
 
 interface CollatorOptions {
-  numeric?: boolean
-  numberingSystem?: string
+  numeric?: boolean;
+  numberingSystem?: string;
 }
-declare type NumberingSystem = typeof Intl.NumberingSystem
+declare type NumberingSystem = typeof Intl.NumberingSystem;

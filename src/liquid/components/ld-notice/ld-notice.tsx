@@ -1,5 +1,5 @@
-import { Component, h, Prop, Host, Element } from '@stencil/core'
-import { HTMLStencilElement } from '@stencil/core/internal'
+import { Component, h, Prop, Host, Element } from "@stencil/core";
+import { HTMLStencilElement } from "@stencil/core/internal";
 
 /**
  * @virtualProp ref - reference to component
@@ -8,19 +8,19 @@ import { HTMLStencilElement } from '@stencil/core/internal'
  * @part icon - Image tag used for the icon
  */
 @Component({
-  assetsDirs: ['assets'],
-  tag: 'ld-notice',
-  styleUrl: 'ld-notice.css',
+  assetsDirs: ["assets"],
+  tag: "ld-notice",
+  styleUrl: "ld-notice.css",
   shadow: true,
 })
 export class LdNotice {
-  @Element() hostElement: HTMLStencilElement
+  @Element() hostElement: HTMLStencilElement;
 
   /** Headline of the notice. */
-  @Prop() headline?: string
+  @Prop() headline?: string;
 
   /** Mode of the notice. */
-  @Prop() mode?: 'error' | 'info' | 'warning' | 'success' = 'info'
+  @Prop() mode?: "error" | "info" | "warning" | "success" = "info";
 
   render() {
     return (
@@ -29,9 +29,9 @@ export class LdNotice {
           <ld-icon
             class="ld-notice__icon"
             name={
-              this.mode === 'success'
-                ? 'ld-input-message-success'
-                : 'ld-input-message-info'
+              this.mode === "success"
+                ? "ld-input-message-success"
+                : "ld-input-message-info"
             }
             part="icon"
             size="lg"
@@ -49,6 +49,6 @@ export class LdNotice {
         )}
         <slot></slot>
       </Host>
-    )
+    );
   }
 }

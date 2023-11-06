@@ -1,31 +1,31 @@
-import { Component, Event, EventEmitter, h, Listen, Prop } from '@stencil/core'
+import { Component, Event, EventEmitter, h, Listen, Prop } from "@stencil/core";
 
 /** @internal **/
 @Component({
-  tag: 'docs-toggle-code',
-  styleUrl: 'docs-toggle-code.css',
+  tag: "docs-toggle-code",
+  styleUrl: "docs-toggle-code.css",
   shadow: false,
 })
 export class DocsToggleCode {
   /** Is code toggled to be visible */
-  @Prop() isOn: boolean
+  @Prop() isOn: boolean;
 
   /** Theme select change event. */
-  @Event() toggleCode: EventEmitter<boolean>
+  @Event() toggleCode: EventEmitter<boolean>;
 
-  @Listen('click', { capture: true })
+  @Listen("click", { capture: true })
   handleClick(ev) {
-    ev.preventDefault()
-    this.toggleCode.emit(!this.isOn)
+    ev.preventDefault();
+    this.toggleCode.emit(!this.isOn);
   }
 
   render() {
     return (
       <ld-button
         role="switch"
-        aria-checked={this.isOn ? 'true' : 'false'}
+        aria-checked={this.isOn ? "true" : "false"}
         class="docs-toggle-code"
-        mode={this.isOn ? undefined : 'ghost'}
+        mode={this.isOn ? undefined : "ghost"}
         size="sm"
       >
         <ld-sr-only>Toggle code</ld-sr-only>
@@ -41,6 +41,6 @@ export class DocsToggleCode {
           </svg>
         </ld-icon>
       </ld-button>
-    )
+    );
   }
 }

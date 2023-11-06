@@ -139,6 +139,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular/common@npm:^15.2.10":
+  version: 15.2.10
+  resolution: "@angular/common@npm:15.2.10"
+  dependencies:
+    tslib: ^2.3.0
+  peerDependencies:
+    "@angular/core": 15.2.10
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: 785689f074ae3f6ae1e91b0b2906d3eadf4f2f9fee2bc42e2a2787979133fa2cd887d6c390e9f1554956fa7220fc03dc11c57bf01515dc4e4937406eaf81bc50
+  languageName: node
+  linkType: hard
+
+"@angular/core@npm:^15.2.10":
+  version: 15.2.10
+  resolution: "@angular/core@npm:15.2.10"
+  dependencies:
+    tslib: ^2.3.0
+  peerDependencies:
+    rxjs: ^6.5.3 || ^7.4.0
+    zone.js: ~0.11.4 || ~0.12.0 || ~0.13.0
+  checksum: bf189e956e8b70df5ea6b75410bdcc8e020a54a1e1ff7b65bfbec7642bac10c1f15c6e8ebe1e1acab168eeb13de5815384f93b9d41af44b13a6a0abfe9829c23
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.16.0":
   version: 7.16.0
   resolution: "@babel/code-frame@npm:7.16.0"
@@ -1456,6 +1480,8 @@ __metadata:
     "@11ty/eleventy": ^2.0.0
     "@11ty/eleventy-navigation": ^0.3.5
     "@11ty/eleventy-plugin-syntaxhighlight": ^5.0.0
+    "@angular/common": ^15.2.10
+    "@angular/core": ^15.2.10
     "@commitlint/cli": ^17.4.3
     "@commitlint/config-conventional": ^17.4.3
     "@lottiefiles/lottie-player": ^2.0.2
@@ -1465,6 +1491,7 @@ __metadata:
     "@semantic-release/github": ^9.0.3
     "@semantic-release/npm": ^11.0.0
     "@semantic-release/release-notes-generator": ^12.0.0
+    "@stencil/angular-output-target": ^0.8.3
     "@stencil/core": ^4.0.1
     "@stencil/eslint-plugin": ^0.4.0
     "@stencil/postcss": ^2.1.0
@@ -1516,6 +1543,7 @@ __metadata:
     postcss-preset-env: ^9.0.0
     prettier: ^3.0.0
     puppeteer: ^21.0.1
+    rxjs: ^7.8.1
     semantic-release: ^22.0.0
     shx: ^0.3.4
     stenciljs-web-types-generator: ^1.0.4
@@ -2738,6 +2766,15 @@ __metadata:
   dependencies:
     "@sinonjs/commons": ^1.7.0
   checksum: 8e331aa1412d905ecc8efd63550f58a6f77dcb510f878172004e53be63eb82650623618763001a918fc5e21257b86c45041e4e97c454ed6a2d187de084abbd11
+  languageName: node
+  linkType: hard
+
+"@stencil/angular-output-target@npm:^0.8.3":
+  version: 0.8.3
+  resolution: "@stencil/angular-output-target@npm:0.8.3"
+  peerDependencies:
+    "@stencil/core": ">=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0"
+  checksum: 770b672e39a4ccf2752a90b61ddbf479b8495a7f18f5485a73ba907cb640c7e83d8a8b33db57f67cd1a545fd04fd262f38bc2f758ae4588688c41e6719201f21
   languageName: node
   linkType: hard
 
@@ -15924,6 +15961,15 @@ proxy-middleware@latest:
   languageName: node
   linkType: hard
 
+"rxjs@npm:^7.8.1":
+  version: 7.8.1
+  resolution: "rxjs@npm:7.8.1"
+  dependencies:
+    tslib: ^2.1.0
+  checksum: de4b53db1063e618ec2eca0f7965d9137cabe98cf6be9272efe6c86b47c17b987383df8574861bcced18ebd590764125a901d5506082be84a8b8e364bf05f119
+  languageName: node
+  linkType: hard
+
 "safe-array-concat@npm:^1.0.0":
   version: 1.0.0
   resolution: "safe-array-concat@npm:1.0.0"
@@ -17834,6 +17880,13 @@ send@latest:
   version: 2.6.0
   resolution: "tslib@npm:2.6.0"
   checksum: c01066038f950016a18106ddeca4649b4d76caa76ec5a31e2a26e10586a59fceb4ee45e96719bf6c715648e7c14085a81fee5c62f7e9ebee68e77a5396e5538f
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.1.0, tslib@npm:^2.3.0":
+  version: 2.6.2
+  resolution: "tslib@npm:2.6.2"
+  checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
   languageName: node
   linkType: hard
 
