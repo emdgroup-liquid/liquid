@@ -145,7 +145,7 @@ export class LdFileUpload {
   @Prop()
   labelFileAlreadyChosenError = `$duplicateFiles cannot be chosen since ${
     this.cannotBeChosen.length > 1
-      ? 'cannot be chosen since files with the same names have been chosen already. To upload these files please remove the files with the same names.'
+      ? 'files with the same names have been chosen already. To upload these files please remove the files with the same names.'
       : 'a file with the same name has been chosen already. To upload this file please remove the file with the same name.'
   }`
 
