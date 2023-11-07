@@ -30,13 +30,11 @@ export type UploadItem = {
 }
 
 /**
- * TODO:
+ * File upload:
  *   - listen for files chosen event (from ld-choose-file.tsx) with file list
  *     -> emit upload ready event (if startUpload prop is set to true)
  *   - listen for click event of continue button and emit upload ready event (if startUpload prop is set to false)
  *   - The upload ready event contains the file list as its payload
- *   - Keep a state of files chosen and pass them as a prop (uploadItems) to ld-upload-progress.tsx
- *   - Implement callback methods, which accept a file list (name, progress, state etc.) and update the upload items
  * @virtualProp ref - reference to component
  */
 @Component({
@@ -67,6 +65,12 @@ export class LdFileUpload {
   /** TODO: is used to display and validate maximum file size in Bytes */
   @Prop() maxSize?: number
   // @Prop() maxSize?: number = 1572864
+
+  /** Names of files that cannot be chosen by the user since a file of the same name has been chosen already. */
+  @State() cannotBeChosen: string[] = []
+
+  /** Names of files that cannot be chosen by the user since the files exceed the maximum file size. */
+  @State() exceedMaxSize: string[] = []
 
   /** Name of form field to use for sending the element's directionality in form submission. */
   @Prop() dirname?: string
@@ -134,6 +138,25 @@ export class LdFileUpload {
   /** Label to be used for the continue paused uploads button. */
   @Prop() labelContinuePausedUploads = `Continue paused uploads`
 
+  /** Label to be used for the header of error messages. */
+  @Prop() labelErrorHeader = `An error occurred`
+
+  /** Label to be used for the error message that is shown if a file that has already been chosen is selected again. */
+  @Prop()
+  labelFileAlreadyChosenError = `$duplicateFiles cannot be chosen since ${
+    this.cannotBeChosen.length > 1
+      ? 'cannot be chosen since files with the same names have been chosen already. To upload these files please remove the files with the same names.'
+      : 'a file with the same name has been chosen already. To upload this file please remove the file with the same name.'
+  }`
+
+  /** Label to be used for the error message that is shown if chosen file exceeds the maximum file size. */
+  @Prop()
+  labelMaxSizeExceededError = `$filesExceedingMaxSize cannot be chosen since ${
+    this.exceedMaxSize.length > 1
+      ? 'the files exceed the maximum file size.'
+      : 'the file exceeds the maximum file size.'
+  }`
+
   // Labels for circular progress:
 
   /** Label to be used to count th uploaded files in circular progress mode. */
@@ -173,11 +196,11 @@ export class LdFileUpload {
   /** Contains all files that have been chosen but the upload has not started yet. */
   @State() allChosenFiles: UploadItem[] = []
 
-  /** Names of files that cannot be chosen by the user since a file of the same name has been chosen already. */
-  @State() cannotBeChosen: string[] = []
+  // /** Names of files that cannot be chosen by the user since a file of the same name has been chosen already. */
+  // @State() cannotBeChosen: string[] = []
 
-  /** Names of files that cannot be chosen by the user since the files exceed the maximum file size. */
-  @State() exceedMaxSize: string[] = []
+  // /** Names of files that cannot be chosen by the user since the files exceed the maximum file size. */
+  // @State() exceedMaxSize: string[] = []
 
   /** Only renders the choose file component, if true. */
   @State() renderOnlyChooseFile = true
@@ -272,7 +295,11 @@ export class LdFileUpload {
     if (this.renderOnlyChooseFile) {
       this.renderOnlyChooseFile = false
     }
-    if (this.circularProgress && !this.renderCircularProgress) {
+    if (
+      this.circularProgress &&
+      !this.renderCircularProgress &&
+      this.exceedMaxSize.length == 0
+    ) {
       this.renderCircularProgress = true
     }
     // clears file input value
@@ -531,7 +558,6 @@ export class LdFileUpload {
     this.exceedMaxSize = []
   }
 
-  /* TODO: State management dem user überlassen, hier nur Event emitten */
   private handleDeleteAllClick = () => {
     this.ldfileuploaddeleteall.emit(this.uploadItems)
     /* this.uploadItems = [] */
@@ -562,35 +588,62 @@ export class LdFileUpload {
       this.renderCircularProgress && 'ld-file-upload--only-circular-progress',
     ])
 
-    /* this.allUploadsFinished = true */
-
-    /* TODO: Error case if upload fails */
     if (this.circularProgress) {
       return (
         <Host class={cl}>
           {!this.renderCircularProgress && !this.allUploadsFinished ? (
-            <ld-choose-file
-              class="ld-file-upload__choose-file"
-              size={this.renderOnlyChooseFile ? 'bg' : 'sm'}
-              onLdchoosefiles={this.handleChooseFiles}
-              start-upload={this.startUpload}
-              selectMultiple={this.selectMultiple}
-              startUploadClicked={this.startUploadClicked}
-              uploadItems={this.uploadItems}
-              maxSize={this.maxSize}
-              labelDragInstructions={this.labelDragInstructions}
-              labelUploadConstraints={this.labelUploadConstraints}
-              labelSelectFile={this.labelSelectFile}
-              labelUploadFile={this.labelUploadFile}
-              labelUploadState={this.labelUploadState}
-              labelUploadCount={this.labelUploadCount}
-              labelUploadPercentage={this.labelUploadPercentage}
-            ></ld-choose-file>
+            <Fragment>
+              <ld-choose-file
+                class="ld-file-upload__choose-file"
+                size={this.renderOnlyChooseFile ? 'bg' : 'sm'}
+                onLdchoosefiles={this.handleChooseFiles}
+                start-upload={this.startUpload}
+                selectMultiple={this.selectMultiple}
+                startUploadClicked={this.startUploadClicked}
+                uploadItems={this.uploadItems}
+                maxSize={this.maxSize}
+                labelDragInstructions={this.labelDragInstructions}
+                labelUploadConstraints={this.labelUploadConstraints}
+                labelSelectFile={this.labelSelectFile}
+                labelUploadFile={this.labelUploadFile}
+                labelUploadState={this.labelUploadState}
+                labelUploadCount={this.labelUploadCount}
+                labelUploadPercentage={this.labelUploadPercentage}
+              ></ld-choose-file>
+              {/* {this.exceedMaxSize.length != 0 ? (
+                <ld-notice
+                  headline="An error occurred"
+                  mode="error"
+                  class="ld-file-upload__error"
+                >
+                  {this.exceedMaxSize.length == 1
+                    ? `${this.exceedMaxSize.join(
+                        ', '
+                      )} cannot be chosen since the
+                  file exceeds the maximum file size.`
+                    : `${this.exceedMaxSize.join(
+                        ', '
+                      )} cannot be chosen since the
+                  files exceed the maximum file size.`}
+                </ld-notice>
+              ) : undefined} */}
+              {this.exceedMaxSize.length != 0 ? (
+                <ld-notice
+                  headline={this.labelErrorHeader}
+                  mode="error"
+                  class="ld-file-upload__error"
+                >
+                  {this.labelMaxSizeExceededError.replace(
+                    '$filesExceedingMaxSize',
+                    this.exceedMaxSize.join(', ')
+                  )}
+                </ld-notice>
+              ) : undefined}
+            </Fragment>
           ) : this.renderCircularProgress && !this.allUploadsFinished ? (
             <Fragment>
               <ld-sr-only id="progress-label">Progress</ld-sr-only>
               <ld-circular-progress
-                /* class="ld-file-upload__circular-progress" */
                 class={getClassNames([
                   'ld-file-upload__circular-progress',
                   this.uploadItems.filter(
@@ -599,12 +652,10 @@ export class LdFileUpload {
                 ])}
                 aria-labelledby="progress-label"
                 aria-valuenow={this.calculateTotalProgress() * 100}
-                /* aria-valuenow="25" */
               >
                 <ld-typo variant="b6">
                   {(this.calculateTotalProgress() * 100).toFixed(2)}%
                 </ld-typo>
-                {/* <ld-typo variant="label-s">complete</ld-typo> */}
               </ld-circular-progress>
               {/* <ld-typo variant="h5">
                 Uploading {this.uploadItems.length} files
@@ -667,11 +718,7 @@ export class LdFileUpload {
             <ld-input-message mode="valid">Files uploaded</ld-input-message>
           )}
 
-          {this.exceedMaxSize.length != 0 && this.renderOnlyChooseFile ? (
-            // <ld-typo class="ld-file-upload__error">
-            //   Error: {this.exceedMaxSize.join(', ')} cannot be chosen since
-            //   the file(s) exceed the maximum file size.
-            // </ld-typo>
+          {/* {this.exceedMaxSize.length != 0 && this.renderOnlyChooseFile ? (
             <ld-notice
               headline="An error occurred"
               mode="error"
@@ -682,10 +729,8 @@ export class LdFileUpload {
                   file exceeds the maximum file size.`
                 : `${this.exceedMaxSize.join(', ')} cannot be chosen since the
                   files exceed the maximum file size.`}
-              {/* {this.exceedMaxSize.join(', ')} cannot be chosen since the
-                file(s) exceed the maximum file size. */}
             </ld-notice>
-          ) : undefined}
+          ) : undefined} */}
 
           <input
             ref={(el) => (this.fileInput = el)}
@@ -737,20 +782,11 @@ export class LdFileUpload {
           labelUploadState={this.labelUploadState}
           labelUploadCount={this.labelUploadCount}
           labelUploadPercentage={this.labelUploadPercentage}
-        >
-          {/* <slot>
-            <pre>Upload button</pre>
-          </slot> */}
-        </ld-choose-file>
+        ></ld-choose-file>
 
         {!this.renderOnlyChooseFile && (
           <Fragment>
-            {this.cannotBeChosen.length != 0 ? (
-              // <ld-typo class="ld-file-upload__error">
-              //   Error: {this.cannotBeChosen.join(', ')} cannot be chosen since a
-              //   file with the same name has been chosen already. To upload this
-              //   file please remove the file with the same name.
-              // </ld-typo>
+            {/* {this.cannotBeChosen.length != 0 ? (
               <ld-notice
                 headline="An error occurred"
                 mode="error"
@@ -767,16 +803,21 @@ export class LdFileUpload {
                     )} cannot be chosen since files
                 with the same names have been chosen already. To upload these files
                 please remove the files with the same names.`}
-                {/* {this.cannotBeChosen.join(', ')} cannot be chosen since a file
-                with the same name has been chosen already. To upload this file
-                please remove the file with the same name. */}
+              </ld-notice>
+            ) : undefined} */}
+            {this.cannotBeChosen.length != 0 ? (
+              <ld-notice
+                headline={this.labelErrorHeader}
+                mode="error"
+                class="ld-file-upload__error"
+              >
+                {this.labelFileAlreadyChosenError.replace(
+                  '$duplicateFiles',
+                  this.cannotBeChosen.join(', ')
+                )}
               </ld-notice>
             ) : undefined}
-            {this.exceedMaxSize.length != 0 ? (
-              // <ld-typo class="ld-file-upload__error">
-              //   Error: {this.exceedMaxSize.join(', ')} cannot be chosen since
-              //   the file(s) exceed the maximum file size.
-              // </ld-typo>
+            {/* {this.exceedMaxSize.length != 0 ? (
               <ld-notice
                 headline="An error occurred"
                 mode="error"
@@ -787,8 +828,18 @@ export class LdFileUpload {
                   file exceeds the maximum file size.`
                   : `${this.exceedMaxSize.join(', ')} cannot be chosen since the
                   files exceed the maximum file size.`}
-                {/* {this.exceedMaxSize.join(', ')} cannot be chosen since the
-                file(s) exceed the maximum file size. */}
+              </ld-notice>
+            ) : undefined} */}
+            {this.exceedMaxSize.length != 0 ? (
+              <ld-notice
+                headline={this.labelErrorHeader}
+                mode="error"
+                class="ld-file-upload__error"
+              >
+                {this.labelMaxSizeExceededError.replace(
+                  '$filesExceedingMaxSize',
+                  this.exceedMaxSize.join(', ')
+                )}
               </ld-notice>
             ) : undefined}
             {this.uploadItems.length != 0 && (
@@ -903,11 +954,7 @@ export class LdFileUpload {
           </Fragment>
         )}
 
-        {this.exceedMaxSize.length != 0 && this.renderOnlyChooseFile ? (
-          // <ld-typo class="ld-file-upload__error">
-          //   Error: {this.exceedMaxSize.join(', ')} cannot be chosen since
-          //   the file(s) exceed the maximum file size.
-          // </ld-typo>
+        {/* {this.exceedMaxSize.length != 0 && this.renderOnlyChooseFile ? (
           <ld-notice
             headline="An error occurred"
             mode="error"
@@ -918,10 +965,8 @@ export class LdFileUpload {
                   file exceeds the maximum file size.`
               : `${this.exceedMaxSize.join(', ')} cannot be chosen since the
                   files exceed the maximum file size.`}
-            {/* {this.exceedMaxSize.join(', ')} cannot be chosen since the
-                file(s) exceed the maximum file size. */}
           </ld-notice>
-        ) : undefined}
+        ) : undefined} */}
 
         <input
           ref={(el) => (this.fileInput = el)}

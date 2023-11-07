@@ -89,16 +89,11 @@ describe('ld-choose-file', () => {
 
     const ev = new Event('dragenter', { bubbles: true })
     ;(ev as any).dataTransfer = {}
-    // ldChooseFile.dispatchEvent(new Event('dragenter', { bubbles: true }))
     ldChooseFile.dispatchEvent(ev)
 
     await page.waitForChanges()
 
     expect(ldChooseFile).toHaveClass('ld-choose-file--highlighted')
-    // expect(ldChooseFile).toHaveClass('ld-choose-file')
-    // expect(ldChooseFile.classList.contains('ld-choose-file--highlighted')).toBe(
-    //   true
-    // )
   })
 
   it('adds class highlighted on drag over', async () => {

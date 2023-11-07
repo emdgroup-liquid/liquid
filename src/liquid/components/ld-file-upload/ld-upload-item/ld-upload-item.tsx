@@ -197,31 +197,11 @@ export class LdUploadItem {
     const customIcon = closest('ld-file-upload', this.el)?.querySelector(
       `[data-upload-icon='${this.fileType}']`
     )
-    // TODO: If custom icon exists, clone it and insert it.
+    // If custom icon exists, clone it and insert it.
     if (customIcon) {
-      // this.customIcon = customIcon.cloneNode(true)
-      // this.customIcon.className = 'ld-upload-item__icon'
-      // console.log(this.customIcon)
       const clonedIcon = customIcon.cloneNode(true) /* as HTMLElement */
-      /* clonedIcon.style.width = '2rem'
-      clonedIcon.style.height = 'auto' */
-      // this.customIcon = <div class="ld-upload-item__icon">{clonedIcon}</div>
       this.el.appendChild(clonedIcon)
-      // } else {
-      //   // this.customIcon = (
-      //   //   <ld-icon
-      //   //     class="ld-upload-item__icon"
-      //   //     name="documents"
-      //   //     size="lg"
-      //   //   ></ld-icon>
-      //   // )
-      //   this.el.appendChild(
-      //     <ld-icon slot="icons" name="documents" size="lg"></ld-icon>
-      //   )
     }
-    /* if (customIcon) {
-      this.customIcon = customIcon.cloneNode(true) as HTMLElement
-    } */
   }
 
   render() {
@@ -235,25 +215,6 @@ export class LdUploadItem {
     return (
       <Host class={cl}>
         <div class="ld-upload-item__container">
-          {/* überprüfen, ob es sich um einen Pfad oder einen Icon namen handelt und entsprechend img oder ld-icon nutzen */}
-          {/* {this.availableIcons.includes(this.setIcon()) ? (
-            <ld-icon
-              class="ld-upload-item__icon"
-              name={this.setIcon()}
-              size="lg"
-            ></ld-icon>
-          ) : (
-            <img class="ld-upload-item__icon" src={this.setIcon()}></img>
-          )} */}
-          {/* {this.customIcon} */}
-          {/* {this.getIcon()} */}
-          {/* <div class="ld-upload-item__icon">
-            {this.customIcon ? (
-              this.customIcon
-            ) : (
-              <ld-icon name="documents" size="lg"></ld-icon>
-            )}
-          </div> */}
           <div class="ld-upload-item__icon">
             <slot name="icons">
               <ld-icon name="documents" size="lg"></ld-icon>
@@ -264,7 +225,6 @@ export class LdUploadItem {
             <ld-typo class="ld-upload-item__file-name" variant="h5">
               {this.fileName}
             </ld-typo>
-            {/* <b class="ld-upload-item__file-name">{this.fileName}</b> */}
             {this.state == 'uploaded' || !this.showProgress ? (
               <ld-typo class="ld-upload-item__file-size">
                 {this.bytesToSize(this.fileSize)}
