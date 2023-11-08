@@ -1,7 +1,6 @@
 import { closest } from '../../../utils/closest'
 
 export const toggleStackToTop = (el: HTMLElement, stacked: boolean) => {
-  // const outerSlider = el.closest('ld-sidenav-slider')
   const outerSlider = closest('ld-sidenav-slider', el)
   if (!outerSlider) return
 
