@@ -169,7 +169,7 @@ jobs:
 
       - name: Semantic Release
         if: success()
-        run: pnpm run semantic-release --extends ./config/.releaserc.cjs
+        run: pnpm exec semantic-release --extends ./config/.releaserc.cjs
         env:
           GH_TOKEN: ${{ github.token }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
