@@ -50,4 +50,4 @@ Subject to the limitations set forth herein Merck grants to its partners, suppli
 
 You are granted a worldwide, non-exclusive, royalty-free, revocable and non-sublicensable license to use the Website, the Liquid Design System and it’s visual / functional assets and the M Font as stated on the Website and its functionalities and to reproduce, prepare derivative works, publicly display, publicly perform solely for performing your obligations under the contract with Merck.
 
-Notwithstanding the foregoing, for each of all sub-dependencies (which are listed as such in the package.json respectively the package-lock.json or yarn.lock files or in any other dependency lock file included in the library), the license of the author of the dependency applies.
+Notwithstanding the foregoing, for each of all sub-dependencies (which are listed as such in the package.json respectively the package-lock.json or yarn.lock or pnpm-lock.yaml files or in any other dependency lock file included in the library), the license of the author of the dependency applies.

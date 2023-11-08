@@ -12,12 +12,27 @@ index 0000000000000000000000000000000000000000..13566b81b018ad684f3a35fee301741b
 +# Datasource local storage ignored files
 +/dataSources/
 +/dataSources.local.xml
+diff --git a/.idea/66135b370086b387855c0f63b6860284.iml b/.idea/66135b370086b387855c0f63b6860284.iml
+new file mode 100644
+index 0000000000000000000000000000000000000000..d0876a78d06ac03b5d78c8dcdb95570281c6f1d6
+--- /dev/null
++++ b/.idea/66135b370086b387855c0f63b6860284.iml
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
 diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
 new file mode 100644
-index 0000000000000000000000000000000000000000..9813cf47894467eb15616dd24226cfeba7623c98
+index 0000000000000000000000000000000000000000..6712203f4a32e2d58178b30b65659a40d843d9b9
 --- /dev/null
 +++ b/.idea/inspectionProfiles/Project_Default.xml
-@@ -0,0 +1,1005 @@
+@@ -0,0 +1,1008 @@
 +<component name="InspectionProjectProfileManager">
 +  <profile version="1.0">
 +    <option name="myName" value="Project Default" />
@@ -207,6 +222,7 @@ index 0000000000000000000000000000000000000000..9813cf47894467eb15616dd24226cfeb
 +    <inspection_tool class="ES6MissingAwait" enabled="false" level="INFORMATION" enabled_by_default="false" />
 +    <inspection_tool class="ES6ModulesDependencies" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
 +    <inspection_tool class="ES6PossiblyAsyncFunction" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
++    <inspection_tool class="ES6RedundantAwait" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
 +    <inspection_tool class="ES6ShorthandObjectProperty" enabled="false" level="INFORMATION" enabled_by_default="false" />
 +    <inspection_tool class="ES6UnusedImports" enabled="false" level="WARNING" enabled_by_default="false" />
 +    <inspection_tool class="EjsUnresolvedInclude" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -394,6 +410,7 @@ index 0000000000000000000000000000000000000000..9813cf47894467eb15616dd24226cfeb
 +    <inspection_tool class="HtmlFormInputWithoutLabel" enabled="false" level="WARNING" enabled_by_default="false" />
 +    <inspection_tool class="HtmlMissingClosingTag" enabled="false" level="INFORMATION" enabled_by_default="false" />
 +    <inspection_tool class="HtmlPresentationalElement" enabled="false" level="WARNING" enabled_by_default="false" />
++    <inspection_tool class="HtmlRequiredTitleElement" enabled="false" level="WARNING" enabled_by_default="false" />
 +    <inspection_tool class="HtmlUnknownAnchorTarget" enabled="false" level="WARNING" enabled_by_default="false" />
 +    <inspection_tool class="HtmlUnknownAttribute" enabled="false" level="WARNING" enabled_by_default="false">
 +      <option name="myValues">
@@ -420,6 +437,7 @@ index 0000000000000000000000000000000000000000..9813cf47894467eb15616dd24226cfeb
 +      <option name="myCustomValuesEnabled" value="true" />
 +    </inspection_tool>
 +    <inspection_tool class="HtmlUnknownTarget" enabled="false" level="WARNING" enabled_by_default="false" />
++    <inspection_tool class="HttpClientUnresolvedVariable" enabled="false" level="WARNING" enabled_by_default="false" />
 +    <inspection_tool class="IdempotentLoopBody" enabled="false" level="WARNING" enabled_by_default="false" />
 +    <inspection_tool class="IfCanBeAssertion" enabled="false" level="INFORMATION" enabled_by_default="false" />
 +    <inspection_tool class="IfCanBeSwitch" enabled="false" level="WARNING" enabled_by_default="false">
@@ -893,7 +911,7 @@ index 0000000000000000000000000000000000000000..9813cf47894467eb15616dd24226cfeb
 +    <inspection_tool class="TryFinallyCanBeTryWithResources" enabled="false" level="WARNING" enabled_by_default="false" />
 +    <inspection_tool class="TryStatementWithMultipleResources" enabled="false" level="INFORMATION" enabled_by_default="false" />
 +    <inspection_tool class="TryWithIdenticalCatches" enabled="false" level="WARNING" enabled_by_default="false" />
-+    <inspection_tool class="TsLint" enabled="true" level="WARNING" enabled_by_default="true" />
++    <inspection_tool class="TsLint" enabled="true" level="ERROR" enabled_by_default="true" editorAttributes="ERRORS_ATTRIBUTES" />
 +    <inspection_tool class="TypeCustomizer" enabled="false" level="WARNING" enabled_by_default="false" />
 +    <inspection_tool class="TypeParameterExtendsObject" enabled="false" level="WARNING" enabled_by_default="false" />
 +    <inspection_tool class="TypeParameterHidesVisibleType" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -1057,7 +1075,7 @@ index 0000000000000000000000000000000000000000..ed223bad3f8fb54aaf86bfe5918d0f57
 \ No newline at end of file
 diff --git a/.idea/modules.xml b/.idea/modules.xml
 new file mode 100644
-index 0000000000000000000000000000000000000000..d9fb14e4d06a030cba3cd105982c4f196e0718a0
+index 0000000000000000000000000000000000000000..57467a47137c6e01211d0cd91f7da35860eb92bc
 --- /dev/null
 +++ b/.idea/modules.xml
 @@ -0,0 +1,8 @@
@@ -1065,53 +1083,50 @@ index 0000000000000000000000000000000000000000..d9fb14e4d06a030cba3cd105982c4f19
 +<project version="4">
 +  <component name="ProjectModuleManager">
 +    <modules>
-+      <module fileurl="file://$PROJECT_DIR$/.idea/user.iml" filepath="$PROJECT_DIR$/.idea/user.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/66135b370086b387855c0f63b6860284.iml" filepath="$PROJECT_DIR$/.idea/66135b370086b387855c0f63b6860284.iml" />
 +    </modules>
 +  </component>
 +</project>
 \ No newline at end of file
-diff --git a/.idea/user.iml b/.idea/user.iml
-new file mode 100644
-index 0000000000000000000000000000000000000000..d0876a78d06ac03b5d78c8dcdb95570281c6f1d6
---- /dev/null
-+++ b/.idea/user.iml
-@@ -0,0 +1,8 @@
-+<?xml version="1.0" encoding="UTF-8"?>
-+<module type="PYTHON_MODULE" version="4">
-+  <component name="NewModuleRootManager">
-+    <content url="file://$MODULE_DIR$" />
-+    <orderEntry type="inheritedJdk" />
-+    <orderEntry type="sourceFolder" forTests="false" />
-+  </component>
-+</module>
-\ No newline at end of file
 diff --git a/.idea/workspace.xml b/.idea/workspace.xml
 new file mode 100644
-index 0000000000000000000000000000000000000000..d97f4d4a25d9bcf1f7df2ec8a04db8b720f89903
+index 0000000000000000000000000000000000000000..84c810b5f13bcf80a161193ad98d28bde0fa5e6b
 --- /dev/null
 +++ b/.idea/workspace.xml
-@@ -0,0 +1,106 @@
+@@ -0,0 +1,118 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
 +  <component name="ChangeListManager">
-+    <list default="true" id="8cdcc07e-423e-4fb8-ae34-b8473b569457" name="Changes" comment="" />
++    <list default="true" id="89f7d95e-802c-4dbc-963a-4af39ccebf25" name="Changes" comment="" />
 +    <option name="SHOW_DIALOG" value="false" />
 +    <option name="HIGHLIGHT_CONFLICTS" value="true" />
 +    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
 +    <option name="LAST_RESOLUTION" value="IGNORE" />
 +  </component>
-+  <component name="ProjectId" id="2R7Aa0izA8P8sB98akS89g6NzwG" />
++  <component name="CodeInsightWorkspaceSettings">
++    <option name="optimizeImportsOnTheFly" value="true" />
++  </component>
++  <component name="ProjectColorInfo"><![CDATA[{
++  "associatedIndex": 2
++}]]></component>
++  <component name="ProjectId" id="2Xt2ZusEpaXpKmGSt1PgGrUhYPj" />
 +  <component name="ProjectViewState">
 +    <option name="showLibraryContents" value="true" />
 +  </component>
 +  <component name="PropertiesComponent"><![CDATA[{
 +  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
 +    "RunOnceActivity.ShowReadmeOnStart": "true",
 +    "WebServerToolWindowFactoryState": "false",
 +    "node.js.detected.package.eslint": "true",
 +    "node.js.detected.package.tslint": "true",
 +    "node.js.selected.package.eslint": "(autodetect)",
 +    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "ts.external.directory.path": "/Applications/PyCharm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
 +    "vue.rearranger.settings.migration": "true"
 +  }
 +}]]></component>
@@ -1184,12 +1199,12 @@ index 0000000000000000000000000000000000000000..d97f4d4a25d9bcf1f7df2ec8a04db8b7
 +  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
 +  <component name="TaskManager">
 +    <task active="true" id="Default" summary="Default task">
-+      <changelist id="8cdcc07e-423e-4fb8-ae34-b8473b569457" name="Changes" comment="" />
-+      <created>1686590805635</created>
++      <changelist id="89f7d95e-802c-4dbc-963a-4af39ccebf25" name="Changes" comment="" />
++      <created>1699434113345</created>
 +      <option name="number" value="Default" />
 +      <option name="presentableId" value="Default" />
-+      <updated>1686590805635</updated>
-+      <workItem from="1686590806854" duration="137000" />
++      <updated>1699434113345</updated>
++      <workItem from="1699434114392" duration="869000" />
 +    </task>
 +    <servers />
 +  </component>
@@ -1198,39 +1213,20 @@ index 0000000000000000000000000000000000000000..d97f4d4a25d9bcf1f7df2ec8a04db8b7
 +  </component>
 +</project>
 \ No newline at end of file
-diff --git a/dist/generate-vue-component.js b/dist/generate-vue-component.js
-index 3f329e578ccbf30f82b940230e80b8b99a87a48c..9ec5fea5dfbf1e6af0045868dc6a46048b071dc4 100644
---- a/dist/generate-vue-component.js
-+++ b/dist/generate-vue-component.js
-@@ -1,4 +1,4 @@
--import { dashToPascalCase } from './utils';
-+import { dashToPascalCase } from './utils.js';
- export const createComponentDefinition = (importTypes, componentModelConfig, includeCustomElement = false) => (cmpMeta) => {
-     const tagNameAsPascal = dashToPascalCase(cmpMeta.tagName);
-     const importAs = includeCustomElement ? 'define' + tagNameAsPascal : 'undefined';
 diff --git a/dist/index.cjs.js b/dist/index.cjs.js
-index be292b0f3f9db795023f4c0d87420005f9e0c348..34ddf909b4d4191b66725cf8c71ccdbf71c72894 100644
+index fd6fd4cb7f08dab32453d0f78e0c59e683ebb267..3ec06e61885a9c7e76068abd6c5c8c10d29921bf 100644
 --- a/dist/index.cjs.js
 +++ b/dist/index.cjs.js
-@@ -160,7 +160,7 @@ function generateProxies(config, components, pkgData, outputTarget, rootDir) {
+@@ -161,7 +161,7 @@ function generateProxies(config, components, pkgData, outputTarget, rootDir) {
      const imports = `/* eslint-disable */
  /* tslint:disable */
- /* auto-generated vue proxies */
--import { defineContainer } from './vue-component-lib/utils';\n`;
-+import { defineContainer } from './vue-component-lib/utils.js';\n`;
-     const generateTypeImports = () => {
-         if (outputTarget.componentCorePackage !== undefined) {
-             const dirPath = outputTarget.includeImportCustomElements
-@@ -168,7 +168,7 @@ import { defineContainer } from './vue-component-lib/utils';\n`;
-                 : '';
-             return `import type { ${IMPORT_TYPES} } from '${normalizePath(outputTarget.componentCorePackage)}${dirPath}';\n`;
-         }
--        return `import type { ${IMPORT_TYPES} } from '${normalizePath(componentsTypeFile)}';\n`;
-+        return `import type { ${IMPORT_TYPES} } from '${normalizePath(componentsTypeFile)}.js';\n`;
-     };
-     const typeImports = generateTypeImports();
-     let sourceImports = '';
-@@ -181,11 +181,11 @@ import { defineContainer } from './vue-component-lib/utils';\n`;
+ /* auto-generated react proxies */
+-import { createReactComponent } from './react-component-lib';\n`;
++import { createReactComponent } from './react-component-lib/index.js';\n`;
+     /**
+      * Generate JSX import type from correct location.
+      * When using custom elements build, we need to import from
+@@ -193,11 +193,11 @@ import { createReactComponent } from './react-component-lib';\n`;
          sourceImports = cmpImports.join('\n');
      }
      else if (outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
@@ -1244,38 +1240,28 @@ index be292b0f3f9db795023f4c0d87420005f9e0c348..34ddf909b4d4191b66725cf8c71ccdbf
          registerCustomElements = `${REGISTER_CUSTOM_ELEMENTS}();`;
      }
      const final = [
-@@ -229,7 +229,7 @@ const GENERATED_DTS = 'components.d.ts';
- const IMPORT_TYPES = 'JSX';
- const REGISTER_CUSTOM_ELEMENTS = 'defineCustomElements';
- const APPLY_POLYFILLS = 'applyPolyfills';
--const DEFAULT_LOADER_DIR = '/dist/loader';
-+const DEFAULT_LOADER_DIR = '/dist/loader/index.js';
- 
- const vueOutputTarget = (outputTarget) => ({
-     type: 'custom',
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index f4fce6b403df1f833bf216c50e19fd52568e6f02..9a76ec911ab4b6400a282abb21555d12e7758af6 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,2 +1,2 @@
+-export { reactOutputTarget } from './plugin';
++export { reactOutputTarget } from './plugin.js';
+ export type { OutputTargetReact } from './types';
 diff --git a/dist/index.js b/dist/index.js
-index 1e1b3bdc1376946595f11883b45b07b1e8da770c..12145bbe2fe42dc55f1fef9a50687b53f0e182ab 100644
+index d54a546e573f364e69ce1416e126d661b902ae58..e540feb50efe72f6d18c520447d999650910320e 100644
 --- a/dist/index.js
 +++ b/dist/index.js
-@@ -151,7 +151,7 @@ function generateProxies(config, components, pkgData, outputTarget, rootDir) {
+@@ -152,7 +152,7 @@ function generateProxies(config, components, pkgData, outputTarget, rootDir) {
      const imports = `/* eslint-disable */
  /* tslint:disable */
- /* auto-generated vue proxies */
--import { defineContainer } from './vue-component-lib/utils';\n`;
-+import { defineContainer } from './vue-component-lib/utils.js';\n`;
-     const generateTypeImports = () => {
-         if (outputTarget.componentCorePackage !== undefined) {
-             const dirPath = outputTarget.includeImportCustomElements
-@@ -159,7 +159,7 @@ import { defineContainer } from './vue-component-lib/utils';\n`;
-                 : '';
-             return `import type { ${IMPORT_TYPES} } from '${normalizePath(outputTarget.componentCorePackage)}${dirPath}';\n`;
-         }
--        return `import type { ${IMPORT_TYPES} } from '${normalizePath(componentsTypeFile)}';\n`;
-+        return `import type { ${IMPORT_TYPES} } from '${normalizePath(componentsTypeFile)}.js';\n`;
-     };
-     const typeImports = generateTypeImports();
-     let sourceImports = '';
-@@ -172,11 +172,11 @@ import { defineContainer } from './vue-component-lib/utils';\n`;
+ /* auto-generated react proxies */
+-import { createReactComponent } from './react-component-lib';\n`;
++import { createReactComponent } from './react-component-lib/index.js';\n`;
+     /**
+      * Generate JSX import type from correct location.
+      * When using custom elements build, we need to import from
+@@ -184,11 +184,11 @@ import { createReactComponent } from './react-component-lib';\n`;
          sourceImports = cmpImports.join('\n');
      }
      else if (outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
@@ -1289,46 +1275,27 @@ index 1e1b3bdc1376946595f11883b45b07b1e8da770c..12145bbe2fe42dc55f1fef9a50687b53
          registerCustomElements = `${REGISTER_CUSTOM_ELEMENTS}();`;
      }
      const final = [
-@@ -220,7 +220,7 @@ const GENERATED_DTS = 'components.d.ts';
- const IMPORT_TYPES = 'JSX';
- const REGISTER_CUSTOM_ELEMENTS = 'defineCustomElements';
- const APPLY_POLYFILLS = 'applyPolyfills';
--const DEFAULT_LOADER_DIR = '/dist/loader';
-+const DEFAULT_LOADER_DIR = '/dist/loader/index.js';
- 
- const vueOutputTarget = (outputTarget) => ({
-     type: 'custom',
-diff --git a/dist/output-vue.js b/dist/output-vue.js
-index 0b07a45d60be97e15bf6d2140a267b1d729cb17c..5ab8f87d56737368d508d34389d7644db9d2daac 100644
---- a/dist/output-vue.js
-+++ b/dist/output-vue.js
-@@ -1,6 +1,6 @@
+diff --git a/dist/output-react.js b/dist/output-react.js
+index 6c53e30b38a717e56f31a30aef30e0f2d2a2a008..502848a0d0f0c56a335fb31b00eb86b7f0b356d5 100644
+--- a/dist/output-react.js
++++ b/dist/output-react.js
+@@ -1,5 +1,5 @@
  import path from 'path';
- import { createComponentDefinition } from './generate-vue-component';
--import { normalizePath, readPackageJson, relativeImport, sortBy, dashToPascalCase } from './utils';
-+import { normalizePath, readPackageJson, relativeImport, sortBy, dashToPascalCase } from './utils.js';
- export async function vueProxyOutput(config, compilerCtx, outputTarget, components) {
-     const filteredComponents = getFilteredComponents(outputTarget.excludeComponents, components);
-     const rootDir = config.rootDir;
-@@ -20,7 +20,7 @@ export function generateProxies(config, components, pkgData, outputTarget, rootD
+-import { dashToPascalCase, normalizePath, readPackageJson, relativeImport, sortBy } from './utils';
++import { dashToPascalCase, normalizePath, readPackageJson, relativeImport, sortBy } from './utils.js';
+ /**
+  * Generate and write the Stencil-React bindings to disc
+  * @param config the Stencil configuration associated with the project
+@@ -41,7 +41,7 @@ export function generateProxies(config, components, pkgData, outputTarget, rootD
      const imports = `/* eslint-disable */
  /* tslint:disable */
- /* auto-generated vue proxies */
--import { defineContainer } from './vue-component-lib/utils';\n`;
-+import { defineContainer } from './vue-component-lib/utils.js';\n`;
-     const generateTypeImports = () => {
-         if (outputTarget.componentCorePackage !== undefined) {
-             const dirPath = outputTarget.includeImportCustomElements
-@@ -28,7 +28,7 @@ import { defineContainer } from './vue-component-lib/utils';\n`;
-                 : '';
-             return `import type { ${IMPORT_TYPES} } from '${normalizePath(outputTarget.componentCorePackage)}${dirPath}';\n`;
-         }
--        return `import type { ${IMPORT_TYPES} } from '${normalizePath(componentsTypeFile)}';\n`;
-+        return `import type { ${IMPORT_TYPES} } from '${normalizePath(componentsTypeFile)}.js';\n`;
-     };
-     const typeImports = generateTypeImports();
-     let sourceImports = '';
-@@ -41,11 +41,11 @@ import { defineContainer } from './vue-component-lib/utils';\n`;
+ /* auto-generated react proxies */
+-import { createReactComponent } from './react-component-lib';\n`;
++import { createReactComponent } from './react-component-lib/index.js';\n`;
+     /**
+      * Generate JSX import type from correct location.
+      * When using custom elements build, we need to import from
+@@ -73,11 +73,11 @@ import { createReactComponent } from './react-component-lib';\n`;
          sourceImports = cmpImports.join('\n');
      }
      else if (outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
@@ -1342,21 +1309,81 @@ index 0b07a45d60be97e15bf6d2140a267b1d729cb17c..5ab8f87d56737368d508d34389d7644d
          registerCustomElements = `${REGISTER_CUSTOM_ELEMENTS}();`;
      }
      const final = [
-@@ -89,4 +89,4 @@ export const GENERATED_DTS = 'components.d.ts';
- const IMPORT_TYPES = 'JSX';
- const REGISTER_CUSTOM_ELEMENTS = 'defineCustomElements';
- const APPLY_POLYFILLS = 'applyPolyfills';
--const DEFAULT_LOADER_DIR = '/dist/loader';
-+const DEFAULT_LOADER_DIR = '/dist/loader/index.js';
 diff --git a/dist/plugin.js b/dist/plugin.js
-index 042d0deb6faf247351aa240180050e418b56f985..a4713018139ce26104ec306b77e3292f8c7df041 100644
+index dea591d26435b314e486b298069bb6bded38e235..50c1bae5c1317fdbed359fc4798975b64d91e708 100644
 --- a/dist/plugin.js
 +++ b/dist/plugin.js
 @@ -1,5 +1,5 @@
 -import { normalizePath } from './utils';
--import { vueProxyOutput } from './output-vue';
+-import { reactProxyOutput } from './output-react';
 +import { normalizePath } from './utils.js';
-+import { vueProxyOutput } from './output-vue.js';
++import { reactProxyOutput } from './output-react.js';
  import path from 'path';
- export const vueOutputTarget = (outputTarget) => ({
-     type: 'custom',
+ /**
+  * Creates an output target for binding Stencil components to be used in a React context
+diff --git a/react-component-lib/createComponent.tsx b/react-component-lib/createComponent.tsx
+index 7c7415a29d8d0a49ae63a85b1bbe4d65ec197e86..7e1d1ef7dbbe2d2ffdc4be351053998b7bbd8252 100644
+--- a/react-component-lib/createComponent.tsx
++++ b/react-component-lib/createComponent.tsx
+@@ -1,6 +1,6 @@
+ import React, { createElement } from 'react';
+ 
+-import { attachProps, camelToDashCase, createForwardRef, dashToPascalCase, isCoveredByReact, mergeRefs } from './utils';
++import { attachProps, camelToDashCase, createForwardRef, dashToPascalCase, isCoveredByReact, mergeRefs } from './utils/index.js';
+ 
+ export interface HTMLStencilElement extends HTMLElement {
+   componentOnReady(): Promise<this>;
+diff --git a/react-component-lib/createOverlayComponent.tsx b/react-component-lib/createOverlayComponent.tsx
+index 288c38dd54c138fea45127e45acf9d0b96dbf99a..f491c5927c9a077373fc5efa4262a8d17eb1ba9a 100644
+--- a/react-component-lib/createOverlayComponent.tsx
++++ b/react-component-lib/createOverlayComponent.tsx
+@@ -1,8 +1,8 @@
+ import React from 'react';
+ import ReactDOM from 'react-dom';
+ 
+-import { OverlayEventDetail } from './interfaces';
+-import { StencilReactForwardedRef, attachProps, dashToPascalCase, defineCustomElement, setRef } from './utils';
++import { OverlayEventDetail } from './interfaces.js';
++import { StencilReactForwardedRef, attachProps, dashToPascalCase, defineCustomElement, setRef } from './utils/index.js';
+ 
+ interface OverlayElement extends HTMLElement {
+   present: () => Promise<void>;
+diff --git a/react-component-lib/index.ts b/react-component-lib/index.ts
+index 85e81ad196c6d8c5dd7076a3b57bc3afbb434b0d..611f53c9483eedc6672f03d6ee43d4b705bff381 100644
+--- a/react-component-lib/index.ts
++++ b/react-component-lib/index.ts
+@@ -1,2 +1,2 @@
+-export { createReactComponent } from './createComponent';
+-export { createOverlayComponent } from './createOverlayComponent';
++export { createReactComponent } from './createComponent.js';
++export { createOverlayComponent } from './createOverlayComponent.js';
+diff --git a/react-component-lib/utils/attachProps.ts b/react-component-lib/utils/attachProps.ts
+index 9a1825f54f37b60fc815975d54b543bba3fdf201..b67b5f36f08381db00d16a706f9faefb65d09023 100644
+--- a/react-component-lib/utils/attachProps.ts
++++ b/react-component-lib/utils/attachProps.ts
+@@ -1,4 +1,4 @@
+-import { camelToDashCase } from './case';
++import { camelToDashCase } from './case.js';
+ 
+ export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}) => {
+   // some test frameworks don't render DOM elements, so we test here to make sure we are dealing with DOM first
+diff --git a/react-component-lib/utils/index.tsx b/react-component-lib/utils/index.tsx
+index a66bd02de766a2eaf05a913d6bc9b1984279265c..9ed0c12fd49b359c5223a16349ccf469a1c6363c 100644
+--- a/react-component-lib/utils/index.tsx
++++ b/react-component-lib/utils/index.tsx
+@@ -1,6 +1,6 @@
+ import React from 'react';
+ 
+-import type { StyleReactProps } from '../interfaces';
++import type { StyleReactProps } from '../interfaces.js';
+ 
+ export type StencilReactExternalProps<PropType, ElementType> = PropType &
+   Omit<React.HTMLAttributes<ElementType>, 'style'> &
+@@ -46,5 +46,5 @@ export const defineCustomElement = (tagName: string, customElement: any) => {
+   }
+ };
+ 
+-export * from './attachProps';
+-export * from './case';
++export * from './attachProps.js';
++export * from './case.js';
