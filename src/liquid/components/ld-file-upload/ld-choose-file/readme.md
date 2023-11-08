@@ -9,31 +9,9 @@ permalink: components/ld-file-upload/ld-choose-file/
 
 # ld-choose-file
 
-The `ld-choose-file` component is used internally for the `ld-file-upload`. It is the visual part of the drag and drop area.
+The `ld-choose-file` component is a subcomponent for `ld-file-upload`.
 
-## Examples
-
-### Default
-
-{% example '{ "opened": true }' %}
-<ld-choose-file></ld-choose-file>
-
-<!-- React component -->
-
-<!-- CSS component -->
-
-{% endexample %}
-
-### In file upload
-
-{% example '{ "opened": true }' %}
-<ld-choose-file size='sm'></ld-choose-file>
-
-<!-- React component -->
-
-<!-- CSS component -->
-
-{% endexample %}
+Please refer to the [`ld-file-upload` documentation](components/ld-file-upload) for usage examples.
 
 <!-- Auto Generated Below -->
 
