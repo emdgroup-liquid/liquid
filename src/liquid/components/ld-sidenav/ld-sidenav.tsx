@@ -257,7 +257,7 @@ export class LdSidenav {
     // Set focus on parent nav-item element as soon as back button looses focus.
     this.toFocus = parentSubnav
       ?.querySelector<HTMLLdSidenavNavitemElement>(`[to='${currentSubnavId}']`)
-      .shadowRoot.querySelector<HTMLButtonElement | HTMLAnchorElement>(
+      ?.shadowRoot.querySelector<HTMLButtonElement | HTMLAnchorElement>(
         '[part*="focusable"]'
       )
 
