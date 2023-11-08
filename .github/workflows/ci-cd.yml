@@ -154,11 +154,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
 
-      - name: Install
-        run: |
-          pnpm i --frozen-lockfile
-        env:
-          CI: true
+      - uses: pnpm/action-setup@v2.4.0
+        with:
+          version: 8.10.1
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile]
 
       - name: Download bin_dist artifacts
         uses: actions/download-artifact@v3
