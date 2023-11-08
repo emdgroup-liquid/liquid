@@ -4,7 +4,6 @@
 .stencil
 .vscode
 .idea
-.yarn
 config
 coverage
 dist_docs
@@ -16,5 +15,4 @@ CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 stencil.config.ts
 tsconfig.json
-yarn.lock
-.yarnrc.yml
+pnpm-lock.yaml

@@ -8,5 +8,5 @@
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "sudo corepack enable && yarn install && yarn build"
+  "postCreateCommand": "sudo corepack enable && pnpm install && pnpm build"
 }

@@ -37,6 +37,10 @@ Here is an example illustrating how to invoke the command mentioned above:
 # npm
 FIGMA_API_KEY=<your-api-key> npx @emdgroup-liquid/liquid apply-design-tokens --path "src/your/output/path" --figma-file "https://www.figma.com/file/<figma_id>/<file_name>?node-id=<node_id>"
 
+# pnpm
+FIGMA_API_KEY=<your-api-key> pnpm exec liquid apply-design-tokens --path "src/your/output/path" --figma-file "https://www.figma.com/file/<figma_id>/<file_name>?node-id=<node_id>"
+```
+
 # yarn
 FIGMA_API_KEY=<your-api-key> yarn liquid apply-design-tokens --path "src/your/output/path" --figma-file "https://www.figma.com/file/<figma_id>/<file_name>?node-id=<node_id>"
 ```

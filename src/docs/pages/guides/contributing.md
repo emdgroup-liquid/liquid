@@ -102,7 +102,7 @@ Both issue lists are sorted by total number of comments. While not perfect, the 
 
 Before you can contribute any code, you will most likely want to setup a local development environment. Follow these steps to get started:
 
-1. Install [Git](https://git-scm.com/), [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/).
+1. Install [Git](https://git-scm.com/), [Node.js](https://nodejs.org/en/) and [pnpm](https://pnpm.io/).
 
 2. Clone the project (or your fork of it):
 
@@ -113,19 +113,19 @@ git clone git@github.com:emdgroup-liquid/liquid.git
 3. Install dependencies inside the project folder:
 
 ```sh
-corepack enable && yarn
+corepack enable && pnpm i
 ```
 
 4. Trigger the generation of type definitions within the `src/liquid` folder by running the project build task (this step is only required before starting the local dev server for the first time):
 
 ```sh
-yarn build
+pnpm run build
 ```
 
 5. Start up the local development server:
 
 ```sh
-yarn start
+pnpm run start
 ```
 
 6. Now head over to [http://localhost:8080](http://localhost:8080) - you shoud see the Liquid docs site.
@@ -223,9 +223,7 @@ This project consists of different parts and pieces, each with its own purpose. 
 │       └── utils                 # Contains utilities shared between components.
 ├── stencil.config.ts             # Stencil config file for Liquid components.
 ├── tsconfig.json                 # Typescript config file for Liquid components.
-├── yarn.lock                     # Oh, yes, we use yarn.
-└── .yarnrc.yml                   # The yarn configuration file
-                                  # (only necessary in CI environment).
+└── pnpm-lock.yaml                # We use pnpm and this is the respective lock file.
 ```
 
 As you can see, Liquid Oxygen currenly has a straight forward project structure:
@@ -282,13 +280,13 @@ The following examples should help you start testing quickly and efficiently.
 #### Run all unit tests with coverage:
 
 ```sh
-yarn test:unit
+pnpm run test:unit
 ```
 
 #### Run all unit tests in watch mode:
 
 ```sh
-yarn test:watch
+pnpm run test:watch
 ```
 
 #### Run unit tests for the `ld-tabs` component in watch mode with coverage:
@@ -300,19 +298,19 @@ stencil test --spec --coverage --no-cache --watch=all -- ld-tabs ld-tablist
 #### Run all end-to-end tests:
 
 ```sh
-yarn test:e2e
+pnpm run test:e2e
 ```
 
 #### Run end-to-end tests for the `ld-sidenav` component:
 
 ```sh
-stencil test --screenshot --e2e -- src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts && yarn test:e2e:cleanup
+stencil test --screenshot --e2e -- src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts && pnpm run test:e2e:cleanup
 ```
 
 #### Compare visual regression testing screenshots of failed end-to-end tests:
 
 ```sh
-yarn test:compare_screenshots
+pnpm run test:compare_screenshots
 ```
 
 #### Delete all visual regression testing screenshots for the `ld-sidenav` component:
@@ -342,7 +340,7 @@ check out the below list of selected documentation sites and articles we found v
 - https://jestjs.io
 - https://pptr.dev
 - https://github.com/dequelabs/axe-core
-- https://yarnpkg.com
+- https://pnpm.io/
 - https://semantic-release.gitbook.io
 - https://www.conventionalcommits.org
 - https://developer.mozilla.org/en-US/docs/Web/Web_Components

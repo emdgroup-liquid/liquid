@@ -11,7 +11,7 @@
   },
   "engines": {
     "node": ">=14.16.1",
-    "yarn": ">=1.22.10"
+    "pnpm": ">=8.10.1"
   },
   "type": "module",
   "author": "User Experience Strategy & Design unit, part of the Chief Digital Organization at EMD Group <liquid@emdgroup.com> (https://github.com/emdgroup-liquid)",
@@ -53,7 +53,7 @@
     "build:tailwind_preset": "tsc src/liquid/global/styles/tailwindPreset.ts --skipLibCheck --moduleResolution node --target esnext --declaration --outfile dist/css/tailwind-preset.cjs",
     "icons:optimise": "ts-node scripts/iconsOptimise.ts",
     "icons:update": "dotenv -e .env -- ts-node scripts/iconsUpdate.ts",
-    "lint": "run-s lint:ts lint:eslint lint:styles",
+    "lint": "run-p lint:ts lint:eslint lint:styles",
     "lint:eslint": "eslint .",
     "lint:styles": "stylelint ./src/**/*css",
     "lint:styles:fix": "stylelint ./src/**/*css --fix",
@@ -71,10 +71,10 @@
     "test:watch": "stencil test --config=stencil.config.ts --spec --watchAll",
     "test:compare_screenshots": "live-server --port=4000 --open=compare.html screenshot --quiet --mount=/node_modules:./node_modules --mount=/.stencil:./.stencil",
     "watch:eleventy": "dotenv -e .env -- node ./scripts/eleventy.cjs --incremental --watch",
-    "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'yarn build:styles:docs:liquid'",
-    "watch:global_styles:docs": "chokidar src/docs/global/styles/**/*.css -c 'yarn build:styles:docs:docs'",
+    "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'pnpm run build:styles:docs:liquid'",
+    "watch:global_styles:docs": "chokidar src/docs/global/styles/**/*.css -c 'pnpm run build:styles:docs:docs'",
     "watch:stencil": "stencil build --config=config/stencil.config.docs.ts --docs --watch --dev --no-open",
-    "watch:styles:components": "chokidar src/liquid/components/**/*.css -i 'src/liquid/components/**/*.shadow.css' -c 'yarn build:styles:docs:components'"
+    "watch:styles:components": "chokidar src/liquid/components/**/*.css -i 'src/liquid/components/**/*.shadow.css' -c 'pnpm run build:styles:docs:components'"
   },
   "dependencies": {
     "@stencil/core": "^4.0.1",
@@ -126,6 +126,7 @@
     "husky": "^8.0.3",
     "jest": "^26.0.24",
     "jest-cli": "^26.6.3",
+    "jest-matcher-utils": "^29.7.0",
     "jest-matchmedia-mock": "^1.1.0",
     "lint-staged": "^14.0.0",
     "live-server": "1.2.2",
@@ -199,11 +200,13 @@
       "optional": true
     }
   },
-  "packageManager": "yarn@3.2.0",
-  "resolutions": {
-    "@stencil/react-output-target@^0.5.3": "patch:@stencil/react-output-target@npm:0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch",
-    "tether@^2.0.0": "patch:tether@npm:2.0.0#.yarn/patches/tether-npm-2.0.0-f14e824ccf.patch",
-    "@stencil/vue-output-target@^0.8.6": "patch:@stencil/vue-output-target@npm:0.8.6#.yarn/patches/@stencil-vue-output-target-npm-0.8.6-5fe9c0d4bb.patch"
+  "packageManager": "pnpm@8.10.1",
+  "pnpm": {
+    "patchedDependencies": {
+      "tether@2.0.0": "patches/tether@2.0.0.patch",
+      "@stencil/react-output-target@0.5.3": "patches/@stencil__react-output-target@0.5.3.patch",
+      "@stencil/vue-output-target@0.8.6": "patches/@stencil__vue-output-target@0.8.6.patch"
+    }
   },
   "eslintConfig": {
     "extends": [

@@ -34,33 +34,42 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: 'yarn'
 
-      - name: Install dependencies
-        run: |
-          yarn set version 3.2.0
-          yarn install --immutable
+      - name: Cache pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - uses: pnpm/action-setup@v2.4.0
+        with:
+          version: 8.10.1
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile]
 
       # Docs must always be built to ensure the components.d.ts is generated
       # inside the src folder; without it ts linting fails for docs files!
       - name: Build
         run: |
-          npm run build
-          npm run build:docs
+          pnpm run build
+          pnpm run build:docs
         env:
           GH_TOKEN: ${{ github.token }}
           MODE: gh_pages
 
       - name: Lint source files
-        run: npm run lint
+        run: pnpm run lint
 
       - name: Run unit tests
-        run: npm run test:unit
+        run: pnpm run test:unit
 
       # e2e tests are still not stable due to flaky screenshot diffing in stencil
       #- name: Run e2e tests
       #  if: github.event_name == 'pull_request'
-      #  run: npm run test:e2e
+      #  run: pnpm run test:e2e
 
       - name: Archive bin_dist artifacts
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc'
@@ -136,14 +145,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: 'yarn'
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
 
       - name: Install
         run: |
-          yarn config delete proxy
-          yarn config delete https-proxy
-          yarn set version 3.2.0
-          yarn install --immutable --network-timeout 100000
+          pnpm i --frozen-lockfile
         env:
           CI: true
 
@@ -155,7 +168,7 @@ jobs:
 
       - name: Semantic Release
         if: success()
-        run: yarn semantic-release --extends ./config/.releaserc.cjs
+        run: pnpm run semantic-release --extends ./config/.releaserc.cjs
         env:
           GH_TOKEN: ${{ github.token }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
