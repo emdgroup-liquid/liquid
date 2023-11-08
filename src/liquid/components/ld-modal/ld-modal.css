@@ -137,7 +137,7 @@ dialog.ld-modal--blurry-backdrop,
 
 /* custom icon cross */
 .ld-modal__x {
-  align-self: flex-start;
+  place-self: flex-start flex-end;
   appearance: none;
   background-color: transparent;
   border: solid transparent var(--ld-sp-8);
@@ -145,7 +145,6 @@ dialog.ld-modal--blurry-backdrop,
   cursor: pointer;
   display: inline-flex;
   height: 3rem;
-  justify-self: flex-end;
   margin: auto calc(var(--ld-sp-16) * -1) auto auto;
   overflow: hidden;
   position: relative;

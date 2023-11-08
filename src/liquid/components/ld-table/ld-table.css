@@ -71,8 +71,7 @@
     gap: var(--ld-sp-12);
     justify-content: flex-start;
     min-height: var(--ld-sp-40);
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: auto hidden;
     padding-inline: var(--ld-table-cell-padding-x);
     position: relative;
     white-space: nowrap;

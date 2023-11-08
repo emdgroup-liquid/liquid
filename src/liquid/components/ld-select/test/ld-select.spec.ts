@@ -114,8 +114,9 @@ describe('ld-select', () => {
     await page.waitForChanges()
 
     const ldSelectPopper = await page.body.querySelector('ld-select-popper')
-    const ldSelectPopperEl =
-      await ldSelectPopper.shadowRoot.querySelector('.ld-select-popper')
+    const ldSelectPopperEl = await ldSelectPopper.shadowRoot.querySelector(
+      '.ld-select-popper'
+    )
     const slottedOptions = ldSelect.querySelectorAll('ld-option')
     const internalOptions =
       ldSelectPopper.querySelectorAll('ld-option-internal')
@@ -693,8 +694,9 @@ describe('ld-select', () => {
       await triggerPopperWithClick(page)
 
       const ldSelectPopper = await page.body.querySelector('ld-select-popper')
-      const ldSelectPopperEl =
-        await ldSelectPopper.shadowRoot.querySelector('.ld-select-popper')
+      const ldSelectPopperEl = await ldSelectPopper.shadowRoot.querySelector(
+        '.ld-select-popper'
+      )
       expect(
         ldSelectPopperEl.classList.contains('ld-select-popper--sm')
       ).toBeTruthy()
@@ -2484,8 +2486,9 @@ describe('ld-select', () => {
       )
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      const internalOption0 =
-        await page.body.querySelector('ld-option-internal')
+      const internalOption0 = await page.body.querySelector(
+        'ld-option-internal'
+      )
       expect(internalOption0.tagName).toEqual('LD-OPTION-INTERNAL')
 
       const ev = {
@@ -2518,8 +2521,9 @@ describe('ld-select', () => {
       )
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      const internalOption0 =
-        await page.body.querySelector('ld-option-internal')
+      const internalOption0 = await page.body.querySelector(
+        'ld-option-internal'
+      )
       expect(internalOption0.tagName).toEqual('LD-OPTION-INTERNAL')
 
       const ev = {
@@ -2552,8 +2556,9 @@ describe('ld-select', () => {
       )
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      const internalOption0 =
-        await page.body.querySelector('ld-option-internal')
+      const internalOption0 = await page.body.querySelector(
+        'ld-option-internal'
+      )
       expect(internalOption0.tagName).toEqual('LD-OPTION-INTERNAL')
 
       const ev = {

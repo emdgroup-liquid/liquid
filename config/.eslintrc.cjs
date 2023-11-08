@@ -76,11 +76,12 @@ module.exports = {
   },
   ignorePatterns: [
     '**/bin/**/*',
-    '**/dist/**/*',
-    '**/hydrate/**/*',
-    '**/dist_docs/**/*',
     '**/coverage/**/*',
     '**/components.d.ts',
+    '**/dist/**/*',
+    '**/dist_docs/**/*',
+    '**/hydrate/**/*',
+    '**/out/**/*',
     '**/src/liquid/**/__mocks__/**/*',
   ],
 }
