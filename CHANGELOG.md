@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.6](https://github.com/emdgroup-liquid/liquid/compare/v5.12.5...v5.12.6) (2023-11-08)
+
+
+### Bug Fixes
+
+* **ld-sidenav:** in rare cases there is no parent nav-item ([06fdc64](https://github.com/emdgroup-liquid/liquid/commit/06fdc64d45c01362bbca225f0365a0c1ab3859c1))
+* **ld-table:** add aria labels to sort buttons ([5fe63e0](https://github.com/emdgroup-liquid/liquid/commit/5fe63e00a37781ee817808b26bbf80d8096343c1))
+
 ## [5.12.5](https://github.com/emdgroup-liquid/liquid/compare/v5.12.4...v5.12.5) (2023-10-10)
 
 
