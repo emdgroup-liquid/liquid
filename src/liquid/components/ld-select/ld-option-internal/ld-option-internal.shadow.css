@@ -46,10 +46,9 @@
   color: var(--ld-option-text-col);
   background-color: var(--ld-option-bg-col);
   padding-block: var(--ld-sp-8);
-  padding-inline-end: var(--ld-sp-12);
-  padding-inline-start: calc(
+  padding-inline: calc(
     var(--ld-option-padding-inline-start) + var(--ld-option-indent, 0px)
-  );
+  ) var(--ld-sp-12);
   font: var(--ld-typo-label-m);
   min-height: 2.5rem;
   white-space: nowrap;

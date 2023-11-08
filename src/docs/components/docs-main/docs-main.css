@@ -357,8 +357,7 @@
     }
 
     > table {
-      overflow-x: scroll;
-      overflow-y: hidden;
+      overflow: scroll hidden;
       min-width: 100%;
       text-align: left;
       border-collapse: collapse;

@@ -18,8 +18,7 @@
   color: var(--ld-label-col);
   font: var(--ld-typo-label-s);
   display: inline-grid;
-  row-gap: var(--ld-label-row-gap);
-  column-gap: 0;
+  gap: var(--ld-label-row-gap) 0;
   max-width: 100%;
   align-content: flex-start;
 }
@@ -28,8 +27,7 @@
 .ld-label--right {
   justify-content: flex-start;
   align-items: center;
-  column-gap: var(--ld-label-column-gap);
-  row-gap: 0;
+  gap: 0 var(--ld-label-column-gap);
 
   > ::slotted(.ld-checkbox),
   > .ld-checkbox,
