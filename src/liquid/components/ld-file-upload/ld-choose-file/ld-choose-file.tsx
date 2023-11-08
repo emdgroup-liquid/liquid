@@ -228,7 +228,13 @@ export class LdChooseFile {
             height="122"
           />
 
-          <div class="ld-choose-file__text">
+          {/* <div class="ld-choose-file__text"> */}
+          <div
+            class={getClassNames([
+              'ld-choose-file__text',
+              this.size && `ld-choose-file--text-${this.size}`,
+            ])}
+          >
             {this.startUpload ||
             (!this.startUpload && !this.startUploadClicked) ? (
               <Fragment>
@@ -262,6 +268,7 @@ export class LdChooseFile {
                 <slot></slot>
                 <ld-button
                   class="ld-choose-file__upload-button"
+                  size="sm"
                   onClick={this.handleUploadClick}
                 >
                   {/* {this.startUpload

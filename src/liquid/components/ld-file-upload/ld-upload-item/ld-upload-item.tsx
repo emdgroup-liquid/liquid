@@ -80,37 +80,37 @@ export class LdUploadItem {
    * @internal
    * Emitted on pause button click.
    */
-  @Event() lduploaditempause: EventEmitter
+  @Event() lduploaditempause: EventEmitter<UploadItem>
 
   /**
    * @internal
    * Emitted on continue button click.
    */
-  @Event() lduploaditemcontinue: EventEmitter
+  @Event() lduploaditemcontinue: EventEmitter<UploadItem>
 
   /**
    * @internal
    * Emitted on stop button click.
    */
-  @Event() lduploaditemremove: EventEmitter
+  @Event() lduploaditemremove: EventEmitter<UploadItem>
 
   /**
    * @internal
    * Emitted on download button click.
    */
-  @Event() lduploaditemdownload: EventEmitter
+  @Event() lduploaditemdownload: EventEmitter<UploadItem>
 
   /**
    * @internal
    * Emitted on retry button click.
    */
-  @Event() lduploaditemretry: EventEmitter
+  @Event() lduploaditemretry: EventEmitter<UploadItem>
 
   /**
    * @internal
    * Emitted on delete button click.
    */
-  @Event() lduploaditemdelete: EventEmitter
+  @Event() lduploaditemdelete: EventEmitter<UploadItem>
 
   // private pauseClick = () => {
   //   this.lduploaditempause.emit({

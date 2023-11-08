@@ -1,9 +1,9 @@
 :host {
-  background: var(--ld-col-neutral-050);
-  border-radius: var(--ld-br-l);
-  box-shadow: var(--ld-shadow-stacked);
-  box-sizing: border-box;
-  list-style: none;
+  /* background: var(--ld-col-neutral-050); */
+  /* border-radius: var(--ld-br-l); */
+  /* box-shadow: var(--ld-shadow-stacked); */
+  /* box-sizing: border-box; */
+  /* list-style: none; */
   margin: 0;
   padding: var(--ld-sp-24);
   display: flex;

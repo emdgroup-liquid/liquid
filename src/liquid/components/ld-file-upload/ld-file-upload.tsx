@@ -62,6 +62,9 @@ export class LdFileUpload {
   /** circularProgress defines whether only the circular progress indicator will be shown during upload. */
   @Prop() circularProgress?: boolean = false
 
+  /** circularProgress defines whether only one file can be chosen and uploaded. */
+  @Prop() singularUpload?: boolean = false
+
   /** TODO: is used to display and validate maximum file size in Bytes */
   @Prop() maxSize?: number
   // @Prop() maxSize?: number = 1572864
@@ -236,6 +239,42 @@ export class LdFileUpload {
   /** @internal */
   /** Emitted on continue all uploads click. */
   @Event() ldfileuploadcontinueuploads: EventEmitter<UploadItem[]>
+
+  /**
+   * @internal
+   * Emitted on pause button click.
+   */
+  @Event() lduploaditempause: EventEmitter<UploadItem>
+
+  /**
+   * @internal
+   * Emitted on continue button click.
+   */
+  @Event() lduploaditemcontinue: EventEmitter<UploadItem>
+
+  /**
+   * @internal
+   * Emitted on stop button click.
+   */
+  @Event() lduploaditemremove: EventEmitter<UploadItem>
+
+  /**
+   * @internal
+   * Emitted on download button click.
+   */
+  @Event() lduploaditemdownload: EventEmitter<UploadItem>
+
+  /**
+   * @internal
+   * Emitted on retry button click.
+   */
+  @Event() lduploaditemretry: EventEmitter<UploadItem>
+
+  /**
+   * @internal
+   * Emitted on delete button click.
+   */
+  @Event() lduploaditemdelete: EventEmitter<UploadItem>
 
   /* @Listen('lduploaditempause')
   pauseClickHandler(ev: CustomEvent<UploadItem>) {
@@ -558,11 +597,11 @@ export class LdFileUpload {
     this.exceedMaxSize = []
   }
 
-  private handleDeleteAllClick = () => {
-    this.ldfileuploaddeleteall.emit(this.uploadItems)
-    /* this.uploadItems = [] */
-    this.allChosenFiles = []
-  }
+  // private handleDeleteAllClick = () => {
+  //   this.ldfileuploaddeleteall.emit(this.uploadItems)
+  //   /* this.uploadItems = [] */
+  //   this.allChosenFiles = []
+  // }
 
   private handlePauseAllClick = () => {
     const uploadingItems = this.uploadItems.filter(
@@ -706,13 +745,13 @@ export class LdFileUpload {
               >
                 Cancel
               </ld-button> */}
-              <ld-button
+              {/* <ld-button
                 class="ld-file-upload__cancel-button"
                 onClick={this.handleDeleteAllClick}
                 mode="secondary"
               >
                 {this.labelCPCancel}
-              </ld-button>
+              </ld-button> */}
             </Fragment>
           ) : (
             <ld-input-message mode="valid">Files uploaded</ld-input-message>
@@ -859,6 +898,7 @@ export class LdFileUpload {
                 {!this.startUpload && (
                   <ld-button
                     class="ld-file-upload__start-upload-button"
+                    size="sm"
                     onClick={this.handleStartUploadClick}
                     /* disabled={this.continueClicked} */
                     progress={progress}
@@ -892,13 +932,14 @@ export class LdFileUpload {
                 >
                   Delete all files
                 </ld-button> */}
-                <ld-button
+                {/* <ld-button
                   class="ld-file-upload__delete-button"
+                  size="sm"
                   onClick={this.handleDeleteAllClick}
                   mode="secondary"
                 >
                   {this.labelDeleteAllFiles}
-                </ld-button>
+                </ld-button> */}
 
                 {this.pauseAllClicked && this.allowPause ? (
                   // <ld-button
@@ -914,6 +955,7 @@ export class LdFileUpload {
                   // </ld-button>
                   <ld-button
                     class="ld-file-upload__continue-paused-button"
+                    size="sm"
                     onClick={this.handleContinuePausedClick}
                     mode="secondary"
                     disabled={
@@ -938,6 +980,7 @@ export class LdFileUpload {
                   // </ld-button>
                   <ld-button
                     class="ld-file-upload__pause-all-button"
+                    size="sm"
                     onClick={this.handlePauseAllClick}
                     mode="secondary"
                     disabled={

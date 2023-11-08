@@ -38,14 +38,31 @@
   margin: var(--ld-sp-32) var(--ld-sp-40) var(--ld-sp-32) var(--ld-sp-40);
 }
 
-.ld-choose-file__text {
+/* .ld-choose-file__text {
   display: flex;
   flex-direction: column;
   gap: var(--ld-sp-8);
-  /* display: grid;
-  grid-template-rows: 1fr 1fr 1fr; */
   align-items: center;
-  /* grid-gap: var(--ld-sp-8); */
+  justify-items: center;
+  position: relative;
+  text-align: center;
+} */
+
+.ld-choose-file--text-sm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-sp-8);
+  align-items: center;
+  justify-items: start;
+  position: relative;
+  text-align: start;
+}
+
+.ld-choose-file--text-bg {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-sp-8);
+  align-items: center;
   justify-items: center;
   position: relative;
   text-align: center;
