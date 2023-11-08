@@ -53,6 +53,12 @@ export class LdTableHeader {
   /** Defines whether the column is sortable. */
   @Prop() sortable? = false
 
+  /** The aria label used for sort ascending buttons. */
+  @Prop() sortAscLabel? = 'Sort ascending'
+
+  /** The aria label used for sort descending buttons. */
+  @Prop() sortDescLabel? = 'Sort descending'
+
   /** Defines whether the column is sorted and in which order. */
   @Prop({ mutable: true }) sortOrder?: 'asc' | 'desc'
 
@@ -152,6 +158,7 @@ export class LdTableHeader {
         {this.sortable && (
           <div class="ld-table-header__sort-buttons" part="sort-buttons">
             <ld-button
+              aria-label={this.sortAscLabel}
               aria-disabled={this.sortOrder === 'asc' ? 'true' : undefined}
               mode="ghost"
               onClick={(ev) => this.onSortClick(ev, 'asc')}
@@ -161,6 +168,7 @@ export class LdTableHeader {
               {this.renderChevron(true)}
             </ld-button>
             <ld-button
+              aria-label={this.sortDescLabel}
               aria-disabled={this.sortOrder === 'desc' ? 'true' : undefined}
               mode="ghost"
               onClick={(ev) => this.onSortClick(ev, 'desc')}
