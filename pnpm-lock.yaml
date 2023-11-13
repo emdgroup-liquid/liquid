@@ -104,7 +104,7 @@ devDependencies:
     version: 18.0.11
   '@types/tether':
     specifier: ^1.4.6
-    version: 1.4.6
+    version: 1.4.9
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.1.0
     version: 6.1.0(@typescript-eslint/parser@6.1.0)(eslint@8.34.0)(typescript@5.0.4)
@@ -2214,8 +2214,8 @@ packages:
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
     dev: true
 
-  /@types/tether@1.4.6:
-    resolution: {integrity: sha512-9nHygDpiN1VPAkTXZyKOmdVK12EPp4KLgc7kj9ji0X6qsHzzQV8e7KYEh1afrF6TTVs5d9oRJXwkmjeSWc+5Cw==}
+  /@types/tether@1.4.9:
+    resolution: {integrity: sha512-ugBFJlmykvwofTYZIci+5oixX2aqw/3lMqYN90v3NRupTgpVLa16StBgewjSXe/I5tWSiGrttlb66iBeDgPQgg==}
     dev: true
 
   /@types/trusted-types@2.0.6:
