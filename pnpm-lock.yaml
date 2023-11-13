@@ -18,13 +18,13 @@ patchedDependencies:
 dependencies:
   '@stencil/core':
     specifier: ^4.0.1
-    version: 4.0.1
+    version: 4.7.1
   dompurify:
     specifier: ^3.0.1
-    version: 3.0.1
+    version: 3.0.6
   js-cookie:
     specifier: ^3.0.1
-    version: 3.0.1
+    version: 3.0.5
   react:
     specifier: '>=17.0.0'
     version: 17.0.0
@@ -77,22 +77,22 @@ devDependencies:
     version: 0.4.0(@typescript-eslint/eslint-plugin@6.1.0)(@typescript-eslint/parser@6.1.0)(eslint-plugin-react@7.32.2)(eslint@8.34.0)(typescript@5.0.4)
   '@stencil/postcss':
     specifier: ^2.1.0
-    version: 2.1.0(@stencil/core@4.0.1)
+    version: 2.1.0(@stencil/core@4.7.1)
   '@stencil/react-output-target':
     specifier: ^0.5.3
-    version: 0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.0.1)
+    version: 0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.7.1)
   '@stencil/vue-output-target':
     specifier: ^0.8.6
-    version: 0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.0.1)
+    version: 0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.7.1)
   '@types/dompurify':
     specifier: ^3.0.1
-    version: 3.0.1
+    version: 3.0.5
   '@types/jest':
     specifier: ^27.5.2
     version: 27.5.2
   '@types/js-cookie':
     specifier: ^3.0.2
-    version: 3.0.2
+    version: 3.0.6
   '@types/node':
     specifier: ^20.1.0
     version: 20.1.0
@@ -1978,8 +1978,8 @@ packages:
     hasBin: true
     dev: true
 
-  /@stencil/core@4.0.1:
-    resolution: {integrity: sha512-7kWwh4HKuSBSRG9iKjxMzfvBK0O16/XeJtUavYBDEptkndufJjeym2x5JYnW0wKULxBGaVBFdrPyd1bTvthrlg==}
+  /@stencil/core@4.7.1:
+    resolution: {integrity: sha512-KDWA/3qDiABA5LqtHCmTVwORuzgu/YdC0FpSBwVmwlw6K8jUjbTA5JB6Q03da2F+EQlDHOVgbW0TNtHCm54uXQ==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
@@ -2002,31 +2002,31 @@ packages:
       typescript: 5.0.4
     dev: true
 
-  /@stencil/postcss@2.1.0(@stencil/core@4.0.1):
+  /@stencil/postcss@2.1.0(@stencil/core@4.7.1):
     resolution: {integrity: sha512-/e4TYEXErGaHxH0ocg620YqEMLuMLpK/Wg4MJsiJglrLZCZhU4XCX1N0SwxaIOUbEZ1Zh+AqQ++yMI92ilndEA==}
     peerDependencies:
       '@stencil/core': '>=2.0.0'
     dependencies:
-      '@stencil/core': 4.0.1
+      '@stencil/core': 4.7.1
       autoprefixer: 10.4.16(postcss@8.3.11)
       postcss: 8.3.11
     dev: true
 
-  /@stencil/react-output-target@0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.0.1):
+  /@stencil/react-output-target@0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.7.1):
     resolution: {integrity: sha512-68jwRp35CjAcwhTJ9yFD/3n+jrHOqvEH2jreVuPVvZK+4tkhPlYlwz0d1E1RlF3jyifUSfdkWUGgXIEy8Fo3yw==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.0.1
+      '@stencil/core': 4.7.1
     dev: true
     patched: true
 
-  /@stencil/vue-output-target@0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.0.1):
+  /@stencil/vue-output-target@0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.7.1):
     resolution: {integrity: sha512-B1gQW8FWeU7x/KBPm9R28jYFGN5NsZTZR4jwfDMhKBmU1Q2dIxFY52ARhbrfj5tJQxKoxr2tQJD2S14r9t1v7w==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.0.1
+      '@stencil/core': 4.7.1
     dev: true
     patched: true
 
@@ -2094,10 +2094,9 @@ packages:
       '@babel/types': 7.23.0
     dev: true
 
-  /@types/dompurify@3.0.1:
-    resolution: {integrity: sha512-ubq8VKmf8W+U48jUOiZO4BoSGS7NnbITPMvrF+7HgMN4L+eezCKv8QBPB8p3o4YPicLMmNeTyDkE5X4c2ViHJQ==}
+  /@types/dompurify@3.0.5:
+    resolution: {integrity: sha512-1Wg0g3BtQF7sSb27fJQAKck1HECM6zV1EB66j8JH9i3LCjYabJa0FSdiSgsD5K/RbrsR0SiraKacLB+T8ZVYAg==}
     dependencies:
-      '@types/jsdom': 21.1.5
       '@types/trusted-types': 2.0.6
     dev: true
 
@@ -2130,16 +2129,8 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@types/js-cookie@3.0.2:
-    resolution: {integrity: sha512-6+0ekgfusHftJNYpihfkMu8BWdeHs9EOJuGcSofErjstGPfPGEu9yTu4t460lTzzAMl2cM5zngQJqPMHbbnvYA==}
-    dev: true
-
-  /@types/jsdom@21.1.5:
-    resolution: {integrity: sha512-sBK/3YjS3uuPj+HzZyhB4GGTnFmk0mdyQfhzZ/sqs9ciyG41QJdZZdwcPa6OfW97OTNTwl5tBAsfEOm/dui9pQ==}
-    dependencies:
-      '@types/node': 20.1.0
-      '@types/tough-cookie': 4.0.5
-      parse5: 7.1.2
+  /@types/js-cookie@3.0.6:
+    resolution: {integrity: sha512-wkw9yd1kEXOPnvEeEV1Go1MmxtBJL0RR79aOTAApecWFVu7w0NNXNqhcWgvw2YgZDYadliXkl14pa3WXw5jlCQ==}
     dev: true
 
   /@types/json-schema@7.0.15:
@@ -2225,10 +2216,6 @@ packages:
 
   /@types/tether@1.4.6:
     resolution: {integrity: sha512-9nHygDpiN1VPAkTXZyKOmdVK12EPp4KLgc7kj9ji0X6qsHzzQV8e7KYEh1afrF6TTVs5d9oRJXwkmjeSWc+5Cw==}
-    dev: true
-
-  /@types/tough-cookie@4.0.5:
-    resolution: {integrity: sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==}
     dev: true
 
   /@types/trusted-types@2.0.6:
@@ -4358,8 +4345,8 @@ packages:
       domelementtype: 2.3.0
     dev: true
 
-  /dompurify@3.0.1:
-    resolution: {integrity: sha512-60tsgvPKwItxZZdfLmamp0MTcecCta3avOhsLgPZ0qcWt96OasFfhkeIRbJ6br5i0fQawT1/RBGB5L58/Jpwuw==}
+  /dompurify@3.0.6:
+    resolution: {integrity: sha512-ilkD8YEnnGh1zJ240uJsW7AzE+2qpbOUYjacomn3AvJ6J4JhKGSZ2nh4wUIXPZrEPppaCLx5jFe8T89Rk8tQ7w==}
     dev: false
 
   /domutils@2.8.0:
@@ -6999,9 +6986,9 @@ packages:
       - utf-8-validate
     dev: true
 
-  /js-cookie@3.0.1:
-    resolution: {integrity: sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==}
-    engines: {node: '>=12'}
+  /js-cookie@3.0.5:
+    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
+    engines: {node: '>=14'}
     dev: false
 
   /js-sdsl@4.4.2:
