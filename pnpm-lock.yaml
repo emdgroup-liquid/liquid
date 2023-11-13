@@ -185,7 +185,7 @@ devDependencies:
     version: 4.0.1
   markdown-it-replace-link:
     specifier: ^1.1.0
-    version: 1.1.0
+    version: 1.2.0
   mutation-observer:
     specifier: ^1.0.3
     version: 1.0.3
@@ -7593,8 +7593,11 @@ packages:
     resolution: {integrity: sha512-pg5OK0jPLg62H4k7M9mRJLT61gUp9nvG0XveKYHMOOluASo9OEF13WlXrpAp2aj35LbedAy3QOCgQCw0tkLKAQ==}
     dev: true
 
-  /markdown-it-replace-link@1.1.0:
-    resolution: {integrity: sha512-P+4D/Z16utgQVjMumA5W3lMbxWYk4iwg1Fk59wShFm7MRgzbjJm++tvI18LdYwiG8CKNA1TFWvHcbtehvMuViA==}
+  /markdown-it-replace-link@1.2.0:
+    resolution: {integrity: sha512-tIsShJvQOYwTHjIPhE1SWo12HjOtpEqSQfVoApm3fuIkVcZrSE7zK3iW8kXcaJYasf8Ddf+VbH5fNXCzfejOrQ==}
+    optionalDependencies:
+      dom-serializer: 2.0.0
+      htmlparser2: 8.0.2
     dev: true
 
   /markdown-it@13.0.2:
