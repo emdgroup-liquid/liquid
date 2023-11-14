@@ -65,16 +65,16 @@ export class LdUploadItem {
   @Prop() uploadItems: UploadItem[] = []
 
   /** Label to be used for the tooltip of the remove button. */
-  @Prop() labelTooltipRemove = `Remove`
+  @Prop() labelRemove = `Remove`
 
   /** Label to be used for the tooltip of the download button. */
-  @Prop() labelTooltipDownload = `Download`
+  @Prop() labelDownload = `Download`
 
   /** Label to be used for the tooltip of the retry button. */
-  @Prop() labelTooltipRetry = `Retry`
+  @Prop() labelRetry = `Retry`
 
   /** Label to be used for the tooltip of the delete button. */
-  @Prop() labelTooltipDelete = `Delete`
+  @Prop() labelDelete = `Delete`
 
   /**
    * @internal
@@ -215,11 +215,22 @@ export class LdUploadItem {
     return (
       <Host class={cl}>
         <div class="ld-upload-item__container">
-          <div class="ld-upload-item__icon">
+          {this.showProgress || this.state == 'uploaded' ? (
+            <div class="ld-upload-item__icon">
+              <slot name="icons">
+                <ld-icon name="documents" size="lg"></ld-icon>
+              </slot>
+            </div>
+          ) : (
+            <div class="ld-upload-item__icon">
+              <ld-loading class="ld-upload-item__loading"></ld-loading>
+            </div>
+          )}
+          {/* <div class="ld-upload-item__icon">
             <slot name="icons">
               <ld-icon name="documents" size="lg"></ld-icon>
             </slot>
-          </div>
+          </div> */}
 
           <div class="ld-upload-item__file-details">
             <ld-typo class="ld-upload-item__file-name" variant="h5">
@@ -292,9 +303,12 @@ export class LdUploadItem {
                     size="sm"
                     aria-label="Text"
                   ></ld-icon>
+                  <div class="ld-upload-item__hide-on-sm">
+                    {this.labelRemove}
+                  </div>
                 </ld-button>
                 {/* <ld-typo>Remove</ld-typo> */}
-                <ld-typo>{this.labelTooltipRemove}</ld-typo>
+                <ld-typo>{this.labelRemove}</ld-typo>
               </ld-tooltip>
             ) : undefined}
             {this.state == 'uploaded' ? (
@@ -312,9 +326,12 @@ export class LdUploadItem {
                     size="sm"
                     aria-label="Text"
                   ></ld-icon>
+                  <div class="ld-upload-item__hide-on-sm">
+                    {this.labelDownload}
+                  </div>
                 </ld-button>
                 {/* <ld-typo>Download</ld-typo> */}
-                <ld-typo>{this.labelTooltipDownload}</ld-typo>
+                <ld-typo>{this.labelDownload}</ld-typo>
               </ld-tooltip>
             ) : undefined}
             {this.state == 'upload failed' &&
@@ -334,9 +351,12 @@ export class LdUploadItem {
                     size="sm"
                     aria-label="Text"
                   ></ld-icon>
+                  <div class="ld-upload-item__hide-on-sm">
+                    {this.labelRetry}
+                  </div>
                 </ld-button>
                 {/* <ld-typo>Retry</ld-typo> */}
-                <ld-typo>{this.labelTooltipRetry}</ld-typo>
+                <ld-typo>{this.labelRetry}</ld-typo>
               </ld-tooltip>
             ) : undefined}
             {this.state == 'cancelled' ||
@@ -356,9 +376,12 @@ export class LdUploadItem {
                     size="sm"
                     aria-label="Text"
                   ></ld-icon>
+                  <div class="ld-upload-item__hide-on-sm">
+                    {this.labelDelete}
+                  </div>
                 </ld-button>
                 {/* <ld-typo>Delete</ld-typo> */}
-                <ld-typo>{this.labelTooltipDelete}</ld-typo>
+                <ld-typo>{this.labelDelete}</ld-typo>
               </ld-tooltip>
             ) : undefined}
           </div>
@@ -366,7 +389,7 @@ export class LdUploadItem {
         {this.state == 'pending' || this.state == 'uploading' ? (
           <ld-sr-only id="progress-label">Progress</ld-sr-only>
         ) : undefined}
-        {activeUploads && this.showProgress ? (
+        {/* {activeUploads && this.showProgress ? (
           <ld-progress
             class="ld-upload-item__progress"
             pending={this.state == 'paused'}
@@ -377,7 +400,16 @@ export class LdUploadItem {
           <div class="ld-upload-item__progress">
             <ld-loading class="ld-upload-item__loading"></ld-loading>
           </div>
-        ) : undefined}
+        ) : undefined} */}
+        {activeUploads && this.showProgress ? (
+          <ld-progress
+            class="ld-upload-item__progress"
+            pending={this.state == 'paused'}
+            aria-labeledby="progress-label"
+            aria-valuenow={this.progress}
+          ></ld-progress>
+        ) : this.state == 'uploading' &&
+          !this.showProgress ? undefined : undefined}
         {this.state == 'cancelled' ? (
           <ld-input-message mode="info">
             Upload of this file has been cancelled

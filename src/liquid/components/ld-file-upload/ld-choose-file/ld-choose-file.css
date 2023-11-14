@@ -53,6 +53,7 @@
   flex-direction: column;
   gap: var(--ld-sp-8);
   align-items: center;
+  justify-content: flex-start;
   justify-items: start;
   position: relative;
   text-align: start;
@@ -66,6 +67,10 @@
   justify-items: center;
   position: relative;
   text-align: center;
+}
+
+.ld-choose-file__upload-button {
+  padding-top: var(--ld-sp-8);
 }
 
 /* ::slotted(*) {

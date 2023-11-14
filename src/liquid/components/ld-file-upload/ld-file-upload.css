@@ -63,6 +63,17 @@
   --ld-circular-progress-bar-col: var(--ld-thm-error);
 }
 
+.ld-file-upload__buttons {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ld-sp-8);
+  justify-items: center;
+  width: 100%;
+}
+
 .ld-file-upload__start-upload-button {
   width: 100%;
 }

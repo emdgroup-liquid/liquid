@@ -62,10 +62,10 @@ export class LdFileUpload {
   /** circularProgress defines whether only the circular progress indicator will be shown during upload. */
   @Prop() circularProgress?: boolean = false
 
-  /** circularProgress defines whether only one file can be chosen and uploaded. */
+  /** TODO: circularProgress defines whether only one file can be chosen and uploaded. */
   @Prop() singularUpload?: boolean = false
 
-  /** TODO: is used to display and validate maximum file size in Bytes */
+  /** Is used to display and validate maximum file size in Bytes */
   @Prop() maxSize?: number
   // @Prop() maxSize?: number = 1572864
 
@@ -176,16 +176,16 @@ export class LdFileUpload {
   // Labels for tooltips
 
   /** Label to be used for the tooltip of the remove button. */
-  @Prop() labelTooltipRemove = `Remove`
+  @Prop() labelRemove = `Remove`
 
   /** Label to be used for the tooltip of the download button. */
-  @Prop() labelTooltipDownload = `Download`
+  @Prop() labelDownload = `Download`
 
   /** Label to be used for the tooltip of the retry button. */
-  @Prop() labelTooltipRetry = `Retry`
+  @Prop() labelRetry = `Retry`
 
   /** Label to be used for the tooltip of the delete button. */
-  @Prop() labelTooltipDelete = `Delete`
+  @Prop() labelDelete = `Delete`
 
   /** List of files */
   @State() uploadItems: UploadItem[] = []
@@ -639,6 +639,7 @@ export class LdFileUpload {
                 start-upload={this.startUpload}
                 selectMultiple={this.selectMultiple}
                 startUploadClicked={this.startUploadClicked}
+                showProgress={this.showProgress}
                 uploadItems={this.uploadItems}
                 maxSize={this.maxSize}
                 labelDragInstructions={this.labelDragInstructions}
@@ -805,23 +806,28 @@ export class LdFileUpload {
         : undefined
     return (
       <Host class={cl}>
-        <ld-choose-file
-          class="ld-file-upload__choose-file"
-          size={this.renderOnlyChooseFile ? 'bg' : 'sm'}
-          onLdchoosefiles={this.handleChooseFiles}
-          start-upload={this.startUpload}
-          selectMultiple={this.selectMultiple}
-          startUploadClicked={this.startUploadClicked}
-          uploadItems={this.uploadItems}
-          maxSize={this.maxSize}
-          labelDragInstructions={this.labelDragInstructions}
-          labelUploadConstraints={this.labelUploadConstraints}
-          labelSelectFile={this.labelSelectFile}
-          labelUploadFile={this.labelUploadFile}
-          labelUploadState={this.labelUploadState}
-          labelUploadCount={this.labelUploadCount}
-          labelUploadPercentage={this.labelUploadPercentage}
-        ></ld-choose-file>
+        {(this.renderOnlyChooseFile || !this.singularUpload) && (
+          <ld-choose-file
+            class="ld-file-upload__choose-file"
+            size={
+              this.renderOnlyChooseFile && !this.singularUpload ? 'bg' : 'sm'
+            }
+            onLdchoosefiles={this.handleChooseFiles}
+            start-upload={this.startUpload}
+            selectMultiple={this.selectMultiple}
+            startUploadClicked={this.startUploadClicked}
+            showProgress={this.showProgress}
+            uploadItems={this.uploadItems}
+            maxSize={this.maxSize}
+            labelDragInstructions={this.labelDragInstructions}
+            labelUploadConstraints={this.labelUploadConstraints}
+            labelSelectFile={this.labelSelectFile}
+            labelUploadFile={this.labelUploadFile}
+            labelUploadState={this.labelUploadState}
+            labelUploadCount={this.labelUploadCount}
+            labelUploadPercentage={this.labelUploadPercentage}
+          ></ld-choose-file>
+        )}
 
         {!this.renderOnlyChooseFile && (
           <Fragment>
@@ -889,21 +895,22 @@ export class LdFileUpload {
                   startUpload={false}
                   allowPause={this.allowPause}
                   showProgress={this.showProgress}
-                  labelTooltipRemove={this.labelTooltipRemove}
-                  labelTooltipDownload={this.labelTooltipDownload}
-                  labelTooltipRetry={this.labelTooltipRetry}
-                  labelTooltipDelete={this.labelTooltipDelete}
+                  labelRemove={this.labelRemove}
+                  labelDownload={this.labelDownload}
+                  labelRetry={this.labelRetry}
+                  labelDelete={this.labelDelete}
                 ></ld-upload-progress>
 
-                {!this.startUpload && (
-                  <ld-button
-                    class="ld-file-upload__start-upload-button"
-                    size="sm"
-                    onClick={this.handleStartUploadClick}
-                    /* disabled={this.continueClicked} */
-                    progress={progress}
-                  >
-                    {/* {!this.startUploadClicked
+                <div class="ld-file-upload__buttons">
+                  {!this.startUpload && (
+                    <ld-button
+                      class="ld-file-upload__start-upload-button"
+                      size="sm"
+                      onClick={this.handleStartUploadClick}
+                      /* disabled={this.continueClicked} */
+                      progress={progress}
+                    >
+                      {/* {!this.startUploadClicked
                       ? 'Start upload'
                       : this.uploadItems.filter(
                           (item) =>
@@ -913,26 +920,26 @@ export class LdFileUpload {
                         ).length != 0
                       ? 'Uploading'
                       : 'Upload completed'} */}
-                    {!this.startUploadClicked
-                      ? this.labelStartUpload
-                      : this.uploadItems.filter(
-                          (item) =>
-                            item.state == 'pending' ||
-                            item.state == 'paused' ||
-                            item.state == 'uploading'
-                        ).length != 0
-                      ? this.labelUploading
-                      : this.labelUploadCompleted}
-                  </ld-button>
-                )}
-                {/* <ld-button
+                      {!this.startUploadClicked
+                        ? this.labelStartUpload
+                        : this.uploadItems.filter(
+                            (item) =>
+                              item.state == 'pending' ||
+                              item.state == 'paused' ||
+                              item.state == 'uploading'
+                          ).length != 0
+                        ? this.labelUploading
+                        : this.labelUploadCompleted}
+                    </ld-button>
+                  )}
+                  {/* <ld-button
                   class="ld-file-upload__delete-button"
                   onClick={this.handleDeleteAllClick}
                   mode="secondary"
                 >
                   Delete all files
                 </ld-button> */}
-                {/* <ld-button
+                  {/* <ld-button
                   class="ld-file-upload__delete-button"
                   size="sm"
                   onClick={this.handleDeleteAllClick}
@@ -941,57 +948,59 @@ export class LdFileUpload {
                   {this.labelDeleteAllFiles}
                 </ld-button> */}
 
-                {this.pauseAllClicked && this.allowPause ? (
-                  // <ld-button
-                  //   class="ld-file-upload__continue-paused-button"
-                  //   onClick={this.handleContinuePausedClick}
-                  //   mode="secondary"
-                  //   disabled={
-                  //     this.uploadItems.filter((item) => item.state == 'paused')
-                  //       .length == 0
-                  //   }
-                  // >
-                  //   Continue paused uploads
-                  // </ld-button>
-                  <ld-button
-                    class="ld-file-upload__continue-paused-button"
-                    size="sm"
-                    onClick={this.handleContinuePausedClick}
-                    mode="secondary"
-                    disabled={
-                      this.uploadItems.filter((item) => item.state == 'paused')
-                        .length == 0
-                    }
-                  >
-                    {this.labelContinuePausedUploads}
-                  </ld-button>
-                ) : !this.pauseAllClicked && this.allowPause ? (
-                  // <ld-button
-                  //   class="ld-file-upload__pause-all-button"
-                  //   onClick={this.handlePauseAllClick}
-                  //   mode="secondary"
-                  //   disabled={
-                  //     this.uploadItems.filter(
-                  //       (item) => item.state == 'uploading'
-                  //     ).length == 0
-                  //   }
-                  // >
-                  //   Pause all uploads
-                  // </ld-button>
-                  <ld-button
-                    class="ld-file-upload__pause-all-button"
-                    size="sm"
-                    onClick={this.handlePauseAllClick}
-                    mode="secondary"
-                    disabled={
-                      this.uploadItems.filter(
-                        (item) => item.state == 'uploading'
-                      ).length == 0
-                    }
-                  >
-                    {this.labelPauseAllUploads}
-                  </ld-button>
-                ) : undefined}
+                  {this.pauseAllClicked && this.allowPause ? (
+                    // <ld-button
+                    //   class="ld-file-upload__continue-paused-button"
+                    //   onClick={this.handleContinuePausedClick}
+                    //   mode="secondary"
+                    //   disabled={
+                    //     this.uploadItems.filter((item) => item.state == 'paused')
+                    //       .length == 0
+                    //   }
+                    // >
+                    //   Continue paused uploads
+                    // </ld-button>
+                    <ld-button
+                      class="ld-file-upload__continue-paused-button"
+                      size="sm"
+                      onClick={this.handleContinuePausedClick}
+                      mode="secondary"
+                      disabled={
+                        this.uploadItems.filter(
+                          (item) => item.state == 'paused'
+                        ).length == 0
+                      }
+                    >
+                      {this.labelContinuePausedUploads}
+                    </ld-button>
+                  ) : !this.pauseAllClicked && this.allowPause ? (
+                    // <ld-button
+                    //   class="ld-file-upload__pause-all-button"
+                    //   onClick={this.handlePauseAllClick}
+                    //   mode="secondary"
+                    //   disabled={
+                    //     this.uploadItems.filter(
+                    //       (item) => item.state == 'uploading'
+                    //     ).length == 0
+                    //   }
+                    // >
+                    //   Pause all uploads
+                    // </ld-button>
+                    <ld-button
+                      class="ld-file-upload__pause-all-button"
+                      size="sm"
+                      onClick={this.handlePauseAllClick}
+                      mode="secondary"
+                      disabled={
+                        this.uploadItems.filter(
+                          (item) => item.state == 'uploading'
+                        ).length == 0
+                      }
+                    >
+                      {this.labelPauseAllUploads}
+                    </ld-button>
+                  ) : undefined}
+                </div>
               </Fragment>
             )}
           </Fragment>

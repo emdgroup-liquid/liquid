@@ -12,9 +12,6 @@ import type { UploadItem } from '../ld-file-upload'
 export class LdUploadProgress {
   @Element() el: HTMLLdUploadProgressElement
 
-  /** Size of the context menu. */
-  @Prop() size?: 'sm' | 'lg'
-
   /** startUpload defines whether upload starts immediately after choosing files or after confirmation. */
   @Prop() startUpload?: boolean = false
 
@@ -28,16 +25,16 @@ export class LdUploadProgress {
   @Prop() uploadItems: UploadItem[] = []
 
   /** Label to be used for the tooltip of the remove button. */
-  @Prop() labelTooltipRemove = `Remove`
+  @Prop() labelRemove = `Remove`
 
   /** Label to be used for the tooltip of the download button. */
-  @Prop() labelTooltipDownload = `Download`
+  @Prop() labelDownload = `Download`
 
   /** Label to be used for the tooltip of the retry button. */
-  @Prop() labelTooltipRetry = `Retry`
+  @Prop() labelRetry = `Retry`
 
   /** Label to be used for the tooltip of the delete button. */
-  @Prop() labelTooltipDelete = `Delete`
+  @Prop() labelDelete = `Delete`
 
   private renderListItems = () =>
     this.uploadItems.map((item) => (
@@ -53,10 +50,10 @@ export class LdUploadProgress {
           allowPause={this.allowPause}
           showProgress={this.showProgress}
           uploadItems={this.uploadItems}
-          labelTooltipRemove={this.labelTooltipRemove}
-          labelTooltipDownload={this.labelTooltipDownload}
-          labelTooltipRetry={this.labelTooltipRetry}
-          labelTooltipDelete={this.labelTooltipDelete}
+          labelRemove={this.labelRemove}
+          labelDownload={this.labelDownload}
+          labelRetry={this.labelRetry}
+          labelDelete={this.labelDelete}
         />
       </li>
     ))

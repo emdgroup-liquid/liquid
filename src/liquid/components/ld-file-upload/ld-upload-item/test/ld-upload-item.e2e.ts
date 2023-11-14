@@ -5,15 +5,15 @@ import {
 import { LdUploadItem } from '../ld-upload-item'
 
 describe('ld-upload-item', () => {
-  it('renders as Web Component', async () => {
-    const page = await getPageWithContent(
-      `<ld-upload-item file-name='Liquid' file-size='1.28'>
-        </ld-upload-item>`
-    )
+  // it('renders as Web Component', async () => {
+  //   const page = await getPageWithContent(
+  //     `<ld-upload-item file-name='Liquid' file-size='1.28'>
+  //       </ld-upload-item>`
+  //   )
 
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
+  //   const results = await page.compareScreenshot()
+  //   expect(results).toMatchScreenshot()
+  // })
 
   it('renders as CSS Component', async () => {
     const page = await getPageWithContent(

@@ -37,6 +37,9 @@ export class LdChooseFile {
   /** selectMultiple defines whether selection of multiple input files is allowed. */
   @Prop() selectMultiple?: boolean = false
 
+  /** showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button */
+  @Prop() showProgress?: boolean = false
+
   /** Chosen Files */
   /* @Prop() uploadFiles: {
     state:
@@ -309,12 +312,20 @@ export class LdChooseFile {
                 {/* <ld-typo>
                   {(calculateProgress() * 100).toFixed(2)} % uploaded.
                 </ld-typo> */}
-                <ld-typo>
+                {this.showProgress ? (
+                  <ld-typo>
+                    {this.labelUploadPercentage.replace(
+                      '$uploadProgress',
+                      String((calculateProgress() * 100).toFixed(2))
+                    )}
+                  </ld-typo>
+                ) : undefined}
+                {/* <ld-typo>
                   {this.labelUploadPercentage.replace(
                     '$uploadProgress',
                     String((calculateProgress() * 100).toFixed(2))
                   )}
-                </ld-typo>
+                </ld-typo> */}
               </Fragment>
             )}
           </div>
