@@ -1,5 +1,5 @@
 :host {
-  background: var(--ld-col-wht);
+  background-color: var(--ld-col-wht);
   box-sizing: border-box;
   list-style: none;
   margin: 0;
@@ -28,6 +28,14 @@
   justify-content: center;
 }
 
+.ld-upload-item__loading {
+  width: 2rem;
+  height: auto;
+  /* color: var(--ld-thm-primary); */
+  display: flex;
+  justify-content: center;
+}
+
 ::slotted(*) {
   width: 2rem;
   height: auto;
@@ -38,7 +46,6 @@
   flex-direction: column;
   align-items: flex-start;
   flex-grow: 1;
-  /* width: calc(100% - 9rem); */
   width: calc(100% - 18rem);
 }
 
@@ -70,41 +77,11 @@
   justify-items: end;
 }
 
-/* @media (width <= 480px) {
-  .mobile-hide {
-    display: none;
-  }
-} */
-
 .ld-upload-item__hide-on-sm {
   @media (width <= 32rem) {
     display: none;
   }
 }
-
-/* .ld-upload-item__pause-icon {
-  color: var(--ld-col-neutral-900);
-} */
-
-/* .ld-upload-item__continue-icon {
-  color: var(--ld-col-neutral-900);
-} */
-
-/* .ld-upload-item__remove-icon {
-  color: var(--ld-col-neutral-900);
-} */
-
-/* .ld-upload-item__download-icon {
-  color: var(--ld-col-neutral-900);
-} */
-
-/* .ld-upload-item__retry-icon {
-  color: var(--ld-col-neutral-900);
-} */
-
-/* .ld-upload-item__delete-icon {
-  color: var(--ld-col-rr-600);
-} */
 
 .ld-upload-item__progress {
   display: grid;

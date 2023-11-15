@@ -76,6 +76,15 @@ export class LdUploadItem {
   /** Label to be used for the tooltip of the delete button. */
   @Prop() labelDelete = `Delete`
 
+  /** Label to be used for upload success message. */
+  @Prop() labelUploadSuccessMsg = `Upload was successful!`
+
+  /** Label to be used for upload cancelled message. */
+  @Prop() labelUploadCancelledMsg = `Upload of this file has been cancelled`
+
+  /** Label to be used for upload error message. */
+  @Prop() labelUploadErrorMsg = `Error! Upload was unsuccessful`
+
   /**
    * @internal
    * Emitted on pause button click.
@@ -111,6 +120,8 @@ export class LdUploadItem {
    * Emitted on delete button click.
    */
   @Event() lduploaditemdelete: EventEmitter<UploadItem>
+
+  // Pausing the upload of singular files might be implemented at a later time
 
   // private pauseClick = () => {
   //   this.lduploaditempause.emit({
@@ -222,15 +233,8 @@ export class LdUploadItem {
               </slot>
             </div>
           ) : (
-            <div class="ld-upload-item__icon">
-              <ld-loading class="ld-upload-item__loading"></ld-loading>
-            </div>
+            <ld-loading class="ld-upload-item__loading"></ld-loading>
           )}
-          {/* <div class="ld-upload-item__icon">
-            <slot name="icons">
-              <ld-icon name="documents" size="lg"></ld-icon>
-            </slot>
-          </div> */}
 
           <div class="ld-upload-item__file-details">
             <ld-typo class="ld-upload-item__file-name" variant="h5">
@@ -307,7 +311,6 @@ export class LdUploadItem {
                     {this.labelRemove}
                   </div>
                 </ld-button>
-                {/* <ld-typo>Remove</ld-typo> */}
                 <ld-typo>{this.labelRemove}</ld-typo>
               </ld-tooltip>
             ) : undefined}
@@ -330,7 +333,6 @@ export class LdUploadItem {
                     {this.labelDownload}
                   </div>
                 </ld-button>
-                {/* <ld-typo>Download</ld-typo> */}
                 <ld-typo>{this.labelDownload}</ld-typo>
               </ld-tooltip>
             ) : undefined}
@@ -355,7 +357,6 @@ export class LdUploadItem {
                     {this.labelRetry}
                   </div>
                 </ld-button>
-                {/* <ld-typo>Retry</ld-typo> */}
                 <ld-typo>{this.labelRetry}</ld-typo>
               </ld-tooltip>
             ) : undefined}
@@ -380,7 +381,6 @@ export class LdUploadItem {
                     {this.labelDelete}
                   </div>
                 </ld-button>
-                {/* <ld-typo>Delete</ld-typo> */}
                 <ld-typo>{this.labelDelete}</ld-typo>
               </ld-tooltip>
             ) : undefined}
@@ -412,16 +412,16 @@ export class LdUploadItem {
           !this.showProgress ? undefined : undefined}
         {this.state == 'cancelled' ? (
           <ld-input-message mode="info">
-            Upload of this file has been cancelled
+            {this.labelUploadCancelledMsg}
           </ld-input-message>
         ) : undefined}
         {this.state == 'uploaded' ? (
           <ld-input-message mode="valid">
-            Upload was successful!
+            {this.labelUploadSuccessMsg}
           </ld-input-message>
         ) : undefined}
         {this.state == 'upload failed' ? (
-          <ld-input-message>Error! Upload was unsuccessful</ld-input-message>
+          <ld-input-message>{this.labelUploadErrorMsg}</ld-input-message>
         ) : undefined}
         <slot></slot>
       </Host>

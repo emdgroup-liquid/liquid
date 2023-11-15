@@ -36,11 +36,19 @@ export class LdUploadProgress {
   /** Label to be used for the tooltip of the delete button. */
   @Prop() labelDelete = `Delete`
 
+  /** Label to be used for upload success message. */
+  @Prop() labelUploadSuccessMsg = `Upload was successful!`
+
+  /** Label to be used for upload cancelled message. */
+  @Prop() labelUploadCancelledMsg = `Upload of this file has been cancelled`
+
+  /** Label to be used for upload error message. */
+  @Prop() labelUploadErrorMsg = `Error! Upload was unsuccessful`
+
   private renderListItems = () =>
     this.uploadItems.map((item) => (
       <li key={item.fileName}>
         <ld-upload-item
-          // key={item.fileName + '_' + item.fileSize + '_' + item.progress}
           state={item.state}
           fileName={item.fileName}
           fileSize={item.fileSize}
@@ -54,6 +62,9 @@ export class LdUploadProgress {
           labelDownload={this.labelDownload}
           labelRetry={this.labelRetry}
           labelDelete={this.labelDelete}
+          labelUploadSuccessMsg={this.labelUploadSuccessMsg}
+          labelUploadCancelledMsg={this.labelUploadCancelledMsg}
+          labelUploadErrorMsg={this.labelUploadErrorMsg}
         />
       </li>
     ))

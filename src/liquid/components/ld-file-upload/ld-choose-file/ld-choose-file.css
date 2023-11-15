@@ -1,5 +1,5 @@
 :host {
-  background: var(--ld-col-wht);
+  background-color: var(--ld-col-wht);
   border-radius: var(--ld-br-l);
   border: var(--ld-sp-2) dashed var(--ld-col-neutral-100);
   box-sizing: border-box;
@@ -8,10 +8,7 @@
   padding: 0;
 }
 
-/* :host[highlighted] {
-  background: var(--ld-col-rb-050);
-} */
-
+/* stylelint-disable-next-line csstools/use-nesting */
 :host(.ld-choose-file--highlighted) {
   background: var(--ld-col-rb-050);
 }
@@ -23,11 +20,6 @@
   align-items: center;
   margin: var(--ld-sp-24) var(--ld-sp-40) var(--ld-sp-24) var(--ld-sp-40);
   justify-content: center;
-
-  .ld-choose-file__image {
-    width: 5.5625rem;
-    height: auto;
-  }
 }
 
 .ld-choose-file--bg {
@@ -38,49 +30,26 @@
   margin: var(--ld-sp-32) var(--ld-sp-40) var(--ld-sp-32) var(--ld-sp-40);
 }
 
-/* .ld-choose-file__text {
+.ld-choose-file__text {
   display: flex;
   flex-direction: column;
   gap: var(--ld-sp-8);
-  align-items: center;
+  /* align-items: center; */
   justify-items: center;
   position: relative;
-  text-align: center;
-} */
+  /* text-align: center; */
+}
 
-.ld-choose-file--text-sm {
-  display: flex;
-  flex-direction: column;
-  gap: var(--ld-sp-8);
-  align-items: center;
-  justify-content: flex-start;
-  justify-items: start;
-  position: relative;
+.ld-choose-file__text--sm {
+  align-items: flex-start;
   text-align: start;
 }
 
-.ld-choose-file--text-bg {
-  display: flex;
-  flex-direction: column;
-  gap: var(--ld-sp-8);
+.ld-choose-file__text--bg {
   align-items: center;
-  justify-items: center;
-  position: relative;
   text-align: center;
 }
 
 .ld-choose-file__upload-button {
   padding-top: var(--ld-sp-8);
 }
-
-/* ::slotted(*) {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-} */
-
-/* ::slotted(input) {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-} */

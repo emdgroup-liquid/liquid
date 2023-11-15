@@ -41,35 +41,10 @@ export class LdChooseFile {
   @Prop() showProgress?: boolean = false
 
   /** Chosen Files */
-  /* @Prop() uploadFiles: {
-    state:
-      | 'pending'
-      | 'paused'
-      | 'cancelled'
-      | 'uploading'
-      | 'uploaded'
-      | 'upload failed'
-    fileName: string
-    fileSize: number
-    fileType: string
-    progress: number
-  }[] = [] */
+
   @Prop() uploadFiles: UploadItem[] = []
 
   /** Chosen Files from the parent component */
-  /* @Prop() uploadItems: {
-    state:
-      | 'pending'
-      | 'paused'
-      | 'cancelled'
-      | 'uploading'
-      | 'uploaded'
-      | 'upload failed'
-    fileName: string
-    fileSize: number
-    fileType: string
-    progress: number
-  }[] = [] */
   @Prop() uploadItems: UploadItem[] = []
 
   /** Size of the choose file area */
@@ -169,11 +144,9 @@ export class LdChooseFile {
   private handleDrop = (ev: DragEvent) => {
     ev.preventDefault()
     ev.stopPropagation()
-    console.log(ev)
     this.highlighted = false
 
     const fileList = ev.dataTransfer.files
-    console.info('fileList', fileList)
 
     if (
       (this.selectMultiple || (!this.selectMultiple && fileList.length <= 1)) &&
@@ -231,31 +204,16 @@ export class LdChooseFile {
             height="122"
           />
 
-          {/* <div class="ld-choose-file__text"> */}
           <div
             class={getClassNames([
               'ld-choose-file__text',
-              this.size && `ld-choose-file--text-${this.size}`,
+              this.size && `ld-choose-file__text--${this.size}`,
             ])}
           >
             {this.startUpload ||
             (!this.startUpload && !this.startUploadClicked) ? (
               <Fragment>
-                {/* <ld-typo variant="h5">
-                  {this.selectMultiple
-                    ? 'Drag your file(s) here or browse'
-                    : 'Drag your file here or browse'}
-                </ld-typo> */}
                 <ld-typo variant="h5">{this.labelDragInstructions}</ld-typo>
-                {/* {this.maxSize != null ? (
-                  <ld-typo>
-                    max. {this.bytesToSize(this.maxSize)} file size
-                  </ld-typo>
-                ) : (
-                  // <ld-typo></ld-typo>
-                  // undefined
-                  <slot name="upload-constraints"></slot>
-                )} */}
                 {this.labelUploadConstraints != '' ? (
                   <ld-typo>
                     {this.labelUploadConstraints.replace(
@@ -264,23 +222,12 @@ export class LdChooseFile {
                     )}
                   </ld-typo>
                 ) : undefined}
-                {/* <ld-typo>max. 1.5 mb file size</ld-typo> */}
-                {/* <ld-typo>
-                  max. {this.bytesToSize(this.maxSize)} file size
-                </ld-typo> */}
                 <slot></slot>
                 <ld-button
                   class="ld-choose-file__upload-button"
                   size="sm"
                   onClick={this.handleUploadClick}
                 >
-                  {/* {this.startUpload
-                    ? this.selectMultiple
-                      ? 'Upload file(s)'
-                      : 'Upload a file'
-                    : this.selectMultiple
-                    ? 'Select file(s)'
-                    : 'Select a file'} */}
                   {this.startUpload
                     ? this.labelUploadFile
                     : this.labelSelectFile}
@@ -288,15 +235,7 @@ export class LdChooseFile {
               </Fragment>
             ) : (
               <Fragment>
-                {/* <ld-typo variant="h5">Upload state:</ld-typo> */}
                 <ld-typo variant="h5">{this.labelUploadState}</ld-typo>
-                {/* <ld-typo>
-                  {
-                    this.uploadItems.filter((item) => item.state == 'uploaded')
-                      .length
-                  }{' '}
-                  of {this.uploadItems.length} file(s) uploaded.
-                </ld-typo> */}
                 <ld-typo>
                   {this.labelUploadCount
                     .replace(
@@ -309,9 +248,6 @@ export class LdChooseFile {
                     )
                     .replace('$filesTotal', String(this.uploadItems.length))}
                 </ld-typo>
-                {/* <ld-typo>
-                  {(calculateProgress() * 100).toFixed(2)} % uploaded.
-                </ld-typo> */}
                 {this.showProgress ? (
                   <ld-typo>
                     {this.labelUploadPercentage.replace(
@@ -320,12 +256,6 @@ export class LdChooseFile {
                     )}
                   </ld-typo>
                 ) : undefined}
-                {/* <ld-typo>
-                  {this.labelUploadPercentage.replace(
-                    '$uploadProgress',
-                    String((calculateProgress() * 100).toFixed(2))
-                  )}
-                </ld-typo> */}
               </Fragment>
             )}
           </div>

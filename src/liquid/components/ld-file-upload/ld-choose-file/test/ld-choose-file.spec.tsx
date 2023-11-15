@@ -42,12 +42,12 @@ describe('ld-choose-file', () => {
     expect(page.root.startUpload).toBe(true)
   })
 
-  it('renders continue-clicked', async () => {
+  it('renders start-upload-clicked', async () => {
     const page = await newSpecPage({
       components: [LdChooseFile],
-      html: `<ld-choose-file continue-clicked></ld-choose-file>`,
+      html: `<ld-choose-file start-upload-clicked></ld-choose-file>`,
     })
-    expect(page.root.continueClicked).toBe(true)
+    expect(page.root.startUploadClicked).toBe(true)
   })
 
   it('renders select-multiple', async () => {

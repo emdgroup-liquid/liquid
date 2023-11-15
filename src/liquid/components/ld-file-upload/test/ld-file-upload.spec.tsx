@@ -73,194 +73,82 @@ describe('ld-file-upload', () => {
     expect(page.root).toMatchSnapshot()
   })
 
-  /* it('receives uploadItems from ldchoosefiles event', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload],
-      html: `<ld-file-upload></ld-file-upload>`,
-    })
-    const ldFileUpload = page.root
+  // Continuing/pausing singular files might be added at a later time
 
-    // const data: UploadItem[] = [
-    //   {
-    //     file: undefined,
-    //     state: 'uploading',
-    //     fileName: 'file1.png',
-    //     fileSize: 100000,
-    //     fileType: 'png',
-    //     progress: 50,
-    //   },
-    // ]
+  // it('emits ldfileuploadready event on continue button click', async () => {
+  //   const page = await newSpecPage({
+  //     components: [LdFileUpload, LdChooseFile, LdUploadProgress, LdUploadItem],
+  //     html: `<ld-file-upload />`,
+  //   })
+  //   const ldFileUpload = page.root
 
-    // ldFileUpload.dispatchEvent(
-    //   new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
-    // )
+  //   const ldchoosefilesHandler = jest.fn()
+  //   ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
 
-    await page.waitForChanges()
+  //   const ldfileuploadreadyHandler = jest.fn()
+  //   ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
 
-    expect(page.root).toMatchSnapshot()
-  }) */
+  //   const data: UploadItem[] = [
+  //     {
+  //       file: undefined,
+  //       state: 'uploading',
+  //       fileName: 'file1.png',
+  //       fileSize: 100000,
+  //       fileType: 'png',
+  //       progress: 50,
+  //     },
+  //   ]
 
-  /* it('emits change and ldchange events', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload],
-      html: `<ld-file-upload />`,
-    })
-    const ldFileUpload = page.root
-    const input = ldFileUpload.shadowRoot.querySelector('input')
+  //   ldFileUpload.dispatchEvent(
+  //     new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+  //   )
 
-    const changeHandler = jest.fn()
-    ldFileUpload.addEventListener('change', changeHandler)
-    const ldchangeHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchange', ldchangeHandler)
+  //   await ldFileUpload.updateUploadItems(data)
 
-    input.value = 'test'
-    input.dispatchEvent(new Event('change', { bubbles: true }))
-    await page.waitForChanges()
+  //   await page.waitForChanges()
 
-    expect(changeHandler).toHaveBeenCalledTimes(1)
-    expect(ldchangeHandler).toHaveBeenCalledTimes(1)
-  }) */
+  //   const contineButton =
+  //     ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
+  //       'ld-button[class="ld-file-upload__continue-button"]'
+  //     )
 
-  /* it('emits change and ldchoosefiles events', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload],
-      html: `<ld-file-upload />`,
-    })
-    const ldFileUpload = page.root
-    const input = ldFileUpload.shadowRoot.querySelector('input')
+  //   contineButton.click()
+  //   await page.waitForChanges()
 
-    const changeHandler = jest.fn()
-    ldFileUpload.addEventListener('change', changeHandler)
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+  //   const ldUploadProgress =
+  //     ldFileUpload.shadowRoot.querySelector('ld-upload-progress')
 
-    // input.value = 'test'
-    input.dispatchEvent(new Event('change', { bubbles: true }))
-    await page.waitForChanges()
+  //   const ldUploadItems =
+  //     ldUploadProgress.shadowRoot.querySelectorAll('ld-upload-item')
 
-    expect(changeHandler).toHaveBeenCalledTimes(1)
-    expect(ldchoosefilesHandler).toHaveBeenCalledTimes(1)
-  }) */
+  //   expect(ldUploadItems).toHaveLength(1)
 
-  /* it('allows accessing files via readonly files prop', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload],
-      html: `<ld-file-upload />`,
-    })
-    const ldFileUpload = page.root
-    const input = ldFileUpload.shadowRoot.querySelector('input')
-    input.files = ['foo', 'bar'] as unknown as FileList
+  //   expect(ldfileuploadreadyHandler).toHaveBeenCalled()
 
-    const ldchangeHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchange', ldchangeHandler)
+  //   const data2: UploadItem[] = [
+  //     {
+  //       file: undefined,
+  //       state: 'uploading',
+  //       fileName: 'file2.png',
+  //       fileSize: 100000,
+  //       fileType: 'png',
+  //       progress: 50,
+  //     },
+  //   ]
 
-    input.dispatchEvent(new InputEvent('change', { bubbles: true }))
-    await page.waitForChanges()
+  //   ldFileUpload.dispatchEvent(
+  //     new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+  //   )
 
-    expect(ldchangeHandler).toHaveBeenCalled()
-    expect(ldFileUpload.files).toEqual(['foo', 'bar'])
-  }) */
+  //   await ldFileUpload.updateUploadItems(data2)
 
-  it('emits ldfileuploadready event on continue button click', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload, LdChooseFile, LdUploadProgress, LdUploadItem],
-      html: `<ld-file-upload />`,
-    })
-    const ldFileUpload = page.root
-    // const ldFileUploadRoot = page.root
-    // const ldFileUpload = page.body.querySelector('ld-file-upload')
-    // const contineButton =
-    //   ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
-    //     'ld-button[class="ld-file-upload__continue-button"]'
-    //   )
-    // const contineButton =
-    //   ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
-    //     '.ld-file-upload__continue-button'
-    //   )
-    // input.files = ['foo', 'bar'] as unknown as FileList
+  //   await page.waitForChanges()
 
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+  //   const ldUploadItems2 =
+  //     ldUploadProgress.shadowRoot.querySelectorAll('ld-upload-item')
 
-    const ldfileuploadreadyHandler = jest.fn()
-    ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
-
-    // const ev = {
-    //   type: 'click',
-    //   bubbles: true,
-    //   composed: true,
-    //   composedPath: () => [input],
-    // } as unknown as MouseEvent
-    // page.root.dispatchEvent(ev)
-
-    // input.dispatchEvent(new InputEvent('change', { bubbles: true }))
-    // ldFileUpload.dispatchEvent(new Event('ldchoosefiles', { bubbles: true }))
-
-    const data: UploadItem[] = [
-      {
-        file: undefined,
-        state: 'uploading',
-        fileName: 'file1.png',
-        fileSize: 100000,
-        fileType: 'png',
-        progress: 50,
-      },
-    ]
-
-    ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
-    )
-
-    await ldFileUpload.updateUploadItems(data)
-
-    await page.waitForChanges()
-
-    const contineButton =
-      ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
-        'ld-button[class="ld-file-upload__continue-button"]'
-      )
-
-    contineButton.click()
-    await page.waitForChanges()
-
-    const ldUploadProgress =
-      ldFileUpload.shadowRoot.querySelector('ld-upload-progress')
-
-    const ldUploadItems =
-      ldUploadProgress.shadowRoot.querySelectorAll('ld-upload-item')
-
-    expect(ldUploadItems).toHaveLength(1)
-
-    // expect(ldFileUpload).toHaveClass('ld-file-upload__continue-button')
-    // expect(ldFileUpload.renderOnlyChooseFile).not.toBe(true)
-    expect(ldfileuploadreadyHandler).toHaveBeenCalled()
-    // expect(ldchoosefilesHandler).toHaveBeenCalled()
-    // expect(ldFileUpload.files).toEqual(['foo', 'bar'])
-
-    const data2: UploadItem[] = [
-      {
-        file: undefined,
-        state: 'uploading',
-        fileName: 'file2.png',
-        fileSize: 100000,
-        fileType: 'png',
-        progress: 50,
-      },
-    ]
-
-    ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
-    )
-
-    await ldFileUpload.updateUploadItems(data2)
-
-    await page.waitForChanges()
-
-    const ldUploadItems2 =
-      ldUploadProgress.shadowRoot.querySelectorAll('ld-upload-item')
-
-    expect(ldUploadItems2).toHaveLength(2)
-  })
+  //   expect(ldUploadItems2).toHaveLength(2)
+  // })
 
   it('enables pause all uploads button if uploading files exist in allow-pause mode', async () => {
     const page = await newSpecPage({
@@ -379,58 +267,60 @@ describe('ld-file-upload', () => {
     expect(ldfileuploadcontinueuploadsHandler).toHaveBeenCalled()
   })
 
-  it('emits ldfileuploaddeleteall event on delete all click', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload],
-      html: `<ld-file-upload />`,
-    })
-    const ldFileUpload = page.root
+  // The delete all files button might be added again at a later time
 
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+  // it('emits ldfileuploaddeleteall event on delete all click', async () => {
+  //   const page = await newSpecPage({
+  //     components: [LdFileUpload],
+  //     html: `<ld-file-upload />`,
+  //   })
+  //   const ldFileUpload = page.root
 
-    const ldfileuploadreadyHandler = jest.fn()
-    ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
+  //   const ldchoosefilesHandler = jest.fn()
+  //   ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
 
-    const ldfileuploaddeleteallHandler = jest.fn()
-    ldFileUpload.addEventListener(
-      'ldfileuploaddeleteall',
-      ldfileuploaddeleteallHandler
-    )
+  //   const ldfileuploadreadyHandler = jest.fn()
+  //   ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
 
-    const data: UploadItem[] = [
-      {
-        file: undefined,
-        state: 'uploading',
-        fileName: 'file1.png',
-        fileSize: 100000,
-        fileType: 'png',
-        progress: 50,
-      },
-    ]
+  //   const ldfileuploaddeleteallHandler = jest.fn()
+  //   ldFileUpload.addEventListener(
+  //     'ldfileuploaddeleteall',
+  //     ldfileuploaddeleteallHandler
+  //   )
 
-    ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
-    )
+  //   const data: UploadItem[] = [
+  //     {
+  //       file: undefined,
+  //       state: 'uploading',
+  //       fileName: 'file1.png',
+  //       fileSize: 100000,
+  //       fileType: 'png',
+  //       progress: 50,
+  //     },
+  //   ]
 
-    await ldFileUpload.updateUploadItems(data)
+  //   ldFileUpload.dispatchEvent(
+  //     new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+  //   )
 
-    await page.waitForChanges()
+  //   await ldFileUpload.updateUploadItems(data)
 
-    const deleteAllButton =
-      ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
-        'ld-button[class="ld-file-upload__delete-button"]'
-      )
+  //   await page.waitForChanges()
 
-    deleteAllButton.click()
+  //   const deleteAllButton =
+  //     ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
+  //       'ld-button[class="ld-file-upload__delete-button"]'
+  //     )
 
-    await ldFileUpload.deleteUploadItems()
+  //   deleteAllButton.click()
 
-    await page.waitForChanges()
+  //   await ldFileUpload.deleteUploadItems()
 
-    expect(ldfileuploaddeleteallHandler).toHaveBeenCalled()
-    expect(ldFileUpload).not.toHaveClass('ld-file-upload__progress')
-  })
+  //   await page.waitForChanges()
+
+  //   expect(ldfileuploaddeleteallHandler).toHaveBeenCalled()
+  //   expect(ldFileUpload).not.toHaveClass('ld-file-upload__progress')
+  // })
 
   it('emits public ldchoosefiles and ldfileuploadready event after internal ldchoosefiles event is emitted by ld-choose-files', async () => {
     const page = await newSpecPage({
@@ -537,7 +427,7 @@ describe('ld-file-upload', () => {
 
     const progressButton =
       ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
-        'ld-button[class="ld-file-upload__continue-button"]'
+        'ld-button[class="ld-file-upload__start-upload-button"]'
       )
 
     progressButton.click()
@@ -553,11 +443,9 @@ describe('ld-file-upload', () => {
 
     const progressButton2 =
       ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
-        'ld-button[class="ld-file-upload__continue-button"]'
+        'ld-button[class="ld-file-upload__start-upload-button"]'
       )
 
-    console.log('huhu')
-    // is currently undefined?
     expect(progressButton2.progress).toBe(0)
   })
 

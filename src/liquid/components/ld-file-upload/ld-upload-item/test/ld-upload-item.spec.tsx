@@ -114,51 +114,51 @@ describe('ld-upload-item', () => {
   })
 
   describe('emits events according to button click', () => {
-    it('emits lduploaditempause event', async () => {
-      const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item allow-pause state='uploading' file-name='Liquid' file-size='1.28' />`,
-      })
-      const ldUploadItem = page.root
-      const pauseButton =
-        ldUploadItem.shadowRoot.querySelector<HTMLLdButtonElement>(
-          'ld-button[class="ld-upload-item__pause-button"]'
-        )
+    // it('emits lduploaditempause event', async () => {
+    //   const page = await newSpecPage({
+    //     components: [LdUploadItem],
+    //     html: `<ld-upload-item allow-pause state='uploading' file-name='Liquid' file-size='1.28' />`,
+    //   })
+    //   const ldUploadItem = page.root
+    //   const pauseButton =
+    //     ldUploadItem.shadowRoot.querySelector<HTMLLdButtonElement>(
+    //       'ld-button[class="ld-upload-item__pause-button"]'
+    //     )
 
-      const lduploaditempauseHandler = jest.fn()
-      ldUploadItem.addEventListener(
-        'lduploaditempause',
-        lduploaditempauseHandler
-      )
+    //   const lduploaditempauseHandler = jest.fn()
+    //   ldUploadItem.addEventListener(
+    //     'lduploaditempause',
+    //     lduploaditempauseHandler
+    //   )
 
-      pauseButton.click()
-      await page.waitForChanges()
+    //   pauseButton.click()
+    //   await page.waitForChanges()
 
-      expect(lduploaditempauseHandler).toHaveBeenCalled()
-    })
+    //   expect(lduploaditempauseHandler).toHaveBeenCalled()
+    // })
 
-    it('emits lduploaditemcontinue event', async () => {
-      const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item allow-pause state='paused' file-name='Liquid' file-size='1.28' />`,
-      })
-      const ldUploadItem = page.root
-      const continueButton =
-        ldUploadItem.shadowRoot.querySelector<HTMLLdButtonElement>(
-          'ld-button[class="ld-upload-item__continue-button"]'
-        )
+    // it('emits lduploaditemcontinue event', async () => {
+    //   const page = await newSpecPage({
+    //     components: [LdUploadItem],
+    //     html: `<ld-upload-item allow-pause state='paused' file-name='Liquid' file-size='1.28' />`,
+    //   })
+    //   const ldUploadItem = page.root
+    //   const continueButton =
+    //     ldUploadItem.shadowRoot.querySelector<HTMLLdButtonElement>(
+    //       'ld-button[class="ld-upload-item__continue-button"]'
+    //     )
 
-      const lduploaditemcontinueHandler = jest.fn()
-      ldUploadItem.addEventListener(
-        'lduploaditemcontinue',
-        lduploaditemcontinueHandler
-      )
+    //   const lduploaditemcontinueHandler = jest.fn()
+    //   ldUploadItem.addEventListener(
+    //     'lduploaditemcontinue',
+    //     lduploaditemcontinueHandler
+    //   )
 
-      continueButton.click()
-      await page.waitForChanges()
+    //   continueButton.click()
+    //   await page.waitForChanges()
 
-      expect(lduploaditemcontinueHandler).toHaveBeenCalled()
-    })
+    //   expect(lduploaditemcontinueHandler).toHaveBeenCalled()
+    // })
 
     it('emits lduploaditemremove event', async () => {
       const page = await newSpecPage({

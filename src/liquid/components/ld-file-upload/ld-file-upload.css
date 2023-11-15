@@ -1,11 +1,6 @@
 :host {
-  /* background: var(--ld-col-neutral-050); */
-  /* border-radius: var(--ld-br-l); */
-  /* box-shadow: var(--ld-shadow-stacked); */
-  /* box-sizing: border-box; */
-  /* list-style: none; */
   margin: 0;
-  padding: var(--ld-sp-24);
+  /* padding: var(--ld-sp-24); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,25 +34,9 @@
   width: 100%;
 }
 
-/* .ld-file-upload__error {
-  background: var(--ld-col-rr-050);
-  border-radius: var(--ld-br-l);
-  border: var(--ld-sp-2) solid var(--ld-col-rr-600);
-  box-sizing: border-box;
-  list-style: none;
-  margin: 0;
-  padding: var(--ld-sp-6);
-  width: 15rem;
-} */
-
 .ld-file-upload__progress {
   width: 100%;
 }
-
-/* .ld-file-upload__circular-progress {
-  --ld-circular-progress-size: 10rem;
-  color: var(--ld-thm-primary);
-} */
 
 .ld-file-upload--circular-progress-error {
   --ld-circular-progress-bar-col: var(--ld-thm-error);
@@ -97,7 +76,3 @@
   width: 1px;
   height: 1px;
 }
-
-/* ::slotted(*) {
-  display: none;
-} */
