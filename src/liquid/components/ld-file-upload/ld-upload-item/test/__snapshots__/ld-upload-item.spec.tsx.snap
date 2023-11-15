@@ -3,7 +3,7 @@
 exports[`ld-upload-item clones custom icon 1`] = `
 <ld-file-upload class="ld-file-upload ld-file-upload--only-choose-file">
   <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" size="bg"></ld-choose-file>
+    <ld-choose-file class="ld-file-upload__choose-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labelsingulardropinstructions="Or drop file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" layout="vertical"></ld-choose-file>
     <input class="ld-file-upload__input" tabindex="-1" type="file">
   </mock:shadow-root>
   <ld-icon data-upload-icon="application/pdf" name="pdf" size="lg" slot="icons"></ld-icon>
@@ -14,8 +14,12 @@ exports[`ld-upload-item renders default 1`] = `
 <ld-upload-item class="ld-upload-item" file-name="Liquid" file-size="1.28">
   <mock:shadow-root>
     <div class="ld-upload-item__container">
-      <ld-loading class="ld-upload-item__loading"></ld-loading>
-      <div class="ld-upload-item__file-details">
+      <div class="ld-upload-item__icon">
+        <slot name="icons">
+          <ld-icon name="documents" size="lg"></ld-icon>
+        </slot>
+      </div>
+      <div class="ld-upload-item__file-details ld-upload-item__file-details--default">
         <ld-typo class="ld-upload-item__file-name" variant="h5">
           Liquid
         </ld-typo>
@@ -40,6 +44,7 @@ exports[`ld-upload-item renders default 1`] = `
     <ld-sr-only id="progress-label">
       Progress
     </ld-sr-only>
+    <ld-progress aria-labeledby="progress-label" aria-valuetext="indeterminate" class="ld-upload-item__progress" pending=""></ld-progress>
     <slot></slot>
   </mock:shadow-root>
 </ld-upload-item>
@@ -48,7 +53,7 @@ exports[`ld-upload-item renders default 1`] = `
 exports[`ld-upload-item renders with custom icon 1`] = `
 <ld-file-upload class="ld-file-upload">
   <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" size="sm"></ld-choose-file>
+    <ld-choose-file class="ld-file-upload__choose-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labelsingulardropinstructions="Or drop file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" layout="horizontal"></ld-choose-file>
     <ld-upload-progress class="ld-file-upload__progress">
       <mock:shadow-root>
         <ul class="ld-upload-progress">
@@ -56,8 +61,12 @@ exports[`ld-upload-item renders with custom icon 1`] = `
             <ld-upload-item class="ld-upload-item">
               <mock:shadow-root>
                 <div class="ld-upload-item__container">
-                  <ld-loading class="ld-upload-item__loading"></ld-loading>
-                  <div class="ld-upload-item__file-details">
+                  <div class="ld-upload-item__icon">
+                    <slot name="icons">
+                      <ld-icon name="documents" size="lg"></ld-icon>
+                    </slot>
+                  </div>
+                  <div class="ld-upload-item__file-details ld-upload-item__file-details--default">
                     <ld-typo class="ld-upload-item__file-name" variant="h5">
                       file1.pdf
                     </ld-typo>
@@ -82,6 +91,7 @@ exports[`ld-upload-item renders with custom icon 1`] = `
                 <ld-sr-only id="progress-label">
                   Progress
                 </ld-sr-only>
+                <ld-progress aria-labeledby="progress-label" aria-valuetext="indeterminate" class="ld-upload-item__progress" pending=""></ld-progress>
                 <slot></slot>
               </mock:shadow-root>
               <ld-icon data-upload-icon="application/pdf" name="pdf" size="lg" slot="icons"></ld-icon>
@@ -91,8 +101,12 @@ exports[`ld-upload-item renders with custom icon 1`] = `
             <ld-upload-item class="ld-upload-item">
               <mock:shadow-root>
                 <div class="ld-upload-item__container">
-                  <ld-loading class="ld-upload-item__loading"></ld-loading>
-                  <div class="ld-upload-item__file-details">
+                  <div class="ld-upload-item__icon">
+                    <slot name="icons">
+                      <ld-icon name="documents" size="lg"></ld-icon>
+                    </slot>
+                  </div>
+                  <div class="ld-upload-item__file-details ld-upload-item__file-details--default">
                     <ld-typo class="ld-upload-item__file-name" variant="h5">
                       file2.rtf
                     </ld-typo>
@@ -117,6 +131,7 @@ exports[`ld-upload-item renders with custom icon 1`] = `
                 <ld-sr-only id="progress-label">
                   Progress
                 </ld-sr-only>
+                <ld-progress aria-labeledby="progress-label" aria-valuetext="indeterminate" class="ld-upload-item__progress" pending=""></ld-progress>
                 <slot></slot>
               </mock:shadow-root>
               <ld-icon data-upload-icon="text/rtf" name="document" size="lg" slot="icons"></ld-icon>

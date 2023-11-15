@@ -40,6 +40,9 @@ export class LdChooseFile {
   /** Defines whether the total progress of all uploading files will be shown in the progress button */
   @Prop() showProgress?: boolean = false
 
+  /** Defines whether only one file can be chosen and uploaded. */
+  @Prop() singularUpload?: boolean = false
+
   /** Chosen Files */
   @Prop() uploadFiles: UploadItem[] = []
 
@@ -49,12 +52,21 @@ export class LdChooseFile {
   /** Layout of the choose file area
    * @internal
    */
-  @Prop() layout?: 'horizontal' | 'vertical' = 'vertical'
+  @Prop() layout?:
+    | 'horizontal'
+    | 'vertical'
+    | 'singular-upload'
+    | 'only-upload-button' = 'vertical'
 
   /** Label to be used as a header with instructions for drag and drop or file upload. */
   @Prop() labelDragInstructions = `Drag your file${
     this.selectMultiple ? '(s)' : ''
   } here or browse`
+
+  /** Label to be used as a header with instructions for drag and drop or file upload in the simgular upload version. */
+  @Prop() labelSingularDropInstructions = `Or drop file${
+    this.selectMultiple ? '(s)' : ''
+  }`
 
   /** Label to be used to describe upload constraints like the maximum file size. */
   @Prop() labelUploadConstraints = `${
@@ -214,6 +226,19 @@ export class LdChooseFile {
             {this.startUpload ||
             (!this.startUpload && !this.startUploadClicked) ? (
               <Fragment>
+                {/* {!this.singularUpload ? (
+                  <Fragment>
+                    <ld-typo variant="h5">{this.labelDragInstructions}</ld-typo>
+                    {this.labelUploadConstraints != '' ? (
+                      <ld-typo>
+                        {this.labelUploadConstraints.replace(
+                          '$maxSize',
+                          this.bytesToSize(this.maxSize)
+                        )}
+                      </ld-typo>
+                    ) : undefined}
+                  </Fragment>
+                ) : undefined} */}
                 <ld-typo variant="h5">{this.labelDragInstructions}</ld-typo>
                 {this.labelUploadConstraints != '' ? (
                   <ld-typo>
@@ -233,6 +258,11 @@ export class LdChooseFile {
                     ? this.labelUploadFile
                     : this.labelSelectFile}
                 </ld-button>
+                {/* {this.singularUpload ? (
+                  <ld-typo variant="h5">
+                    {this.labelSingularDropInstructions}
+                  </ld-typo>
+                ) : undefined} */}
               </Fragment>
             ) : (
               <Fragment>

@@ -89,6 +89,11 @@ export class LdFileUpload {
     this.selectMultiple ? '(s)' : ''
   } here or browse`
 
+  /** Label to be used as a header with instructions for drag and drop or file upload in the simgular upload version. */
+  @Prop() labelSingularDropInstructions = `Or drop file${
+    this.selectMultiple ? '(s)' : ''
+  }`
+
   /** Label to be used to describe upload constraints like the maximum file size. */
   @Prop() labelUploadConstraints = `${
     this.maxSize !== undefined ? 'max. $maxSize file size' : ''
@@ -603,14 +608,25 @@ export class LdFileUpload {
               <ld-choose-file
                 class="ld-file-upload__choose-file"
                 layout={this.renderOnlyChooseFile ? 'vertical' : 'horizontal'}
+                // layout={
+                //   this.singularUpload
+                //     ? 'singular-upload'
+                //     : this.renderOnlyChooseFile
+                //     ? 'vertical'
+                //     : 'horizontal'
+                // }
                 onLdchoosefiles={this.handleChooseFiles}
                 start-upload={this.startUpload}
                 selectMultiple={this.selectMultiple}
                 startUploadClicked={this.startUploadClicked}
                 showProgress={this.showProgress}
+                singularUpload={this.singularUpload}
                 uploadItems={this.uploadItems}
                 maxSize={this.maxSize}
                 labelDragInstructions={this.labelDragInstructions}
+                labelSingularDropInstructions={
+                  this.labelSingularDropInstructions
+                }
                 labelUploadConstraints={this.labelUploadConstraints}
                 labelSelectFile={this.labelSelectFile}
                 labelUploadFile={this.labelUploadFile}
@@ -738,14 +754,23 @@ export class LdFileUpload {
                 ? 'vertical'
                 : 'horizontal'
             }
+            // layout={
+            //   this.singularUpload
+            //     ? 'singular-upload'
+            //     : this.renderOnlyChooseFile
+            //     ? 'vertical'
+            //     : 'horizontal'
+            // }
             onLdchoosefiles={this.handleChooseFiles}
             start-upload={this.startUpload}
             selectMultiple={this.selectMultiple}
             startUploadClicked={this.startUploadClicked}
             showProgress={this.showProgress}
+            singularUpload={this.singularUpload}
             uploadItems={this.uploadItems}
             maxSize={this.maxSize}
             labelDragInstructions={this.labelDragInstructions}
+            labelSingularDropInstructions={this.labelSingularDropInstructions}
             labelUploadConstraints={this.labelUploadConstraints}
             labelSelectFile={this.labelSelectFile}
             labelUploadFile={this.labelUploadFile}
@@ -785,6 +810,7 @@ export class LdFileUpload {
               <Fragment>
                 <ld-upload-progress
                   class="ld-file-upload__progress"
+                  layout={this.singularUpload ? 'singular-upload' : 'default'}
                   uploadItems={this.uploadItems}
                   startUpload={false}
                   allowPause={this.allowPause}

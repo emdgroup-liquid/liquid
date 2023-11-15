@@ -22,11 +22,19 @@ import type { UploadItem } from '../ld-file-upload'
 export class LdUploadItem {
   @Element() el: HTMLLdUploadItemElement
 
+  /** Layout of the upload items
+   * @internal
+   */
+  @Prop() layout?: 'default' | 'singular-upload' = 'default'
+
   /** Defines whether the user will be able to pause uploads. */
   @Prop() allowPause?: boolean
 
   /** Defines whether the total progress of all upoading files will be shown in the progress button */
   @Prop() showProgress?: boolean = false
+
+  /** Defines whether only one file can be chosen and uploaded. */
+  @Prop() singularUpload?: boolean = false
 
   /** State of the file. */
   @Prop() state?:
@@ -236,7 +244,12 @@ export class LdUploadItem {
             </slot>
           </div>
 
-          <div class="ld-upload-item__file-details">
+          <div
+            class={getClassNames([
+              'ld-upload-item__file-details',
+              this.layout && `ld-upload-item__file-details--${this.layout}`,
+            ])}
+          >
             <ld-typo class="ld-upload-item__file-name" variant="h5">
               {this.fileName}
             </ld-typo>

@@ -17,7 +17,7 @@ describe('ld-choose-file', () => {
       components: [LdChooseFile],
       template: () => (
         <ld-choose-file
-          continue-clicked
+          start-upload-clicked
           uploadItems={[
             {
               file: undefined,

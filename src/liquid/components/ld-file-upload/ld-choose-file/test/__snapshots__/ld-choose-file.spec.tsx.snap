@@ -3,9 +3,9 @@
 exports[`ld-choose-file renders default 1`] = `
 <ld-choose-file class="ld-choose-file">
   <mock:shadow-root>
-    <div class="ld-choose-file--bg ld-choose-file__content">
+    <div class="ld-choose-file--vertical ld-choose-file__content">
       <img alt="" class="ld-choose-file__image" height="122" src="/dist/liquid/assets/file-upload.svg" width="142">
-      <div class="ld-choose-file__text ld-choose-file__text--bg">
+      <div class="ld-choose-file__text ld-choose-file__text--vertical">
         <ld-typo variant="h5">
           Drag your file here or browse
         </ld-typo>

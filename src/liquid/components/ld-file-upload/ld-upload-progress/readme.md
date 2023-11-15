@@ -30,6 +30,7 @@ Please refer to the [`ld-file-upload` documentation](components/ld-file-upload) 
 | `labelUploadSuccessMsg`   | `label-upload-success-msg`   | Label to be used for upload success message.                                                  | `string`       | ``Upload was successful!``                 |
 | `ref`                     | `ref`                        | reference to component                                                                        | `any`          | `undefined`                                |
 | `showProgress`            | `show-progress`              | Defines whether the total progress of all upoading files will be shown in the progress button | `boolean`      | `false`                                    |
+| `singularUpload`          | `singular-upload`            | Defines whether only one file can be chosen and uploaded.                                     | `boolean`      | `false`                                    |
 | `startUpload`             | `start-upload`               | Defines whether upload starts immediately after choosing files or after confirmation.         | `boolean`      | `false`                                    |
 | `uploadItems`             | --                           | List of files                                                                                 | `UploadItem[]` | `[]`                                       |
 
