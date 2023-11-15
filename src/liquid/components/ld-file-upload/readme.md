@@ -56,7 +56,7 @@ Unless the width of the component is specified, it will adjust to the available 
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -94,7 +94,7 @@ Unless the width of the component is specified, it will adjust to the available 
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -126,7 +126,7 @@ ref={fileUploadRef}
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -154,7 +154,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -196,7 +196,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -234,7 +234,7 @@ fileUploadRef.current.updateUploadItem(newItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -267,7 +267,7 @@ ref={fileUploadRef}
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -295,7 +295,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -340,7 +340,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -379,7 +379,7 @@ fileUploadRef.current.updateUploadItem(newItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -412,7 +412,7 @@ ref={fileUploadRef}
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -440,7 +440,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -486,7 +486,7 @@ Files to be uploaded can be accessed through the `file` property of the UploadIt
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -511,7 +511,7 @@ Files to be uploaded can be accessed through the `file` property of the UploadIt
           })
           ldUpload.addEventListener('lduploaditemremove', async (ev) => {
             uploadItem = ev.detail
-            if (uploadItem.fileName == uploadItems[item].fileName) {
+            if (uploadItem.fileName === uploadItems[item].fileName) {
               newItem = uploadItems[item]
               newItem.state = 'cancelled'
               ldUpload.updateUploadItem(newItem)
@@ -571,7 +571,7 @@ Files to be uploaded can be accessed through the `file` property of the UploadIt
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -608,7 +608,7 @@ show-progress
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -642,7 +642,7 @@ fileUploadRef.current.updateUploadItem(newItem)
                   'lduploaditemremove',
                   async (ev) => {
                     const uploadItem = ev.detail
-                    if (uploadItem.fileName == uploadItems[item].fileName) {
+                    if (uploadItem.fileName === uploadItems[item].fileName) {
                       const newItem = uploadItems[item]
                       newItem.state = 'cancelled'
                       fileUploadRef.current.updateUploadItem(newItem)
@@ -700,7 +700,7 @@ fileUploadRef.current.updateUploadItem(newItem)
         }}
         onLdfileuploaddeleteall={async () => {
           if (fileUploadRef.current) {
-            fileUploadRef.current.deleteUploadItems()
+            fileUploadRef.current.deleteAllUploadItems()
           }
         }}
         onLdfileuploadpausealluploads={async (ev) => {
@@ -743,7 +743,7 @@ This is just for testing. Upload success is overwritten with a random true/false
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -768,7 +768,7 @@ This is just for testing. Upload success is overwritten with a random true/false
           })
           ldUpload.addEventListener('lduploaditemremove', async (ev) => {
             uploadItem = ev.detail
-            if (uploadItem.fileName == uploadItems[item].fileName) {
+            if (uploadItem.fileName === uploadItems[item].fileName) {
               newItem = uploadItems[item]
               newItem.state = 'cancelled'
               ldUpload.updateUploadItem(newItem)
@@ -779,7 +779,7 @@ This is just for testing. Upload success is overwritten with a random true/false
           xhr.setRequestHeader("Content-Type", "application/octet-stream")
           xhr.send(file)
         })
-        success2 = Math.floor(Math.random() * 2) == 1 ? true : false
+        success2 = Math.floor(Math.random() * 2) === 1 ? true : false
         if (success2) {
           newItem = uploadItems[item]
         newItem.state = 'uploaded'
@@ -831,7 +831,7 @@ This is just for testing. Upload success is overwritten with a random true/false
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -868,7 +868,7 @@ show-progress
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -902,7 +902,7 @@ fileUploadRef.current.updateUploadItem(newItem)
                   'lduploaditemremove',
                   async (ev) => {
                     const uploadItem = ev.detail
-                    if (uploadItem.fileName == uploadItems[item].fileName) {
+                    if (uploadItem.fileName === uploadItems[item].fileName) {
                       const newItem = uploadItems[item]
                       newItem.state = 'cancelled'
                       fileUploadRef.current.updateUploadItem(newItem)
@@ -916,7 +916,7 @@ fileUploadRef.current.updateUploadItem(newItem)
               xhr.setRequestHeader('Content-Type', 'application/octet-stream')
               xhr.send(file)
             })
-            const success2 = Math.floor(Math.random() * 2) == 1 ? true : false
+            const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
             if (success2) {
               const newItem = uploadItems[item]
               newItem.state = 'uploaded'
@@ -961,7 +961,7 @@ fileUploadRef.current.updateUploadItem(newItem)
         }}
         onLdfileuploaddeleteall={async () => {
           if (fileUploadRef.current) {
-            fileUploadRef.current.deleteUploadItems()
+            fileUploadRef.current.deleteAllUploadItems()
           }
         }}
         onLdfileuploadpausealluploads={async (ev) => {
@@ -1004,7 +1004,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -1029,7 +1029,7 @@ fileUploadRef.current.updateUploadItem(newItem)
           })
           ldUpload.addEventListener('lduploaditemremove', async (ev) => {
             uploadItem = ev.detail
-            if (uploadItem.fileName == uploadItems[item].fileName) {
+            if (uploadItem.fileName === uploadItems[item].fileName) {
               newItem = uploadItems[item]
               newItem.state = 'cancelled'
               ldUpload.updateUploadItem(newItem)
@@ -1089,7 +1089,7 @@ fileUploadRef.current.updateUploadItem(newItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -1125,7 +1125,7 @@ select-multiple
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -1159,7 +1159,7 @@ fileUploadRef.current.updateUploadItem(newItem)
                   'lduploaditemremove',
                   async (ev) => {
                     const uploadItem = ev.detail
-                    if (uploadItem.fileName == uploadItems[item].fileName) {
+                    if (uploadItem.fileName === uploadItems[item].fileName) {
                       const newItem = uploadItems[item]
                       newItem.state = 'cancelled'
                       fileUploadRef.current.updateUploadItem(newItem)
@@ -1217,7 +1217,7 @@ fileUploadRef.current.updateUploadItem(newItem)
         }}
         onLdfileuploaddeleteall={async () => {
           if (fileUploadRef.current) {
-            fileUploadRef.current.deleteUploadItems()
+            fileUploadRef.current.deleteAllUploadItems()
           }
         }}
         onLdfileuploadpausealluploads={async (ev) => {
@@ -1260,7 +1260,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -1285,7 +1285,7 @@ fileUploadRef.current.updateUploadItem(newItem)
           })
           ldUpload.addEventListener('lduploaditemremove', async (ev) => {
             uploadItem = ev.detail
-            if (uploadItem.fileName == uploadItems[item].fileName) {
+            if (uploadItem.fileName === uploadItems[item].fileName) {
               newItem = uploadItems[item]
               newItem.state = 'cancelled'
               ldUpload.updateUploadItem(newItem)
@@ -1347,7 +1347,7 @@ fileUploadRef.current.updateUploadItem(newItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -1385,7 +1385,7 @@ start-upload
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -1419,7 +1419,7 @@ fileUploadRef.current.updateUploadItem(newItem)
                   'lduploaditemremove',
                   async (ev) => {
                     const uploadItem = ev.detail
-                    if (uploadItem.fileName == uploadItems[item].fileName) {
+                    if (uploadItem.fileName === uploadItems[item].fileName) {
                       const newItem = uploadItems[item]
                       newItem.state = 'cancelled'
                       fileUploadRef.current.updateUploadItem(newItem)
@@ -1433,7 +1433,7 @@ fileUploadRef.current.updateUploadItem(newItem)
               xhr.setRequestHeader('Content-Type', 'application/octet-stream')
               xhr.send(file)
             })
-            const success2 = Math.floor(Math.random() * 2) == 1 ? true : false
+            const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
             if (success2) {
               const newItem = uploadItems[item]
               newItem.state = 'uploaded'
@@ -1478,7 +1478,7 @@ fileUploadRef.current.updateUploadItem(newItem)
         }}
         onLdfileuploaddeleteall={async () => {
           if (fileUploadRef.current) {
-            fileUploadRef.current.deleteUploadItems()
+            fileUploadRef.current.deleteAllUploadItems()
           }
         }}
         onLdfileuploadpausealluploads={async (ev) => {
@@ -1521,7 +1521,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -1546,7 +1546,7 @@ fileUploadRef.current.updateUploadItem(newItem)
           })
           ldUpload.addEventListener('lduploaditemremove', async (ev) => {
             uploadItem = ev.detail
-            if (uploadItem.fileName == uploadItems[item].fileName) {
+            if (uploadItem.fileName === uploadItems[item].fileName) {
               newItem = uploadItems[item]
               newItem.state = 'cancelled'
               ldUpload.updateUploadItem(newItem)
@@ -1608,7 +1608,7 @@ fileUploadRef.current.updateUploadItem(newItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -1646,7 +1646,7 @@ circular-progress
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -1680,7 +1680,7 @@ fileUploadRef.current.updateUploadItem(newItem)
                   'lduploaditemremove',
                   async (ev) => {
                     const uploadItem = ev.detail
-                    if (uploadItem.fileName == uploadItems[item].fileName) {
+                    if (uploadItem.fileName === uploadItems[item].fileName) {
                       const newItem = uploadItems[item]
                       newItem.state = 'cancelled'
                       fileUploadRef.current.updateUploadItem(newItem)
@@ -1694,7 +1694,7 @@ fileUploadRef.current.updateUploadItem(newItem)
               xhr.setRequestHeader('Content-Type', 'application/octet-stream')
               xhr.send(file)
             })
-            const success2 = Math.floor(Math.random() * 2) == 1 ? true : false
+            const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
             if (success2) {
               const newItem = uploadItems[item]
               newItem.state = 'uploaded'
@@ -1739,7 +1739,7 @@ fileUploadRef.current.updateUploadItem(newItem)
         }}
         onLdfileuploaddeleteall={async () => {
           if (fileUploadRef.current) {
-            fileUploadRef.current.deleteUploadItems()
+            fileUploadRef.current.deleteAllUploadItems()
           }
         }}
         onLdfileuploadpausealluploads={async (ev) => {
@@ -1782,7 +1782,7 @@ Fake upload, just for testing. Can be removed from the documentation.
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -1853,7 +1853,7 @@ Fake upload, just for testing. Can be removed from the documentation.
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -1896,7 +1896,7 @@ Mode in which only a circular progress representation of the total upload progre
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -1934,7 +1934,7 @@ Mode in which only a circular progress representation of the total upload progre
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -1968,7 +1968,7 @@ circular-progress
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -1996,7 +1996,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -2037,7 +2037,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -2075,7 +2075,7 @@ fileUploadRef.current.updateUploadItem(newItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -2110,7 +2110,7 @@ max-size="500"
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -2138,7 +2138,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -2180,7 +2180,7 @@ In `start-upload` mode, upload of files will start immediately after the files a
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -2218,7 +2218,7 @@ In `start-upload` mode, upload of files will start immediately after the files a
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -2251,7 +2251,7 @@ start-upload
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -2279,7 +2279,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -2319,7 +2319,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -2357,7 +2357,7 @@ fileUploadRef.current.updateUploadItem(newItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -2391,7 +2391,7 @@ max-size="500"
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -2419,7 +2419,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -2460,7 +2460,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -2498,7 +2498,7 @@ fileUploadRef.current.updateUploadItem(newItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -2532,7 +2532,7 @@ singular-upload
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -2560,7 +2560,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -2603,7 +2603,7 @@ In `allow-pause` mode, the upload of all files can be paused (and continued) on 
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -2641,7 +2641,7 @@ In `allow-pause` mode, the upload of all files can be paused (and continued) on 
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -2674,7 +2674,7 @@ allow-pause
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -2702,7 +2702,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -2745,7 +2745,7 @@ In `show-progress` mode, a progress bar representing the upload progress of a fi
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -2783,7 +2783,7 @@ In `show-progress` mode, a progress bar representing the upload progress of a fi
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -2816,7 +2816,7 @@ show-progress
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -2844,7 +2844,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -2885,7 +2885,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -2923,7 +2923,7 @@ fileUploadRef.current.updateUploadItem(newItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -2956,7 +2956,7 @@ select-multiple
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -2984,7 +2984,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -3025,7 +3025,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -3063,7 +3063,7 @@ fileUploadRef.current.updateUploadItem(newItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -3096,7 +3096,7 @@ max-size="500"
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -3124,7 +3124,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -3165,7 +3165,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -3203,7 +3203,7 @@ fileUploadRef.current.updateUploadItem(newItem)
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -3237,7 +3237,7 @@ label-upload-constraints='File size must be smaller than $maxSize'
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -3265,7 +3265,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -3314,7 +3314,7 @@ Custom icons for specific file types can be added to the icons slot.
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -3352,7 +3352,7 @@ Custom icons for specific file types can be added to the icons slot.
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -3382,7 +3382,7 @@ ref={fileUploadRef}
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItems(uploadItems)
+fileUploadRef.current.addUploadItems(uploadItems)
 }
 }}
 onLdfileuploadready={async (ev) => {
@@ -3410,7 +3410,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 }}
 onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItems()
+fileUploadRef.current.deleteAllUploadItems()
 }
 }}
 onLdfileuploadpausealluploads={async (ev) => {
@@ -3487,7 +3487,7 @@ label-delete="Löschen">
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -3525,7 +3525,7 @@ label-delete="Löschen">
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -3573,7 +3573,7 @@ label-delete="Löschen">
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -3611,7 +3611,7 @@ label-delete="Löschen">
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -3705,7 +3705,7 @@ label-delete="Löschen">
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -3743,7 +3743,7 @@ label-delete="Löschen">
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -3835,7 +3835,7 @@ label-delete="Löschen">
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -3883,7 +3883,7 @@ label-delete="Löschen">
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -3975,7 +3975,7 @@ label-delete="Löschen">
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
       uploadItems = ev.detail
-      ldUpload.updateUploadItems(uploadItems)
+      ldUpload.addUploadItems(uploadItems)
     })
 
     ldUpload.addEventListener('ldfileuploadready', async (ev) => {
@@ -4013,7 +4013,7 @@ label-delete="Löschen">
     })
 
     ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-      ldUpload.deleteUploadItems()
+      ldUpload.deleteAllUploadItems()
     })
 
     ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
@@ -4055,46 +4055,46 @@ File upload:
 
 ## Properties
 
-| Property                      | Attribute                         | Description                                                                                                      | Type      | Default                                                                                                                                                                              |
-| ----------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `allowPause`                  | `allow-pause`                     | allowPause defines whether the user will be able to pause uploads.                                               | `boolean` | `false`                                                                                                                                                                              |
-| `circularProgress`            | `circular-progress`               | circularProgress defines whether only the circular progress indicator will be shown during upload.               | `boolean` | `false`                                                                                                                                                                              |
-| `dirname`                     | `dirname`                         | Name of form field to use for sending the element's directionality in form submission.                           | `string`  | `undefined`                                                                                                                                                                          |
-| `form`                        | `form`                            | Associates the control with a form element.                                                                      | `string`  | `undefined`                                                                                                                                                                          |
-| `labelCPCancel`               | `label-c-p-cancel`                | Label to be used for the cancel button in circular progress mode.                                                | `string`  | ``Cancel``                                                                                                                                                                           |
-| `labelCPUploadCount`          | `label-c-p-upload-count`          | Label to be used to count th uploaded files in circular progress mode.                                           | `string`  | ``Uploading $filesUploading file${     this.selectMultiple ? 's' : ''   }``                                                                                                          |
-| `labelCPUploadedSize`         | `label-c-p-uploaded-size`         | Label to be used to show the total uploaded file size in circular progress mode.                                 | `string`  | ``$uploadedSize uploaded...``                                                                                                                                                        |
-| `labelContinuePausedUploads`  | `label-continue-paused-uploads`   | Label to be used for the continue paused uploads button.                                                         | `string`  | ``Continue paused uploads``                                                                                                                                                          |
-| `labelDelete`                 | `label-delete`                    | Label to be used for the delete button.                                                                          | `string`  | ``Delete``                                                                                                                                                                           |
-| `labelDeleteAllFiles`         | `label-delete-all-files`          | Label to be used for the delete all files button.                                                                | `string`  | ``Delete all files``                                                                                                                                                                 |
-| `labelDownload`               | `label-download`                  | Label to be used for the download button.                                                                        | `string`  | ``Download``                                                                                                                                                                         |
-| `labelDragInstructions`       | `label-drag-instructions`         | Label to be used as a header with instructions for drag and drop or file upload.                                 | `string`  | ``Drag your file${     this.selectMultiple ? '(s)' : ''   } here or browse``                                                                                                         |
-| `labelErrorHeader`            | `label-error-header`              | Label to be used for the header of error messages.                                                               | `string`  | ``An error occurred``                                                                                                                                                                |
-| `labelFileAlreadyChosenError` | `label-file-already-chosen-error` | Label to be used for the error message that is shown if a file that has already been chosen is selected again.   | `string`  | ``$duplicateFiles cannot be chosen since file(s) with the same name(s) has/have been chosen already. To upload this/these file(s) please remove the file(s) with the same name(s).`` |
-| `labelMaxSizeExceededError`   | `label-max-size-exceeded-error`   | Label to be used for the error message that is shown if chosen file exceeds the maximum file size.               | `string`  | ``$filesExceedingMaxSize cannot be chosen since the file(s) exceed(s) the maximum file size.``                                                                                       |
-| `labelPauseAllUploads`        | `label-pause-all-uploads`         | Label to be used for the pause all uploads button.                                                               | `string`  | ``Pause all uploads``                                                                                                                                                                |
-| `labelRemove`                 | `label-remove`                    | Label to be used for the remove button.                                                                          | `string`  | ``Remove``                                                                                                                                                                           |
-| `labelRetry`                  | `label-retry`                     | Label to be used for the retry button.                                                                           | `string`  | ``Retry``                                                                                                                                                                            |
-| `labelSelectFile`             | `label-select-file`               | Label to be used for the select files button.                                                                    | `string`  | ``Select ${this.selectMultiple ? '' : 'a'} file${     this.selectMultiple ? '(s)' : ''   }``                                                                                         |
-| `labelStartUpload`            | `label-start-upload`              | Label to be used for the start upload button.                                                                    | `string`  | ``Start upload``                                                                                                                                                                     |
-| `labelUploadCancelledMsg`     | `label-upload-cancelled-msg`      | Label to be used for upload cancelled message.                                                                   | `string`  | ``Upload of this file has been cancelled``                                                                                                                                           |
-| `labelUploadCompleted`        | `label-upload-completed`          | Label to be used for the (disabled) upload completed button.                                                     | `string`  | ``Upload completed``                                                                                                                                                                 |
-| `labelUploadConstraints`      | `label-upload-constraints`        | Label to be used to describe upload constraints like the maximum file size.                                      | `string`  | ``${     this.maxSize !== undefined ? 'max. $maxSize file size' : ''   }``                                                                                                           |
-| `labelUploadCount`            | `label-upload-count`              | Label to be used to count the amount of files that have been uploaded.                                           | `string`  | ``$filesUploaded of $filesTotal file${     this.selectMultiple ? 's' : ''   } uploaded.``                                                                                            |
-| `labelUploadErrorMsg`         | `label-upload-error-msg`          | Label to be used for upload error message.                                                                       | `string`  | ``Error! Upload was unsuccessful``                                                                                                                                                   |
-| `labelUploadFile`             | `label-upload-file`               | Label to be used for the upload files button.                                                                    | `string`  | ``Upload ${this.selectMultiple ? '' : 'a'} file${     this.selectMultiple ? '(s)' : ''   }``                                                                                         |
-| `labelUploadPercentage`       | `label-upload-percentage`         | Label to be used to show the total upload percentage.                                                            | `string`  | ``$uploadProgress % uploaded.``                                                                                                                                                      |
-| `labelUploadState`            | `label-upload-state`              | Label to be used for the upload state header.                                                                    | `string`  | ``Upload state:``                                                                                                                                                                    |
-| `labelUploadSuccessMsg`       | `label-upload-success-msg`        | Label to be used for upload success message.                                                                     | `string`  | ``Upload was successful!``                                                                                                                                                           |
-| `labelUploading`              | `label-uploading`                 | Label to be used for the (disabled) uploading button.                                                            | `string`  | ``Uploading``                                                                                                                                                                        |
-| `maxSize`                     | `max-size`                        | Is used to display and validate maximum file size in Bytes                                                       | `number`  | `undefined`                                                                                                                                                                          |
-| `name`                        | `name`                            | Used to specify the name of the control.                                                                         | `string`  | `undefined`                                                                                                                                                                          |
-| `ref`                         | `ref`                             | reference to component                                                                                           | `any`     | `undefined`                                                                                                                                                                          |
-| `selectMultiple`              | `select-multiple`                 | selectMultiple defines whether selection of multiple input files is allowed.                                     | `boolean` | `false`                                                                                                                                                                              |
-| `showProgress`                | `show-progress`                   | showTotalProgress defines whether the progress of uploading files will be shown, or only an uploading indicator. | `boolean` | `false`                                                                                                                                                                              |
-| `singularUpload`              | `singular-upload`                 | TODO: circularProgress defines whether only one file can be chosen and uploaded.                                 | `boolean` | `false`                                                                                                                                                                              |
-| `startUpload`                 | `start-upload`                    | startUpload defines whether upload starts immediately after choosing files or after confirmation.                | `boolean` | `false`                                                                                                                                                                              |
-| `value`                       | `value`                           | The input value.                                                                                                 | `string`  | `undefined`                                                                                                                                                                          |
+| Property                      | Attribute                         | Description                                                                                                    | Type      | Default                                                                                                                                                                              |
+| ----------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `allowPause`                  | `allow-pause`                     | Defines whether the user will be able to pause uploads.                                                        | `boolean` | `false`                                                                                                                                                                              |
+| `circularProgress`            | `circular-progress`               | Defines whether only the circular progress indicator will be shown during upload.                              | `boolean` | `false`                                                                                                                                                                              |
+| `dirname`                     | `dirname`                         | Name of form field to use for sending the element's directionality in form submission.                         | `string`  | `undefined`                                                                                                                                                                          |
+| `form`                        | `form`                            | Associates the control with a form element.                                                                    | `string`  | `undefined`                                                                                                                                                                          |
+| `labelCPCancel`               | `label-c-p-cancel`                | Label to be used for the cancel button in circular progress mode.                                              | `string`  | ``Cancel``                                                                                                                                                                           |
+| `labelCPUploadCount`          | `label-c-p-upload-count`          | Label to be used to count th uploaded files in circular progress mode.                                         | `string`  | ``Uploading $filesUploading file${     this.selectMultiple ? 's' : ''   }``                                                                                                          |
+| `labelCPUploadedSize`         | `label-c-p-uploaded-size`         | Label to be used to show the total uploaded file size in circular progress mode.                               | `string`  | ``$uploadedSize uploaded...``                                                                                                                                                        |
+| `labelContinuePausedUploads`  | `label-continue-paused-uploads`   | Label to be used for the continue paused uploads button.                                                       | `string`  | ``Continue paused uploads``                                                                                                                                                          |
+| `labelDelete`                 | `label-delete`                    | Label to be used for the delete button.                                                                        | `string`  | ``Delete``                                                                                                                                                                           |
+| `labelDeleteAllFiles`         | `label-delete-all-files`          | Label to be used for the delete all files button.                                                              | `string`  | ``Delete all files``                                                                                                                                                                 |
+| `labelDownload`               | `label-download`                  | Label to be used for the download button.                                                                      | `string`  | ``Download``                                                                                                                                                                         |
+| `labelDragInstructions`       | `label-drag-instructions`         | Label to be used as a header with instructions for drag and drop or file upload.                               | `string`  | ``Drag your file${     this.selectMultiple ? '(s)' : ''   } here or browse``                                                                                                         |
+| `labelErrorHeader`            | `label-error-header`              | Label to be used for the header of error messages.                                                             | `string`  | ``An error occurred``                                                                                                                                                                |
+| `labelFileAlreadyChosenError` | `label-file-already-chosen-error` | Label to be used for the error message that is shown if a file that has already been chosen is selected again. | `string`  | ``$duplicateFiles cannot be chosen since file(s) with the same name(s) has/have been chosen already. To upload this/these file(s) please remove the file(s) with the same name(s).`` |
+| `labelMaxSizeExceededError`   | `label-max-size-exceeded-error`   | Label to be used for the error message that is shown if chosen file exceeds the maximum file size.             | `string`  | ``$filesExceedingMaxSize cannot be chosen since the file(s) exceed(s) the maximum file size.``                                                                                       |
+| `labelPauseAllUploads`        | `label-pause-all-uploads`         | Label to be used for the pause all uploads button.                                                             | `string`  | ``Pause all uploads``                                                                                                                                                                |
+| `labelRemove`                 | `label-remove`                    | Label to be used for the remove button.                                                                        | `string`  | ``Remove``                                                                                                                                                                           |
+| `labelRetry`                  | `label-retry`                     | Label to be used for the retry button.                                                                         | `string`  | ``Retry``                                                                                                                                                                            |
+| `labelSelectFile`             | `label-select-file`               | Label to be used for the select files button.                                                                  | `string`  | ``Select ${this.selectMultiple ? '' : 'a'} file${     this.selectMultiple ? '(s)' : ''   }``                                                                                         |
+| `labelStartUpload`            | `label-start-upload`              | Label to be used for the start upload button.                                                                  | `string`  | ``Start upload``                                                                                                                                                                     |
+| `labelUploadCancelledMsg`     | `label-upload-cancelled-msg`      | Label to be used for upload cancelled message.                                                                 | `string`  | ``Upload of this file has been cancelled``                                                                                                                                           |
+| `labelUploadCompleted`        | `label-upload-completed`          | Label to be used for the (disabled) upload completed button.                                                   | `string`  | ``Upload completed``                                                                                                                                                                 |
+| `labelUploadConstraints`      | `label-upload-constraints`        | Label to be used to describe upload constraints like the maximum file size.                                    | `string`  | ``${     this.maxSize !== undefined ? 'max. $maxSize file size' : ''   }``                                                                                                           |
+| `labelUploadCount`            | `label-upload-count`              | Label to be used to count the amount of files that have been uploaded.                                         | `string`  | ``$filesUploaded of $filesTotal file${     this.selectMultiple ? 's' : ''   } uploaded.``                                                                                            |
+| `labelUploadErrorMsg`         | `label-upload-error-msg`          | Label to be used for upload error message.                                                                     | `string`  | ``Error! Upload was unsuccessful``                                                                                                                                                   |
+| `labelUploadFile`             | `label-upload-file`               | Label to be used for the upload files button.                                                                  | `string`  | ``Upload ${this.selectMultiple ? '' : 'a'} file${     this.selectMultiple ? '(s)' : ''   }``                                                                                         |
+| `labelUploadPercentage`       | `label-upload-percentage`         | Label to be used to show the total upload percentage.                                                          | `string`  | ``$uploadProgress % uploaded.``                                                                                                                                                      |
+| `labelUploadState`            | `label-upload-state`              | Label to be used for the upload state header.                                                                  | `string`  | ``Upload state:``                                                                                                                                                                    |
+| `labelUploadSuccessMsg`       | `label-upload-success-msg`        | Label to be used for upload success message.                                                                   | `string`  | ``Upload was successful!``                                                                                                                                                           |
+| `labelUploading`              | `label-uploading`                 | Label to be used for the (disabled) uploading button.                                                          | `string`  | ``Uploading``                                                                                                                                                                        |
+| `maxSize`                     | `max-size`                        | Is used to display and validate maximum file size in Bytes                                                     | `number`  | `undefined`                                                                                                                                                                          |
+| `name`                        | `name`                            | Used to specify the name of the control.                                                                       | `string`  | `undefined`                                                                                                                                                                          |
+| `ref`                         | `ref`                             | reference to component                                                                                         | `any`     | `undefined`                                                                                                                                                                          |
+| `selectMultiple`              | `select-multiple`                 | Defines whether selection of multiple input files is allowed.                                                  | `boolean` | `false`                                                                                                                                                                              |
+| `showProgress`                | `show-progress`                   | Defines whether the progress of uploading files will be shown, or only an uploading indicator.                 | `boolean` | `false`                                                                                                                                                                              |
+| `singularUpload`              | `singular-upload`                 | Defines whether only one file can be chosen and uploaded.                                                      | `boolean` | `false`                                                                                                                                                                              |
+| `startUpload`                 | `start-upload`                    | Defines whether upload starts immediately after choosing files or after confirmation.                          | `boolean` | `false`                                                                                                                                                                              |
+| `value`                       | `value`                           | The input value.                                                                                               | `string`  | `undefined`                                                                                                                                                                          |
 
 
 ## Events
@@ -4110,9 +4110,20 @@ File upload:
 
 ## Methods
 
-### `deleteUploadItem(uploadItem: UploadItem) => Promise<void>`
+### `addUploadItems(uploadItems: UploadItem[]) => Promise<void>`
 
-Accepts a file from component consumer (name, progress, state etc.)
+Accepts a file list from component consumer (name, progress, state etc.)
+and adds the items to the upload items state.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `deleteAllUploadItems() => Promise<void>`
+
+Accepts a file list from component consumer (name, progress, state etc.)
 and deletes the upload items.
 
 #### Returns
@@ -4121,9 +4132,9 @@ Type: `Promise<void>`
 
 
 
-### `deleteUploadItems() => Promise<void>`
+### `deleteUploadItem(uploadItem: UploadItem) => Promise<void>`
 
-Accepts a file list from component consumer (name, progress, state etc.)
+Accepts a file from component consumer (name, progress, state etc.)
 and deletes the upload items.
 
 #### Returns
@@ -4136,17 +4147,6 @@ Type: `Promise<void>`
 
 Accepts a file from component consumer (name, progress, state etc.)
 and updates the upload item state.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `updateUploadItems(uploadItems: UploadItem[]) => Promise<void>`
-
-Accepts a file list from component consumer (name, progress, state etc.)
-and updates the upload items state.
 
 #### Returns
 
@@ -4186,7 +4186,6 @@ graph TD;
   ld-input-message --> ld-icon
   ld-upload-progress --> ld-upload-item
   ld-upload-item --> ld-icon
-  ld-upload-item --> ld-loading
   ld-upload-item --> ld-typo
   ld-upload-item --> ld-tooltip
   ld-upload-item --> ld-button

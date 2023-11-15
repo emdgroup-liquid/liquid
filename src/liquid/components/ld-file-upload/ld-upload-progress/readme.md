@@ -18,20 +18,20 @@ Please refer to the [`ld-file-upload` documentation](components/ld-file-upload) 
 
 ## Properties
 
-| Property                  | Attribute                    | Description                                                                                                     | Type           | Default                                    |
-| ------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------ |
-| `allowPause`              | `allow-pause`                | allowPause defines whether the user will be able to pause uploads.                                              | `boolean`      | `undefined`                                |
-| `labelDelete`             | `label-delete`               | Label to be used for the tooltip of the delete button.                                                          | `string`       | ``Delete``                                 |
-| `labelDownload`           | `label-download`             | Label to be used for the tooltip of the download button.                                                        | `string`       | ``Download``                               |
-| `labelRemove`             | `label-remove`               | Label to be used for the tooltip of the remove button.                                                          | `string`       | ``Remove``                                 |
-| `labelRetry`              | `label-retry`                | Label to be used for the tooltip of the retry button.                                                           | `string`       | ``Retry``                                  |
-| `labelUploadCancelledMsg` | `label-upload-cancelled-msg` | Label to be used for upload cancelled message.                                                                  | `string`       | ``Upload of this file has been cancelled`` |
-| `labelUploadErrorMsg`     | `label-upload-error-msg`     | Label to be used for upload error message.                                                                      | `string`       | ``Error! Upload was unsuccessful``         |
-| `labelUploadSuccessMsg`   | `label-upload-success-msg`   | Label to be used for upload success message.                                                                    | `string`       | ``Upload was successful!``                 |
-| `ref`                     | `ref`                        | reference to component                                                                                          | `any`          | `undefined`                                |
-| `showProgress`            | `show-progress`              | showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button | `boolean`      | `false`                                    |
-| `startUpload`             | `start-upload`               | startUpload defines whether upload starts immediately after choosing files or after confirmation.               | `boolean`      | `false`                                    |
-| `uploadItems`             | --                           | List of files                                                                                                   | `UploadItem[]` | `[]`                                       |
+| Property                  | Attribute                    | Description                                                                                   | Type           | Default                                    |
+| ------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------ |
+| `allowPause`              | `allow-pause`                | Defines whether the user will be able to pause uploads.                                       | `boolean`      | `undefined`                                |
+| `labelDelete`             | `label-delete`               | Label to be used for the tooltip of the delete button.                                        | `string`       | ``Delete``                                 |
+| `labelDownload`           | `label-download`             | Label to be used for the tooltip of the download button.                                      | `string`       | ``Download``                               |
+| `labelRemove`             | `label-remove`               | Label to be used for the tooltip of the remove button.                                        | `string`       | ``Remove``                                 |
+| `labelRetry`              | `label-retry`                | Label to be used for the tooltip of the retry button.                                         | `string`       | ``Retry``                                  |
+| `labelUploadCancelledMsg` | `label-upload-cancelled-msg` | Label to be used for upload cancelled message.                                                | `string`       | ``Upload of this file has been cancelled`` |
+| `labelUploadErrorMsg`     | `label-upload-error-msg`     | Label to be used for upload error message.                                                    | `string`       | ``Error! Upload was unsuccessful``         |
+| `labelUploadSuccessMsg`   | `label-upload-success-msg`   | Label to be used for upload success message.                                                  | `string`       | ``Upload was successful!``                 |
+| `ref`                     | `ref`                        | reference to component                                                                        | `any`          | `undefined`                                |
+| `showProgress`            | `show-progress`              | Defines whether the total progress of all upoading files will be shown in the progress button | `boolean`      | `false`                                    |
+| `startUpload`             | `start-upload`               | Defines whether upload starts immediately after choosing files or after confirmation.         | `boolean`      | `false`                                    |
+| `uploadItems`             | --                           | List of files                                                                                 | `UploadItem[]` | `[]`                                       |
 
 
 ## Dependencies
@@ -49,7 +49,6 @@ Please refer to the [`ld-file-upload` documentation](components/ld-file-upload) 
 graph TD;
   ld-upload-progress --> ld-upload-item
   ld-upload-item --> ld-icon
-  ld-upload-item --> ld-loading
   ld-upload-item --> ld-typo
   ld-upload-item --> ld-tooltip
   ld-upload-item --> ld-button

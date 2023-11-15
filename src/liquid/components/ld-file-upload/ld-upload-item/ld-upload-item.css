@@ -1,15 +1,15 @@
 :host {
-  background-color: var(--ld-col-wht);
+  background-color: var(--ld-upload-item-background-color, var(--ld-col-wht));
   box-sizing: border-box;
   list-style: none;
   margin: 0;
-  padding: var(--ld-sp-16);
-  width: 100%;
+  padding: var(--ld-upload-item-padding, var(--ld-sp-16));
+  width: var(--ld-upload-item-width, 100%);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 100%;
-  gap: var(--ld-sp-8);
+  max-width: var(--ld-upload-item-max-width, 100%);
+  gap: var(--ld-upload-item-gap, var(--ld-sp-8));
 }
 
 .ld-upload-item__container {

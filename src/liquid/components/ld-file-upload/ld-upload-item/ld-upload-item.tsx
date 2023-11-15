@@ -22,10 +22,10 @@ import type { UploadItem } from '../ld-file-upload'
 export class LdUploadItem {
   @Element() el: HTMLLdUploadItemElement
 
-  /** allowPause defines whether the user will be able to pause uploads. */
+  /** Defines whether the user will be able to pause uploads. */
   @Prop() allowPause?: boolean
 
-  /** showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button */
+  /** Defines whether the total progress of all upoading files will be shown in the progress button */
   @Prop() showProgress?: boolean = false
 
   /** State of the file. */
@@ -48,12 +48,6 @@ export class LdUploadItem {
 
   /** Tab index of the progress item. */
   @Prop() ldTabindex?: number
-
-  /**
-   * Size of the menu item.
-   * @internal
-   */
-  @Prop() size?: 'sm' | 'lg'
 
   /** Upload progress in percent. */
   @Prop() progress?: number = 0
@@ -201,7 +195,7 @@ export class LdUploadItem {
 
     const roundedSize = Number(bytes.toFixed(2))
 
-    return roundedSize + ' ' + sizes[sizeIndex]
+    return `${roundedSize} ${sizes[sizeIndex]}`
   }
 
   componentWillLoad() {
@@ -219,14 +213,15 @@ export class LdUploadItem {
     const cl = getClassNames(['ld-upload-item'])
 
     const activeUploads =
-      this.state == 'pending' ||
-      this.state == 'paused' ||
-      this.state == 'uploading'
+      this.state === 'pending' ||
+      this.state === 'paused' ||
+      this.state === 'uploading'
 
     return (
       <Host class={cl}>
         <div class="ld-upload-item__container">
-          {this.showProgress || this.state == 'uploaded' ? (
+          {/* The code below can be used in case the loading indicator is used when exact progress is not being shown */}
+          {/* {this.showProgress || this.state === 'uploaded' ? (
             <div class="ld-upload-item__icon">
               <slot name="icons">
                 <ld-icon name="documents" size="lg"></ld-icon>
@@ -234,13 +229,18 @@ export class LdUploadItem {
             </div>
           ) : (
             <ld-loading class="ld-upload-item__loading"></ld-loading>
-          )}
+          )} */}
+          <div class="ld-upload-item__icon">
+            <slot name="icons">
+              <ld-icon name="documents" size="lg"></ld-icon>
+            </slot>
+          </div>
 
           <div class="ld-upload-item__file-details">
             <ld-typo class="ld-upload-item__file-name" variant="h5">
               {this.fileName}
             </ld-typo>
-            {this.state == 'uploaded' || !this.showProgress ? (
+            {this.state === 'uploaded' || !this.showProgress ? (
               <ld-typo class="ld-upload-item__file-size">
                 {this.bytesToSize(this.fileSize)}
               </ld-typo>
@@ -252,7 +252,7 @@ export class LdUploadItem {
             )}
           </div>
           <div class="ld-upload-item__buttons">
-            {/* {this.state == 'uploading' && this.allowPause ? (
+            {/* {this.state === 'uploading' && this.allowPause ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
                   class="ld-upload-item__pause-button"
@@ -271,7 +271,7 @@ export class LdUploadItem {
                 <ld-typo>Pause</ld-typo>
               </ld-tooltip>
             ) : undefined} */}
-            {/* {this.state == 'paused' && this.allowPause ? (
+            {/* {this.state === 'paused' && this.allowPause ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
                   class="ld-upload-item__continue-button"
@@ -290,9 +290,9 @@ export class LdUploadItem {
                 <ld-typo>Continue upload</ld-typo>
               </ld-tooltip>
             ) : undefined} */}
-            {this.state == 'pending' ||
-            this.state == 'paused' ||
-            this.state == 'uploading' ? (
+            {this.state === 'pending' ||
+            this.state === 'paused' ||
+            this.state === 'uploading' ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
                   class="ld-upload-item__remove-button"
@@ -314,7 +314,7 @@ export class LdUploadItem {
                 <ld-typo>{this.labelRemove}</ld-typo>
               </ld-tooltip>
             ) : undefined}
-            {this.state == 'uploaded' ? (
+            {this.state === 'uploaded' ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
                   class="ld-upload-item__download-button"
@@ -336,9 +336,9 @@ export class LdUploadItem {
                 <ld-typo>{this.labelDownload}</ld-typo>
               </ld-tooltip>
             ) : undefined}
-            {this.state == 'upload failed' &&
-            this.uploadItems.filter((item) => item.state == 'uploading')
-              .length == 0 ? (
+            {this.state === 'upload failed' &&
+            this.uploadItems.filter((item) => item.state === 'uploading')
+              .length === 0 ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
                   class="ld-upload-item__retry-button"
@@ -360,9 +360,9 @@ export class LdUploadItem {
                 <ld-typo>{this.labelRetry}</ld-typo>
               </ld-tooltip>
             ) : undefined}
-            {this.state == 'cancelled' ||
-            this.state == 'uploaded' ||
-            this.state == 'upload failed' ? (
+            {this.state === 'cancelled' ||
+            this.state === 'uploaded' ||
+            this.state === 'upload failed' ? (
               <ld-tooltip arrow position="left middle" size="sm">
                 <ld-button
                   class="ld-upload-item__delete-button"
@@ -386,41 +386,58 @@ export class LdUploadItem {
             ) : undefined}
           </div>
         </div>
-        {this.state == 'pending' || this.state == 'uploading' ? (
+        {this.state === 'pending' || this.state === 'uploading' ? (
           <ld-sr-only id="progress-label">Progress</ld-sr-only>
         ) : undefined}
+        {/* Loading indicator below file details */}
         {/* {activeUploads && this.showProgress ? (
           <ld-progress
             class="ld-upload-item__progress"
-            pending={this.state == 'paused'}
+            pending={this.state === 'paused'}
             aria-labeledby="progress-label"
             aria-valuenow={this.progress}
           ></ld-progress>
-        ) : this.state == 'uploading' && !this.showProgress ? (
+        ) : this.state === 'uploading' && !this.showProgress ? (
           <div class="ld-upload-item__progress">
             <ld-loading class="ld-upload-item__loading"></ld-loading>
           </div>
         ) : undefined} */}
-        {activeUploads && this.showProgress ? (
+        {/* Loading indicator next to file details, progress bar below file details */}
+        {/* {activeUploads && this.showProgress ? (
           <ld-progress
             class="ld-upload-item__progress"
-            pending={this.state == 'paused'}
+            pending={this.state === 'paused'}
             aria-labeledby="progress-label"
             aria-valuenow={this.progress}
           ></ld-progress>
-        ) : this.state == 'uploading' &&
-          !this.showProgress ? undefined : undefined}
-        {this.state == 'cancelled' ? (
+        ) : this.state === 'uploading' &&
+          !this.showProgress ? undefined : undefined} */}
+        {activeUploads && this.showProgress ? (
+          <ld-progress
+            class="ld-upload-item__progress"
+            pending={this.state === 'paused'}
+            aria-labeledby="progress-label"
+            aria-valuenow={this.progress}
+          ></ld-progress>
+        ) : activeUploads && !this.showProgress ? (
+          <ld-progress
+            class="ld-upload-item__progress"
+            pending
+            aria-labeledby="progress-label"
+            aria-valuetext="indeterminate"
+          ></ld-progress>
+        ) : undefined}
+        {this.state === 'cancelled' ? (
           <ld-input-message mode="info">
             {this.labelUploadCancelledMsg}
           </ld-input-message>
         ) : undefined}
-        {this.state == 'uploaded' ? (
+        {this.state === 'uploaded' ? (
           <ld-input-message mode="valid">
             {this.labelUploadSuccessMsg}
           </ld-input-message>
         ) : undefined}
-        {this.state == 'upload failed' ? (
+        {this.state === 'upload failed' ? (
           <ld-input-message>{this.labelUploadErrorMsg}</ld-input-message>
         ) : undefined}
         <slot></slot>

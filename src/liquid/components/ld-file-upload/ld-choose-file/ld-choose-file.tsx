@@ -28,27 +28,28 @@ export class LdChooseFile {
   /** Max. file size in bytes */
   @Prop() maxSize?: number
 
-  /** startUpload defines whether upload starts immediately after choosing files or after confirmation. */
+  /** Defines whether upload starts immediately after choosing files or after confirmation. */
   @Prop() startUpload?: boolean = false
 
-  /** contineClicked defines whether start upload button has been clicked while startUpload = false */
+  /** Defines whether start upload button has been clicked while startUpload = false */
   @Prop() startUploadClicked?: boolean = false
 
-  /** selectMultiple defines whether selection of multiple input files is allowed. */
+  /** Defines whether selection of multiple input files is allowed. */
   @Prop() selectMultiple?: boolean = false
 
-  /** showTotalProgress defines whether the total progress of all upoading files will be shown in the progress button */
+  /** Defines whether the total progress of all uploading files will be shown in the progress button */
   @Prop() showProgress?: boolean = false
 
   /** Chosen Files */
-
   @Prop() uploadFiles: UploadItem[] = []
 
   /** Chosen Files from the parent component */
   @Prop() uploadItems: UploadItem[] = []
 
-  /** Size of the choose file area */
-  @Prop() size?: 'sm' | 'bg' = 'bg'
+  /** Layout of the choose file area
+   * @internal
+   */
+  @Prop() layout?: 'horizontal' | 'vertical' = 'vertical'
 
   /** Label to be used as a header with instructions for drag and drop or file upload. */
   @Prop() labelDragInstructions = `Drag your file${
@@ -104,7 +105,7 @@ export class LdChooseFile {
 
     const roundedSize = Number(bytes.toFixed(2))
 
-    return roundedSize + ' ' + sizes[sizeIndex]
+    return `${roundedSize} ${sizes[sizeIndex]}`
   }
 
   private handleUploadClick = () => {
@@ -165,10 +166,10 @@ export class LdChooseFile {
     const calculateProgress = () => {
       const activeUploads = this.uploadItems.filter(
         (item) =>
-          item.state == 'pending' ||
-          item.state == 'paused' ||
-          item.state == 'uploading' ||
-          item.state == 'uploaded'
+          item.state === 'pending' ||
+          item.state === 'paused' ||
+          item.state === 'uploading' ||
+          item.state === 'uploaded'
       )
       const totalSizeSum = activeUploads.reduce(
         (partialSum, file) => partialSum + file.fileSize,
@@ -193,7 +194,7 @@ export class LdChooseFile {
         <div
           class={getClassNames([
             'ld-choose-file__content',
-            this.size && `ld-choose-file--${this.size}`,
+            this.layout && `ld-choose-file--${this.layout}`,
           ])}
         >
           <img
@@ -207,7 +208,7 @@ export class LdChooseFile {
           <div
             class={getClassNames([
               'ld-choose-file__text',
-              this.size && `ld-choose-file__text--${this.size}`,
+              this.layout && `ld-choose-file__text--${this.layout}`,
             ])}
           >
             {this.startUpload ||
@@ -242,7 +243,7 @@ export class LdChooseFile {
                       '$filesUploaded',
                       String(
                         this.uploadItems.filter(
-                          (item) => item.state == 'uploaded'
+                          (item) => item.state === 'uploaded'
                         ).length
                       )
                     )

@@ -103,7 +103,7 @@ describe('ld-file-upload', () => {
   //     new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
   //   )
 
-  //   await ldFileUpload.updateUploadItems(data)
+  //   await ldFileUpload.addUploadItems(data)
 
   //   await page.waitForChanges()
 
@@ -140,7 +140,7 @@ describe('ld-file-upload', () => {
   //     new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
   //   )
 
-  //   await ldFileUpload.updateUploadItems(data2)
+  //   await ldFileUpload.addUploadItems(data2)
 
   //   await page.waitForChanges()
 
@@ -178,7 +178,7 @@ describe('ld-file-upload', () => {
       new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
     )
 
-    await ldFileUpload.updateUploadItems(data)
+    await ldFileUpload.addUploadItems(data)
 
     await page.waitForChanges()
 
@@ -226,7 +226,7 @@ describe('ld-file-upload', () => {
       new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
     )
 
-    await ldFileUpload.updateUploadItems(data)
+    await ldFileUpload.addUploadItems(data)
 
     await page.waitForChanges()
 
@@ -248,7 +248,7 @@ describe('ld-file-upload', () => {
       await ldFileUpload.updateUploadItem(newItem)
     }
 
-    // ldFileUpload.updateUploadItems(data)
+    // ldFileUpload.addUploadItems(data)
 
     await page.waitForChanges()
 
@@ -303,7 +303,7 @@ describe('ld-file-upload', () => {
   //     new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
   //   )
 
-  //   await ldFileUpload.updateUploadItems(data)
+  //   await ldFileUpload.addUploadItems(data)
 
   //   await page.waitForChanges()
 
@@ -314,7 +314,7 @@ describe('ld-file-upload', () => {
 
   //   deleteAllButton.click()
 
-  //   await ldFileUpload.deleteUploadItems()
+  //   await ldFileUpload.deleteAllUploadItems()
 
   //   await page.waitForChanges()
 
@@ -354,7 +354,7 @@ describe('ld-file-upload', () => {
       new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
     )
 
-    // ldFileUpload.updateUploadItems(data)
+    // ldFileUpload.addUploadItems(data)
 
     await page.waitForChanges()
 
@@ -421,7 +421,7 @@ describe('ld-file-upload', () => {
       new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
     )
 
-    await ldFileUpload.updateUploadItems(data)
+    await ldFileUpload.addUploadItems(data)
 
     await page.waitForChanges()
 
@@ -477,7 +477,7 @@ describe('ld-file-upload', () => {
       new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
     )
 
-    await ldFileUpload.updateUploadItems(data)
+    await ldFileUpload.addUploadItems(data)
 
     await page.waitForChanges()
 
@@ -519,7 +519,7 @@ describe('ld-file-upload', () => {
       new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
     )
 
-    await ldFileUpload.updateUploadItems(data)
+    await ldFileUpload.addUploadItems(data)
 
     await page.waitForChanges()
 
@@ -547,7 +547,7 @@ describe('ld-file-upload', () => {
     // expect(ldChooseFile.size).toBe('bg')
   })
 
-  it('removes file using the deleteUploadItems method', async () => {
+  it('removes file using the deleteAllUploadItems method', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload, LdUploadProgress, LdUploadItem, LdChooseFile],
       html: `<ld-file-upload />`,
@@ -575,9 +575,9 @@ describe('ld-file-upload', () => {
       new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
     )
 
-    await ldFileUpload.updateUploadItems(data)
+    await ldFileUpload.addUploadItems(data)
     await page.waitForChanges()
-    await ldFileUpload.deleteUploadItems()
+    await ldFileUpload.deleteAllUploadItems()
     await page.waitForChanges()
 
     const ldUploadProgress =
@@ -622,7 +622,7 @@ describe('ld-file-upload', () => {
       new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
     )
 
-    await ldFileUpload.updateUploadItems(data)
+    await ldFileUpload.addUploadItems(data)
 
     await page.waitForChanges()
 
@@ -637,132 +637,5 @@ describe('ld-file-upload', () => {
       ldUploadProgress.shadowRoot.querySelectorAll('ld-upload-item')
 
     expect(ldUploadItems).toHaveLength(1)
-
-    // const dataToDelete: UploadItem = {
-    //   file: undefined,
-    //   state: 'uploading',
-    //   fileName: 'file1.png',
-    //   fileSize: 1024,
-    //   fileType: 'png',
-    //   progress: 0,
-    // }
-
-    // expect(await ldFileUpload.deleteUploadItem(dataToDelete)).toThrow(Error)
   })
-
-  /* it('listens to lduploadclick', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload, LdChooseFile, LdUploadItem, LdUploadProgress],
-      html: `<ld-file-upload />`,
-    })
-    const ldFileUpload = page.root
-    const ldChooseFile = ldFileUpload.shadowRoot.querySelector('ld-choose-file')
-    const uploadButton =
-      ldChooseFile.shadowRoot.querySelector<HTMLLdButtonElement>(
-        'ld-button[class="ld-choose-file__upload-button"]'
-      )
-    const input = ldFileUpload.shadowRoot.querySelector('input')
-
-    const inputClickHandler = jest.fn()
-    input.addEventListener('click', inputClickHandler)
-
-    uploadButton.click()
-
-    ldChooseFile.dispatchEvent(
-      new CustomEvent('lduploadclick', { bubbles: true })
-    )
-
-    expect(inputClickHandler).toHaveBeenCalled()
-  }) */
-
-  /* it('displays error message if max file size is exceeded', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload],
-      html: `<ld-file-upload max-size=500 />`,
-    })
-    const ldFileUpload = page.root
-
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
-
-    const ldfileuploadreadyHandler = jest.fn()
-    ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
-
-    const data: UploadItem[] = [
-      {
-        file: undefined,
-        state: 'uploading',
-        fileName: 'file1.png',
-        fileSize: 100000,
-        fileType: 'png',
-        progress: 50,
-      },
-    ]
-
-    ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
-    )
-
-    // ldFileUpload.updateUploadItems(data)
-
-    await page.waitForChanges()
-
-    const maxSizeError =
-      ldFileUpload.shadowRoot.querySelector<HTMLLdTypoElement>(
-        'ld-typo[class="ld-file-upload__error"]'
-      )
-
-    await page.waitForChanges()
-
-    expect(maxSizeError.innerText).toBe(
-      'Error: file1.png cannot be chosen since the file(s) exceed the maximum file size.'
-    )
-  }) */
-
-  /* it('changes circular progress if error occured', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload],
-      html: `<ld-file-upload select-multiple circular-progress />`,
-    })
-    const ldFileUpload = page.root
-
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
-
-    const ldfileuploadreadyHandler = jest.fn()
-    ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
-
-    const data: UploadItem[] = [
-      {
-        file: undefined,
-        state: 'upload failed',
-        fileName: 'file1.png',
-        fileSize: 100000,
-        fileType: 'png',
-        progress: 50,
-      },
-    ]
-
-    ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
-    )
-
-    ldFileUpload.updateUploadItems(data)
-
-    await page.waitForChanges()
-
-    const circularProgress =
-      ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
-        'ld-circular-progress[class="ld-file-upload__circular-progress"]'
-      )
-
-    const circularProgressError =
-      ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
-        'ld-circular-progress[class="ld-file-upload--circular-progress-error"]'
-      )
-
-    await page.waitForChanges()
-
-    expect(ldchoosefilesHandler).toHaveBeenCalled()
-  }) */
 })

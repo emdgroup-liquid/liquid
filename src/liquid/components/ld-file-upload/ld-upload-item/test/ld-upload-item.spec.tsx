@@ -54,16 +54,10 @@ describe('ld-upload-item', () => {
 
     ldFileUpload.addEventListener(
       'ldchoosefiles',
-      await ldFileUpload.updateUploadItems(data)
+      await ldFileUpload.addUploadItems(data)
     )
-    // ldFileUpload.updateUploadItems(data)
 
     await page.waitForChanges()
-
-    /* const LdUploadProgress =
-      ldFileUpload.shadowRoot.querySelector<HTMLLdUploadProgressElement>(
-        'ld-upload-progress'
-      ) */
 
     expect(page.root).toMatchSnapshot()
   })
@@ -114,6 +108,8 @@ describe('ld-upload-item', () => {
   })
 
   describe('emits events according to button click', () => {
+    // Pause/continue might be added at a later time
+
     // it('emits lduploaditempause event', async () => {
     //   const page = await newSpecPage({
     //     components: [LdUploadItem],

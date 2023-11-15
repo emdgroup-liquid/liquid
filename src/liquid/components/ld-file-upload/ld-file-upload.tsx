@@ -47,22 +47,22 @@ export class LdFileUpload {
 
   private fileInput?: HTMLInputElement
 
-  /** startUpload defines whether upload starts immediately after choosing files or after confirmation. */
+  /** Defines whether upload starts immediately after choosing files or after confirmation. */
   @Prop() startUpload?: boolean = false
 
-  /** allowPause defines whether the user will be able to pause uploads. */
+  /** Defines whether the user will be able to pause uploads. */
   @Prop() allowPause?: boolean = false
 
-  /** showTotalProgress defines whether the progress of uploading files will be shown, or only an uploading indicator. */
+  /** Defines whether the progress of uploading files will be shown, or only an uploading indicator. */
   @Prop() showProgress?: boolean = false
 
-  /** selectMultiple defines whether selection of multiple input files is allowed. */
+  /** Defines whether selection of multiple input files is allowed. */
   @Prop() selectMultiple?: boolean = false
 
-  /** circularProgress defines whether only the circular progress indicator will be shown during upload. */
+  /** Defines whether only the circular progress indicator will be shown during upload. */
   @Prop() circularProgress?: boolean = false
 
-  /** TODO: circularProgress defines whether only one file can be chosen and uploaded. */
+  /** Defines whether only one file can be chosen and uploaded. */
   @Prop() singularUpload?: boolean = false
 
   /** Is used to display and validate maximum file size in Bytes */
@@ -331,7 +331,7 @@ export class LdFileUpload {
     if (
       this.circularProgress &&
       !this.renderCircularProgress &&
-      this.exceedMaxSize.length == 0
+      this.exceedMaxSize.length === 0
     ) {
       this.renderCircularProgress = true
     }
@@ -341,14 +341,14 @@ export class LdFileUpload {
 
   /**
    * Accepts a file list from component consumer (name, progress, state etc.)
-   * and updates the upload items state.
+   * and adds the items to the upload items state.
    */
   @Method()
-  async updateUploadItems(uploadItems: UploadItem[]) {
-    if (this.uploadItems.length == 0) {
+  async addUploadItems(uploadItems: UploadItem[]) {
+    if (this.uploadItems.length === 0) {
       this.uploadItems = uploadItems
     } else {
-      this.uploadItems = [...this.uploadItems.slice(), ...uploadItems.slice()]
+      this.uploadItems = [...this.uploadItems, ...uploadItems]
     }
   }
 
@@ -379,7 +379,7 @@ export class LdFileUpload {
    * and deletes the upload items.
    */
   @Method()
-  async deleteUploadItems() {
+  async deleteAllUploadItems() {
     this.uploadItems = []
   }
 
@@ -404,31 +404,36 @@ export class LdFileUpload {
     ]
   }
 
+  private setToInitialState = () => {
+    this.renderOnlyChooseFile = true
+    this.startUploadClicked = false
+    this.renderCircularProgress = false
+  }
+
   @Watch('uploadItems')
   async changeProgressVisualisation() {
-    if (this.uploadItems.length == 0) {
+    if (this.uploadItems.length === 0) {
       this.startUploadClicked = false
     }
     if (
-      this.uploadItems.length == 0 &&
-      this.renderOnlyChooseFile == false &&
-      this.cannotBeChosen.length == 0 &&
-      this.exceedMaxSize.length == 0
+      this.uploadItems.length === 0 &&
+      this.renderOnlyChooseFile === false &&
+      this.cannotBeChosen.length === 0 &&
+      this.exceedMaxSize.length === 0
     ) {
-      this.renderOnlyChooseFile = true
-      this.startUploadClicked = false
-      this.renderCircularProgress = false
+      this.setToInitialState()
     }
     if (
-      this.uploadItems.filter((item) => item.state == 'uploaded').length ==
+      this.uploadItems.filter((item) => item.state === 'uploaded').length ==
         this.uploadItems.length &&
       this.uploadItems.length != 0
     ) {
       this.allUploadsFinished = true
     }
 
+    // sets component to initial state after all file have been uploaded in circular progress mode
     if (
-      this.uploadItems.filter((item) => item.state == 'uploaded').length ==
+      this.uploadItems.filter((item) => item.state === 'uploaded').length ==
         this.uploadItems.length &&
       this.uploadItems.length != 0 &&
       this.circularProgress
@@ -456,16 +461,16 @@ export class LdFileUpload {
 
     const roundedSize = Number(bytes.toFixed(2))
 
-    return roundedSize + ' ' + sizes[sizeIndex]
+    return `${roundedSize} ${sizes[sizeIndex]}`
   }
 
   private calculateTotalProgress = () => {
     const activeUploads = this.uploadItems.filter(
       (item) =>
-        item.state == 'pending' ||
-        item.state == 'paused' ||
-        item.state == 'uploading' ||
-        item.state == 'uploaded'
+        item.state === 'pending' ||
+        item.state === 'paused' ||
+        item.state === 'uploading' ||
+        item.state === 'uploaded'
     )
     const totalSizeSum = activeUploads.reduce(
       (partialSum, file) => partialSum + file.fileSize,
@@ -481,9 +486,7 @@ export class LdFileUpload {
   }
 
   private addChosenFiles(chosenFiles: UploadItem[]) {
-    for (let i = 0; i < chosenFiles.length; i++) {
-      this.allChosenFiles.push(chosenFiles[i])
-    }
+    this.allChosenFiles = [...this.allChosenFiles, ...chosenFiles]
   }
 
   private removeDuplicateChosenFiles(chosenFiles: FileList) {
@@ -493,13 +496,13 @@ export class LdFileUpload {
     for (let i = 0; i < chosenFiles.length; i++) {
       if (
         !this.lastChosenFiles.some(
-          (chosenFile) => chosenFile.fileName == chosenFiles[i].name
+          (chosenFile) => chosenFile.fileName === chosenFiles[i].name
         ) &&
         !this.uploadItems.some(
-          (uploadFile) => uploadFile.fileName == chosenFiles[i].name
+          (uploadFile) => uploadFile.fileName === chosenFiles[i].name
         ) &&
         ((chosenFiles[i].size < this.maxSize && this.maxSize != undefined) ||
-          this.maxSize == undefined)
+          this.maxSize === undefined)
       ) {
         this.lastChosenFiles.push({
           state: 'pending',
@@ -512,10 +515,10 @@ export class LdFileUpload {
       } else {
         if (
           this.lastChosenFiles.some(
-            (chosenFile) => chosenFile.fileName == chosenFiles[i].name
+            (chosenFile) => chosenFile.fileName === chosenFiles[i].name
           ) ||
           this.uploadItems.some(
-            (uploadFile) => uploadFile.fileName == chosenFiles[i].name
+            (uploadFile) => uploadFile.fileName === chosenFiles[i].name
           )
         ) {
           this.cannotBeChosen.push(chosenFiles[i].name)
@@ -571,7 +574,7 @@ export class LdFileUpload {
 
   private handlePauseAllClick = () => {
     const uploadingItems = this.uploadItems.filter(
-      (item) => item.state == 'uploading'
+      (item) => item.state === 'uploading'
     )
     this.ldfileuploadpausealluploads.emit(uploadingItems)
     this.pauseAllClicked = true
@@ -579,7 +582,7 @@ export class LdFileUpload {
 
   private handleContinuePausedClick = () => {
     const pausedItems = this.uploadItems.filter(
-      (item) => item.state == 'paused'
+      (item) => item.state === 'paused'
     )
     this.ldfileuploadcontinueuploads.emit(pausedItems)
     this.pauseAllClicked = false
@@ -599,7 +602,7 @@ export class LdFileUpload {
             <Fragment>
               <ld-choose-file
                 class="ld-file-upload__choose-file"
-                size={this.renderOnlyChooseFile ? 'bg' : 'sm'}
+                layout={this.renderOnlyChooseFile ? 'vertical' : 'horizontal'}
                 onLdchoosefiles={this.handleChooseFiles}
                 start-upload={this.startUpload}
                 selectMultiple={this.selectMultiple}
@@ -635,7 +638,7 @@ export class LdFileUpload {
                 class={getClassNames([
                   'ld-file-upload__circular-progress',
                   this.uploadItems.filter(
-                    (item) => item.state == 'upload failed'
+                    (item) => item.state === 'upload failed'
                   ).length != 0 && 'ld-file-upload--circular-progress-error',
                 ])}
                 aria-labelledby="progress-label"
@@ -710,18 +713,18 @@ export class LdFileUpload {
       this.startUploadClicked &&
       this.uploadItems.filter(
         (item) =>
-          item.state == 'pending' ||
-          item.state == 'paused' ||
-          item.state == 'uploading'
+          item.state === 'pending' ||
+          item.state === 'paused' ||
+          item.state === 'uploading'
       ).length != 0
         ? this.calculateTotalProgress()
         : !this.showProgress &&
           this.startUploadClicked &&
           this.uploadItems.filter(
             (item) =>
-              item.state == 'pending' ||
-              item.state == 'paused' ||
-              item.state == 'uploading'
+              item.state === 'pending' ||
+              item.state === 'paused' ||
+              item.state === 'uploading'
           ).length != 0
         ? 'pending'
         : undefined
@@ -730,8 +733,10 @@ export class LdFileUpload {
         {(this.renderOnlyChooseFile || !this.singularUpload) && (
           <ld-choose-file
             class="ld-file-upload__choose-file"
-            size={
-              this.renderOnlyChooseFile && !this.singularUpload ? 'bg' : 'sm'
+            layout={
+              this.renderOnlyChooseFile && !this.singularUpload
+                ? 'vertical'
+                : 'horizontal'
             }
             onLdchoosefiles={this.handleChooseFiles}
             start-upload={this.startUpload}
@@ -805,9 +810,9 @@ export class LdFileUpload {
                         ? this.labelStartUpload
                         : this.uploadItems.filter(
                             (item) =>
-                              item.state == 'pending' ||
-                              item.state == 'paused' ||
-                              item.state == 'uploading'
+                              item.state === 'pending' ||
+                              item.state === 'paused' ||
+                              item.state === 'uploading'
                           ).length != 0
                         ? this.labelUploading
                         : this.labelUploadCompleted}
@@ -830,8 +835,8 @@ export class LdFileUpload {
                       mode="secondary"
                       disabled={
                         this.uploadItems.filter(
-                          (item) => item.state == 'paused'
-                        ).length == 0
+                          (item) => item.state === 'paused'
+                        ).length === 0
                       }
                     >
                       {this.labelContinuePausedUploads}
@@ -844,8 +849,8 @@ export class LdFileUpload {
                       mode="secondary"
                       disabled={
                         this.uploadItems.filter(
-                          (item) => item.state == 'uploading'
-                        ).length == 0
+                          (item) => item.state === 'uploading'
+                        ).length === 0
                       }
                     >
                       {this.labelPauseAllUploads}
