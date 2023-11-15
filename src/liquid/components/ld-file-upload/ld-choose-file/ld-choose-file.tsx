@@ -13,6 +13,8 @@ import { getClassNames } from '../../../utils/getClassNames'
 import { getAssetPath } from '../../../utils/assetPath'
 import type { UploadItem } from '../ld-file-upload'
 
+let chooseFileCount = 0
+
 /**
  * @virtualProp ref - reference to component
  */
@@ -24,6 +26,7 @@ import type { UploadItem } from '../ld-file-upload'
 })
 export class LdChooseFile {
   @Element() el: HTMLLdChooseFileElement
+  private idPrefix = `ld-choose-file-${++chooseFileCount}`
 
   /** Max. file size in bytes */
   @Prop() maxSize?: number
@@ -239,7 +242,9 @@ export class LdChooseFile {
                     ) : undefined}
                   </Fragment>
                 ) : undefined} */}
-                <ld-typo variant="h5">{this.labelDragInstructions}</ld-typo>
+                <ld-typo id={`${this.idPrefix}-instructions`} variant="h5">
+                  {this.labelDragInstructions}
+                </ld-typo>
                 {this.labelUploadConstraints != '' ? (
                   <ld-typo>
                     {this.labelUploadConstraints.replace(
@@ -250,6 +255,7 @@ export class LdChooseFile {
                 ) : undefined}
                 <slot></slot>
                 <ld-button
+                  aria-labelledby={`${this.idPrefix}-instructions`}
                   class="ld-choose-file__upload-button"
                   size="sm"
                   onClick={this.handleUploadClick}
