@@ -25,7 +25,7 @@ export class LdUploadItem {
   /** Layout of the upload items
    * @internal
    */
-  @Prop() layout?: 'default' | 'singular-upload' = 'default'
+  @Prop() layout?: 'default' | 'compact' = 'default'
 
   /** Defines whether the user will be able to pause uploads. */
   @Prop() allowPause?: boolean
@@ -34,7 +34,7 @@ export class LdUploadItem {
   @Prop() showProgress?: boolean = false
 
   /** Defines whether only one file can be chosen and uploaded. */
-  @Prop() singularUpload?: boolean = false
+  @Prop() compact?: boolean = false
 
   /** State of the file. */
   @Prop() state?:
@@ -306,97 +306,91 @@ export class LdUploadItem {
             {this.state === 'pending' ||
             this.state === 'paused' ||
             this.state === 'uploading' ? (
-              <ld-tooltip arrow position="left middle" size="sm">
-                <ld-button
-                  class="ld-upload-item__remove-button"
-                  mode="ghost"
+              // <ld-tooltip arrow position="left middle" size="sm">
+              <ld-button
+                class="ld-upload-item__remove-button"
+                mode="ghost"
+                size="sm"
+                onClick={this.removeClick}
+                slot="trigger"
+              >
+                <ld-icon
+                  class="ld-upload-item__remove-icon"
+                  name="cross"
                   size="sm"
-                  onClick={this.removeClick}
-                  slot="trigger"
-                >
-                  <ld-icon
-                    class="ld-upload-item__remove-icon"
-                    name="cross"
-                    size="sm"
-                    aria-label="Text"
-                  ></ld-icon>
-                  <div class="ld-upload-item__hide-on-sm">
-                    {this.labelRemove}
-                  </div>
-                </ld-button>
-                <ld-typo>{this.labelRemove}</ld-typo>
-              </ld-tooltip>
-            ) : undefined}
+                  aria-label="Text"
+                ></ld-icon>
+                <div class="ld-upload-item__hide-on-sm">{this.labelRemove}</div>
+              </ld-button>
+            ) : //   <ld-typo>{this.labelRemove}</ld-typo>
+            // </ld-tooltip>
+            undefined}
             {this.state === 'uploaded' ? (
-              <ld-tooltip arrow position="left middle" size="sm">
-                <ld-button
-                  class="ld-upload-item__download-button"
-                  mode="ghost"
+              // <ld-tooltip arrow position="left middle" size="sm">
+              <ld-button
+                class="ld-upload-item__download-button"
+                mode="ghost"
+                size="sm"
+                onClick={this.downloadClick}
+                slot="trigger"
+              >
+                <ld-icon
+                  class="ld-upload-item__download-icon"
+                  name="download"
                   size="sm"
-                  onClick={this.downloadClick}
-                  slot="trigger"
-                >
-                  <ld-icon
-                    class="ld-upload-item__download-icon"
-                    name="download"
-                    size="sm"
-                    aria-label="Text"
-                  ></ld-icon>
-                  <div class="ld-upload-item__hide-on-sm">
-                    {this.labelDownload}
-                  </div>
-                </ld-button>
-                <ld-typo>{this.labelDownload}</ld-typo>
-              </ld-tooltip>
-            ) : undefined}
+                  aria-label="Text"
+                ></ld-icon>
+                <div class="ld-upload-item__hide-on-sm">
+                  {this.labelDownload}
+                </div>
+              </ld-button>
+            ) : //   <ld-typo>{this.labelDownload}</ld-typo>
+            // </ld-tooltip>
+            undefined}
             {this.state === 'upload failed' &&
             this.uploadItems.filter((item) => item.state === 'uploading')
               .length === 0 ? (
-              <ld-tooltip arrow position="left middle" size="sm">
-                <ld-button
-                  class="ld-upload-item__retry-button"
-                  mode="ghost"
+              // <ld-tooltip arrow position="left middle" size="sm">
+              <ld-button
+                class="ld-upload-item__retry-button"
+                mode="ghost"
+                size="sm"
+                onClick={this.retryClick}
+                slot="trigger"
+              >
+                <ld-icon
+                  class="ld-upload-item__retry-icon"
+                  name="refresh"
                   size="sm"
-                  onClick={this.retryClick}
-                  slot="trigger"
-                >
-                  <ld-icon
-                    class="ld-upload-item__retry-icon"
-                    name="refresh"
-                    size="sm"
-                    aria-label="Text"
-                  ></ld-icon>
-                  <div class="ld-upload-item__hide-on-sm">
-                    {this.labelRetry}
-                  </div>
-                </ld-button>
-                <ld-typo>{this.labelRetry}</ld-typo>
-              </ld-tooltip>
-            ) : undefined}
+                  aria-label="Text"
+                ></ld-icon>
+                <div class="ld-upload-item__hide-on-sm">{this.labelRetry}</div>
+              </ld-button>
+            ) : //   <ld-typo>{this.labelRetry}</ld-typo>
+            // </ld-tooltip>
+            undefined}
             {this.state === 'cancelled' ||
             this.state === 'uploaded' ||
             this.state === 'upload failed' ? (
-              <ld-tooltip arrow position="left middle" size="sm">
-                <ld-button
-                  class="ld-upload-item__delete-button"
-                  mode="ghost"
+              // <ld-tooltip arrow position="left middle" size="sm">
+              <ld-button
+                class="ld-upload-item__delete-button"
+                mode="ghost"
+                size="sm"
+                onClick={this.deleteClick}
+                slot="trigger"
+              >
+                <ld-icon
+                  class="ld-upload-item__delete-icon"
+                  name="bin"
                   size="sm"
-                  onClick={this.deleteClick}
-                  slot="trigger"
-                >
-                  <ld-icon
-                    class="ld-upload-item__delete-icon"
-                    name="bin"
-                    size="sm"
-                    aria-label="Text"
-                  ></ld-icon>
-                  <div class="ld-upload-item__hide-on-sm">
-                    {this.labelDelete}
-                  </div>
-                </ld-button>
-                <ld-typo>{this.labelDelete}</ld-typo>
-              </ld-tooltip>
-            ) : undefined}
+                  aria-label="Text"
+                ></ld-icon>
+                <div class="ld-upload-item__hide-on-sm">{this.labelDelete}</div>
+              </ld-button>
+            ) : //   <ld-typo>{this.labelDelete}</ld-typo>
+            // </ld-tooltip>
+            undefined}
           </div>
         </div>
         {this.state === 'pending' || this.state === 'uploading' ? (
@@ -425,7 +419,9 @@ export class LdUploadItem {
           ></ld-progress>
         ) : this.state === 'uploading' &&
           !this.showProgress ? undefined : undefined} */}
-        {activeUploads && this.showProgress ? (
+        {/* this.showProgress will probably not be used anmore, instead progress 
+          will be shown if this.progress != 0 */}
+        {/* {activeUploads && this.showProgress ? (
           <ld-progress
             class="ld-upload-item__progress"
             pending={this.state === 'paused'}
@@ -433,6 +429,21 @@ export class LdUploadItem {
             aria-valuenow={this.progress}
           ></ld-progress>
         ) : activeUploads && !this.showProgress ? (
+          <ld-progress
+            class="ld-upload-item__progress"
+            pending
+            aria-labeledby="progress-label"
+            aria-valuetext="indeterminate"
+          ></ld-progress>
+        ) : undefined} */}
+        {activeUploads && this.progress !== 0 ? (
+          <ld-progress
+            class="ld-upload-item__progress"
+            pending={this.state === 'paused'}
+            aria-labeledby="progress-label"
+            aria-valuenow={this.progress}
+          ></ld-progress>
+        ) : activeUploads && this.progress === 0 ? (
           <ld-progress
             class="ld-upload-item__progress"
             pending

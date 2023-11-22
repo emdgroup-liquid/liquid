@@ -35,7 +35,7 @@
   margin: var(--ld-sp-32) var(--ld-sp-40);
 }
 
-/* .ld-choose-file--singular-upload {
+/* .ld-choose-file--compact {
   display: flex;
   flex-direction: row;
   gap: var(--ld-sp-1);
@@ -68,7 +68,7 @@
   text-align: center;
 }
 
-/* .ld-choose-file__text--singular-upload {
+/* .ld-choose-file__text--compact {
   display: flex;
   flex-direction: row;
   gap: var(--ld-sp-8);

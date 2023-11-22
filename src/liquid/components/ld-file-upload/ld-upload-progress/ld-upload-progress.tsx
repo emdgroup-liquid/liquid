@@ -15,10 +15,10 @@ export class LdUploadProgress {
   /** Layout of the upload items
    * @internal
    */
-  @Prop() layout?: 'default' | 'singular-upload' = 'default'
+  @Prop() layout?: 'default' | 'compact' = 'default'
 
   /** Defines whether upload starts immediately after choosing files or after confirmation. */
-  @Prop() startUpload?: boolean = false
+  @Prop() startUploadImmediately?: boolean = false
 
   /** Defines whether the user will be able to pause uploads. */
   @Prop() allowPause?: boolean
@@ -27,7 +27,7 @@ export class LdUploadProgress {
   @Prop() showProgress?: boolean = false
 
   /** Defines whether only one file can be chosen and uploaded. */
-  @Prop() singularUpload?: boolean = false
+  @Prop() compact?: boolean = false
 
   /** List of files */
   @Prop() uploadItems: UploadItem[] = []

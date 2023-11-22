@@ -32,8 +32,8 @@ export type UploadItem = {
 /**
  * File upload:
  *   - listen for files chosen event (from ld-choose-file.tsx) with file list
- *     -> emit upload ready event (if startUpload prop is set to true)
- *   - listen for click event of continue button and emit upload ready event (if startUpload prop is set to false)
+ *     -> emit upload ready event (if startUploadImmediately prop is set to true)
+ *   - listen for click event of continue button and emit upload ready event (if startUploadImmediately prop is set to false)
  *   - The upload ready event contains the file list as its payload
  * @virtualProp ref - reference to component
  */
@@ -48,7 +48,7 @@ export class LdFileUpload {
   private fileInput?: HTMLInputElement
 
   /** Defines whether upload starts immediately after choosing files or after confirmation. */
-  @Prop() startUpload?: boolean = false
+  @Prop() startUploadImmediately?: boolean = false
 
   /** Defines whether the user will be able to pause uploads. */
   @Prop() allowPause?: boolean = false
@@ -57,17 +57,17 @@ export class LdFileUpload {
   @Prop() showProgress?: boolean = false
 
   /** Defines whether selection of multiple input files is allowed. */
-  @Prop() selectMultiple?: boolean = false
+  @Prop() multiple?: boolean = false
 
   /** Defines whether only the circular progress indicator will be shown during upload. */
   @Prop() circularProgress?: boolean = false
 
   /** Defines whether only one file can be chosen and uploaded. */
-  @Prop() singularUpload?: boolean = false
+  @Prop() compact?: boolean = false
 
   /** Is used to display and validate maximum file size in Bytes */
-  @Prop() maxSize?: number
-  // @Prop() maxSize?: number = 1572864
+  @Prop() maxFileSize?: number
+  // @Prop() maxFileSize?: number = 1572864
 
   /** Name of form field to use for sending the element's directionality in form submission. */
   @Prop() dirname?: string
@@ -86,27 +86,27 @@ export class LdFileUpload {
 
   /** Label to be used as a header with instructions for drag and drop or file upload. */
   @Prop() labelDragInstructions = `Drag your file${
-    this.selectMultiple ? '(s)' : ''
+    this.multiple ? '(s)' : ''
   } here or browse`
 
   /** Label to be used as a header with instructions for drag and drop or file upload in the simgular upload version. */
-  @Prop() labelSingularDropInstructions = `Or drop file${
-    this.selectMultiple ? '(s)' : ''
-  }`
+  // @Prop() labelSingularDropInstructions = `Or drop file${
+  //   this.multiple ? '(s)' : ''
+  // }`
 
   /** Label to be used to describe upload constraints like the maximum file size. */
   @Prop() labelUploadConstraints = `${
-    this.maxSize !== undefined ? 'max. $maxSize file size' : ''
+    this.maxFileSize !== undefined ? 'max. $maxFileSize file size' : ''
   }`
 
   /** Label to be used for the select files button. */
-  @Prop() labelSelectFile = `Select ${this.selectMultiple ? '' : 'a'} file${
-    this.selectMultiple ? '(s)' : ''
+  @Prop() labelSelectFile = `Select ${this.multiple ? '' : 'a'} file${
+    this.multiple ? '(s)' : ''
   }`
 
   /** Label to be used for the upload files button. */
-  @Prop() labelUploadFile = `Upload ${this.selectMultiple ? '' : 'a'} file${
-    this.selectMultiple ? '(s)' : ''
+  @Prop() labelUploadFile = `Upload ${this.multiple ? '' : 'a'} file${
+    this.multiple ? '(s)' : ''
   }`
 
   /** Label to be used for the upload state header. */
@@ -114,7 +114,7 @@ export class LdFileUpload {
 
   /** Label to be used to count the amount of files that have been uploaded. */
   @Prop() labelUploadCount = `$filesUploaded of $filesTotal file${
-    this.selectMultiple ? 's' : ''
+    this.multiple ? 's' : ''
   } uploaded.`
 
   /** Label to be used to show the total upload percentage. */
@@ -149,13 +149,13 @@ export class LdFileUpload {
 
   /** Label to be used for the error message that is shown if chosen file exceeds the maximum file size. */
   @Prop()
-  labelMaxSizeExceededError = `$filesExceedingMaxSize cannot be chosen since the file(s) exceed(s) the maximum file size.`
+  labelmaxFileSizeExceededError = `$filesExceedingmaxFileSize cannot be chosen since the file(s) exceed(s) the maximum file size.`
 
   // Labels for circular progress:
 
   /** Label to be used to count th uploaded files in circular progress mode. */
   @Prop() labelCPUploadCount = `Uploading $filesUploading file${
-    this.selectMultiple ? 's' : ''
+    this.multiple ? 's' : ''
   }`
 
   /** Label to be used to show the total uploaded file size in circular progress mode. */
@@ -203,7 +203,7 @@ export class LdFileUpload {
   @State() cannotBeChosen: string[] = []
 
   /** Names of files that cannot be chosen by the user since the files exceed the maximum file size. */
-  @State() exceedMaxSize: string[] = []
+  @State() exceedmaxFileSize: string[] = []
 
   /** Only renders the choose file component, if true. */
   @State() renderOnlyChooseFile = true
@@ -336,7 +336,7 @@ export class LdFileUpload {
     if (
       this.circularProgress &&
       !this.renderCircularProgress &&
-      this.exceedMaxSize.length === 0
+      this.exceedmaxFileSize.length === 0
     ) {
       this.renderCircularProgress = true
     }
@@ -424,7 +424,7 @@ export class LdFileUpload {
       this.uploadItems.length === 0 &&
       this.renderOnlyChooseFile === false &&
       this.cannotBeChosen.length === 0 &&
-      this.exceedMaxSize.length === 0
+      this.exceedmaxFileSize.length === 0
     ) {
       this.setToInitialState()
     }
@@ -497,7 +497,7 @@ export class LdFileUpload {
   private removeDuplicateChosenFiles(chosenFiles: FileList) {
     this.lastChosenFiles = []
     this.cannotBeChosen = []
-    this.exceedMaxSize = []
+    this.exceedmaxFileSize = []
     for (let i = 0; i < chosenFiles.length; i++) {
       if (
         !this.lastChosenFiles.some(
@@ -506,8 +506,9 @@ export class LdFileUpload {
         !this.uploadItems.some(
           (uploadFile) => uploadFile.fileName === chosenFiles[i].name
         ) &&
-        ((chosenFiles[i].size < this.maxSize && this.maxSize != undefined) ||
-          this.maxSize === undefined)
+        ((chosenFiles[i].size < this.maxFileSize &&
+          this.maxFileSize != undefined) ||
+          this.maxFileSize === undefined)
       ) {
         this.lastChosenFiles.push({
           state: 'pending',
@@ -528,8 +529,11 @@ export class LdFileUpload {
         ) {
           this.cannotBeChosen.push(chosenFiles[i].name)
         }
-        if (chosenFiles[i].size > this.maxSize && this.maxSize != undefined) {
-          this.exceedMaxSize.push(chosenFiles[i].name)
+        if (
+          chosenFiles[i].size > this.maxFileSize &&
+          this.maxFileSize != undefined
+        ) {
+          this.exceedmaxFileSize.push(chosenFiles[i].name)
         }
       }
     }
@@ -543,7 +547,7 @@ export class LdFileUpload {
     this.removeDuplicateChosenFiles(files)
     this.ldchoosefiles.emit(this.lastChosenFiles)
     this.addChosenFiles(this.lastChosenFiles)
-    if (this.startUpload || this.circularProgress) {
+    if (this.startUploadImmediately || this.circularProgress) {
       this.ldfileuploadready.emit(this.allChosenFiles)
     }
   }
@@ -556,19 +560,19 @@ export class LdFileUpload {
     this.removeDuplicateChosenFiles(ev.detail)
     this.ldchoosefiles.emit(this.lastChosenFiles) // ...and dispatch the public one.
     this.addChosenFiles(this.lastChosenFiles)
-    if (this.startUpload || this.circularProgress) {
+    if (this.startUploadImmediately || this.circularProgress) {
       this.ldfileuploadready.emit(this.allChosenFiles)
     }
   }
 
   private handleStartUploadClick = (ev: MouseEvent) => {
     ev.preventDefault()
-    if (!this.startUpload && !this.startUploadClicked) {
+    if (!this.startUploadImmediately && !this.startUploadClicked) {
       this.ldfileuploadready.emit(this.allChosenFiles)
     }
     this.startUploadClicked = true
     this.cannotBeChosen = []
-    this.exceedMaxSize = []
+    this.exceedmaxFileSize = []
   }
 
   // private handleDeleteAllClick = () => {
@@ -609,24 +613,24 @@ export class LdFileUpload {
                 class="ld-file-upload__choose-file"
                 layout={this.renderOnlyChooseFile ? 'vertical' : 'horizontal'}
                 // layout={
-                //   this.singularUpload
-                //     ? 'singular-upload'
+                //   this.compact
+                //     ? 'compact'
                 //     : this.renderOnlyChooseFile
                 //     ? 'vertical'
                 //     : 'horizontal'
                 // }
                 onLdchoosefiles={this.handleChooseFiles}
-                start-upload={this.startUpload}
-                selectMultiple={this.selectMultiple}
+                start-upload-immediately={this.startUploadImmediately}
+                multiple={this.multiple}
                 startUploadClicked={this.startUploadClicked}
                 showProgress={this.showProgress}
-                singularUpload={this.singularUpload}
+                compact={this.compact}
                 uploadItems={this.uploadItems}
-                maxSize={this.maxSize}
+                maxFileSize={this.maxFileSize}
                 labelDragInstructions={this.labelDragInstructions}
-                labelSingularDropInstructions={
-                  this.labelSingularDropInstructions
-                }
+                // labelSingularDropInstructions={
+                //   this.labelSingularDropInstructions
+                // }
                 labelUploadConstraints={this.labelUploadConstraints}
                 labelSelectFile={this.labelSelectFile}
                 labelUploadFile={this.labelUploadFile}
@@ -634,15 +638,15 @@ export class LdFileUpload {
                 labelUploadCount={this.labelUploadCount}
                 labelUploadPercentage={this.labelUploadPercentage}
               ></ld-choose-file>
-              {this.exceedMaxSize.length != 0 ? (
+              {this.exceedmaxFileSize.length != 0 ? (
                 <ld-notice
                   headline={this.labelErrorHeader}
                   mode="error"
                   class="ld-file-upload__error"
                 >
-                  {this.labelMaxSizeExceededError.replace(
-                    '$filesExceedingMaxSize',
-                    this.exceedMaxSize.join(', ')
+                  {this.labelmaxFileSizeExceededError.replace(
+                    '$filesExceedingmaxFileSize',
+                    this.exceedmaxFileSize.join(', ')
                   )}
                 </ld-notice>
               ) : undefined}
@@ -716,7 +720,7 @@ export class LdFileUpload {
             ref={(el) => (this.fileInput = el)}
             onChange={this.handleInputChange}
             type="file"
-            multiple={this.selectMultiple}
+            multiple={this.multiple}
             tabIndex={-1}
             class="ld-file-upload__input"
           />
@@ -746,31 +750,31 @@ export class LdFileUpload {
         : undefined
     return (
       <Host class={cl}>
-        {(this.renderOnlyChooseFile || !this.singularUpload) && (
+        {(this.renderOnlyChooseFile || !this.compact) && (
           <ld-choose-file
             class="ld-file-upload__choose-file"
             layout={
-              this.renderOnlyChooseFile && !this.singularUpload
+              this.renderOnlyChooseFile && !this.compact
                 ? 'vertical'
                 : 'horizontal'
             }
             // layout={
-            //   this.singularUpload
-            //     ? 'singular-upload'
+            //   this.compact
+            //     ? 'compact'
             //     : this.renderOnlyChooseFile
             //     ? 'vertical'
             //     : 'horizontal'
             // }
             onLdchoosefiles={this.handleChooseFiles}
-            start-upload={this.startUpload}
-            selectMultiple={this.selectMultiple}
+            startUploadImmediately={this.startUploadImmediately}
+            multiple={this.multiple}
             startUploadClicked={this.startUploadClicked}
             showProgress={this.showProgress}
-            singularUpload={this.singularUpload}
+            compact={this.compact}
             uploadItems={this.uploadItems}
-            maxSize={this.maxSize}
+            maxFileSize={this.maxFileSize}
             labelDragInstructions={this.labelDragInstructions}
-            labelSingularDropInstructions={this.labelSingularDropInstructions}
+            // labelSingularDropInstructions={this.labelSingularDropInstructions}
             labelUploadConstraints={this.labelUploadConstraints}
             labelSelectFile={this.labelSelectFile}
             labelUploadFile={this.labelUploadFile}
@@ -794,15 +798,15 @@ export class LdFileUpload {
                 )}
               </ld-notice>
             ) : undefined}
-            {this.exceedMaxSize.length != 0 ? (
+            {this.exceedmaxFileSize.length != 0 ? (
               <ld-notice
                 headline={this.labelErrorHeader}
                 mode="error"
                 class="ld-file-upload__error"
               >
-                {this.labelMaxSizeExceededError.replace(
-                  '$filesExceedingMaxSize',
-                  this.exceedMaxSize.join(', ')
+                {this.labelmaxFileSizeExceededError.replace(
+                  '$filesExceedingmaxFileSize',
+                  this.exceedmaxFileSize.join(', ')
                 )}
               </ld-notice>
             ) : undefined}
@@ -810,9 +814,9 @@ export class LdFileUpload {
               <Fragment>
                 <ld-upload-progress
                   class="ld-file-upload__progress"
-                  layout={this.singularUpload ? 'singular-upload' : 'default'}
+                  layout={this.compact ? 'compact' : 'default'}
                   uploadItems={this.uploadItems}
-                  startUpload={false}
+                  startUploadImmediately={false}
                   allowPause={this.allowPause}
                   showProgress={this.showProgress}
                   labelRemove={this.labelRemove}
@@ -825,7 +829,7 @@ export class LdFileUpload {
                 ></ld-upload-progress>
 
                 <div class="ld-file-upload__buttons">
-                  {!this.startUpload && (
+                  {!this.startUploadImmediately && (
                     <ld-button
                       class="ld-file-upload__start-upload-button"
                       size="sm"
@@ -892,7 +896,7 @@ export class LdFileUpload {
           ref={(el) => (this.fileInput = el)}
           onChange={this.handleInputChange}
           type="file"
-          multiple={this.selectMultiple}
+          multiple={this.multiple}
           tabIndex={-1}
           class="ld-file-upload__input"
         />

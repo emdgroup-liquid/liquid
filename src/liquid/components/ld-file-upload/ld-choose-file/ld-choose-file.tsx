@@ -29,25 +29,22 @@ export class LdChooseFile {
   private idPrefix = `ld-choose-file-${++chooseFileCount}`
 
   /** Max. file size in bytes */
-  @Prop() maxSize?: number
+  @Prop() maxFileSize?: number
 
   /** Defines whether upload starts immediately after choosing files or after confirmation. */
-  @Prop() startUpload?: boolean = false
+  @Prop() startUploadImmediately?: boolean = false
 
-  /** Defines whether start upload button has been clicked while startUpload = false */
+  /** Defines whether start upload button has been clicked (only relevant when startUploadImmediately is false) */
   @Prop() startUploadClicked?: boolean = false
 
   /** Defines whether selection of multiple input files is allowed. */
-  @Prop() selectMultiple?: boolean = false
+  @Prop() multiple?: boolean = false
 
   /** Defines whether the total progress of all uploading files will be shown in the progress button */
   @Prop() showProgress?: boolean = false
 
   /** Defines whether only one file can be chosen and uploaded. */
-  @Prop() singularUpload?: boolean = false
-
-  /** Chosen Files */
-  @Prop() uploadFiles: UploadItem[] = []
+  @Prop() compact?: boolean = false
 
   /** Chosen Files from the parent component */
   @Prop() uploadItems: UploadItem[] = []
@@ -55,35 +52,31 @@ export class LdChooseFile {
   /** Layout of the choose file area
    * @internal
    */
-  @Prop() layout?:
-    | 'horizontal'
-    | 'vertical'
-    | 'singular-upload'
-    | 'only-upload-button' = 'vertical'
+  @Prop() layout?: 'horizontal' | 'vertical' | 'compact' = 'vertical'
 
   /** Label to be used as a header with instructions for drag and drop or file upload. */
   @Prop() labelDragInstructions = `Drag your file${
-    this.selectMultiple ? '(s)' : ''
+    this.multiple ? '(s)' : ''
   } here or browse`
 
   /** Label to be used as a header with instructions for drag and drop or file upload in the simgular upload version. */
-  @Prop() labelSingularDropInstructions = `Or drop file${
-    this.selectMultiple ? '(s)' : ''
-  }`
+  // @Prop() labelSingularDropInstructions = `Or drop file${
+  //   this.multiple ? '(s)' : ''
+  // }`
 
   /** Label to be used to describe upload constraints like the maximum file size. */
   @Prop() labelUploadConstraints = `${
-    this.maxSize !== undefined ? 'max. $maxSize file size' : ''
+    this.maxFileSize !== undefined ? 'max. $maxFileSize file size' : ''
   }`
 
   /** Label to be used for the select files button. */
-  @Prop() labelSelectFile = `Select ${this.selectMultiple ? '' : 'a'} file${
-    this.selectMultiple ? '(s)' : ''
+  @Prop() labelSelectFile = `Select ${this.multiple ? '' : 'a'} file${
+    this.multiple ? '(s)' : ''
   }`
 
   /** Label to be used for the upload files button. */
-  @Prop() labelUploadFile = `Upload ${this.selectMultiple ? '' : 'a'} file${
-    this.selectMultiple ? '(s)' : ''
+  @Prop() labelUploadFile = `Upload ${this.multiple ? '' : 'a'} file${
+    this.multiple ? '(s)' : ''
   }`
 
   /** Label to be used for the upload state header. */
@@ -91,7 +84,7 @@ export class LdChooseFile {
 
   /** Label to be used to count the amount of files that have been uploaded. */
   @Prop() labelUploadCount = `$filesUploaded of $filesTotal file${
-    this.selectMultiple ? 's' : ''
+    this.multiple ? 's' : ''
   } uploaded.`
 
   /** Label to be used to show the total upload percentage. */
@@ -129,11 +122,11 @@ export class LdChooseFile {
 
   private handleDragEnter = (ev: DragEvent) => {
     ev.preventDefault()
-    ev.stopPropagation()
+    // ev.stopPropagation()
     const fileList = ev.dataTransfer.files
     if (
-      (this.selectMultiple || (!this.selectMultiple && fileList.length <= 1)) &&
-      (this.startUpload || (!this.startUpload && !this.startUploadClicked))
+      (this.multiple || fileList.length <= 1) &&
+      (this.startUploadImmediately || !this.startUploadClicked)
     ) {
       this.highlighted = true
     }
@@ -141,11 +134,11 @@ export class LdChooseFile {
 
   private handleDragOver = (ev: DragEvent) => {
     ev.preventDefault()
-    ev.stopPropagation()
+    // ev.stopPropagation()
     const fileList = ev.dataTransfer.files
     if (
-      (this.selectMultiple || (!this.selectMultiple && fileList.length <= 1)) &&
-      (this.startUpload || (!this.startUpload && !this.startUploadClicked))
+      (this.multiple || fileList.length <= 1) &&
+      (this.startUploadImmediately || !this.startUploadClicked)
     ) {
       this.highlighted = true
     }
@@ -153,20 +146,20 @@ export class LdChooseFile {
 
   private handleDragLeave = (ev: DragEvent) => {
     ev.preventDefault()
-    ev.stopPropagation()
+    // ev.stopPropagation()
     this.highlighted = false
   }
 
   private handleDrop = (ev: DragEvent) => {
     ev.preventDefault()
-    ev.stopPropagation()
+    // ev.stopPropagation()
     this.highlighted = false
 
     const fileList = ev.dataTransfer.files
 
     if (
-      (this.selectMultiple || (!this.selectMultiple && fileList.length <= 1)) &&
-      (this.startUpload || (!this.startUpload && !this.startUploadClicked))
+      (this.multiple || fileList.length <= 1) &&
+      (this.startUploadImmediately || !this.startUploadClicked)
     ) {
       this.ldchoosefiles.emit(fileList)
     }
@@ -226,17 +219,17 @@ export class LdChooseFile {
               this.layout && `ld-choose-file__text--${this.layout}`,
             ])}
           >
-            {this.startUpload ||
-            (!this.startUpload && !this.startUploadClicked) ? (
+            {this.startUploadImmediately ||
+            (!this.startUploadImmediately && !this.startUploadClicked) ? (
               <Fragment>
-                {/* {!this.singularUpload ? (
+                {/* {!this.compact ? (
                   <Fragment>
                     <ld-typo variant="h5">{this.labelDragInstructions}</ld-typo>
                     {this.labelUploadConstraints != '' ? (
                       <ld-typo>
                         {this.labelUploadConstraints.replace(
-                          '$maxSize',
-                          this.bytesToSize(this.maxSize)
+                          '$maxFileSize',
+                          this.bytesToSize(this.maxFileSize)
                         )}
                       </ld-typo>
                     ) : undefined}
@@ -248,8 +241,8 @@ export class LdChooseFile {
                 {this.labelUploadConstraints != '' ? (
                   <ld-typo>
                     {this.labelUploadConstraints.replace(
-                      '$maxSize',
-                      this.bytesToSize(this.maxSize)
+                      '$maxFileSize',
+                      this.bytesToSize(this.maxFileSize)
                     )}
                   </ld-typo>
                 ) : undefined}
@@ -260,11 +253,11 @@ export class LdChooseFile {
                   size="sm"
                   onClick={this.handleUploadClick}
                 >
-                  {this.startUpload
+                  {this.startUploadImmediately
                     ? this.labelUploadFile
                     : this.labelSelectFile}
                 </ld-button>
-                {/* {this.singularUpload ? (
+                {/* {this.compact ? (
                   <ld-typo variant="h5">
                     {this.labelSingularDropInstructions}
                   </ld-typo>

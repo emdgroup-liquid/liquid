@@ -34,12 +34,12 @@ describe('ld-choose-file', () => {
     expect(page.root.uploadItems.length).toBe(1)
   })
 
-  it('renders start-upload', async () => {
+  it('renders start-upload-immediately', async () => {
     const page = await newSpecPage({
       components: [LdChooseFile],
-      html: `<ld-choose-file start-upload></ld-choose-file>`,
+      html: `<ld-choose-file start-upload-immediately></ld-choose-file>`,
     })
-    expect(page.root.startUpload).toBe(true)
+    expect(page.root.startUploadImmediately).toBe(true)
   })
 
   it('renders start-upload-clicked', async () => {
@@ -50,18 +50,18 @@ describe('ld-choose-file', () => {
     expect(page.root.startUploadClicked).toBe(true)
   })
 
-  it('renders select-multiple', async () => {
+  it('renders multiple', async () => {
     const page = await newSpecPage({
       components: [LdChooseFile],
-      html: `<ld-choose-file select-multiple></ld-choose-file>`,
+      html: `<ld-choose-file multiple></ld-choose-file>`,
     })
-    expect(page.root.selectMultiple).toBe(true)
+    expect(page.root.multiple).toBe(true)
   })
 
   it('emits lduploadclick event', async () => {
     const page = await newSpecPage({
       components: [LdChooseFile],
-      html: `<ld-choose-file start-upload></ld-choose-file>`,
+      html: `<ld-choose-file start-upload-immediately></ld-choose-file>`,
     })
     const ldChooseFile = page.root
     const uploadButton =
@@ -81,7 +81,7 @@ describe('ld-choose-file', () => {
   it('adds class highlighted on drag enter', async () => {
     const page = await newSpecPage({
       components: [LdChooseFile],
-      html: `<ld-choose-file start-upload select-multiple></ld-choose-file>`,
+      html: `<ld-choose-file start-upload-immediately multiple></ld-choose-file>`,
     })
     const ldChooseFile = page.root
 
@@ -99,7 +99,7 @@ describe('ld-choose-file', () => {
   it('adds class highlighted on drag over', async () => {
     const page = await newSpecPage({
       components: [LdChooseFile],
-      html: `<ld-choose-file start-upload select-multiple></ld-choose-file>`,
+      html: `<ld-choose-file start-upload-immediately multiple></ld-choose-file>`,
     })
     const ldChooseFile = page.root
 
@@ -117,7 +117,7 @@ describe('ld-choose-file', () => {
   it('removes class highlighted on drag leave', async () => {
     const page = await newSpecPage({
       components: [LdChooseFile],
-      html: `<ld-choose-file start-upload select-multiple></ld-choose-file>`,
+      html: `<ld-choose-file start-upload-immediately multiple></ld-choose-file>`,
     })
     const ldChooseFile = page.root
 
@@ -143,7 +143,7 @@ describe('ld-choose-file', () => {
   it('removes class highlighted on drop and emits ldchoosefiles event', async () => {
     const page = await newSpecPage({
       components: [LdChooseFile],
-      html: `<ld-choose-file start-upload select-multiple></ld-choose-file>`,
+      html: `<ld-choose-file start-upload-immediately multiple></ld-choose-file>`,
     })
     const ldChooseFile = page.root
 

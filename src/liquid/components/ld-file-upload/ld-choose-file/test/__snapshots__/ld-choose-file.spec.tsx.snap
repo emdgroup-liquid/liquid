@@ -6,11 +6,11 @@ exports[`ld-choose-file renders default 1`] = `
     <div class="ld-choose-file--vertical ld-choose-file__content">
       <img alt="" class="ld-choose-file__image" height="122" src="/dist/liquid/assets/file-upload.svg" width="142">
       <div class="ld-choose-file__text ld-choose-file__text--vertical">
-        <ld-typo variant="h5">
+        <ld-typo id="ld-choose-file-1-instructions" variant="h5">
           Drag your file here or browse
         </ld-typo>
         <slot></slot>
-        <ld-button class="ld-choose-file__upload-button" size="sm">
+        <ld-button aria-labelledby="ld-choose-file-1-instructions" class="ld-choose-file__upload-button" size="sm">
           Select a file
         </ld-button>
       </div>

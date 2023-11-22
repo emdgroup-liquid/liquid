@@ -3,7 +3,7 @@
 exports[`ld-file-upload renders default 1`] = `
 <ld-file-upload class="ld-file-upload ld-file-upload--only-choose-file">
   <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labelsingulardropinstructions="Or drop file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" layout="vertical"></ld-choose-file>
+    <ld-choose-file class="ld-file-upload__choose-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" layout="vertical"></ld-choose-file>
     <input class="ld-file-upload__input" tabindex="-1" type="file">
   </mock:shadow-root>
 </ld-file-upload>
@@ -12,7 +12,7 @@ exports[`ld-file-upload renders default 1`] = `
 exports[`ld-file-upload sets custom icons 1`] = `
 <ld-file-upload class="ld-file-upload ld-file-upload--only-choose-file">
   <mock:shadow-root>
-    <ld-choose-file class="ld-file-upload__choose-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labelsingulardropinstructions="Or drop file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" layout="vertical"></ld-choose-file>
+    <ld-choose-file class="ld-file-upload__choose-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" layout="vertical"></ld-choose-file>
     <input class="ld-file-upload__input" tabindex="-1" type="file">
   </mock:shadow-root>
   <ld-icon data-upload-icon="application/pdf" name="pdf" size="lg" slot="icons"></ld-icon>

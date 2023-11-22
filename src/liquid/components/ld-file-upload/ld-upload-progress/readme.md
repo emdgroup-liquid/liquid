@@ -21,6 +21,7 @@ Please refer to the [`ld-file-upload` documentation](components/ld-file-upload) 
 | Property                  | Attribute                    | Description                                                                                   | Type           | Default                                    |
 | ------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------ |
 | `allowPause`              | `allow-pause`                | Defines whether the user will be able to pause uploads.                                       | `boolean`      | `undefined`                                |
+| `compact`                 | `compact`                    | Defines whether only one file can be chosen and uploaded.                                     | `boolean`      | `false`                                    |
 | `labelDelete`             | `label-delete`               | Label to be used for the tooltip of the delete button.                                        | `string`       | ``Delete``                                 |
 | `labelDownload`           | `label-download`             | Label to be used for the tooltip of the download button.                                      | `string`       | ``Download``                               |
 | `labelRemove`             | `label-remove`               | Label to be used for the tooltip of the remove button.                                        | `string`       | ``Remove``                                 |
@@ -30,8 +31,7 @@ Please refer to the [`ld-file-upload` documentation](components/ld-file-upload) 
 | `labelUploadSuccessMsg`   | `label-upload-success-msg`   | Label to be used for upload success message.                                                  | `string`       | ``Upload was successful!``                 |
 | `ref`                     | `ref`                        | reference to component                                                                        | `any`          | `undefined`                                |
 | `showProgress`            | `show-progress`              | Defines whether the total progress of all upoading files will be shown in the progress button | `boolean`      | `false`                                    |
-| `singularUpload`          | `singular-upload`            | Defines whether only one file can be chosen and uploaded.                                     | `boolean`      | `false`                                    |
-| `startUpload`             | `start-upload`               | Defines whether upload starts immediately after choosing files or after confirmation.         | `boolean`      | `false`                                    |
+| `startUploadImmediately`  | `start-upload-immediately`   | Defines whether upload starts immediately after choosing files or after confirmation.         | `boolean`      | `false`                                    |
 | `uploadItems`             | --                           | List of files                                                                                 | `UploadItem[]` | `[]`                                       |
 
 
@@ -51,13 +51,10 @@ graph TD;
   ld-upload-progress --> ld-upload-item
   ld-upload-item --> ld-icon
   ld-upload-item --> ld-typo
-  ld-upload-item --> ld-tooltip
   ld-upload-item --> ld-button
   ld-upload-item --> ld-sr-only
   ld-upload-item --> ld-progress
   ld-upload-item --> ld-input-message
-  ld-tooltip --> ld-sr-only
-  ld-tooltip --> ld-tooltip-popper
   ld-input-message --> ld-icon
   ld-file-upload --> ld-upload-progress
   style ld-upload-progress fill:#f9f,stroke:#333,stroke-width:4px

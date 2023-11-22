@@ -18,9 +18,9 @@ describe('ld-file-upload', () => {
   it('allows selection of multiple files', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
-      html: `<ld-file-upload select-multiple />`,
+      html: `<ld-file-upload multiple />`,
     })
-    expect(page.root.selectMultiple).toBe(true)
+    expect(page.root.multiple).toBe(true)
   })
 
   it('shows circular progress', async () => {
@@ -34,9 +34,9 @@ describe('ld-file-upload', () => {
   it('starts upload immediately after choosing files', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
-      html: `<ld-file-upload start-upload />`,
+      html: `<ld-file-upload start-upload-immediately />`,
     })
-    expect(page.root.startUpload).toBe(true)
+    expect(page.root.startUploadImmediately).toBe(true)
   })
 
   it('allows pausing the uploads', async () => {
@@ -58,9 +58,9 @@ describe('ld-file-upload', () => {
   it('sets maximum file size', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
-      html: `<ld-file-upload max-size=500 />`,
+      html: `<ld-file-upload max-file-size=500 />`,
     })
-    expect(page.root.maxSize).toBe(500)
+    expect(page.root.maxFileSize).toBe(500)
   })
 
   it('sets custom icons', async () => {
@@ -325,7 +325,7 @@ describe('ld-file-upload', () => {
   it('emits public ldchoosefiles and ldfileuploadready event after internal ldchoosefiles event is emitted by ld-choose-files', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
-      html: `<ld-file-upload start-upload />`,
+      html: `<ld-file-upload start-upload-immediately />`,
     })
     const ldFileUpload = page.root
     const ldChooseFiles =
@@ -365,7 +365,7 @@ describe('ld-file-upload', () => {
   it('emits public ldchoosefiles and ldfileuploadready event after files are selected through input', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
-      html: `<ld-file-upload start-upload />`,
+      html: `<ld-file-upload start-upload-immediately />`,
     })
     const ldFileUpload = page.root
     const input = ldFileUpload.shadowRoot.querySelector<HTMLInputElement>(

@@ -63,10 +63,12 @@ Unless the width of the component is specified, it will adjust to the available 
       uploadItems = ev.detail
       uploadingItems = []
       for (let item in uploadItems) {
-        newItem = uploadItems[item]
-        newItem.state = 'uploading'
-        uploadingItems.push(newItem)
-        ldUpload.updateUploadItem(newItem)
+        if (item.state !== 'cancelled') {
+          newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          uploadingItems.push(newItem)
+          ldUpload.updateUploadItem(newItem)
+        }
       }
     })
 
@@ -475,7 +477,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 Files to be uploaded can be accessed through the `file` property of the UploadItem objects emitted on `ldfileuploadready`. XMLHttpRequest can be used to update the upload progress in the component.
 
 {% example '{ "opened": false }' %}
-<ld-file-upload select-multiple show-progress style="width: 30rem">
+<ld-file-upload multiple show-progress style="width: 30rem">
 </ld-file-upload>
 
 <!-- style="width: 30rem, height: 50rem"> -->
@@ -600,7 +602,7 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-select-multiple
+multiple
 show-progress
 
 <!-- add width -->
@@ -734,7 +736,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 This is just for testing. Upload success is overwritten with a random true/false value to test the retry feature.
 
 {% example '{ "opened": false }' %}
-<ld-file-upload select-multiple show-progress style="width: 30rem">
+<ld-file-upload multiple show-progress style="width: 30rem">
 </ld-file-upload>
 
 <script>
@@ -860,7 +862,7 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-select-multiple
+multiple
 show-progress
 
 <!-- add width -->
@@ -993,7 +995,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 #### Upload with XMLHttpRequest (without exact progress)
 
 {% example '{ "opened": false }' %}
-<ld-file-upload select-multiple style="width: 30rem">
+<ld-file-upload multiple style="width: 30rem">
 </ld-file-upload>
 
 <!-- style="width: 30rem, height: 50rem"> -->
@@ -1118,7 +1120,7 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-select-multiple
+multiple
 
 <!-- add width -->
 
@@ -1249,7 +1251,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 #### Upload with XMLHttpRequest, starting upload immediately
 
 {% example '{ "opened": false }' %}
-<ld-file-upload select-multiple show-progress start-upload style="width: 30rem">
+<ld-file-upload multiple show-progress start-upload-immediately style="width: 30rem">
 </ld-file-upload>
 
 <!-- style="width: 30rem, height: 50rem"> -->
@@ -1376,9 +1378,9 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-select-multiple
+multiple
 show-progress
-start-upload
+start-upload-immediately
 
 <!-- add width -->
 
@@ -1510,7 +1512,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 #### Upload with XMLHttpRequest with circular progress
 
 {% example '{ "opened": false }' %}
-<ld-file-upload select-multiple show-progress circular-progress style="width: 30rem">
+<ld-file-upload multiple show-progress circular-progress style="width: 30rem">
 </ld-file-upload>
 
 <!-- style="width: 30rem, height: 50rem"> -->
@@ -1637,7 +1639,7 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-select-multiple
+multiple
 show-progress
 circular-progress
 
@@ -1768,12 +1770,270 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 {% endexample %}
 
+#### Upload with XMLHttpRequest with allow pause
+
+{% example '{ "opened": false }' %}
+<ld-file-upload multiple show-progress allow-pause style="width: 30rem">
+</ld-file-upload>
+
+<!-- style="width: 30rem, height: 50rem"> -->
+
+<script>
+  ;(() => {
+    const ldUpload = document.currentScript.previousElementSibling
+
+    ldUpload.addEventListener('ldchoosefiles', async (ev) => {
+      uploadItems = ev.detail
+      ldUpload.addUploadItems(uploadItems)
+    })
+
+    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+        file = uploadItems[item].file
+
+        const xhr = new XMLHttpRequest()
+        const success = await new Promise((resolve) => {
+          xhr.upload.addEventListener("progress", (event) => {
+            if (event.lengthComputable) {
+              newItem = uploadItems[item]
+              newItem.progress = event.loaded / event.total * 100
+              ldUpload.updateUploadItem(newItem)
+            }
+          });
+          xhr.addEventListener("loadend", () => {
+            resolve(xhr.readyState === 4 && xhr.status === 200)
+          })
+          ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+            uploadItem = ev.detail
+            if (uploadItem.fileName === uploadItems[item].fileName) {
+              newItem = uploadItems[item]
+              newItem.state = 'cancelled'
+              ldUpload.updateUploadItem(newItem)
+              xhr.abort(ev.detail.file)
+            }
+          })
+          xhr.open("PUT", "https://httpbin.org/put", true)
+          xhr.setRequestHeader("Content-Type", "application/octet-stream")
+          xhr.send(file)
+        })
+        if (success) {
+          newItem = uploadItems[item]
+        newItem.state = 'uploaded'
+        ldUpload.updateUploadItem(newItem)
+        } else if (uploadItems[item].state != 'cancelled') {
+          newItem = uploadItems[item]
+        newItem.state = "upload failed"
+        ldUpload.updateUploadItem(newItem)
+        }
+      }
+    })
+
+    ldUpload.addEventListener('lduploaditemdownload', async (ev) => {
+      uploadItem = ev.detail
+      window.open("https://liquid.merck.design/liquid/")
+    })
+
+    ldUpload.addEventListener('lduploaditemretry', async (ev) => {
+      uploadItem = ev.detail
+      uploadItems = []
+      uploadItems.push(uploadItem)
+      event = new CustomEvent('ldfileuploadready', { detail: uploadItems });
+      ldUpload.dispatchEvent(event)
+    })
+
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemremove', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'cancelled'
+      ldUpload.updateUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
+      uploadItem = ev.detail
+      ldUpload.deleteUploadItem(uploadItem)
+    })
+
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteAllUploadItems()
+    })
+
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+
+<LdFileUpload
+ref={fileUploadRef}
+multiple
+show-progress
+allow-pause
+
+<!-- add width -->
+
+onLdchoosefiles={async (ev) => {
+const uploadItems = ev.detail
+if (fileUploadRef.current) {
+fileUploadRef.current.addUploadItems(uploadItems)
+}
+}}
+onLdfileuploadready={async (ev) => {
+const uploadItems = ev.detail
+for (const item in uploadItems) {
+const newItem = uploadItems[item]
+newItem.state = 'uploading'
+if (fileUploadRef.current) {
+fileUploadRef.current.updateUploadItem(newItem)
+}
+
+            const file = uploadItems[item].file
+
+            const xhr = new XMLHttpRequest()
+            const success = await new Promise((resolve) => {
+              xhr.upload.addEventListener('progress', (event) => {
+                if (event.lengthComputable) {
+                  const newItem = uploadItems[item]
+                  newItem.progress = (event.loaded / event.total) * 100
+                  if (fileUploadRef.current) {
+                    fileUploadRef.current.updateUploadItem(newItem)
+                  }
+                }
+              })
+              xhr.addEventListener('loadend', () => {
+                resolve(xhr.readyState === 4 && xhr.status === 200)
+              })
+
+              if (fileUploadRef.current) {
+                fileUploadRef.current.addEventListener(
+                  'lduploaditemremove',
+                  async (ev) => {
+                    const uploadItem = ev.detail
+                    if (uploadItem.fileName === uploadItems[item].fileName) {
+                      const newItem = uploadItems[item]
+                      newItem.state = 'cancelled'
+                      fileUploadRef.current.updateUploadItem(newItem)
+                      xhr.abort(ev.detail.file)
+                    }
+                  }
+                )
+              }
+
+              xhr.open('PUT', 'https://httpbin.org/put', true)
+              xhr.setRequestHeader('Content-Type', 'application/octet-stream')
+              xhr.send(file)
+            })
+            if (success) {
+              const newItem = uploadItems[item]
+              newItem.state = 'uploaded'
+              if (fileUploadRef.current) {
+                fileUploadRef.current.updateUploadItem(newItem)
+              }
+            } else if (uploadItems[item].state != 'cancelled') {
+              const newItem = uploadItems[item]
+              newItem.state = 'upload failed'
+              if (fileUploadRef.current) {
+                fileUploadRef.current.updateUploadItem(newItem)
+              }
+            }
+          }
+        }}
+        onLduploaditemdownload={async () => {
+          window.open('https://liquid.merck.design/liquid/')
+        }}
+        onLduploaditemretry={async (ev) => {
+          const uploadItem = ev.detail
+          const uploadItems = []
+          uploadItems.push(uploadItem)
+          const uploadevent = new CustomEvent('ldfileuploadready', {
+            detail: uploadItems,
+          })
+          if (fileUploadRef.current) {
+            fileUploadRef.current.dispatchEvent(uploadevent)
+          }
+        }}
+        onLduploaditemremove={async (ev) => {
+          const uploadItem = ev.detail
+          uploadItem.state = 'cancelled'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(uploadItem)
+          }
+        }}
+        onLduploaditemdelete={async (ev) => {
+          const uploadItem = ev.detail
+          if (fileUploadRef.current) {
+            fileUploadRef.current.deleteUploadItem(uploadItem)
+          }
+        }}
+        onLdfileuploaddeleteall={async () => {
+          if (fileUploadRef.current) {
+            fileUploadRef.current.deleteAllUploadItems()
+          }
+        }}
+        onLdfileuploadpausealluploads={async (ev) => {
+          const uploadItems = ev.detail
+          for (const item in uploadItems) {
+            const newItem = uploadItems[item]
+            newItem.state = 'paused'
+            if (fileUploadRef.current) {
+              fileUploadRef.current.updateUploadItem(newItem)
+            }
+          }
+        }}
+        onLdfileuploadcontinueuploads={async (ev) => {
+          const uploadItems = ev.detail
+          for (const item in uploadItems) {
+            const newItem = uploadItems[item]
+            newItem.state = 'uploading'
+            if (fileUploadRef.current) {
+              fileUploadRef.current.updateUploadItem(newItem)
+            }
+          }
+        }}
+      />
+
+<!-- CSS component -->
+
+{% endexample %}
+
 #### Fake Upload
 
 Fake upload, just for testing. Can be removed from the documentation.
 
 {% example '{ "opened": false }' %}
-<ld-file-upload select-multiple>
+<ld-file-upload multiple>
 </ld-file-upload>
 
 <script>
@@ -1887,7 +2147,7 @@ Fake upload, just for testing. Can be removed from the documentation.
 Mode in which only a circular progress representation of the total upload progress is shown instead of separate progress items for all files.
 
 {% example '{ "opened": false }' %}
-<ld-file-upload select-multiple circular-progress>
+<ld-file-upload multiple circular-progress>
 </ld-file-upload>
 
 <script>
@@ -1963,7 +2223,7 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-select-multiple
+multiple
 circular-progress
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
@@ -2025,10 +2285,10 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 {% endexample %}
 
-#### Circular progress with max size
+#### Circular progress with max file size
 
 {% example '{ "opened": false }' %}
-<ld-file-upload select-multiple circular-progress max-size=500>
+<ld-file-upload multiple circular-progress max-file-size=500>
 </ld-file-upload>
 
 <script>
@@ -2104,9 +2364,9 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-select-multiple
+multiple
 circular-progress
-max-size="500"
+max-file-size="500"
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
@@ -2169,10 +2429,10 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 ### Start upload immediately after choosing files
 
-In `start-upload` mode, upload of files will start immediately after the files are chosen.
+In `start-upload-immediately` mode, upload of files will start immediately after the files are chosen.
 
 {% example '{ "opened": false }' %}
-<ld-file-upload start-upload></ld-file-upload>
+<ld-file-upload start-upload-immediately></ld-file-upload>
 
 <script>
   ;(() => {
@@ -2247,7 +2507,7 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-start-upload
+start-upload-immediately
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
@@ -2308,10 +2568,10 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 {% endexample %}
 
-#### Start upload immediately after choosing files with max size
+#### Start upload immediately after choosing files with max file size
 
 {% example '{ "opened": false }' %}
-<ld-file-upload start-upload max-size=500></ld-file-upload>
+<ld-file-upload start-upload-immediately max-file-size=500></ld-file-upload>
 
 <script>
   ;(() => {
@@ -2386,8 +2646,8 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-start-upload
-max-size="500"
+start-upload-immediately
+max-file-size="500"
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
@@ -2448,10 +2708,10 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 {% endexample %}
 
-### Singular upload
+### Compact
 
 {% example '{ "opened": false }' %}
-<ld-file-upload start-upload singular-upload>
+<ld-file-upload start-upload-immediately compact>
 </ld-file-upload>
 
 <script>
@@ -2527,8 +2787,8 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-start-upload
-singular-upload
+start-upload-immediately
+compact
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
@@ -2876,7 +3136,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 ### Select multiple
 
 {% example '{ "opened": false }' %}
-<ld-file-upload select-multiple>
+<ld-file-upload multiple>
 </ld-file-upload>
 
 <script>
@@ -2952,7 +3212,7 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-select-multiple
+multiple
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
@@ -3013,10 +3273,10 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 {% endexample %}
 
-### Max size
+### Max file size
 
 {% example '{ "opened": false }' %}
-<ld-file-upload max-size=500>
+<ld-file-upload max-file-size=500>
 </ld-file-upload>
 
 <script>
@@ -3092,7 +3352,7 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-max-size="500"
+max-file-size="500"
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
@@ -3153,10 +3413,10 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 {% endexample %}
 
-#### Max size with custom text
+#### Max file size with custom text
 
 {% example '{ "opened": false }' %}
-<ld-file-upload max-size=500 label-upload-constraints='File size must be smaller than $maxSize'>
+<ld-file-upload max-file-size=500 label-upload-constraints='File size must be smaller than $maxFileSize'>
 </ld-file-upload>
 
 <script>
@@ -3232,8 +3492,8 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 <LdFileUpload
 ref={fileUploadRef}
-max-size="500"
-label-upload-constraints='File size must be smaller than $maxSize'
+max-file-size="500"
+label-upload-constraints='File size must be smaller than $maxFileSize'
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
@@ -3455,9 +3715,9 @@ fileUploadRef.current.updateUploadItem(newItem)
 Example for changing the language of the component to German by using the test labels.
 
 {% example '{ "opened": false }' %}
-<ld-file-upload max-size=500
+<ld-file-upload max-file-size=500
 label-drag-instructions="Dateien hierher ziehen oder auswählen"
-label-upload-constraints="max. Dateigröße: $maxSize"
+label-upload-constraints="max. Dateigröße: $maxFileSize"
 label-select-file="Dateien auswählen"
 label-upload-file="Dateien hochladen"
 label-upload-state="Upload Status:"
@@ -3471,7 +3731,7 @@ label-pause-all-uploads="Alle Uploads pausieren"
 label-continue-paused-uploads="Pausierte Uploads fortführen"
 label-error-header="Ein Fehler ist aufgetreten"
 label-file-already-chosen-error="$duplicateFiles können nicht ausgewählt werden, da Dateien mit den gleichen Namen bereits ausgewählt wurden. Um diese Dateien dennoch hochzuladen müssen die Dateien mit den gleichen Namen entfernt werden."
-label-max-size-exceeded-error="$filesExceedingMaxSize können nicht ausgewählt werden, da die Dateien die maximale Dateigröße überschreiten."
+label-max-file-size-exceeded-error="$filesExceedingmaxFileSize können nicht ausgewählt werden, da die Dateien die maximale Dateigröße überschreiten."
 label-c-p-upload-count="$filesUploading Dateien werden hochgeladen"
 label-c-p-uploaded-size="$uploadedSize hochgeladen..."
 label-c-p-cancel="Abbrechen"
@@ -3557,7 +3817,7 @@ label-delete="Löschen">
 ### Combined examples
 
 {% example '{ "opened": false }' %}
-<ld-file-upload allow-pause select-multiple icons='{"rtf": "{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg"}'>
+<ld-file-upload allow-pause multiple icons='{"rtf": "{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg"}'>
 
 <ld-icon slot='icons' data-upload-icon='application/pdf' name='pdf' size='lg'></ld-icon>
 
@@ -3775,7 +4035,7 @@ label-delete="Löschen">
 #### Example with mock progress
 
 {% example '{ "opened": false }' %}
-<ld-file-upload show-progress start-upload>
+<ld-file-upload show-progress start-upload-immediately>
 </ld-file-upload>
 
 <ld-button>Click</ld-button>
@@ -4049,53 +4309,52 @@ label-delete="Löschen">
 
 File upload:
   - listen for files chosen event (from ld-choose-file.tsx) with file list
-    -> emit upload ready event (if startUpload prop is set to true)
-  - listen for click event of continue button and emit upload ready event (if startUpload prop is set to false)
+    -> emit upload ready event (if startUploadImmediately prop is set to true)
+  - listen for click event of continue button and emit upload ready event (if startUploadImmediately prop is set to false)
   - The upload ready event contains the file list as its payload
 
 ## Properties
 
-| Property                        | Attribute                          | Description                                                                                                     | Type      | Default                                                                                                                                                                              |
-| ------------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `allowPause`                    | `allow-pause`                      | Defines whether the user will be able to pause uploads.                                                         | `boolean` | `false`                                                                                                                                                                              |
-| `circularProgress`              | `circular-progress`                | Defines whether only the circular progress indicator will be shown during upload.                               | `boolean` | `false`                                                                                                                                                                              |
-| `dirname`                       | `dirname`                          | Name of form field to use for sending the element's directionality in form submission.                          | `string`  | `undefined`                                                                                                                                                                          |
-| `form`                          | `form`                             | Associates the control with a form element.                                                                     | `string`  | `undefined`                                                                                                                                                                          |
-| `labelCPCancel`                 | `label-c-p-cancel`                 | Label to be used for the cancel button in circular progress mode.                                               | `string`  | ``Cancel``                                                                                                                                                                           |
-| `labelCPUploadCount`            | `label-c-p-upload-count`           | Label to be used to count th uploaded files in circular progress mode.                                          | `string`  | ``Uploading $filesUploading file${     this.selectMultiple ? 's' : ''   }``                                                                                                          |
-| `labelCPUploadedSize`           | `label-c-p-uploaded-size`          | Label to be used to show the total uploaded file size in circular progress mode.                                | `string`  | ``$uploadedSize uploaded...``                                                                                                                                                        |
-| `labelContinuePausedUploads`    | `label-continue-paused-uploads`    | Label to be used for the continue paused uploads button.                                                        | `string`  | ``Continue paused uploads``                                                                                                                                                          |
-| `labelDelete`                   | `label-delete`                     | Label to be used for the delete button.                                                                         | `string`  | ``Delete``                                                                                                                                                                           |
-| `labelDeleteAllFiles`           | `label-delete-all-files`           | Label to be used for the delete all files button.                                                               | `string`  | ``Delete all files``                                                                                                                                                                 |
-| `labelDownload`                 | `label-download`                   | Label to be used for the download button.                                                                       | `string`  | ``Download``                                                                                                                                                                         |
-| `labelDragInstructions`         | `label-drag-instructions`          | Label to be used as a header with instructions for drag and drop or file upload.                                | `string`  | ``Drag your file${     this.selectMultiple ? '(s)' : ''   } here or browse``                                                                                                         |
-| `labelErrorHeader`              | `label-error-header`               | Label to be used for the header of error messages.                                                              | `string`  | ``An error occurred``                                                                                                                                                                |
-| `labelFileAlreadyChosenError`   | `label-file-already-chosen-error`  | Label to be used for the error message that is shown if a file that has already been chosen is selected again.  | `string`  | ``$duplicateFiles cannot be chosen since file(s) with the same name(s) has/have been chosen already. To upload this/these file(s) please remove the file(s) with the same name(s).`` |
-| `labelMaxSizeExceededError`     | `label-max-size-exceeded-error`    | Label to be used for the error message that is shown if chosen file exceeds the maximum file size.              | `string`  | ``$filesExceedingMaxSize cannot be chosen since the file(s) exceed(s) the maximum file size.``                                                                                       |
-| `labelPauseAllUploads`          | `label-pause-all-uploads`          | Label to be used for the pause all uploads button.                                                              | `string`  | ``Pause all uploads``                                                                                                                                                                |
-| `labelRemove`                   | `label-remove`                     | Label to be used for the remove button.                                                                         | `string`  | ``Remove``                                                                                                                                                                           |
-| `labelRetry`                    | `label-retry`                      | Label to be used for the retry button.                                                                          | `string`  | ``Retry``                                                                                                                                                                            |
-| `labelSelectFile`               | `label-select-file`                | Label to be used for the select files button.                                                                   | `string`  | ``Select ${this.selectMultiple ? '' : 'a'} file${     this.selectMultiple ? '(s)' : ''   }``                                                                                         |
-| `labelSingularDropInstructions` | `label-singular-drop-instructions` | Label to be used as a header with instructions for drag and drop or file upload in the simgular upload version. | `string`  | ``Or drop file${     this.selectMultiple ? '(s)' : ''   }``                                                                                                                          |
-| `labelStartUpload`              | `label-start-upload`               | Label to be used for the start upload button.                                                                   | `string`  | ``Start upload``                                                                                                                                                                     |
-| `labelUploadCancelledMsg`       | `label-upload-cancelled-msg`       | Label to be used for upload cancelled message.                                                                  | `string`  | ``Upload of this file has been cancelled``                                                                                                                                           |
-| `labelUploadCompleted`          | `label-upload-completed`           | Label to be used for the (disabled) upload completed button.                                                    | `string`  | ``Upload completed``                                                                                                                                                                 |
-| `labelUploadConstraints`        | `label-upload-constraints`         | Label to be used to describe upload constraints like the maximum file size.                                     | `string`  | ``${     this.maxSize !== undefined ? 'max. $maxSize file size' : ''   }``                                                                                                           |
-| `labelUploadCount`              | `label-upload-count`               | Label to be used to count the amount of files that have been uploaded.                                          | `string`  | ``$filesUploaded of $filesTotal file${     this.selectMultiple ? 's' : ''   } uploaded.``                                                                                            |
-| `labelUploadErrorMsg`           | `label-upload-error-msg`           | Label to be used for upload error message.                                                                      | `string`  | ``Error! Upload was unsuccessful``                                                                                                                                                   |
-| `labelUploadFile`               | `label-upload-file`                | Label to be used for the upload files button.                                                                   | `string`  | ``Upload ${this.selectMultiple ? '' : 'a'} file${     this.selectMultiple ? '(s)' : ''   }``                                                                                         |
-| `labelUploadPercentage`         | `label-upload-percentage`          | Label to be used to show the total upload percentage.                                                           | `string`  | ``$uploadProgress % uploaded.``                                                                                                                                                      |
-| `labelUploadState`              | `label-upload-state`               | Label to be used for the upload state header.                                                                   | `string`  | ``Upload state:``                                                                                                                                                                    |
-| `labelUploadSuccessMsg`         | `label-upload-success-msg`         | Label to be used for upload success message.                                                                    | `string`  | ``Upload was successful!``                                                                                                                                                           |
-| `labelUploading`                | `label-uploading`                  | Label to be used for the (disabled) uploading button.                                                           | `string`  | ``Uploading``                                                                                                                                                                        |
-| `maxSize`                       | `max-size`                         | Is used to display and validate maximum file size in Bytes                                                      | `number`  | `undefined`                                                                                                                                                                          |
-| `name`                          | `name`                             | Used to specify the name of the control.                                                                        | `string`  | `undefined`                                                                                                                                                                          |
-| `ref`                           | `ref`                              | reference to component                                                                                          | `any`     | `undefined`                                                                                                                                                                          |
-| `selectMultiple`                | `select-multiple`                  | Defines whether selection of multiple input files is allowed.                                                   | `boolean` | `false`                                                                                                                                                                              |
-| `showProgress`                  | `show-progress`                    | Defines whether the progress of uploading files will be shown, or only an uploading indicator.                  | `boolean` | `false`                                                                                                                                                                              |
-| `singularUpload`                | `singular-upload`                  | Defines whether only one file can be chosen and uploaded.                                                       | `boolean` | `false`                                                                                                                                                                              |
-| `startUpload`                   | `start-upload`                     | Defines whether upload starts immediately after choosing files or after confirmation.                           | `boolean` | `false`                                                                                                                                                                              |
-| `value`                         | `value`                            | The input value.                                                                                                | `string`  | `undefined`                                                                                                                                                                          |
+| Property                        | Attribute                           | Description                                                                                                    | Type      | Default                                                                                                                                                                              |
+| ------------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `allowPause`                    | `allow-pause`                       | Defines whether the user will be able to pause uploads.                                                        | `boolean` | `false`                                                                                                                                                                              |
+| `circularProgress`              | `circular-progress`                 | Defines whether only the circular progress indicator will be shown during upload.                              | `boolean` | `false`                                                                                                                                                                              |
+| `compact`                       | `compact`                           | Defines whether only one file can be chosen and uploaded.                                                      | `boolean` | `false`                                                                                                                                                                              |
+| `dirname`                       | `dirname`                           | Name of form field to use for sending the element's directionality in form submission.                         | `string`  | `undefined`                                                                                                                                                                          |
+| `form`                          | `form`                              | Associates the control with a form element.                                                                    | `string`  | `undefined`                                                                                                                                                                          |
+| `labelCPCancel`                 | `label-c-p-cancel`                  | Label to be used for the cancel button in circular progress mode.                                              | `string`  | ``Cancel``                                                                                                                                                                           |
+| `labelCPUploadCount`            | `label-c-p-upload-count`            | Label to be used to count th uploaded files in circular progress mode.                                         | `string`  | ``Uploading $filesUploading file${     this.multiple ? 's' : ''   }``                                                                                                                |
+| `labelCPUploadedSize`           | `label-c-p-uploaded-size`           | Label to be used to show the total uploaded file size in circular progress mode.                               | `string`  | ``$uploadedSize uploaded...``                                                                                                                                                        |
+| `labelContinuePausedUploads`    | `label-continue-paused-uploads`     | Label to be used for the continue paused uploads button.                                                       | `string`  | ``Continue paused uploads``                                                                                                                                                          |
+| `labelDelete`                   | `label-delete`                      | Label to be used for the delete button.                                                                        | `string`  | ``Delete``                                                                                                                                                                           |
+| `labelDeleteAllFiles`           | `label-delete-all-files`            | Label to be used for the delete all files button.                                                              | `string`  | ``Delete all files``                                                                                                                                                                 |
+| `labelDownload`                 | `label-download`                    | Label to be used for the download button.                                                                      | `string`  | ``Download``                                                                                                                                                                         |
+| `labelDragInstructions`         | `label-drag-instructions`           | Label to be used as a header with instructions for drag and drop or file upload.                               | `string`  | ``Drag your file${     this.multiple ? '(s)' : ''   } here or browse``                                                                                                               |
+| `labelErrorHeader`              | `label-error-header`                | Label to be used for the header of error messages.                                                             | `string`  | ``An error occurred``                                                                                                                                                                |
+| `labelFileAlreadyChosenError`   | `label-file-already-chosen-error`   | Label to be used for the error message that is shown if a file that has already been chosen is selected again. | `string`  | ``$duplicateFiles cannot be chosen since file(s) with the same name(s) has/have been chosen already. To upload this/these file(s) please remove the file(s) with the same name(s).`` |
+| `labelPauseAllUploads`          | `label-pause-all-uploads`           | Label to be used for the pause all uploads button.                                                             | `string`  | ``Pause all uploads``                                                                                                                                                                |
+| `labelRemove`                   | `label-remove`                      | Label to be used for the remove button.                                                                        | `string`  | ``Remove``                                                                                                                                                                           |
+| `labelRetry`                    | `label-retry`                       | Label to be used for the retry button.                                                                         | `string`  | ``Retry``                                                                                                                                                                            |
+| `labelSelectFile`               | `label-select-file`                 | Label to be used for the select files button.                                                                  | `string`  | ``Select ${this.multiple ? '' : 'a'} file${     this.multiple ? '(s)' : ''   }``                                                                                                     |
+| `labelStartUpload`              | `label-start-upload`                | Label to be used for the start upload button.                                                                  | `string`  | ``Start upload``                                                                                                                                                                     |
+| `labelUploadCancelledMsg`       | `label-upload-cancelled-msg`        | Label to be used for upload cancelled message.                                                                 | `string`  | ``Upload of this file has been cancelled``                                                                                                                                           |
+| `labelUploadCompleted`          | `label-upload-completed`            | Label to be used for the (disabled) upload completed button.                                                   | `string`  | ``Upload completed``                                                                                                                                                                 |
+| `labelUploadConstraints`        | `label-upload-constraints`          | Label to be used to describe upload constraints like the maximum file size.                                    | `string`  | ``${     this.maxFileSize !== undefined ? 'max. $maxFileSize file size' : ''   }``                                                                                                   |
+| `labelUploadCount`              | `label-upload-count`                | Label to be used to count the amount of files that have been uploaded.                                         | `string`  | ``$filesUploaded of $filesTotal file${     this.multiple ? 's' : ''   } uploaded.``                                                                                                  |
+| `labelUploadErrorMsg`           | `label-upload-error-msg`            | Label to be used for upload error message.                                                                     | `string`  | ``Error! Upload was unsuccessful``                                                                                                                                                   |
+| `labelUploadFile`               | `label-upload-file`                 | Label to be used for the upload files button.                                                                  | `string`  | ``Upload ${this.multiple ? '' : 'a'} file${     this.multiple ? '(s)' : ''   }``                                                                                                     |
+| `labelUploadPercentage`         | `label-upload-percentage`           | Label to be used to show the total upload percentage.                                                          | `string`  | ``$uploadProgress % uploaded.``                                                                                                                                                      |
+| `labelUploadState`              | `label-upload-state`                | Label to be used for the upload state header.                                                                  | `string`  | ``Upload state:``                                                                                                                                                                    |
+| `labelUploadSuccessMsg`         | `label-upload-success-msg`          | Label to be used for upload success message.                                                                   | `string`  | ``Upload was successful!``                                                                                                                                                           |
+| `labelUploading`                | `label-uploading`                   | Label to be used for the (disabled) uploading button.                                                          | `string`  | ``Uploading``                                                                                                                                                                        |
+| `labelmaxFileSizeExceededError` | `labelmax-file-size-exceeded-error` | Label to be used for the error message that is shown if chosen file exceeds the maximum file size.             | `string`  | ``$filesExceedingmaxFileSize cannot be chosen since the file(s) exceed(s) the maximum file size.``                                                                                   |
+| `maxFileSize`                   | `max-file-size`                     | Is used to display and validate maximum file size in Bytes                                                     | `number`  | `undefined`                                                                                                                                                                          |
+| `multiple`                      | `multiple`                          | Defines whether selection of multiple input files is allowed.                                                  | `boolean` | `false`                                                                                                                                                                              |
+| `name`                          | `name`                              | Used to specify the name of the control.                                                                       | `string`  | `undefined`                                                                                                                                                                          |
+| `ref`                           | `ref`                               | reference to component                                                                                         | `any`     | `undefined`                                                                                                                                                                          |
+| `showProgress`                  | `show-progress`                     | Defines whether the progress of uploading files will be shown, or only an uploading indicator.                 | `boolean` | `false`                                                                                                                                                                              |
+| `startUploadImmediately`        | `start-upload-immediately`          | Defines whether upload starts immediately after choosing files or after confirmation.                          | `boolean` | `false`                                                                                                                                                                              |
+| `value`                         | `value`                             | The input value.                                                                                               | `string`  | `undefined`                                                                                                                                                                          |
 
 
 ## Events
@@ -4188,13 +4447,10 @@ graph TD;
   ld-upload-progress --> ld-upload-item
   ld-upload-item --> ld-icon
   ld-upload-item --> ld-typo
-  ld-upload-item --> ld-tooltip
   ld-upload-item --> ld-button
   ld-upload-item --> ld-sr-only
   ld-upload-item --> ld-progress
   ld-upload-item --> ld-input-message
-  ld-tooltip --> ld-sr-only
-  ld-tooltip --> ld-tooltip-popper
   style ld-file-upload fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

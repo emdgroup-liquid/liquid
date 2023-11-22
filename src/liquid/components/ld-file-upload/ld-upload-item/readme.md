@@ -21,6 +21,7 @@ Please refer to the [`ld-file-upload` documentation](components/ld-file-upload) 
 | Property                  | Attribute                    | Description                                                                                   | Type                                                                                   | Default                                    |
 | ------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------ |
 | `allowPause`              | `allow-pause`                | Defines whether the user will be able to pause uploads.                                       | `boolean`                                                                              | `undefined`                                |
+| `compact`                 | `compact`                    | Defines whether only one file can be chosen and uploaded.                                     | `boolean`                                                                              | `false`                                    |
 | `file`                    | --                           | File of type File.                                                                            | `File`                                                                                 | `undefined`                                |
 | `fileName`                | `file-name`                  | Name of the uploaded file.                                                                    | `string`                                                                               | `undefined`                                |
 | `fileSize`                | `file-size`                  | Size of the uploaded file in bytes.                                                           | `number`                                                                               | `undefined`                                |
@@ -36,7 +37,6 @@ Please refer to the [`ld-file-upload` documentation](components/ld-file-upload) 
 | `progress`                | `progress`                   | Upload progress in percent.                                                                   | `number`                                                                               | `0`                                        |
 | `ref`                     | `ref`                        | reference to component                                                                        | `any`                                                                                  | `undefined`                                |
 | `showProgress`            | `show-progress`              | Defines whether the total progress of all upoading files will be shown in the progress button | `boolean`                                                                              | `false`                                    |
-| `singularUpload`          | `singular-upload`            | Defines whether only one file can be chosen and uploaded.                                     | `boolean`                                                                              | `false`                                    |
 | `state`                   | `state`                      | State of the file.                                                                            | `"cancelled" \| "paused" \| "pending" \| "upload failed" \| "uploaded" \| "uploading"` | `'pending'`                                |
 | `uploadItems`             | --                           | List of files                                                                                 | `UploadItem[]`                                                                         | `[]`                                       |
 
@@ -51,7 +51,6 @@ Please refer to the [`ld-file-upload` documentation](components/ld-file-upload) 
 
 - [ld-icon](../../ld-icon)
 - [ld-typo](../../ld-typo)
-- [ld-tooltip](../../ld-tooltip)
 - [ld-button](../../ld-button)
 - [ld-sr-only](../../ld-sr-only)
 - [ld-progress](../../ld-progress)
@@ -62,13 +61,10 @@ Please refer to the [`ld-file-upload` documentation](components/ld-file-upload) 
 graph TD;
   ld-upload-item --> ld-icon
   ld-upload-item --> ld-typo
-  ld-upload-item --> ld-tooltip
   ld-upload-item --> ld-button
   ld-upload-item --> ld-sr-only
   ld-upload-item --> ld-progress
   ld-upload-item --> ld-input-message
-  ld-tooltip --> ld-sr-only
-  ld-tooltip --> ld-tooltip-popper
   ld-input-message --> ld-icon
   ld-upload-progress --> ld-upload-item
   style ld-upload-item fill:#f9f,stroke:#333,stroke-width:4px
