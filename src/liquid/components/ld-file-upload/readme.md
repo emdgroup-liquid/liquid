@@ -72,17 +72,17 @@ Unless the width of the component is specified, it will adjust to the available 
       }
     })
 
-    // ldUpload.addEventListener('lduploaditempause', async (ev) => {
-    //   uploadItem = ev.detail
-    //   uploadItem.state = 'paused'
-    //   ldUpload.updateUploadItem(uploadItem)
-    // })
+    ldUpload.addEventListener('lduploaditempause', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'paused'
+      ldUpload.updateUploadItem(uploadItem)
+    })
 
-    // ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
-    //   uploadItem = ev.detail
-    //   uploadItem.state = 'uploading'
-    //   ldUpload.updateUploadItem(uploadItem)
-    // })
+    ldUpload.addEventListener('lduploaditemcontinue', async (ev) => {
+      uploadItem = ev.detail
+      uploadItem.state = 'uploading'
+      ldUpload.updateUploadItem(uploadItem)
+    })
 
     ldUpload.addEventListener('lduploaditemremove', async (ev) => {
       uploadItem = ev.detail
@@ -95,39 +95,39 @@ Unless the width of the component is specified, it will adjust to the available 
       ldUpload.deleteUploadItem(uploadItem)
     })
 
-    // ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
-    //   ldUpload.deleteAllUploadItems()
-    // })
+    ldUpload.addEventListener('ldfileuploaddeleteall', async (ev) => {
+      ldUpload.deleteAllUploadItems()
+    })
 
-    // ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
-    //   uploadItems = ev.detail
-    //   for (let item in uploadItems) {
-    //     newItem = uploadItems[item]
-    //     newItem.state = 'paused'
-    //     ldUpload.updateUploadItem(newItem)
-    //   }
-    // })
+    ldUpload.addEventListener('ldfileuploadpausealluploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'paused'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
 
-    // ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
-    //   uploadItems = ev.detail
-    //   for (let item in uploadItems) {
-    //     newItem = uploadItems[item]
-    //     newItem.state = 'uploading'
-    //     ldUpload.updateUploadItem(newItem)
-    //   }
-    // })
+    ldUpload.addEventListener('ldfileuploadcontinueuploads', async (ev) => {
+      uploadItems = ev.detail
+      for (let item in uploadItems) {
+        newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        ldUpload.updateUploadItem(newItem)
+      }
+    })
   })()
 </script>
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 
 return (
-<>
 <LdFileUpload
 ref={fileUploadRef}
-onLdchoosefiles={async (ev) => {
+onLdchoosefiles={(ev) => {
 const uploadItems = ev.detail
 if (fileUploadRef.current) {
 fileUploadRef.current.addUploadItems(uploadItems)
@@ -156,14 +156,12 @@ if (fileUploadRef.current) {
 fileUploadRef.current.deleteUploadItem(uploadItem)
 }
 }}
-
-<!-- onLdfileuploaddeleteall={async () => {
+onLdfileuploaddeleteall={async () => {
 if (fileUploadRef.current) {
 fileUploadRef.current.deleteAllUploadItems()
 }
-}} -->
-
-<!-- onLdfileuploadpausealluploads={async (ev) => {
+}}
+onLdfileuploadpausealluploads={async (ev) => {
 const uploadItems = ev.detail
 for (const item in uploadItems) {
 const newItem = uploadItems[item]
@@ -172,21 +170,10 @@ if (fileUploadRef.current) {
 fileUploadRef.current.updateUploadItem(newItem)
 }
 }
-}} -->
-<!-- onLdfileuploadcontinueuploads={async (ev) => {
-const uploadItems = ev.detail
-for (const item in uploadItems) {
-const newItem = uploadItems[item]
-newItem.state = 'uploading'
-if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItem(newItem)
-}
-}
-}} -->
-
-/>
-</>
+}}>
+</LdFileUpload>
 )
+}
 
 <!-- CSS component -->
 
@@ -369,8 +356,6 @@ Files to be uploaded can be accessed through the `file` property of the UploadIt
 <ld-file-upload multiple show-progress style="width: 30rem">
 </ld-file-upload>
 
-<!-- style="width: 30rem, height: 50rem"> -->
-
 <script>
   ;(() => {
     const ldUpload = document.currentScript.previousElementSibling
@@ -459,8 +444,6 @@ const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
 ref={fileUploadRef}
 multiple
 show-progress
-
-<!-- add width -->
 
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
@@ -637,14 +620,6 @@ This is just for testing. Upload success is overwritten with a random true/false
       ldUpload.dispatchEvent(event)
     })
 
-    // ldUpload.addEventListener('lduploaditemremove', async (ev) => {
-    //   uploadItem = ev.detail
-    //   /* ldUpload.deleteUploadItem(uploadItem) */
-    //   uploadItem.state = 'cancelled'
-    //   ldUpload.updateUploadItem(uploadItem)
-    //   xhr.abort(ev.detail.file)
-    // })
-
     ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
       uploadItem = ev.detail
       ldUpload.deleteUploadItem(uploadItem)
@@ -768,8 +743,6 @@ fileUploadRef.current.updateUploadItem(newItem)
 {% example '{ "opened": false }' %}
 <ld-file-upload multiple style="width: 30rem">
 </ld-file-upload>
-
-<!-- style="width: 30rem, height: 50rem"> -->
 
 <script>
   ;(() => {
@@ -966,8 +939,6 @@ fileUploadRef.current.updateUploadItem(newItem)
 <ld-file-upload multiple show-progress start-upload-immediately style="width: 30rem">
 </ld-file-upload>
 
-<!-- style="width: 30rem, height: 50rem"> -->
-
 <script>
   ;(() => {
     const ldUpload = document.currentScript.previousElementSibling
@@ -1034,14 +1005,6 @@ fileUploadRef.current.updateUploadItem(newItem)
       event = new CustomEvent('ldfileuploadready', { detail: uploadItems });
       ldUpload.dispatchEvent(event)
     })
-
-    // ldUpload.addEventListener('lduploaditemremove', async (ev) => {
-    //   uploadItem = ev.detail
-    //   /* ldUpload.deleteUploadItem(uploadItem) */
-    //   uploadItem.state = 'cancelled'
-    //   ldUpload.updateUploadItem(uploadItem)
-    //   xhr.abort(ev.detail.file)
-    // })
 
     ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
       uploadItem = ev.detail
@@ -1168,8 +1131,6 @@ fileUploadRef.current.updateUploadItem(newItem)
 <ld-file-upload multiple show-progress circular-progress style="width: 30rem">
 </ld-file-upload>
 
-<!-- style="width: 30rem, height: 50rem"> -->
-
 <script>
   ;(() => {
     const ldUpload = document.currentScript.previousElementSibling
@@ -1237,14 +1198,6 @@ fileUploadRef.current.updateUploadItem(newItem)
       ldUpload.dispatchEvent(event)
     })
 
-    // ldUpload.addEventListener('lduploaditemremove', async (ev) => {
-    //   uploadItem = ev.detail
-    //   /* ldUpload.deleteUploadItem(uploadItem) */
-    //   uploadItem.state = 'cancelled'
-    //   ldUpload.updateUploadItem(uploadItem)
-    //   xhr.abort(ev.detail.file)
-    // })
-
     ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
       uploadItem = ev.detail
       ldUpload.deleteUploadItem(uploadItem)
@@ -1261,8 +1214,6 @@ ref={fileUploadRef}
 multiple
 show-progress
 circular-progress
-
-<!-- add width -->
 
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
@@ -1370,8 +1321,6 @@ fileUploadRef.current.updateUploadItem(newItem)
 <ld-file-upload multiple show-progress allow-pause style="width: 30rem">
 </ld-file-upload>
 
-<!-- style="width: 30rem, height: 50rem"> -->
-
 <script>
   ;(() => {
     const ldUpload = document.currentScript.previousElementSibling
@@ -1462,8 +1411,6 @@ ref={fileUploadRef}
 multiple
 show-progress
 allow-pause
-
-<!-- add width -->
 
 onLdchoosefiles={async (ev) => {
 const uploadItems = ev.detail
@@ -1608,7 +1555,7 @@ Fake upload, just for testing. Can be removed from the documentation.
       }
       const delay = ms => new Promise(res => setTimeout(res, ms));
       try {
-        await fetch(/* 'https://api.escuelajs.co/api/v1/files/upload' */ 'https://v2.convertapi.com/upload' , {
+        await fetch('https://v2.convertapi.com/upload' , {
           method: 'POST',
           body: data,
         })
@@ -2515,8 +2462,6 @@ Custom icons for specific file types can be added to the icons slot.
 <ld-icon slot='icons' data-upload-icon='application/pdf' name='pdf' size='lg'></ld-icon>
 <img slot='icons' src='{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg' data-upload-icon='image/jpeg' />
 
-<!-- <ld-icon data-upload-icon='text/rtf' name='placeholder'></ld-icon> -->
-<!-- <img slot='icons' src='{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg' data-upload-icon='text/rtf' /> -->
 </ld-file-upload>
 
 <script>
@@ -2736,11 +2681,8 @@ label-delete="Löschen">
 
 <ld-icon slot='icons' data-upload-icon='application/pdf' name='pdf' size='lg'></ld-icon>
 
-<!-- <ld-icon data-upload-icon='text/rtf' name='placeholder'></ld-icon> -->
 <img slot='icons' src='{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg' data-upload-icon='text/rtf' />
 </ld-file-upload>
-
-<!-- style="width: 30rem" -->
 
 <script>
   ;(() => {
@@ -2858,8 +2800,6 @@ label-delete="Löschen">
       ]
       event = new CustomEvent('ldchoosefiles', { detail: fileList });
       ldUpload.dispatchEvent(event)
-      // event = new CustomEvent('ldfileuploadready', { detail: fileList });
-      // ldUpload.dispatchEvent(event)
     })
 
     ldUpload.addEventListener('ldchoosefiles', async (ev) => {
@@ -3156,13 +3096,19 @@ File upload:
 
 ## Events
 
-| Event                         | Description                                                                                               | Type                        |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------- |
-| `ldchoosefiles`               | Emitted after choosing files.                                                                             | `CustomEvent<UploadItem[]>` |
-| `ldfileuploadcontinueuploads` | Emitted on continue all uploads click.                                                                    | `CustomEvent<UploadItem[]>` |
-| `ldfileuploaddeleteall`       | Emitted on delete all files click.                                                                        | `CustomEvent<UploadItem[]>` |
-| `ldfileuploadpausealluploads` | Emitted on pause all uploads click.                                                                       | `CustomEvent<UploadItem[]>` |
-| `ldfileuploadready`           | Emitted on start upload click or after choosing files, if upload starts immediately after choosing files. | `CustomEvent<UploadItem[]>` |
+| Event                         | Description                                                                                               | Type                                                                                                                                                                                                |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ldchoosefiles`               | Emitted after choosing files.                                                                             | `CustomEvent<UploadItem[]>`                                                                                                                                                                         |
+| `ldfileuploadcontinueuploads` | Emitted on continue all uploads click.                                                                    | `CustomEvent<UploadItem[]>`                                                                                                                                                                         |
+| `ldfileuploaddeleteall`       | Emitted on delete all files click.                                                                        | `CustomEvent<UploadItem[]>`                                                                                                                                                                         |
+| `ldfileuploadpausealluploads` | Emitted on pause all uploads click.                                                                       | `CustomEvent<UploadItem[]>`                                                                                                                                                                         |
+| `ldfileuploadready`           | Emitted on start upload click or after choosing files, if upload starts immediately after choosing files. | `CustomEvent<UploadItem[]>`                                                                                                                                                                         |
+| `lduploaditemcontinue`        | Emitted on continue button click.                                                                         | `CustomEvent<{ state: "pending" \| "paused" \| "cancelled" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; fileType: string; progress: number; file: File; }>` |
+| `lduploaditemdelete`          | Emitted on delete button click.                                                                           | `CustomEvent<{ state: "pending" \| "paused" \| "cancelled" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; fileType: string; progress: number; file: File; }>` |
+| `lduploaditemdownload`        | Emitted on download button click.                                                                         | `CustomEvent<{ state: "pending" \| "paused" \| "cancelled" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; fileType: string; progress: number; file: File; }>` |
+| `lduploaditempause`           | Emitted on pause button click.                                                                            | `CustomEvent<{ state: "pending" \| "paused" \| "cancelled" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; fileType: string; progress: number; file: File; }>` |
+| `lduploaditemremove`          | Emitted on stop button click.                                                                             | `CustomEvent<{ state: "pending" \| "paused" \| "cancelled" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; fileType: string; progress: number; file: File; }>` |
+| `lduploaditemretry`           | Emitted on retry button click.                                                                            | `CustomEvent<{ state: "pending" \| "paused" \| "cancelled" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; fileType: string; progress: number; file: File; }>` |
 
 
 ## Methods

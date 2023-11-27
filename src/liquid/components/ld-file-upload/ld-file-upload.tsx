@@ -219,58 +219,47 @@ export class LdFileUpload {
   /** Defines whether all uploads in circular progress mode are finished. */
   @State() allUploadsFinished = false
 
-  /** @internal */
   /** Emitted after choosing files. */
   @Event() ldchoosefiles: EventEmitter<UploadItem[]>
 
-  /** @internal */
   /** Emitted on start upload click or after choosing files, if upload starts immediately after choosing files. */
   @Event() ldfileuploadready: EventEmitter<UploadItem[]>
 
-  /** @internal */
   /** Emitted on delete all files click. */
   @Event() ldfileuploaddeleteall: EventEmitter<UploadItem[]>
 
-  /** @internal */
   /** Emitted on pause all uploads click. */
   @Event() ldfileuploadpausealluploads: EventEmitter<UploadItem[]>
 
-  /** @internal */
   /** Emitted on continue all uploads click. */
   @Event() ldfileuploadcontinueuploads: EventEmitter<UploadItem[]>
 
   /**
-   * @internal
    * Emitted on pause button click.
    */
   @Event() lduploaditempause: EventEmitter<UploadItem>
 
   /**
-   * @internal
    * Emitted on continue button click.
    */
   @Event() lduploaditemcontinue: EventEmitter<UploadItem>
 
   /**
-   * @internal
    * Emitted on stop button click.
    */
   @Event() lduploaditemremove: EventEmitter<UploadItem>
 
   /**
-   * @internal
    * Emitted on download button click.
    */
   @Event() lduploaditemdownload: EventEmitter<UploadItem>
 
   /**
-   * @internal
    * Emitted on retry button click.
    */
   @Event() lduploaditemretry: EventEmitter<UploadItem>
 
   /**
-   * @internal
    * Emitted on delete button click.
    */
   @Event() lduploaditemdelete: EventEmitter<UploadItem>
