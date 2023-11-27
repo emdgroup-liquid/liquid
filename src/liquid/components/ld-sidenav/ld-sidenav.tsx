@@ -410,8 +410,8 @@ export class LdSidenav {
         ? lastFocusableFromSelectorElements
         : firstFocusableFromSelectorElements
       : isLeavingFirstFocusableFromSelectorElements
-      ? lastFocusableInSidenav
-      : firstFocusableInSidenav
+        ? lastFocusableInSidenav
+        : firstFocusableInSidenav
 
     if (!nextFocused) return
 

@@ -113,8 +113,8 @@ function getColorTokenValue(variant: Variant, styles: Styles) {
       (variants.includes('Default')
         ? ''
         : rest.length
-        ? '-' + rest.join('-')
-        : '')
+          ? '-' + rest.join('-')
+          : '')
     return referenceName
   } else {
     return relRGBToAbsRGB(variant.fills[0])
@@ -261,8 +261,8 @@ function parseTypography(variants: Variant[], styles: Styles) {
       fontFamily === 'Merck'
         ? 'MWeb'
         : fontFamily.includes(' ')
-        ? `'${fontFamily}'`
-        : fontFamily
+          ? `'${fontFamily}'`
+          : fontFamily
 
     typography[typoName] = {
       // TODO: Let Figma define the fallback fonts, as soon as

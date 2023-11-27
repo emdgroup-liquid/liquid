@@ -243,10 +243,10 @@ export class DocsExample {
                   this.codeType === 'wc'
                     ? this.code
                     : this.codeType === 'css'
-                    ? this.codeCssComponent
-                    : this.codeType === 'react'
-                    ? this.codeReactComponent
-                    : ''
+                      ? this.codeCssComponent
+                      : this.codeType === 'react'
+                        ? this.codeReactComponent
+                        : ''
                 )
               )}
             />

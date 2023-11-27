@@ -278,10 +278,10 @@ export class LdSlider implements InnerFocusable {
           this.max,
         ]
       : this.step
-      ? Array(Math.floor((this.max - this.min) / this.step) + 1)
-          .fill(this.min)
-          .map((min, index) => min + index * this.step)
-      : []
+        ? Array(Math.floor((this.max - this.min) / this.step) + 1)
+            .fill(this.min)
+            .map((min, index) => min + index * this.step)
+        : []
 
     this.valueLabels = this.stops ? [...this.steps] : [this.min, this.max]
   }
