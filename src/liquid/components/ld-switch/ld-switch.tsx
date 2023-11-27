@@ -153,8 +153,8 @@ export class LdSwitch implements InnerFocusable {
           this.disabled || isAriaDisabled(this.ariaDisabled)
             ? this.ldTabindex
             : this.hasFocus
-            ? -1
-            : this.ldTabindex || 0
+              ? -1
+              : this.ldTabindex || 0
         }
       >
         <fieldset part="fieldset">
