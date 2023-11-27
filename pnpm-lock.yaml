@@ -18,7 +18,7 @@ patchedDependencies:
 dependencies:
   '@stencil/core':
     specifier: ^4.0.1
-    version: 4.7.2
+    version: 4.8.0
   dompurify:
     specifier: ^3.0.1
     version: 3.0.6
@@ -77,13 +77,13 @@ devDependencies:
     version: 0.4.0(@typescript-eslint/eslint-plugin@6.1.0)(@typescript-eslint/parser@6.1.0)(eslint-plugin-react@7.32.2)(eslint@8.34.0)(typescript@5.0.4)
   '@stencil/postcss':
     specifier: ^2.1.0
-    version: 2.1.0(@stencil/core@4.7.2)
+    version: 2.1.0(@stencil/core@4.8.0)
   '@stencil/react-output-target':
     specifier: ^0.5.3
-    version: 0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.7.2)
+    version: 0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.8.0)
   '@stencil/vue-output-target':
     specifier: ^0.8.6
-    version: 0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.7.2)
+    version: 0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.8.0)
   '@types/jest':
     specifier: ^27.5.2
     version: 27.5.2
@@ -182,7 +182,7 @@ devDependencies:
     version: 4.1.2
   markdown-it-anchor:
     specifier: ^8.6.5
-    version: 8.6.5(@types/markdown-it@13.0.6)(markdown-it@13.0.2)
+    version: 8.6.5(@types/markdown-it@13.0.7)(markdown-it@13.0.2)
   markdown-it-link-attributes:
     specifier: ^4.0.1
     version: 4.0.1
@@ -1958,8 +1958,8 @@ packages:
     hasBin: true
     dev: true
 
-  /@stencil/core@4.7.2:
-    resolution: {integrity: sha512-sPPDYrXiTbfeUF5CCyfqysXK/yfTHC4xYR1+nHzGkS2vhRSBOLp0oPuB+xkJLKA+K2ZqDJUxpOnDxy1CLWwBXA==}
+  /@stencil/core@4.8.0:
+    resolution: {integrity: sha512-iNEaMiEt9oFZXSjZ7qkdlBpPTzWzBgWM7go8nI8a7V6ZOkmdVhhT0xGQD7OY13v5ZuDoIw5IsGvbIAGefhIhhQ==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
@@ -1982,31 +1982,31 @@ packages:
       typescript: 5.0.4
     dev: true
 
-  /@stencil/postcss@2.1.0(@stencil/core@4.7.2):
+  /@stencil/postcss@2.1.0(@stencil/core@4.8.0):
     resolution: {integrity: sha512-/e4TYEXErGaHxH0ocg620YqEMLuMLpK/Wg4MJsiJglrLZCZhU4XCX1N0SwxaIOUbEZ1Zh+AqQ++yMI92ilndEA==}
     peerDependencies:
       '@stencil/core': '>=2.0.0'
     dependencies:
-      '@stencil/core': 4.7.2
+      '@stencil/core': 4.8.0
       autoprefixer: 10.4.16(postcss@8.3.11)
       postcss: 8.3.11
     dev: true
 
-  /@stencil/react-output-target@0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.7.2):
+  /@stencil/react-output-target@0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.8.0):
     resolution: {integrity: sha512-68jwRp35CjAcwhTJ9yFD/3n+jrHOqvEH2jreVuPVvZK+4tkhPlYlwz0d1E1RlF3jyifUSfdkWUGgXIEy8Fo3yw==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.7.2
+      '@stencil/core': 4.8.0
     dev: true
     patched: true
 
-  /@stencil/vue-output-target@0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.7.2):
+  /@stencil/vue-output-target@0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.8.0):
     resolution: {integrity: sha512-B1gQW8FWeU7x/KBPm9R28jYFGN5NsZTZR4jwfDMhKBmU1Q2dIxFY52ARhbrfj5tJQxKoxr2tQJD2S14r9t1v7w==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.7.2
+      '@stencil/core': 4.8.0
     dev: true
     patched: true
 
@@ -2123,8 +2123,8 @@ packages:
     resolution: {integrity: sha512-yg6E+u0/+Zjva+buc3EIb+29XEg4wltq7cSmd4Uc2EE/1nUVmxyzpX6gUXD0V8jIrG0r7YeOGVIbYRkxeooCtw==}
     dev: true
 
-  /@types/markdown-it@13.0.6:
-    resolution: {integrity: sha512-0VqpvusJn1/lwRegCxcHVdmLfF+wIsprsKMC9xW8UPcTxhFcQtoN/fBU1zMe8pH7D/RuueMh2CaBaNv+GrLqTw==}
+  /@types/markdown-it@13.0.7:
+    resolution: {integrity: sha512-U/CBi2YUUcTHBt5tjO2r5QV/x0Po6nsYwQU4Y04fBS6vfoImaiZ6f8bi3CjTCxBPQSO1LMyUqkByzi8AidyxfA==}
     dependencies:
       '@types/linkify-it': 3.0.5
       '@types/mdurl': 1.0.5
@@ -4417,7 +4417,7 @@ packages:
     dev: true
 
   /ee-first@1.1.1:
-    resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
+    resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
   /ejs@3.1.9:
@@ -7638,13 +7638,13 @@ packages:
       object-visit: 1.0.1
     dev: true
 
-  /markdown-it-anchor@8.6.5(@types/markdown-it@13.0.6)(markdown-it@13.0.2):
+  /markdown-it-anchor@8.6.5(@types/markdown-it@13.0.7)(markdown-it@13.0.2):
     resolution: {integrity: sha512-PI1qEHHkTNWT+X6Ip9w+paonfIQ+QZP9sCeMYi47oqhH+EsW8CrJ8J7CzV19QVOj6il8ATGbK2nTECj22ZHGvQ==}
     peerDependencies:
       '@types/markdown-it': '*'
       markdown-it: '*'
     dependencies:
-      '@types/markdown-it': 13.0.6
+      '@types/markdown-it': 13.0.7
       markdown-it: 13.0.2
     dev: true
 
