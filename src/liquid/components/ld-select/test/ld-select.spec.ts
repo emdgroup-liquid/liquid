@@ -1,16 +1,17 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing'
 import { LdSelect } from '../ld-select'
 import { LdSelectPopper } from '../ld-select-popper/ld-select-popper'
+import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdLabel } from '../../ld-label/ld-label'
 import { LdOption } from '../ld-option/ld-option'
 import { LdOptionInternal } from '../ld-option-internal/ld-option-internal'
 import { LdOptgroup } from '../ld-optgroup/ld-optgroup'
 import { LdOptgroupInternal } from '../ld-optgroup-internal/ld-optgroup-internal'
+import { LdTypo } from '../../ld-typo/ld-typo'
 import {
   clearTriggerableMutationObservers,
   getTriggerableMutationObservers,
 } from '../../../utils/mutationObserver'
-import { LdIcon } from '../../ld-icon/ld-icon'
 
 const components = [
   LdIcon,
@@ -113,10 +114,9 @@ describe('ld-select', () => {
     btnTrigger.dispatchEvent(new Event('click'))
     await page.waitForChanges()
 
-    const ldSelectPopper = await page.body.querySelector('ld-select-popper')
-    const ldSelectPopperEl = await ldSelectPopper.shadowRoot.querySelector(
-      '.ld-select-popper'
-    )
+    const ldSelectPopper = page.body.querySelector('ld-select-popper')
+    const ldSelectPopperEl =
+      ldSelectPopper.shadowRoot.querySelector('.ld-select-popper')
     const slottedOptions = ldSelect.querySelectorAll('ld-option')
     const internalOptions =
       ldSelectPopper.querySelectorAll('ld-option-internal')
@@ -307,7 +307,7 @@ describe('ld-select', () => {
       await page.waitForChanges()
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      const ldSelectPopper = await page.body.querySelector('ld-select-popper')
+      const ldSelectPopper = page.body.querySelector('ld-select-popper')
 
       const internalOptions =
         ldSelectPopper.querySelectorAll('ld-option-internal')
@@ -646,6 +646,30 @@ describe('ld-select', () => {
       expect(btnTrigger.querySelector('#blue')).toBeTruthy()
     })
 
+    it('renders title of selected option as text', async () => {
+      const page = await newSpecPage({
+        components: [...components, LdTypo],
+        html: `
+          <ld-select placeholder="Pick some colors" name="colors" mode="inline">
+            <ld-option value="apple">
+              <ld-typo>Apple</ld-typo> 
+            </ld-option>
+            <ld-option value="banana" selected>
+              <ld-typo>Banana</ld-typo>  
+            </ld-option>
+          </ld-select>
+        `,
+      })
+
+      const ldSelect = page.root
+      const btnTrigger = ldSelect.shadowRoot.querySelector<HTMLElement>(
+        '.ld-select__btn-trigger'
+      )
+      const titleElement = btnTrigger.querySelector<HTMLElement>('[title]')
+
+      expect(titleElement.title.trim()).toEqual('Banana')
+    })
+
     it('renders HTML in trigger button in multiple select mode', async () => {
       const page = await newSpecPage({
         components,
@@ -693,10 +717,9 @@ describe('ld-select', () => {
 
       await triggerPopperWithClick(page)
 
-      const ldSelectPopper = await page.body.querySelector('ld-select-popper')
-      const ldSelectPopperEl = await ldSelectPopper.shadowRoot.querySelector(
-        '.ld-select-popper'
-      )
+      const ldSelectPopper = page.body.querySelector('ld-select-popper')
+      const ldSelectPopperEl =
+        ldSelectPopper.shadowRoot.querySelector('.ld-select-popper')
       expect(
         ldSelectPopperEl.classList.contains('ld-select-popper--sm')
       ).toBeTruthy()
@@ -733,7 +756,7 @@ describe('ld-select', () => {
 
       await triggerPopperWithClick(page)
 
-      const ldSelectPopper = await page.body.querySelector('ld-select-popper')
+      const ldSelectPopper = page.body.querySelector('ld-select-popper')
       const selectPopper =
         ldSelectPopper.shadowRoot.querySelector('.ld-select-popper')
 
@@ -800,7 +823,7 @@ describe('ld-select', () => {
       await triggerPopperWithClick(page)
       await page.waitForChanges()
 
-      const ldSelectPopper = await page.body.querySelector('ld-select-popper')
+      const ldSelectPopper = page.body.querySelector('ld-select-popper')
       expect(ldSelectPopper.classList.contains('ld-theme-tea')).toBeTruthy()
     })
   })
@@ -825,7 +848,7 @@ describe('ld-select', () => {
       expect(ldInternalOption2.getAttribute('selected')).not.toEqual(null)
 
       const ldSelect = page.root
-      const btnClear = await ldSelect.shadowRoot.querySelector(
+      const btnClear = ldSelect.shadowRoot.querySelector(
         '.ld-select__btn-clear'
       )
       btnClear.dispatchEvent(new MouseEvent('click'))
@@ -847,11 +870,11 @@ describe('ld-select', () => {
       })
 
       const { doc, shadowDoc } = getShadow(page)
-      const ldSelect = await page.root
+      const ldSelect = page.root
       const btnTrigger = ldSelect.shadowRoot.querySelector<HTMLElement>(
         '.ld-select__btn-trigger'
       )
-      const btnClear = await ldSelect.shadowRoot.querySelector(
+      const btnClear = ldSelect.shadowRoot.querySelector(
         '.ld-select__btn-clear'
       )
       doc.activeElement = ldSelect
@@ -875,11 +898,11 @@ describe('ld-select', () => {
       })
 
       const doc = document as unknown as { activeElement: Element }
-      const ldSelect = await page.root
+      const ldSelect = page.root
       const btnTrigger = ldSelect.shadowRoot.querySelector<HTMLElement>(
         '.ld-select__btn-trigger'
       )
-      const btnClearSingle = await ldSelect.shadowRoot.querySelectorAll(
+      const btnClearSingle = ldSelect.shadowRoot.querySelectorAll(
         '.ld-select__btn-clear-single'
       )
       expect(btnClearSingle.length).toEqual(2)
@@ -2486,9 +2509,7 @@ describe('ld-select', () => {
       )
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      const internalOption0 = await page.body.querySelector(
-        'ld-option-internal'
-      )
+      const internalOption0 = page.body.querySelector('ld-option-internal')
       expect(internalOption0.tagName).toEqual('LD-OPTION-INTERNAL')
 
       const ev = {
@@ -2521,9 +2542,7 @@ describe('ld-select', () => {
       )
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      const internalOption0 = await page.body.querySelector(
-        'ld-option-internal'
-      )
+      const internalOption0 = page.body.querySelector('ld-option-internal')
       expect(internalOption0.tagName).toEqual('LD-OPTION-INTERNAL')
 
       const ev = {
@@ -2556,9 +2575,7 @@ describe('ld-select', () => {
       )
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      const internalOption0 = await page.body.querySelector(
-        'ld-option-internal'
-      )
+      const internalOption0 = page.body.querySelector('ld-option-internal')
       expect(internalOption0.tagName).toEqual('LD-OPTION-INTERNAL')
 
       const ev = {
@@ -4276,7 +4293,7 @@ describe('ld-select', () => {
 
     jest
       .spyOn(
-        LdSelect.prototype as unknown as { isOverflowing },
+        LdSelect.prototype as unknown as { isOverflowing: () => boolean },
         'isOverflowing'
       )
       .mockImplementation(() => false)

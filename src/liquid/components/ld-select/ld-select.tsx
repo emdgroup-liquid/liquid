@@ -26,7 +26,7 @@ import {
   isLdOptInternalHidden,
 } from './utils/type-guards'
 
-type SelectOption = { value: string; text: string }
+type SelectOption = { value: string; html: string; text: string }
 
 /**
  * @slot - the default slot contains the select options
@@ -466,7 +466,8 @@ export class LdSelect implements InnerFocusable {
     this.selected = selectedOptions.map((child) => {
       return {
         value: child.value,
-        text: child.innerHTML,
+        html: child.innerHTML,
+        text: child.innerText,
       }
     })
 
@@ -1266,6 +1267,10 @@ export class LdSelect implements InnerFocusable {
       this.expanded && 'ld-select__icon--rotated',
     ]
 
+    const triggerHtml = this.multiple
+      ? this.placeholder
+      : this.selected[0]?.html || this.placeholder
+
     const triggerText = this.multiple
       ? this.placeholder
       : this.selected[0]?.text || this.placeholder
@@ -1342,7 +1347,7 @@ export class LdSelect implements InnerFocusable {
                               title={selection.text}
                               part="selection-label-text"
                               innerHTML={sanitize(
-                                selection.text,
+                                selection.html,
                                 this.sanitizeConfig
                               )}
                             ></span>
@@ -1396,7 +1401,7 @@ export class LdSelect implements InnerFocusable {
                   <span
                     class="ld-select__btn-trigger-text"
                     part="trigger-text"
-                    innerHTML={sanitize(triggerText, this.sanitizeConfig)}
+                    innerHTML={sanitize(triggerHtml, this.sanitizeConfig)}
                   ></span>
                 </span>
               )}
