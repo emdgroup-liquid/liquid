@@ -128,7 +128,7 @@ pnpm run build
 pnpm run start
 ```
 
-6. Now head over to [http://localhost:8080](http://localhost:8080) - you shoud see the Liquid docs site.
+6. Now head over to [http://localhost:3000](http://localhost:3000) - you shoud see the Liquid docs site.
 
 <ld-notice headline="Using GitHub Codespaces">
   As an alternative, you can start developing instantly within <a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=344421806&machine=standardLinux32gb&location=WestEurope">GitHub Codespaces</a>. For more information on Codespaces head over to the <a href="https://github.com/features/codespaces">Codespaces docs on GitHub</a>.

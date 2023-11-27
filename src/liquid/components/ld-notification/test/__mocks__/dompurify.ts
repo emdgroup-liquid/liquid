@@ -5,6 +5,7 @@ const CustomDOMPurify = DOMPurify(win)
 
 const dompurify = jest.genMockFromModule('dompurify')
 
+// @ts-ignore
 module.exports.sanitize = (source: string | Node, config?: Config) =>
   CustomDOMPurify.sanitize(source, config)
 
