@@ -1,0 +1,2 @@
+import{r as t,h as o}from"./p-6323efdb.js";const s=":host{display:contents}";const r=class{constructor(o){t(this,o)}render(){return o("tfoot",{class:"ld-table-foot",part:"tfoot"},o("slot",null))}};r.style=s;export{r as ld_table_foot};
+//# sourceMappingURL=p-2a7ab01a.entry.js.map
