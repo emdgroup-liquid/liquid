@@ -12,11 +12,6 @@ import type { UploadItem } from '../ld-file-upload'
 export class LdUploadProgress {
   @Element() el: HTMLLdUploadProgressElement
 
-  /** Layout of the upload items
-   * @internal
-   */
-  @Prop() layout?: 'default' | 'compact' = 'default'
-
   /** Defines whether upload starts immediately after choosing files or after confirmation. */
   @Prop() startUploadImmediately?: boolean = false
 
@@ -25,9 +20,6 @@ export class LdUploadProgress {
 
   /** Defines whether the total progress of all upoading files will be shown in the progress button */
   @Prop() showProgress?: boolean = false
-
-  /** Defines whether only one file can be chosen and uploaded. */
-  @Prop() compact?: boolean = false
 
   /** List of files */
   @Prop() uploadItems: UploadItem[] = []
@@ -63,7 +55,6 @@ export class LdUploadProgress {
           fileType={item.fileType}
           progress={item.progress}
           file={item.file}
-          layout={this.layout}
           allowPause={this.allowPause}
           showProgress={this.showProgress}
           uploadItems={this.uploadItems}

@@ -230,10 +230,6 @@ describe('ld-file-upload', () => {
 
     await page.waitForChanges()
 
-    // ldFileUpload.dispatchEvent(
-    //   new CustomEvent('ldpausealluploads', { detail: data, bubbles: true })
-    // )
-
     const pauseAllButton =
       ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
         'ld-button[class="ld-file-upload__pause-all-button"]'
@@ -247,8 +243,6 @@ describe('ld-file-upload', () => {
       newItem.state = 'paused'
       await ldFileUpload.updateUploadItem(newItem)
     }
-
-    // ldFileUpload.addUploadItems(data)
 
     await page.waitForChanges()
 
@@ -353,8 +347,6 @@ describe('ld-file-upload', () => {
     ldChooseFiles.dispatchEvent(
       new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
     )
-
-    // ldFileUpload.addUploadItems(data)
 
     await page.waitForChanges()
 
@@ -535,16 +527,7 @@ describe('ld-file-upload', () => {
     const uploadSuccessMessage =
       ldFileUpload.shadowRoot.querySelector('ld-input-message')
 
-    // await page.waitForChanges()
-
-    // const ldChooseFile =
-    //   ldFileUpload.shadowRoot.querySelector<HTMLLdChooseFileElement>(
-    //     'ld-choose-file[class="ld-file-upload__choose-file"]'
-    //   )
-
     expect(uploadSuccessMessage.innerText).toBe('Files uploaded')
-    // expect(page.root).toMatchSnapshot()
-    // expect(ldChooseFile.size).toBe('bg')
   })
 
   it('removes file using the deleteAllUploadItems method', async () => {

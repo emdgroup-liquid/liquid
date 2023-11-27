@@ -53,7 +53,9 @@ export class LdFileUpload {
   /** Defines whether the user will be able to pause uploads. */
   @Prop() allowPause?: boolean = false
 
-  /** Defines whether the progress of uploading files will be shown, or only an uploading indicator. */
+  /** Defines whether the progress of uploading files will be shown, or only an uploading indicator.
+   * Also defines is exact progress will be shown in uploading progress button, as well as in the upload state area.
+   */
   @Prop() showProgress?: boolean = false
 
   /** Defines whether selection of multiple input files is allowed. */
@@ -190,9 +192,6 @@ export class LdFileUpload {
   /** List of files */
   @State() uploadItems: UploadItem[] = []
 
-  /** List of files */
-  @State() fileList: FileList
-
   /** Contains files that have been chosen but the upload has not started yet. */
   @State() lastChosenFiles: UploadItem[] = []
 
@@ -311,17 +310,6 @@ export class LdFileUpload {
     }
   }
 
-  /* @Listen('ldfileuploadready')
-  updateFileTypes() {
-    const fileListArray = Array.from(this.fileList)
-    fileListArray.forEach((file) =>
-      this.uploadItemTypes.push({
-        fileName: file.name,
-        fileType: file.type,
-      })
-    )
-  } */
-
   @Listen('ldfileuploadready')
   /** After the ldfileuploadready event is emitted, the list of all chosen files is cleared */
   clearChosenFiles() {
@@ -416,7 +404,7 @@ export class LdFileUpload {
   }
 
   @Watch('uploadItems')
-  async changeProgressVisualisation() {
+  async changeComponentAppearanceAndStates() {
     if (this.uploadItems.length === 0) {
       this.startUploadClicked = false
     }
@@ -436,7 +424,7 @@ export class LdFileUpload {
       this.allUploadsFinished = true
     }
 
-    // sets component to initial state after all file have been uploaded in circular progress mode
+    // sets component to initial state after all files have been uploaded in circular progress mode
     if (
       this.uploadItems.filter((item) => item.state === 'uploaded').length ==
         this.uploadItems.length &&
@@ -543,7 +531,6 @@ export class LdFileUpload {
     const files = (ev.target as HTMLInputElement).files
     if (!files || !files.length) return
 
-    this.fileList = files
     this.removeDuplicateChosenFiles(files)
     this.ldchoosefiles.emit(this.lastChosenFiles)
     this.addChosenFiles(this.lastChosenFiles)
@@ -554,8 +541,6 @@ export class LdFileUpload {
 
   /** Emits filesChosen event to component consumer. */
   private handleChooseFiles = (ev: CustomEvent<FileList>) => {
-    this.fileList = ev.detail
-
     ev.stopImmediatePropagation() // We stop the internal event...
     this.removeDuplicateChosenFiles(ev.detail)
     this.ldchoosefiles.emit(this.lastChosenFiles) // ...and dispatch the public one.
@@ -696,14 +681,7 @@ export class LdFileUpload {
                   )
                 )}
               </ld-typo>
-              {/* Cancel button has the same functionality as the delete all button */}
-              {/* <ld-button
-                class="ld-file-upload__cancel-button"
-                onClick={this.handleDeleteAllClick}
-                mode="secondary"
-              >
-                Cancel
-              </ld-button> */}
+              {/* Cancel button has the same functionality as the delete all button; currently not being shown */}
               {/* <ld-button
                 class="ld-file-upload__cancel-button"
                 onClick={this.handleDeleteAllClick}
@@ -814,7 +792,6 @@ export class LdFileUpload {
               <Fragment>
                 <ld-upload-progress
                   class="ld-file-upload__progress"
-                  layout={this.compact ? 'compact' : 'default'}
                   uploadItems={this.uploadItems}
                   startUploadImmediately={false}
                   allowPause={this.allowPause}
@@ -848,6 +825,7 @@ export class LdFileUpload {
                         : this.labelUploadCompleted}
                     </ld-button>
                   )}
+                  {/* Delete all button is currently not being shown */}
                   {/* <ld-button
                   class="ld-file-upload__delete-button"
                   size="sm"

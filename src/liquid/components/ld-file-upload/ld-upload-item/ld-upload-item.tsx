@@ -22,19 +22,14 @@ import type { UploadItem } from '../ld-file-upload'
 export class LdUploadItem {
   @Element() el: HTMLLdUploadItemElement
 
-  /** Layout of the upload items
-   * @internal
-   */
-  @Prop() layout?: 'default' | 'compact' = 'default'
-
   /** Defines whether the user will be able to pause uploads. */
   @Prop() allowPause?: boolean
 
   /** Defines whether the total progress of all upoading files will be shown in the progress button */
   @Prop() showProgress?: boolean = false
 
-  /** Defines whether only one file can be chosen and uploaded. */
-  @Prop() compact?: boolean = false
+  /** Tab index of the progress item. */
+  @Prop() ldTabindex?: number
 
   /** State of the file. */
   @Prop() state?:
@@ -54,16 +49,13 @@ export class LdUploadItem {
   /** Type of the uploaded file. */
   @Prop() fileType?: string
 
-  /** Tab index of the progress item. */
-  @Prop() ldTabindex?: number
-
   /** Upload progress in percent. */
   @Prop() progress?: number = 0
 
   /** File of type File. */
   @Prop() file?: File
 
-  /** List of files */
+  /** List of all files currently in component */
   @Prop() uploadItems: UploadItem[] = []
 
   /** Label to be used for the tooltip of the remove button. */
@@ -244,12 +236,7 @@ export class LdUploadItem {
             </slot>
           </div>
 
-          <div
-            class={getClassNames([
-              'ld-upload-item__file-details',
-              this.layout && `ld-upload-item__file-details--${this.layout}`,
-            ])}
-          >
+          <div class="ld-upload-item__file-details">
             <ld-typo class="ld-upload-item__file-name" variant="h5">
               {this.fileName}
             </ld-typo>

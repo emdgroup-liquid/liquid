@@ -34,7 +34,9 @@ export class LdChooseFile {
   /** Defines whether upload starts immediately after choosing files or after confirmation. */
   @Prop() startUploadImmediately?: boolean = false
 
-  /** Defines whether start upload button has been clicked (only relevant when startUploadImmediately is false) */
+  /** Defines whether start upload button has been clicked (only relevant when startUploadImmediately is false)
+   * @internal
+   */
   @Prop() startUploadClicked?: boolean = false
 
   /** Defines whether selection of multiple input files is allowed. */
@@ -171,7 +173,7 @@ export class LdChooseFile {
       this.highlighted && 'ld-choose-file--highlighted',
     ])
 
-    const calculateProgress = () => {
+    const calculateTotalProgress = () => {
       const activeUploads = this.uploadItems.filter(
         (item) =>
           item.state === 'pending' ||
@@ -184,10 +186,12 @@ export class LdChooseFile {
         0
       )
       const uploadedSizeSum = activeUploads.reduce(
-        (partialSum, file) => partialSum + file.fileSize * file.progress,
+        (partialSum, file) =>
+          partialSum + file.fileSize * (file.progress / 100),
         0
       )
-      const totalProgress = uploadedSizeSum / totalSizeSum / 100 || 0
+      const totalProgress = uploadedSizeSum / totalSizeSum || 0
+      // returns total progress between 0 and 1
       return totalProgress
     }
 
@@ -282,7 +286,7 @@ export class LdChooseFile {
                   <ld-typo>
                     {this.labelUploadPercentage.replace(
                       '$uploadProgress',
-                      String((calculateProgress() * 100).toFixed(2))
+                      String((calculateTotalProgress() * 100).toFixed(2))
                     )}
                   </ld-typo>
                 ) : undefined}

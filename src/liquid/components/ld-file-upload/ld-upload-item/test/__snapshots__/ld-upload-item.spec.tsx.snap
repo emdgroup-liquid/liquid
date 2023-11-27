@@ -19,7 +19,7 @@ exports[`ld-upload-item renders default 1`] = `
           <ld-icon name="documents" size="lg"></ld-icon>
         </slot>
       </div>
-      <div class="ld-upload-item__file-details ld-upload-item__file-details--default">
+      <div class="ld-upload-item__file-details">
         <ld-typo class="ld-upload-item__file-name" variant="h5">
           Liquid
         </ld-typo>
@@ -28,17 +28,12 @@ exports[`ld-upload-item renders default 1`] = `
         </ld-typo>
       </div>
       <div class="ld-upload-item__buttons">
-        <ld-tooltip arrow="" position="left middle" size="sm">
-          <ld-button class="ld-upload-item__remove-button" mode="ghost" size="sm" slot="trigger">
-            <ld-icon aria-label="Text" class="ld-upload-item__remove-icon" name="cross" size="sm"></ld-icon>
-            <div class="ld-upload-item__hide-on-sm">
-              Remove
-            </div>
-          </ld-button>
-          <ld-typo>
+        <ld-button class="ld-upload-item__remove-button" mode="ghost" size="sm" slot="trigger">
+          <ld-icon aria-label="Text" class="ld-upload-item__remove-icon" name="cross" size="sm"></ld-icon>
+          <div class="ld-upload-item__hide-on-sm">
             Remove
-          </ld-typo>
-        </ld-tooltip>
+          </div>
+        </ld-button>
       </div>
     </div>
     <ld-sr-only id="progress-label">
@@ -66,7 +61,7 @@ exports[`ld-upload-item renders with custom icon 1`] = `
                       <ld-icon name="documents" size="lg"></ld-icon>
                     </slot>
                   </div>
-                  <div class="ld-upload-item__file-details ld-upload-item__file-details--default">
+                  <div class="ld-upload-item__file-details">
                     <ld-typo class="ld-upload-item__file-name" variant="h5">
                       file1.pdf
                     </ld-typo>
@@ -75,17 +70,12 @@ exports[`ld-upload-item renders with custom icon 1`] = `
                     </ld-typo>
                   </div>
                   <div class="ld-upload-item__buttons">
-                    <ld-tooltip arrow="" position="left middle" size="sm">
-                      <ld-button class="ld-upload-item__remove-button" mode="ghost" size="sm" slot="trigger">
-                        <ld-icon aria-label="Text" class="ld-upload-item__remove-icon" name="cross" size="sm"></ld-icon>
-                        <div class="ld-upload-item__hide-on-sm">
-                          Remove
-                        </div>
-                      </ld-button>
-                      <ld-typo>
+                    <ld-button class="ld-upload-item__remove-button" mode="ghost" size="sm" slot="trigger">
+                      <ld-icon aria-label="Text" class="ld-upload-item__remove-icon" name="cross" size="sm"></ld-icon>
+                      <div class="ld-upload-item__hide-on-sm">
                         Remove
-                      </ld-typo>
-                    </ld-tooltip>
+                      </div>
+                    </ld-button>
                   </div>
                 </div>
                 <ld-sr-only id="progress-label">
@@ -106,7 +96,7 @@ exports[`ld-upload-item renders with custom icon 1`] = `
                       <ld-icon name="documents" size="lg"></ld-icon>
                     </slot>
                   </div>
-                  <div class="ld-upload-item__file-details ld-upload-item__file-details--default">
+                  <div class="ld-upload-item__file-details">
                     <ld-typo class="ld-upload-item__file-name" variant="h5">
                       file2.rtf
                     </ld-typo>
@@ -115,17 +105,12 @@ exports[`ld-upload-item renders with custom icon 1`] = `
                     </ld-typo>
                   </div>
                   <div class="ld-upload-item__buttons">
-                    <ld-tooltip arrow="" position="left middle" size="sm">
-                      <ld-button class="ld-upload-item__remove-button" mode="ghost" size="sm" slot="trigger">
-                        <ld-icon aria-label="Text" class="ld-upload-item__remove-icon" name="cross" size="sm"></ld-icon>
-                        <div class="ld-upload-item__hide-on-sm">
-                          Remove
-                        </div>
-                      </ld-button>
-                      <ld-typo>
+                    <ld-button class="ld-upload-item__remove-button" mode="ghost" size="sm" slot="trigger">
+                      <ld-icon aria-label="Text" class="ld-upload-item__remove-icon" name="cross" size="sm"></ld-icon>
+                      <div class="ld-upload-item__hide-on-sm">
                         Remove
-                      </ld-typo>
-                    </ld-tooltip>
+                      </div>
+                    </ld-button>
                   </div>
                 </div>
                 <ld-sr-only id="progress-label">

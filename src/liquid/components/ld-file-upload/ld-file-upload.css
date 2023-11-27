@@ -38,6 +38,10 @@
   width: 100%;
 }
 
+.ld-file-upload__circular-progress {
+  --ld-circular-progress-size: 9rem;
+}
+
 .ld-file-upload--circular-progress-error {
   --ld-circular-progress-bar-col: var(--ld-thm-error);
 }

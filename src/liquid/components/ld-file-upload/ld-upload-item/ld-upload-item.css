@@ -28,13 +28,13 @@
   justify-content: center;
 }
 
-.ld-upload-item__loading {
+/* loading progress has been removed for now */
+/* .ld-upload-item__loading {
   width: 2rem;
   height: auto;
-  /* color: var(--ld-thm-primary); */
   display: flex;
   justify-content: center;
-}
+} */
 
 ::slotted(*) {
   width: 2rem;
