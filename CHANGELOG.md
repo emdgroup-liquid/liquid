@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.7](https://github.com/emdgroup-liquid/liquid/compare/v5.12.6...v5.12.7) (2023-11-27)
+
+
+### Bug Fixes
+
+* **ld-select:** use selected option value text as title ([1168200](https://github.com/emdgroup-liquid/liquid/commit/1168200b06838d20642a4c76477d84958704a23a))
+
 ## [5.12.6](https://github.com/emdgroup-liquid/liquid/compare/v5.12.5...v5.12.6) (2023-11-08)
 
 
