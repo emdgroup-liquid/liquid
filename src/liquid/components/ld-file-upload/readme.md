@@ -122,57 +122,58 @@ Unless the width of the component is specified, it will adjust to the available 
 <!-- React component -->
 
 const App = () => {
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+  const fileUploadRef = useRef(null)
 
-return (
-<LdFileUpload
-ref={fileUploadRef}
-onLdchoosefiles={(ev) => {
-const uploadItems = ev.detail
-if (fileUploadRef.current) {
-fileUploadRef.current.addUploadItems(uploadItems)
-}
-}}
-onLdfileuploadready={async (ev) => {
-const uploadItems = ev.detail
-for (const item in uploadItems) {
-const newItem = uploadItems[item]
-newItem.state = 'uploading'
-if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItem(newItem)
-}
-}
-}}
-onLduploaditemremove={async (ev) => {
-const uploadItem = ev.detail
-uploadItem.state = 'cancelled'
-if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItem(uploadItem)
-}
-}}
-onLduploaditemdelete={async (ev) => {
-const uploadItem = ev.detail
-if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItem(uploadItem)
-}
-}}
-onLdfileuploaddeleteall={async () => {
-if (fileUploadRef.current) {
-fileUploadRef.current.deleteAllUploadItems()
-}
-}}
-onLdfileuploadpausealluploads={async (ev) => {
-const uploadItems = ev.detail
-for (const item in uploadItems) {
-const newItem = uploadItems[item]
-newItem.state = 'paused'
-if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItem(newItem)
-}
-}
-}}>
-</LdFileUpload>
-)
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      onLdchoosefiles={(ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
+        if (fileUploadRef.current) {
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+      onLdfileuploaddeleteall={async () => {
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteAllUploadItems()
+        }
+      } }
+      onLdfileuploadpausealluploads={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'paused'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+    >
+    </LdFileUpload>
+  )
 }
 
 <!-- CSS component -->
@@ -183,7 +184,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 {% example '{ "opened": false }' %}
 <ld-card>
-<ld-file-upload></ld-file-upload>
+  <ld-file-upload></ld-file-upload>
 </ld-card>
 
 <script>
@@ -221,41 +222,41 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdCard>
-<LdFileUpload
-ref={fileUploadRef}
-onLdchoosefiles={async (ev) => {
-const uploadItems = ev.detail
-if (fileUploadRef.current) {
-fileUploadRef.current.addUploadItems(uploadItems)
-}
-}}
-onLdfileuploadready={async (ev) => {
-const uploadItems = ev.detail
-for (const item in uploadItems) {
-const newItem = uploadItems[item]
-newItem.state = 'uploading'
-if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItem(newItem)
-}
-}
-}}
-onLduploaditemremove={async (ev) => {
-const uploadItem = ev.detail
-uploadItem.state = 'cancelled'
-if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItem(uploadItem)
-}
-}}
-onLduploaditemdelete={async (ev) => {
-const uploadItem = ev.detail
-if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItem(uploadItem)
-}
-}}
-/>
+  <LdFileUpload
+    ref={fileUploadRef}
+    onLdchoosefiles={async (ev) => {
+      const uploadItems = ev.detail
+      if (fileUploadRef.current) {
+        fileUploadRef.current.addUploadItems(uploadItems)
+      }
+    } }
+    onLdfileuploadready={async (ev) => {
+      const uploadItems = ev.detail
+      for (const item in uploadItems) {
+        const newItem = uploadItems[item]
+        newItem.state = 'uploading'
+        if (fileUploadRef.current) {
+        fileUploadRef.current.updateUploadItem(newItem)
+        }
+      }
+    } }
+    onLduploaditemremove={async (ev) => {
+      const uploadItem = ev.detail
+      uploadItem.state = 'cancelled'
+      if (fileUploadRef.current) {
+        fileUploadRef.current.updateUploadItem(uploadItem)
+      }
+    } }
+    onLduploaditemdelete={async (ev) => {
+      const uploadItem = ev.detail
+      if (fileUploadRef.current) {
+        fileUploadRef.current.deleteUploadItem(uploadItem)
+      }
+    } }
+  />
 </LdCard>
 
 <!-- CSS component -->
@@ -266,7 +267,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 
 {% example '{ "opened": false }' %}
 <ld-modal>
-<ld-file-upload></ld-file-upload>
+  <ld-file-upload></ld-file-upload>
 </ld-modal>
 
 <ld-button onclick="event.target.previousElementSibling.showModal()">Open File Upload</ld-button>
@@ -307,42 +308,46 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdCard>
-<LdFileUpload
-ref={fileUploadRef}
-onLdchoosefiles={async (ev) => {
-const uploadItems = ev.detail
-if (fileUploadRef.current) {
-fileUploadRef.current.addUploadItems(uploadItems)
+  return (
+    <LdCard>
+      <LdFileUpload
+        ref={fileUploadRef}
+          onLdchoosefiles={async (ev) => {
+          const uploadItems = ev.detail
+          if (fileUploadRef.current) {
+            fileUploadRef.current.addUploadItems(uploadItems)
+          }
+        } }
+        onLdfileuploadready={async (ev) => {
+          const uploadItems = ev.detail
+          for (const item in uploadItems) {
+            const newItem = uploadItems[item]
+            newItem.state = 'uploading'
+            if (fileUploadRef.current) {
+              fileUploadRef.current.updateUploadItem(newItem)
+            }
+          }
+        } }
+        onLduploaditemremove={async (ev) => {
+          const uploadItem = ev.detail
+          uploadItem.state = 'cancelled'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(uploadItem)
+          }
+        } }
+        onLduploaditemdelete={async (ev) => {
+          const uploadItem = ev.detail
+          if (fileUploadRef.current) {
+            fileUploadRef.current.deleteUploadItem(uploadItem)
+          }
+        } }
+      />
+    </LdCard>
+  )
 }
-}}
-onLdfileuploadready={async (ev) => {
-const uploadItems = ev.detail
-for (const item in uploadItems) {
-const newItem = uploadItems[item]
-newItem.state = 'uploading'
-if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItem(newItem)
-}
-}
-}}
-onLduploaditemremove={async (ev) => {
-const uploadItem = ev.detail
-uploadItem.state = 'cancelled'
-if (fileUploadRef.current) {
-fileUploadRef.current.updateUploadItem(uploadItem)
-}
-}}
-onLduploaditemdelete={async (ev) => {
-const uploadItem = ev.detail
-if (fileUploadRef.current) {
-fileUploadRef.current.deleteUploadItem(uploadItem)
-}
-}}
-/>
-</LdCard>
 
 <!-- CSS component -->
 
@@ -438,7 +443,7 @@ Files to be uploaded can be accessed through the `file` property of the UploadIt
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -629,7 +634,7 @@ This is just for testing. Upload success is overwritten with a random true/false
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -826,7 +831,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -1015,7 +1020,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -1207,7 +1212,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -1404,7 +1409,7 @@ fileUploadRef.current.updateUploadItem(newItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -1634,7 +1639,7 @@ Mode in which only a circular progress representation of the total upload progre
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -1716,7 +1721,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -1800,7 +1805,7 @@ In `start-upload-immediately` mode, upload of files will start immediately after
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -1880,7 +1885,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -1962,7 +1967,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -2064,7 +2069,7 @@ In `allow-pause` mode, the upload of all files can be paused (and continued) on 
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -2168,7 +2173,7 @@ In `show-progress` mode, a progress bar representing the upload progress of a fi
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -2249,7 +2254,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -2330,7 +2335,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
@@ -2411,7 +2416,7 @@ fileUploadRef.current.deleteUploadItem(uploadItem)
 
 <!-- React component -->
 
-const fileUploadRef = useRef<HTMLLdFileUploadElement>(null)
+const fileUploadRef = useRef(null)
 
 <LdFileUpload
 ref={fileUploadRef}
