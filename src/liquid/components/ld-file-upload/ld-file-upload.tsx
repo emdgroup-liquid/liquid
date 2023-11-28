@@ -219,78 +219,67 @@ export class LdFileUpload {
   /** Defines whether all uploads in circular progress mode are finished. */
   @State() allUploadsFinished = false
 
-  /** Emitted after choosing files. */
+  /** Emitted after choosing files.
+   * UploadItems emitted can be added to the list of chosen files by using the addUploadItems() method.
+   */
   @Event() ldchoosefiles: EventEmitter<UploadItem[]>
 
-  /** Emitted on start upload click or after choosing files, if upload starts immediately after choosing files. */
+  /** Emitted on start upload click or after choosing files, if upload starts immediately after choosing files.
+   * UploadItems emitted can be added to the list of chosen files by using the addUploadItems() method
+   * or updated, if they have been added already, using the updateUploadItem() method.
+   */
   @Event() ldfileuploadready: EventEmitter<UploadItem[]>
 
-  /** Emitted on delete all files click. */
+  /** Emitted on delete all files click.
+   * UploadItems emitted can be deleted using the deleteAllUploadItems() method.
+   */
   @Event() ldfileuploaddeleteall: EventEmitter<UploadItem[]>
 
-  /** Emitted on pause all uploads click. */
+  /** Emitted on pause all uploads click.
+   * UploadItems emitted can be updated using the updateUploadItem() method.
+   */
   @Event() ldfileuploadpausealluploads: EventEmitter<UploadItem[]>
 
-  /** Emitted on continue all uploads click. */
+  /** Emitted on continue all uploads click.
+   * UploadItems emitted can be updated using the updateUploadItem() method.
+   */
   @Event() ldfileuploadcontinueuploads: EventEmitter<UploadItem[]>
 
   /**
    * Emitted on pause button click.
+   * UploadItem emitted can be updated using the updateUploadItem() method.
    */
   @Event() lduploaditempause: EventEmitter<UploadItem>
 
   /**
    * Emitted on continue button click.
+   * UploadItem emitted can be updated using the updateUploadItem() method.
    */
   @Event() lduploaditemcontinue: EventEmitter<UploadItem>
 
   /**
    * Emitted on stop button click.
+   * UploadItem emitted can be updated using the updateUploadItem() method.
    */
   @Event() lduploaditemremove: EventEmitter<UploadItem>
 
   /**
    * Emitted on download button click.
+   * UploadItem emitted can be updated using the updateUploadItem() method.
    */
   @Event() lduploaditemdownload: EventEmitter<UploadItem>
 
   /**
    * Emitted on retry button click.
+   * UploadItem emitted can be updated using the updateUploadItem() method.
    */
   @Event() lduploaditemretry: EventEmitter<UploadItem>
 
   /**
    * Emitted on delete button click.
+   * UploadItem emitted can be updated using the updateUploadItem() method.
    */
   @Event() lduploaditemdelete: EventEmitter<UploadItem>
-
-  /* @Listen('lduploaditempause')
-  pauseClickHandler(ev: CustomEvent<UploadItem>) {
-    const itemToPauseIndex = this.uploadItems.findIndex(
-      (item) => item.fileName === ev.detail.fileName
-    )
-
-    ev.detail.state = 'pending'
-
-    this.uploadItems = [
-      ...this.uploadItems.slice(0, itemToPauseIndex),
-      ev.detail,
-      ...this.uploadItems.slice(itemToPauseIndex + 1),
-    ]
-  } */
-
-  /* @Listen('lduploaditemremove')
-  @Listen('lduploaditemdelete')
-  removeClickHandler(ev: CustomEvent<UploadItem>) {
-    const itemToRemoveIndex = this.uploadItems.findIndex(
-      (item) => item.fileName === ev.detail.fileName
-    )
-
-    this.uploadItems = [
-      ...this.uploadItems.slice(0, itemToRemoveIndex),
-      ...this.uploadItems.slice(itemToRemoveIndex + 1),
-    ]
-  } */
 
   @Listen('lduploadclick')
   handleUploadClick() {
@@ -336,7 +325,7 @@ export class LdFileUpload {
 
   /**
    * Accepts a file from component consumer (name, progress, state etc.)
-   * and updates the upload item state.
+   * and updates the upload item state of items that have been added already.
    */
   @Method()
   async updateUploadItem(uploadItem: UploadItem) {
@@ -357,8 +346,7 @@ export class LdFileUpload {
   }
 
   /**
-   * Accepts a file list from component consumer (name, progress, state etc.)
-   * and deletes the upload items.
+   * Deletes all UploadItems.
    */
   @Method()
   async deleteAllUploadItems() {
@@ -367,7 +355,7 @@ export class LdFileUpload {
 
   /**
    * Accepts a file from component consumer (name, progress, state etc.)
-   * and deletes the upload items.
+   * and deletes the upload item.
    */
   @Method()
   async deleteUploadItem(uploadItem: UploadItem) {
@@ -441,7 +429,7 @@ export class LdFileUpload {
       sizeIndex++
     }
 
-    const roundedSize = Number(bytes.toFixed(2))
+    const roundedSize = bytes.toFixed(2)
 
     return `${roundedSize} ${sizes[sizeIndex]}`
   }
@@ -549,6 +537,7 @@ export class LdFileUpload {
     this.exceedmaxFileSize = []
   }
 
+  // Might be added again later?
   // private handleDeleteAllClick = () => {
   //   this.ldfileuploaddeleteall.emit(this.uploadItems)
   //   /* this.uploadItems = [] */
@@ -586,13 +575,6 @@ export class LdFileUpload {
               <ld-choose-file
                 class="ld-file-upload__choose-file"
                 layout={this.renderOnlyChooseFile ? 'vertical' : 'horizontal'}
-                // layout={
-                //   this.compact
-                //     ? 'compact'
-                //     : this.renderOnlyChooseFile
-                //     ? 'vertical'
-                //     : 'horizontal'
-                // }
                 onLdchoosefiles={this.handleChooseFiles}
                 start-upload-immediately={this.startUploadImmediately}
                 multiple={this.multiple}
@@ -602,9 +584,6 @@ export class LdFileUpload {
                 uploadItems={this.uploadItems}
                 maxFileSize={this.maxFileSize}
                 labelDragInstructions={this.labelDragInstructions}
-                // labelSingularDropInstructions={
-                //   this.labelSingularDropInstructions
-                // }
                 labelUploadConstraints={this.labelUploadConstraints}
                 labelSelectFile={this.labelSelectFile}
                 labelUploadFile={this.labelUploadFile}
@@ -725,13 +704,6 @@ export class LdFileUpload {
                 ? 'vertical'
                 : 'horizontal'
             }
-            // layout={
-            //   this.compact
-            //     ? 'compact'
-            //     : this.renderOnlyChooseFile
-            //     ? 'vertical'
-            //     : 'horizontal'
-            // }
             onLdchoosefiles={this.handleChooseFiles}
             startUploadImmediately={this.startUploadImmediately}
             multiple={this.multiple}
@@ -741,7 +713,6 @@ export class LdFileUpload {
             uploadItems={this.uploadItems}
             maxFileSize={this.maxFileSize}
             labelDragInstructions={this.labelDragInstructions}
-            // labelSingularDropInstructions={this.labelSingularDropInstructions}
             labelUploadConstraints={this.labelUploadConstraints}
             labelSelectFile={this.labelSelectFile}
             labelUploadFile={this.labelUploadFile}

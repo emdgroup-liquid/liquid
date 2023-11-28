@@ -113,7 +113,7 @@ export class LdChooseFile {
       sizeIndex++
     }
 
-    const roundedSize = Number(bytes.toFixed(2))
+    const roundedSize = bytes.toFixed(2)
 
     return `${roundedSize} ${sizes[sizeIndex]}`
   }
