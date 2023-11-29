@@ -30,6 +30,13 @@ Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage exam
 | `size`    | `size`    | Size of the tabs.                                        | `"lg" \| "sm"`                                                        | `undefined` |
 
 
+## Events
+
+| Event                 | Description                   | Type                   |
+| --------------------- | ----------------------------- | ---------------------- |
+| `ldTablistScrollable` | Emitted on scrollable change. | `CustomEvent<boolean>` |
+
+
 ## Shadow Parts
 
 | Part                     | Description                                            |
