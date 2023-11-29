@@ -5,6 +5,7 @@ updates:
     schedule:
       interval: 'weekly'
     ignore:
+      - dependency-name: '@stencil/core'
       - dependency-name: 'jest'
       - dependency-name: 'jest-cli'
     groups:

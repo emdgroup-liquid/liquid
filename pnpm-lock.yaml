@@ -17,8 +17,8 @@ patchedDependencies:
 
 dependencies:
   '@stencil/core':
-    specifier: ^4.0.1
-    version: 4.8.0
+    specifier: ~4.7.2
+    version: 4.7.2
   dompurify:
     specifier: ^3.0.1
     version: 3.0.6
@@ -77,13 +77,13 @@ devDependencies:
     version: 0.4.0(@typescript-eslint/eslint-plugin@6.1.0)(@typescript-eslint/parser@6.1.0)(eslint-plugin-react@7.32.2)(eslint@8.34.0)(typescript@5.0.4)
   '@stencil/postcss':
     specifier: ^2.1.0
-    version: 2.1.0(@stencil/core@4.8.0)
+    version: 2.1.0(@stencil/core@4.7.2)
   '@stencil/react-output-target':
     specifier: ^0.5.3
-    version: 0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.8.0)
+    version: 0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.7.2)
   '@stencil/vue-output-target':
     specifier: ^0.8.6
-    version: 0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.8.0)
+    version: 0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.7.2)
   '@types/jest':
     specifier: ^27.5.2
     version: 27.5.2
@@ -158,7 +158,7 @@ devDependencies:
     version: 8.0.3
   jest:
     specifier: ^26.0.24
-    version: 26.1.0(ts-node@10.9.1)
+    version: 26.6.3(ts-node@10.9.1)
   jest-cli:
     specifier: ^26.6.3
     version: 26.6.3(ts-node@10.9.1)
@@ -167,7 +167,7 @@ devDependencies:
     version: 29.7.0
   jest-matchmedia-mock:
     specifier: ^1.1.0
-    version: 1.1.0(jest@26.1.0)
+    version: 1.1.0(jest@26.6.3)
   jsdom:
     specifier: ^23.0.0
     version: 23.0.0
@@ -260,7 +260,7 @@ devDependencies:
     version: 5.0.0
   ts-jest:
     specifier: ^29.1.0
-    version: 29.1.0(@babel/core@7.23.2)(jest@26.1.0)(typescript@5.0.4)
+    version: 29.1.0(@babel/core@7.23.2)(jest@26.6.3)(typescript@5.0.4)
   ts-node:
     specifier: ^10.9.1
     version: 10.9.1(@types/node@20.1.0)(typescript@5.0.4)
@@ -1342,7 +1342,7 @@ packages:
       '@jest/test-result': 26.6.2
       '@jest/transform': 26.6.2
       '@jest/types': 26.6.2
-      '@types/node': 20.1.0
+      '@types/node': 20.5.1
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       exit: 0.1.2
@@ -1510,8 +1510,8 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 20.1.0
-      '@types/yargs': 15.0.18
+      '@types/node': 20.5.1
+      '@types/yargs': 15.0.19
       chalk: 4.1.2
     dev: true
 
@@ -1958,8 +1958,8 @@ packages:
     hasBin: true
     dev: true
 
-  /@stencil/core@4.8.0:
-    resolution: {integrity: sha512-iNEaMiEt9oFZXSjZ7qkdlBpPTzWzBgWM7go8nI8a7V6ZOkmdVhhT0xGQD7OY13v5ZuDoIw5IsGvbIAGefhIhhQ==}
+  /@stencil/core@4.7.2:
+    resolution: {integrity: sha512-sPPDYrXiTbfeUF5CCyfqysXK/yfTHC4xYR1+nHzGkS2vhRSBOLp0oPuB+xkJLKA+K2ZqDJUxpOnDxy1CLWwBXA==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
@@ -1982,31 +1982,31 @@ packages:
       typescript: 5.0.4
     dev: true
 
-  /@stencil/postcss@2.1.0(@stencil/core@4.8.0):
+  /@stencil/postcss@2.1.0(@stencil/core@4.7.2):
     resolution: {integrity: sha512-/e4TYEXErGaHxH0ocg620YqEMLuMLpK/Wg4MJsiJglrLZCZhU4XCX1N0SwxaIOUbEZ1Zh+AqQ++yMI92ilndEA==}
     peerDependencies:
       '@stencil/core': '>=2.0.0'
     dependencies:
-      '@stencil/core': 4.8.0
+      '@stencil/core': 4.7.2
       autoprefixer: 10.4.16(postcss@8.3.11)
       postcss: 8.3.11
     dev: true
 
-  /@stencil/react-output-target@0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.8.0):
+  /@stencil/react-output-target@0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.7.2):
     resolution: {integrity: sha512-68jwRp35CjAcwhTJ9yFD/3n+jrHOqvEH2jreVuPVvZK+4tkhPlYlwz0d1E1RlF3jyifUSfdkWUGgXIEy8Fo3yw==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.8.0
+      '@stencil/core': 4.7.2
     dev: true
     patched: true
 
-  /@stencil/vue-output-target@0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.8.0):
+  /@stencil/vue-output-target@0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.7.2):
     resolution: {integrity: sha512-B1gQW8FWeU7x/KBPm9R28jYFGN5NsZTZR4jwfDMhKBmU1Q2dIxFY52ARhbrfj5tJQxKoxr2tQJD2S14r9t1v7w==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.8.0
+      '@stencil/core': 4.7.2
     dev: true
     patched: true
 
@@ -2212,8 +2212,8 @@ packages:
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
     dev: true
 
-  /@types/yargs@15.0.18:
-    resolution: {integrity: sha512-DDi2KmvAnNsT/EvU8jp1UR7pOJojBtJ3GLZ/uw1MUq4VbbESppPWoHUY4h0OB4BbEbGJiyEsmUcuZDZtoR+ZwQ==}
+  /@types/yargs@15.0.19:
+    resolution: {integrity: sha512-2XUaGVmyQjgyAZldf0D0c14vvo/yv0MhQBSTJcejMMaitsn3nxCB6TmH4G0ZQf+uxROOa9mpanoSm8h6SG/1ZA==}
     dependencies:
       '@types/yargs-parser': 21.0.3
     dev: true
@@ -2461,6 +2461,7 @@ packages:
 
   /abab@2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
+    deprecated: Use your platform's native atob() and btoa() methods instead
     dev: true
 
   /accepts@1.3.8:
@@ -4328,6 +4329,7 @@ packages:
   /domexception@2.0.1:
     resolution: {integrity: sha512-yxJ2mFy/sibVQlu5qHjOkf9J3K6zgmCxgJ94u2EdvDOV09H+32LtRswEcUsmUWN72pVLOEnTSRaIVVzVQgS0dg==}
     engines: {node: '>=8'}
+    deprecated: Use your platform's native DOMException instead
     dependencies:
       webidl-conversions: 5.0.0
     dev: true
@@ -4417,7 +4419,7 @@ packages:
     dev: true
 
   /ee-first@1.1.1:
-    resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
+    resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: true
 
   /ejs@3.1.9:
@@ -6770,13 +6772,13 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
-  /jest-matchmedia-mock@1.1.0(jest@26.1.0):
+  /jest-matchmedia-mock@1.1.0(jest@26.6.3):
     resolution: {integrity: sha512-REnJRsOSCMpGAlkxmvVTqEBpregyFVi9MPEH3N83W1yLKzDdNehtCkcdDZduXq74PLtfI+11NyM4zKCK5ynV9g==}
     engines: {node: '>=10'}
     peerDependencies:
       jest: '>=13'
     dependencies:
-      jest: 26.1.0(ts-node@10.9.1)
+      jest: 26.6.3(ts-node@10.9.1)
     dev: true
 
   /jest-message-util@26.6.2:
@@ -6866,7 +6868,7 @@ packages:
       jest-runtime: 26.6.3(ts-node@10.9.1)
       jest-util: 26.6.2
       jest-worker: 26.6.2
-      source-map-support: 0.5.21
+      source-map-support: 0.5.13
       throat: 5.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -6889,7 +6891,7 @@ packages:
       '@jest/test-result': 26.6.2
       '@jest/transform': 26.6.2
       '@jest/types': 26.6.2
-      '@types/yargs': 15.0.18
+      '@types/yargs': 15.0.19
       chalk: 4.1.2
       cjs-module-lexer: 0.6.0
       collect-v8-coverage: 1.0.2
@@ -6953,7 +6955,7 @@ packages:
     engines: {node: '>= 10.14.2'}
     dependencies:
       '@jest/types': 26.6.2
-      '@types/node': 20.1.0
+      '@types/node': 20.5.1
       chalk: 4.1.2
       graceful-fs: 4.2.11
       is-ci: 2.0.0
@@ -7006,8 +7008,8 @@ packages:
       supports-color: 7.2.0
     dev: true
 
-  /jest@26.1.0(ts-node@10.9.1):
-    resolution: {integrity: sha512-LIti8jppw5BcQvmNJe4w2g1N/3V68HUfAv9zDVm7v+VAtQulGhH0LnmmiVkbNE4M4I43Bj2fXPiBGKt26k9tHw==}
+  /jest@26.6.3(ts-node@10.9.1):
+    resolution: {integrity: sha512-lGS5PXGAzR4RF7V5+XObhqz2KZIDUA1yD0DG6pBVmy10eh0ZIXQImRuzocsI/N2XZ1GrLFwTS27In2i2jlpq1Q==}
     engines: {node: '>= 10.14.2'}
     hasBin: true
     dependencies:
@@ -10798,8 +10800,8 @@ packages:
       urix: 0.1.0
     dev: true
 
-  /source-map-support@0.5.21:
-    resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
+  /source-map-support@0.5.13:
+    resolution: {integrity: sha512-SHSKFHadjVA5oR4PPqhtAVdcBWwRYVd6g6cAXnIbRiIwc2EhPrTuKUBdSLvlEKyIP3GCf89fltvcZiP9MMFA1w==}
     dependencies:
       buffer-from: 1.1.2
       source-map: 0.6.1
@@ -11603,7 +11605,7 @@ packages:
       typescript: 5.0.4
     dev: true
 
-  /ts-jest@29.1.0(@babel/core@7.23.2)(jest@26.1.0)(typescript@5.0.4):
+  /ts-jest@29.1.0(@babel/core@7.23.2)(jest@26.6.3)(typescript@5.0.4):
     resolution: {integrity: sha512-ZhNr7Z4PcYa+JjMl62ir+zPiNJfXJN6E8hSLnaUKhOgqcn8vb3e537cpkd0FuAfRK3sR1LSqM1MOhliXNgOFPA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -11627,7 +11629,7 @@ packages:
       '@babel/core': 7.23.2
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
-      jest: 26.1.0(ts-node@10.9.1)
+      jest: 26.6.3(ts-node@10.9.1)
       jest-util: 29.7.0
       json5: 2.2.3
       lodash.memoize: 4.1.2
