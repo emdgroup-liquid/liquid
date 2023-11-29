@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
@@ -196,6 +198,9 @@ export class LdTablist {
     })
   }
 
+  /** Emitted on scrollable change. */
+  @Event() ldTablistScrollable: EventEmitter<boolean>
+
   @Listen('ldtabselect')
   handleTabSelect(ev) {
     this.selectedIsFocused = true
@@ -246,6 +251,11 @@ export class LdTablist {
         icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
       }
     })
+  }
+
+  @Watch('scrollable')
+  emitScrollable() {
+    this.ldTablistScrollable.emit(this.scrollable)
   }
 
   componentWillLoad() {
