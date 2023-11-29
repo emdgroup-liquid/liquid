@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.13.0](https://github.com/emdgroup-liquid/liquid/compare/v5.12.7...v5.13.0) (2023-11-29)
+
+
+### Features
+
+* **ld-tabs:** emit event on tablist scrollable change ([6f8405f](https://github.com/emdgroup-liquid/liquid/commit/6f8405fa7e27c6ce8dd777559789a4882899f3d9))
+
 ## [5.12.7](https://github.com/emdgroup-liquid/liquid/compare/v5.12.6...v5.12.7) (2023-11-27)
 
 
