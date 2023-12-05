@@ -2527,17 +2527,17 @@ Custom icons for specific file types can be added to the icons slot.
       }
     }
   } } >
-<LdIcon
-          slot="icons"
-          data-upload-icon="application/pdf"
-          name="pdf"
-          size="lg"
-        ></LdIcon>
-<img
-          slot="icons"
-          src="{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg"
-          data-upload-icon="image/jpeg"
-        />
+  <LdIcon
+    slot="icons"
+    data-upload-icon="application/pdf"
+    name="pdf"
+    size="lg"
+  ></LdIcon>
+  <img
+    slot="icons"
+    src="{{ env.base }}/{{ buildstamp }}assets/examples/file-upload-jpeg.svg"
+    data-upload-icon="image/jpeg"
+  />
 </LdFileUpload>
 
 {% endexample %}
