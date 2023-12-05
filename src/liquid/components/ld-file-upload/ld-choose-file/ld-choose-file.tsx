@@ -32,9 +32,9 @@ export class LdChooseFile {
   @Prop() maxFileSize?: number
 
   /** Defines whether upload starts immediately after choosing files or after confirmation. */
-  @Prop() startUploadImmediately?: boolean = false
+  @Prop() immediate?: boolean = false
 
-  /** Defines whether start upload button has been clicked (only relevant when startUploadImmediately is false)
+  /** Defines whether start upload button has been clicked (only relevant when immediate is false)
    * @internal
    */
   @Prop() startUploadClicked?: boolean = false
@@ -60,11 +60,6 @@ export class LdChooseFile {
   @Prop() labelDragInstructions = `Drag your file${
     this.multiple ? '(s)' : ''
   } here or browse`
-
-  /** Label to be used as a header with instructions for drag and drop or file upload in the simgular upload version. */
-  // @Prop() labelSingularDropInstructions = `Or drop file${
-  //   this.multiple ? '(s)' : ''
-  // }`
 
   /** Label to be used to describe upload constraints like the maximum file size. */
   @Prop() labelUploadConstraints = `${
@@ -124,11 +119,10 @@ export class LdChooseFile {
 
   private handleDragEnter = (ev: DragEvent) => {
     ev.preventDefault()
-    // ev.stopPropagation()
     const fileList = ev.dataTransfer.files
     if (
       (this.multiple || fileList.length <= 1) &&
-      (this.startUploadImmediately || !this.startUploadClicked)
+      (this.immediate || !this.startUploadClicked)
     ) {
       this.highlighted = true
     }
@@ -136,11 +130,10 @@ export class LdChooseFile {
 
   private handleDragOver = (ev: DragEvent) => {
     ev.preventDefault()
-    // ev.stopPropagation()
     const fileList = ev.dataTransfer.files
     if (
       (this.multiple || fileList.length <= 1) &&
-      (this.startUploadImmediately || !this.startUploadClicked)
+      (this.immediate || !this.startUploadClicked)
     ) {
       this.highlighted = true
     }
@@ -161,7 +154,7 @@ export class LdChooseFile {
 
     if (
       (this.multiple || fileList.length <= 1) &&
-      (this.startUploadImmediately || !this.startUploadClicked)
+      (this.immediate || !this.startUploadClicked)
     ) {
       this.ldchoosefiles.emit(fileList)
     }
@@ -223,33 +216,19 @@ export class LdChooseFile {
               this.layout && `ld-choose-file__text--${this.layout}`,
             ])}
           >
-            {this.startUploadImmediately ||
-            (!this.startUploadImmediately && !this.startUploadClicked) ? (
+            {this.immediate || (!this.immediate && !this.startUploadClicked) ? (
               <Fragment>
-                {/* {!this.compact ? (
-                  <Fragment>
-                    <ld-typo variant="h5">{this.labelDragInstructions}</ld-typo>
-                    {this.labelUploadConstraints != '' ? (
-                      <ld-typo>
-                        {this.labelUploadConstraints.replace(
-                          '$maxFileSize',
-                          this.bytesToSize(this.maxFileSize)
-                        )}
-                      </ld-typo>
-                    ) : undefined}
-                  </Fragment>
-                ) : undefined} */}
                 <ld-typo id={`${this.idPrefix}-instructions`} variant="h5">
                   {this.labelDragInstructions}
                 </ld-typo>
-                {this.labelUploadConstraints != '' ? (
+                {this.labelUploadConstraints !== '' && (
                   <ld-typo>
                     {this.labelUploadConstraints.replace(
                       '$maxFileSize',
                       this.bytesToSize(this.maxFileSize)
                     )}
                   </ld-typo>
-                ) : undefined}
+                )}
                 <slot></slot>
                 <ld-button
                   aria-labelledby={`${this.idPrefix}-instructions`}
@@ -257,15 +236,8 @@ export class LdChooseFile {
                   size="sm"
                   onClick={this.handleUploadClick}
                 >
-                  {this.startUploadImmediately
-                    ? this.labelUploadFile
-                    : this.labelSelectFile}
+                  {this.immediate ? this.labelUploadFile : this.labelSelectFile}
                 </ld-button>
-                {/* {this.compact ? (
-                  <ld-typo variant="h5">
-                    {this.labelSingularDropInstructions}
-                  </ld-typo>
-                ) : undefined} */}
               </Fragment>
             ) : (
               <Fragment>

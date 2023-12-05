@@ -188,10 +188,7 @@ export class LdUploadItem {
   render() {
     const cl = getClassNames(['ld-upload-item'])
 
-    const activeUploads =
-      this.state === 'pending' ||
-      this.state === 'paused' ||
-      this.state === 'uploading'
+    const activeUploads = this.state === 'paused' || this.state === 'uploading'
 
     return (
       <Host class={cl}>

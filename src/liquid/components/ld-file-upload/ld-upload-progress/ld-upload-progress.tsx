@@ -13,7 +13,7 @@ export class LdUploadProgress {
   @Element() el: HTMLLdUploadProgressElement
 
   /** Defines whether upload starts immediately after choosing files or after confirmation. */
-  @Prop() startUploadImmediately?: boolean = false
+  @Prop() immediate?: boolean = false
 
   /** Defines whether the user will be able to pause uploads. */
   @Prop() allowPause?: boolean

@@ -26,7 +26,7 @@ describe('ld-file-upload', () => {
   it('starts upload immediately after choosing files', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
-      html: `<ld-file-upload start-upload-immediately />`,
+      html: `<ld-file-upload immediate />`,
     })
     expect(page.root.startUploadImmediately).toBe(true)
   })
@@ -311,7 +311,7 @@ describe('ld-file-upload', () => {
   it('emits public ldchoosefiles and ldfileuploadready event after internal ldchoosefiles event is emitted by ld-choose-files', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
-      html: `<ld-file-upload start-upload-immediately />`,
+      html: `<ld-file-upload immediate />`,
     })
     const ldFileUpload = page.root
     const ldChooseFiles =
@@ -349,7 +349,7 @@ describe('ld-file-upload', () => {
   it('emits public ldchoosefiles and ldfileuploadready event after files are selected through input', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
-      html: `<ld-file-upload start-upload-immediately />`,
+      html: `<ld-file-upload immediate />`,
     })
     const ldFileUpload = page.root
     const input = ldFileUpload.shadowRoot.querySelector<HTMLInputElement>(
