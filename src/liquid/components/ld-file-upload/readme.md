@@ -23,8 +23,6 @@ In default mode, files to be uploaded can be chosen in multiple steps but upload
 <!-- React component -->
 <LdFileUpload />
 
-<!-- CSS component -->
-
 {% endexample %}
 
 #### State management:
@@ -176,8 +174,6 @@ const App = () => {
   )
 }
 
-<!-- CSS component -->
-
 {% endexample %}
 
 #### File upload in card
@@ -258,8 +254,6 @@ const fileUploadRef = useRef(null)
     } }
   />
 </LdCard>
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -348,8 +342,6 @@ const App = () => {
     </LdCard>
   )
 }
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -454,7 +446,7 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
+    }
   } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
@@ -475,12 +467,12 @@ const fileUploadRef = useRef(null)
             newItem.progress = (event.loaded / event.total) * 100
             if (fileUploadRef.current) {
               fileUploadRef.current.updateUploadItem(newItem)
-            } 
-          } 
-        } ) 
+            }
+          }
+        })
         xhr.addEventListener('loadend', () => {
           resolve(xhr.readyState === 4 && xhr.status === 200)
-        } ) 
+        })
 
         if (fileUploadRef.current) {
           fileUploadRef.current.addEventListener(
@@ -492,60 +484,58 @@ const fileUploadRef = useRef(null)
                 newItem.state = 'cancelled'
                 fileUploadRef.current.updateUploadItem(newItem)
                 xhr.abort(ev.detail.file)
-              } 
-            } 
-          ) 
-        } 
+              }
+            }
+          )
+        }
 
         xhr.open('PUT', 'https://httpbin.org/put', true)
         xhr.setRequestHeader('Content-Type', 'application/octet-stream')
         xhr.send(file)
-      } ) 
+      })
       if (success) {
         const newItem = uploadItems[item]
         newItem.state = 'uploaded'
         if (fileUploadRef.current) {
           fileUploadRef.current.updateUploadItem(newItem)
-        } 
+        }
       } else if (uploadItems[item].state != 'cancelled') {
         const newItem = uploadItems[item]
         newItem.state = 'upload failed'
         if (fileUploadRef.current) {
           fileUploadRef.current.updateUploadItem(newItem)
-        } 
-      } 
-    } 
-  } } 
+        }
+      }
+    }
+  } }
   onLduploaditemdownload={async () => {
     window.open('https://liquid.merck.design/liquid/')
-  } } 
+  } }
   onLduploaditemretry={async (ev) => {
     const uploadItem = ev.detail
     const uploadItems = []
     uploadItems.push(uploadItem)
     const uploadevent = new CustomEvent('ldfileuploadready', {
       detail: uploadItems,
-    } ) 
+    })
     if (fileUploadRef.current) {
       fileUploadRef.current.dispatchEvent(uploadevent)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -645,7 +635,7 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
+    }
   } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
@@ -666,12 +656,12 @@ const fileUploadRef = useRef(null)
             newItem.progress = (event.loaded / event.total) * 100
             if (fileUploadRef.current) {
               fileUploadRef.current.updateUploadItem(newItem)
-            } 
-          } 
-        } ) 
+            }
+          }
+        })
         xhr.addEventListener('loadend', () => {
           resolve(xhr.readyState === 4 && xhr.status === 200)
-        } ) 
+        })
 
         if (fileUploadRef.current) {
           fileUploadRef.current.addEventListener(
@@ -683,61 +673,59 @@ const fileUploadRef = useRef(null)
                 newItem.state = 'cancelled'
                 fileUploadRef.current.updateUploadItem(newItem)
                 xhr.abort(ev.detail.file)
-              } 
-            } 
-          ) 
-        } 
+              }
+            }
+          )
+        }
 
         xhr.open('PUT', 'https://httpbin.org/put', true)
         xhr.setRequestHeader('Content-Type', 'application/octet-stream')
         xhr.send(file)
-      } ) 
+      })
       const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
       if (success2) {
         const newItem = uploadItems[item]
         newItem.state = 'uploaded'
         if (fileUploadRef.current) {
           fileUploadRef.current.updateUploadItem(newItem)
-        } 
+        }
       } else if (uploadItems[item].state != 'cancelled') {
         const newItem = uploadItems[item]
         newItem.state = 'upload failed'
         if (fileUploadRef.current) {
           fileUploadRef.current.updateUploadItem(newItem)
-        } 
-      } 
-    } 
-  } } 
+        }
+      }
+    }
+  } }
   onLduploaditemdownload={async () => {
     window.open('https://liquid.merck.design/liquid/')
-  } } 
+  } }
   onLduploaditemretry={async (ev) => {
     const uploadItem = ev.detail
     const uploadItems = []
     uploadItems.push(uploadItem)
     const uploadevent = new CustomEvent('ldfileuploadready', {
       detail: uploadItems,
-    } ) 
+    })
     if (fileUploadRef.current) {
       fileUploadRef.current.dispatchEvent(uploadevent)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -839,8 +827,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -848,7 +836,7 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
+      }
 
       const file = uploadItems[item].file
 
@@ -860,12 +848,12 @@ const fileUploadRef = useRef(null)
             newItem.progress = (event.loaded / event.total) * 100
             if (fileUploadRef.current) {
               fileUploadRef.current.updateUploadItem(newItem)
-            } 
-          } 
-        } ) 
+            }
+          }
+        })
         xhr.addEventListener('loadend', () => {
           resolve(xhr.readyState === 4 && xhr.status === 200)
-        } ) 
+        })
 
         if (fileUploadRef.current) {
           fileUploadRef.current.addEventListener(
@@ -877,60 +865,58 @@ const fileUploadRef = useRef(null)
                 newItem.state = 'cancelled'
                 fileUploadRef.current.updateUploadItem(newItem)
                 xhr.abort(ev.detail.file)
-              } 
-            } 
-          ) 
-        } 
+              }
+            }
+          )
+        }
 
         xhr.open('PUT', 'https://httpbin.org/put', true)
         xhr.setRequestHeader('Content-Type', 'application/octet-stream')
         xhr.send(file)
-      } ) 
+      })
       if (success) {
         const newItem = uploadItems[item]
         newItem.state = 'uploaded'
         if (fileUploadRef.current) {
           fileUploadRef.current.updateUploadItem(newItem)
-        } 
+        }
       } else if (uploadItems[item].state != 'cancelled') {
         const newItem = uploadItems[item]
         newItem.state = 'upload failed'
         if (fileUploadRef.current) {
           fileUploadRef.current.updateUploadItem(newItem)
-        } 
-      } 
-    } 
-  } } 
+        }
+      }
+    }
+  } }
   onLduploaditemdownload={async () => {
     window.open('https://liquid.merck.design/liquid/')
-  } } 
+  } }
   onLduploaditemretry={async (ev) => {
     const uploadItem = ev.detail
     const uploadItems = []
     uploadItems.push(uploadItem)
     const uploadevent = new CustomEvent('ldfileuploadready', {
       detail: uploadItems,
-    } ) 
+    })
     if (fileUploadRef.current) {
       fileUploadRef.current.dispatchEvent(uploadevent)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -1028,8 +1014,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -1037,7 +1023,7 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
+      }
 
       const file = uploadItems[item].file
 
@@ -1049,12 +1035,12 @@ const fileUploadRef = useRef(null)
             newItem.progress = (event.loaded / event.total) * 100
             if (fileUploadRef.current) {
               fileUploadRef.current.updateUploadItem(newItem)
-            } 
-          } 
-        } ) 
+            }
+          }
+        })
         xhr.addEventListener('loadend', () => {
           resolve(xhr.readyState === 4 && xhr.status === 200)
-        } ) 
+        })
 
         if (fileUploadRef.current) {
           fileUploadRef.current.addEventListener(
@@ -1066,61 +1052,59 @@ const fileUploadRef = useRef(null)
                 newItem.state = 'cancelled'
                 fileUploadRef.current.updateUploadItem(newItem)
                 xhr.abort(ev.detail.file)
-              } 
-            } 
-          ) 
-        } 
+              }
+            }
+          )
+        }
 
         xhr.open('PUT', 'https://httpbin.org/put', true)
         xhr.setRequestHeader('Content-Type', 'application/octet-stream')
         xhr.send(file)
-      } ) 
+      })
       const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
       if (success2) {
         const newItem = uploadItems[item]
         newItem.state = 'uploaded'
         if (fileUploadRef.current) {
           fileUploadRef.current.updateUploadItem(newItem)
-        } 
+        }
       } else if (uploadItems[item].state != 'cancelled') {
         const newItem = uploadItems[item]
         newItem.state = 'upload failed'
         if (fileUploadRef.current) {
           fileUploadRef.current.updateUploadItem(newItem)
-        } 
-      } 
-    } 
-  } } 
+        }
+      }
+    }
+  } }
   onLduploaditemdownload={async () => {
     window.open('https://liquid.merck.design/liquid/')
-  } } 
+  } }
   onLduploaditemretry={async (ev) => {
     const uploadItem = ev.detail
     const uploadItems = []
     uploadItems.push(uploadItem)
     const uploadevent = new CustomEvent('ldfileuploadready', {
       detail: uploadItems,
-    } ) 
+    })
     if (fileUploadRef.current) {
       fileUploadRef.current.dispatchEvent(uploadevent)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -1218,8 +1202,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-      } 
-    } } 
+      }
+    } }
     onLdfileuploadready={async (ev) => {
       const uploadItems = ev.detail
       for (const item in uploadItems) {
@@ -1227,7 +1211,7 @@ const fileUploadRef = useRef(null)
         newItem.state = 'uploading'
         if (fileUploadRef.current) {
           fileUploadRef.current.updateUploadItem(newItem)
-        } 
+        }
 
       const file = uploadItems[item].file
 
@@ -1239,12 +1223,12 @@ const fileUploadRef = useRef(null)
             newItem.progress = (event.loaded / event.total) * 100
             if (fileUploadRef.current) {
               fileUploadRef.current.updateUploadItem(newItem)
-            } 
-          } 
-        } ) 
+            }
+          }
+        })
         xhr.addEventListener('loadend', () => {
           resolve(xhr.readyState === 4 && xhr.status === 200)
-        } ) 
+        })
 
         if (fileUploadRef.current) {
           fileUploadRef.current.addEventListener(
@@ -1256,61 +1240,59 @@ const fileUploadRef = useRef(null)
                 newItem.state = 'cancelled'
                 fileUploadRef.current.updateUploadItem(newItem)
                 xhr.abort(ev.detail.file)
-              } 
-            } 
-          ) 
-        } 
+              }
+            }
+          )
+        }
 
         xhr.open('PUT', 'https://httpbin.org/put', true)
         xhr.setRequestHeader('Content-Type', 'application/octet-stream')
         xhr.send(file)
-      } ) 
+      })
       const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
       if (success2) {
         const newItem = uploadItems[item]
         newItem.state = 'uploaded'
         if (fileUploadRef.current) {
           fileUploadRef.current.updateUploadItem(newItem)
-        } 
+        }
       } else if (uploadItems[item].state != 'cancelled') {
         const newItem = uploadItems[item]
         newItem.state = 'upload failed'
         if (fileUploadRef.current) {
           fileUploadRef.current.updateUploadItem(newItem)
-        } 
-      } 
-    } 
-  } } 
+        }
+      }
+    }
+  } }
   onLduploaditemdownload={async () => {
     window.open('https://liquid.merck.design/liquid/')
-  } } 
+  } }
   onLduploaditemretry={async (ev) => {
     const uploadItem = ev.detail
     const uploadItems = []
     uploadItems.push(uploadItem)
     const uploadevent = new CustomEvent('ldfileuploadready', {
       detail: uploadItems,
-    } ) 
+    })
     if (fileUploadRef.current) {
       fileUploadRef.current.dispatchEvent(uploadevent)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -1387,7 +1369,6 @@ const fileUploadRef = useRef(null)
       ldUpload.dispatchEvent(event)
     })
 
-
     ldUpload.addEventListener('lduploaditemremove', async (ev) => {
       uploadItem = ev.detail
       uploadItem.state = 'cancelled'
@@ -1403,110 +1384,112 @@ const fileUploadRef = useRef(null)
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  multiple
-  show-progress
-  allow-pause
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      multiple
+      show-progress
+      allow-pause
 
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
 
-      const file = uploadItems[item].file
+          const file = uploadItems[item].file
 
-      const xhr = new XMLHttpRequest()
-      const success = await new Promise((resolve) => {
-        xhr.upload.addEventListener('progress', (event) => {
-          if (event.lengthComputable) {
+          const xhr = new XMLHttpRequest()
+          const success = await new Promise((resolve) => {
+            xhr.upload.addEventListener('progress', (event) => {
+              if (event.lengthComputable) {
+                const newItem = uploadItems[item]
+                newItem.progress = (event.loaded / event.total) * 100
+                if (fileUploadRef.current) {
+                  fileUploadRef.current.updateUploadItem(newItem)
+                }
+              }
+            })
+            xhr.addEventListener('loadend', () => {
+              resolve(xhr.readyState === 4 && xhr.status === 200)
+            })
+
+            if (fileUploadRef.current) {
+              fileUploadRef.current.addEventListener(
+                'lduploaditemremove',
+                async (ev) => {
+                  const uploadItem = ev.detail
+                  if (uploadItem.fileName === uploadItems[item].fileName) {
+                    const newItem = uploadItems[item]
+                    newItem.state = 'cancelled'
+                    fileUploadRef.current.updateUploadItem(newItem)
+                    xhr.abort(ev.detail.file)
+                  }
+                }
+              )
+            }
+
+            xhr.open('PUT', 'https://httpbin.org/put', true)
+            xhr.setRequestHeader('Content-Type', 'application/octet-stream')
+            xhr.send(file)
+          })
+          if (success) {
             const newItem = uploadItems[item]
-            newItem.progress = (event.loaded / event.total) * 100
+            newItem.state = 'uploaded'
             if (fileUploadRef.current) {
               fileUploadRef.current.updateUploadItem(newItem)
-            } 
-          } 
-        } ) 
-        xhr.addEventListener('loadend', () => {
-          resolve(xhr.readyState === 4 && xhr.status === 200)
-        } ) 
-
+            }
+          } else if (uploadItems[item].state != 'cancelled') {
+            const newItem = uploadItems[item]
+            newItem.state = 'upload failed'
+            if (fileUploadRef.current) {
+              fileUploadRef.current.updateUploadItem(newItem)
+            }
+          }
+        }
+      } }
+      onLduploaditemdownload={async () => {
+        window.open('https://liquid.merck.design/liquid/')
+      } }
+      onLduploaditemretry={async (ev) => {
+        const uploadItem = ev.detail
+        const uploadItems = []
+        uploadItems.push(uploadItem)
+        const uploadevent = new CustomEvent('ldfileuploadready', {
+          detail: uploadItems,
+        })
         if (fileUploadRef.current) {
-          fileUploadRef.current.addEventListener(
-            'lduploaditemremove',
-            async (ev) => {
-              const uploadItem = ev.detail
-              if (uploadItem.fileName === uploadItems[item].fileName) {
-                const newItem = uploadItems[item]
-                newItem.state = 'cancelled'
-                fileUploadRef.current.updateUploadItem(newItem)
-                xhr.abort(ev.detail.file)
-              } 
-            } 
-          ) 
-        } 
-
-        xhr.open('PUT', 'https://httpbin.org/put', true)
-        xhr.setRequestHeader('Content-Type', 'application/octet-stream')
-        xhr.send(file)
-      } ) 
-      if (success) {
-        const newItem = uploadItems[item]
-        newItem.state = 'uploaded'
+          fileUploadRef.current.dispatchEvent(uploadevent)
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
-        } 
-      } else if (uploadItems[item].state != 'cancelled') {
-        const newItem = uploadItems[item]
-        newItem.state = 'upload failed'
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
-        } 
-      } 
-    } 
-  } } 
-  onLduploaditemdownload={async () => {
-    window.open('https://liquid.merck.design/liquid/')
-  } } 
-  onLduploaditemretry={async (ev) => {
-    const uploadItem = ev.detail
-    const uploadItems = []
-    uploadItems.push(uploadItem)
-    const uploadevent = new CustomEvent('ldfileuploadready', {
-      detail: uploadItems,
-    } ) 
-    if (fileUploadRef.current) {
-      fileUploadRef.current.dispatchEvent(uploadevent)
-    } 
-  } } 
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
-/>
-
-<!-- CSS component -->
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -1586,8 +1569,6 @@ Fake upload, just for testing. Can be removed from the documentation.
 
 <!-- React component -->
 
-<!-- CSS component -->
-
 {% endexample %}
 
 ### Circular progress
@@ -1643,8 +1624,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -1652,25 +1633,23 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -1726,8 +1705,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -1735,25 +1714,23 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -1808,8 +1785,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -1817,25 +1794,23 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
     }
-  } } 
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -1889,8 +1864,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -1898,25 +1873,23 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -1971,8 +1944,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -1980,25 +1953,23 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -2072,8 +2043,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -2081,22 +2052,22 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadpausealluploads={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -2104,9 +2075,9 @@ const fileUploadRef = useRef(null)
       newItem.state = 'paused'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLdfileuploadcontinueuploads={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -2114,12 +2085,10 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -2175,8 +2144,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -2184,25 +2153,23 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -2256,8 +2223,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -2265,25 +2232,23 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -2337,8 +2302,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -2346,25 +2311,23 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -2419,8 +2382,8 @@ const fileUploadRef = useRef(null)
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -2428,25 +2391,23 @@ const fileUploadRef = useRef(null)
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
 />
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -2521,8 +2482,8 @@ Custom icons for specific file types can be added to the icons slot.
     const uploadItems = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.addUploadItems(uploadItems)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadready={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -2530,22 +2491,22 @@ Custom icons for specific file types can be added to the icons slot.
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLduploaditemremove={async (ev) => {
     const uploadItem = ev.detail
     uploadItem.state = 'cancelled'
     if (fileUploadRef.current) {
       fileUploadRef.current.updateUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLduploaditemdelete={async (ev) => {
     const uploadItem = ev.detail
     if (fileUploadRef.current) {
       fileUploadRef.current.deleteUploadItem(uploadItem)
-    } 
-  } } 
+    }
+  } }
   onLdfileuploadpausealluploads={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -2553,9 +2514,9 @@ Custom icons for specific file types can be added to the icons slot.
       newItem.state = 'paused'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
-  } } 
+      }
+    }
+  } }
   onLdfileuploadcontinueuploads={async (ev) => {
     const uploadItems = ev.detail
     for (const item in uploadItems) {
@@ -2563,8 +2524,8 @@ Custom icons for specific file types can be added to the icons slot.
       newItem.state = 'uploading'
       if (fileUploadRef.current) {
         fileUploadRef.current.updateUploadItem(newItem)
-      } 
-    } 
+      }
+    }
   } } >
 <LdIcon
           slot="icons"
@@ -2578,8 +2539,6 @@ Custom icons for specific file types can be added to the icons slot.
           data-upload-icon="image/jpeg"
         />
 </LdFileUpload>
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -2667,8 +2626,6 @@ label-delete="Löschen">
 
 <!-- React component -->
 
-<!-- CSS component -->
-
 {% endexample %}
 
 ### Combined examples
@@ -2733,8 +2690,6 @@ label-delete="Löschen">
 </script>
 
 <!-- React component -->
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -2829,8 +2784,6 @@ label-delete="Löschen">
 </script>
 
 <!-- React component -->
-
-<!-- CSS component -->
 
 {% endexample %}
 
@@ -2936,8 +2889,6 @@ label-delete="Löschen">
 
 <!-- React component -->
 
-<!-- CSS component -->
-
 {% endexample %}
 
 #### Circular progress example with mock files
@@ -3031,8 +2982,6 @@ label-delete="Löschen">
 </script>
 
 <!-- React component -->
-
-<!-- CSS component -->
 
 {% endexample %}
 
