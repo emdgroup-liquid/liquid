@@ -60,10 +60,6 @@ export class LdFileUpload {
 
   /** Defines whether selection of multiple input files is allowed. */
   @Prop() multiple?: boolean = false
-
-  /** Defines whether only the circular progress indicator will be shown during upload. */
-  @Prop() circularProgress?: boolean = false
-
   /** Defines whether only one file can be chosen and uploaded. */
   @Prop() compact?: boolean = false
 
@@ -92,9 +88,7 @@ export class LdFileUpload {
   } here or browse`
 
   /** Label to be used as a header with instructions for drag and drop or file upload in the simgular upload version. */
-  // @Prop() labelSingularDropInstructions = `Or drop file${
-  //   this.multiple ? '(s)' : ''
-  // }`
+  // @Prop() labelSingularDropInstructions = `Or drop file${this.multiple?'(s)':''}`
 
   /** Label to be used to describe upload constraints like the maximum file size. */
   @Prop() labelUploadConstraints = `${
@@ -147,24 +141,13 @@ export class LdFileUpload {
 
   /** Label to be used for the error message that is shown if a file that has already been chosen is selected again. */
   @Prop()
-  labelFileAlreadyChosenError = `$duplicateFiles cannot be chosen since file(s) with the same name(s) has/have been chosen already. To upload this/these file(s) please remove the file(s) with the same name(s).`
+  labelFileAlreadyChosenError =
+    `$duplicateFiles cannot be chosen since file(s) with the same name(s) has/have been chosen already. To upload this/these file(s) please remove the file(s) with the same name(s).`
 
   /** Label to be used for the error message that is shown if chosen file exceeds the maximum file size. */
   @Prop()
-  labelmaxFileSizeExceededError = `$filesExceedingmaxFileSize cannot be chosen since the file(s) exceed(s) the maximum file size.`
-
-  // Labels for circular progress:
-
-  /** Label to be used to count th uploaded files in circular progress mode. */
-  @Prop() labelCPUploadCount = `Uploading $filesUploading file${
-    this.multiple ? 's' : ''
-  }`
-
-  /** Label to be used to show the total uploaded file size in circular progress mode. */
-  @Prop() labelCPUploadedSize = `$uploadedSize uploaded...`
-
-  /** Label to be used for the cancel button in circular progress mode. */
-  @Prop() labelCPCancel = `Cancel`
+  labelmaxFileSizeExceededError =
+    `$filesExceedingmaxFileSize cannot be chosen since the file(s) exceed(s) the maximum file size.`
 
   // Labels for ld-upload-item
 
@@ -212,12 +195,6 @@ export class LdFileUpload {
 
   /** Represents whether the pause all button has been clicked. */
   @State() pauseAllClicked = false
-
-  /** Defines whether files have been chosen in circular progress mode and the circular progress should be rendered. */
-  @State() renderCircularProgress = false
-
-  /** Defines whether all uploads in circular progress mode are finished. */
-  @State() allUploadsFinished = false
 
   /** Emitted after choosing files.
    * UploadItems emitted can be added to the list of chosen files by using the addUploadItems() method.
@@ -299,13 +276,6 @@ export class LdFileUpload {
     if (this.renderOnlyChooseFile) {
       this.renderOnlyChooseFile = false
     }
-    if (
-      this.circularProgress &&
-      !this.renderCircularProgress &&
-      this.exceedmaxFileSize.length === 0
-    ) {
-      this.renderCircularProgress = true
-    }
     // clears file input value
     this.fileInput.value = null
   }
@@ -377,7 +347,6 @@ export class LdFileUpload {
   private setToInitialState = () => {
     this.renderOnlyChooseFile = true
     this.startUploadClicked = false
-    this.renderCircularProgress = false
   }
 
   @Watch('uploadItems')
@@ -393,45 +362,6 @@ export class LdFileUpload {
     ) {
       this.setToInitialState()
     }
-    if (
-      this.uploadItems.filter((item) => item.state === 'uploaded').length ==
-        this.uploadItems.length &&
-      this.uploadItems.length != 0
-    ) {
-      this.allUploadsFinished = true
-    }
-
-    // sets component to initial state after all files have been uploaded in circular progress mode
-    if (
-      this.uploadItems.filter((item) => item.state === 'uploaded').length ==
-        this.uploadItems.length &&
-      this.uploadItems.length != 0 &&
-      this.circularProgress
-    ) {
-      this.allUploadsFinished = true
-      const delay = (ms) => new Promise((res) => setTimeout(res, ms))
-      await delay(5000)
-      this.uploadItems = []
-      this.renderOnlyChooseFile = true
-      this.startUploadClicked = false
-      this.renderCircularProgress = false
-      this.allUploadsFinished = false
-    }
-  }
-
-  private bytesToSize = (bytes: number) => {
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
-
-    let sizeIndex = 0
-
-    while (bytes >= 1024 && sizeIndex < sizes.length - 1) {
-      bytes /= 1024
-      sizeIndex++
-    }
-
-    const roundedSize = bytes.toFixed(2)
-
-    return `${roundedSize} ${sizes[sizeIndex]}`
   }
 
   private calculateTotalProgress = () => {
@@ -504,14 +434,14 @@ export class LdFileUpload {
     }
   }
 
-  private handleInputChange = async (ev) => {
+  private handleInputChange = async (ev: InputEvent) => {
     const files = (ev.target as HTMLInputElement).files
     if (!files || !files.length) return
 
     this.removeDuplicateChosenFiles(files)
     this.ldchoosefiles.emit(this.lastChosenFiles)
     this.addChosenFiles(this.lastChosenFiles)
-    if (this.startUploadImmediately || this.circularProgress) {
+    if (this.startUploadImmediately) {
       this.ldfileuploadready.emit(this.allChosenFiles)
     }
   }
@@ -522,7 +452,7 @@ export class LdFileUpload {
     this.removeDuplicateChosenFiles(ev.detail)
     this.ldchoosefiles.emit(this.lastChosenFiles) // ...and dispatch the public one.
     this.addChosenFiles(this.lastChosenFiles)
-    if (this.startUploadImmediately || this.circularProgress) {
+    if (this.startUploadImmediately) {
       this.ldfileuploadready.emit(this.allChosenFiles)
     }
   }
@@ -564,115 +494,7 @@ export class LdFileUpload {
     const cl = getClassNames([
       'ld-file-upload',
       this.renderOnlyChooseFile && 'ld-file-upload--only-choose-file',
-      this.renderCircularProgress && 'ld-file-upload--only-circular-progress',
     ])
-
-    if (this.circularProgress) {
-      return (
-        <Host class={cl}>
-          {!this.renderCircularProgress && !this.allUploadsFinished ? (
-            <Fragment>
-              <ld-choose-file
-                class="ld-file-upload__choose-file"
-                layout={this.renderOnlyChooseFile ? 'vertical' : 'horizontal'}
-                onLdchoosefiles={this.handleChooseFiles}
-                start-upload-immediately={this.startUploadImmediately}
-                multiple={this.multiple}
-                startUploadClicked={this.startUploadClicked}
-                showProgress={this.showProgress}
-                compact={this.compact}
-                uploadItems={this.uploadItems}
-                maxFileSize={this.maxFileSize}
-                labelDragInstructions={this.labelDragInstructions}
-                labelUploadConstraints={this.labelUploadConstraints}
-                labelSelectFile={this.labelSelectFile}
-                labelUploadFile={this.labelUploadFile}
-                labelUploadState={this.labelUploadState}
-                labelUploadCount={this.labelUploadCount}
-                labelUploadPercentage={this.labelUploadPercentage}
-              ></ld-choose-file>
-              {this.exceedmaxFileSize.length != 0 ? (
-                <ld-notice
-                  headline={this.labelErrorHeader}
-                  mode="error"
-                  class="ld-file-upload__error"
-                >
-                  {this.labelmaxFileSizeExceededError.replace(
-                    '$filesExceedingmaxFileSize',
-                    this.exceedmaxFileSize.join(', ')
-                  )}
-                </ld-notice>
-              ) : undefined}
-            </Fragment>
-          ) : this.renderCircularProgress && !this.allUploadsFinished ? (
-            <Fragment>
-              <ld-sr-only id="progress-label">Progress</ld-sr-only>
-              <ld-circular-progress
-                class={getClassNames([
-                  'ld-file-upload__circular-progress',
-                  this.uploadItems.filter(
-                    (item) => item.state === 'upload failed'
-                  ).length != 0 && 'ld-file-upload--circular-progress-error',
-                ])}
-                aria-labelledby="progress-label"
-                aria-valuenow={this.calculateTotalProgress() * 100}
-              >
-                <ld-typo variant="b6">
-                  {(this.calculateTotalProgress() * 100).toFixed(2)}%
-                </ld-typo>
-              </ld-circular-progress>
-              <ld-typo variant="h5">
-                {this.labelCPUploadCount.replace(
-                  '$filesUploading',
-                  String(this.uploadItems.length)
-                )}
-              </ld-typo>
-              <ld-typo class="ld-file-upload__circular-progress-total-upload-size">
-                {this.bytesToSize(
-                  this.uploadItems.reduce(
-                    (partialSum, file) => partialSum + file.fileSize,
-                    0
-                  )
-                )}
-              </ld-typo>
-              <ld-typo>
-                {this.labelCPUploadedSize.replace(
-                  '$uploadedSize',
-                  String(
-                    this.bytesToSize(
-                      this.uploadItems.reduce(
-                        (partialSum, file) =>
-                          partialSum + file.fileSize * (file.progress / 100),
-                        0
-                      )
-                    )
-                  )
-                )}
-              </ld-typo>
-              {/* Cancel button has the same functionality as the delete all button; currently not being shown */}
-              {/* <ld-button
-                class="ld-file-upload__cancel-button"
-                onClick={this.handleDeleteAllClick}
-                mode="secondary"
-              >
-                {this.labelCPCancel}
-              </ld-button> */}
-            </Fragment>
-          ) : (
-            <ld-input-message mode="valid">Files uploaded</ld-input-message>
-          )}
-
-          <input
-            ref={(el) => (this.fileInput = el)}
-            onChange={this.handleInputChange}
-            type="file"
-            multiple={this.multiple}
-            tabIndex={-1}
-            class="ld-file-upload__input"
-          />
-        </Host>
-      )
-    }
 
     const progress =
       this.showProgress &&
@@ -685,15 +507,15 @@ export class LdFileUpload {
       ).length != 0
         ? this.calculateTotalProgress()
         : !this.showProgress &&
-          this.startUploadClicked &&
-          this.uploadItems.filter(
-            (item) =>
-              item.state === 'pending' ||
-              item.state === 'paused' ||
-              item.state === 'uploading'
-          ).length != 0
-        ? 'pending'
-        : undefined
+            this.startUploadClicked &&
+            this.uploadItems.filter(
+              (item) =>
+                item.state === 'pending' ||
+                item.state === 'paused' ||
+                item.state === 'uploading'
+            ).length != 0
+          ? 'pending'
+          : undefined
     return (
       <Host class={cl}>
         {(this.renderOnlyChooseFile || !this.compact) && (
@@ -776,13 +598,13 @@ export class LdFileUpload {
                       {!this.startUploadClicked
                         ? this.labelStartUpload
                         : this.uploadItems.filter(
-                            (item) =>
-                              item.state === 'pending' ||
-                              item.state === 'paused' ||
-                              item.state === 'uploading'
-                          ).length != 0
-                        ? this.labelUploading
-                        : this.labelUploadCompleted}
+                              (item) =>
+                                item.state === 'pending' ||
+                                item.state === 'paused' ||
+                                item.state === 'uploading'
+                            ).length != 0
+                          ? this.labelUploading
+                          : this.labelUploadCompleted}
                     </ld-button>
                   )}
                   {/* Delete all button is currently not being shown */}

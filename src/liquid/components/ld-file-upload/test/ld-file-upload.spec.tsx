@@ -23,14 +23,6 @@ describe('ld-file-upload', () => {
     expect(page.root.multiple).toBe(true)
   })
 
-  it('shows circular progress', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload],
-      html: `<ld-file-upload circular-progress />`,
-    })
-    expect(page.root.circularProgress).toBe(true)
-  })
-
   it('starts upload immediately after choosing files', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
@@ -439,95 +431,6 @@ describe('ld-file-upload', () => {
       )
 
     expect(progressButton2.progress).toBe(0)
-  })
-
-  it('converts bytes to higher size', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload],
-      html: `<ld-file-upload circular-progress />`,
-    })
-    const ldFileUpload = page.root
-
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
-
-    const ldfileuploadreadyHandler = jest.fn()
-    ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
-
-    const data: UploadItem[] = [
-      {
-        file: undefined,
-        state: 'uploading',
-        fileName: 'file1.png',
-        fileSize: 1024,
-        fileType: 'png',
-        progress: 0,
-      },
-    ]
-
-    ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
-    )
-
-    await ldFileUpload.addUploadItems(data)
-
-    await page.waitForChanges()
-
-    const totalUploadSize =
-      ldFileUpload.shadowRoot.querySelector<HTMLLdTypoElement>(
-        'ld-typo[class="ld-file-upload__circular-progress-total-upload-size"]'
-      )
-
-    await page.waitForChanges()
-
-    expect(totalUploadSize.innerText).toBe('1 KB')
-  })
-
-  it('shows all files uploaded message after all uploads are finished', async () => {
-    const page = await newSpecPage({
-      components: [LdFileUpload, LdChooseFile],
-      html: `<ld-file-upload circular-progress />`,
-    })
-    const ldFileUpload = page.root
-
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
-
-    const ldfileuploadreadyHandler = jest.fn()
-    ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
-
-    const data: UploadItem[] = [
-      {
-        file: undefined,
-        state: 'uploading',
-        fileName: 'file1.png',
-        fileSize: 1024,
-        fileType: 'png',
-        progress: 0,
-      },
-    ]
-
-    ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
-    )
-
-    await ldFileUpload.addUploadItems(data)
-
-    await page.waitForChanges()
-
-    const uploadedItems = data
-    for (const item in uploadedItems) {
-      const newItem = uploadedItems[item]
-      newItem.state = 'uploaded'
-      await ldFileUpload.updateUploadItem(newItem)
-    }
-
-    await page.waitForChanges()
-
-    const uploadSuccessMessage =
-      ldFileUpload.shadowRoot.querySelector('ld-input-message')
-
-    expect(uploadSuccessMessage.innerText).toBe('Files uploaded')
   })
 
   it('removes file using the deleteAllUploadItems method', async () => {
