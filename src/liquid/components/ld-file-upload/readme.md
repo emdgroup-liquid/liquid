@@ -218,42 +218,46 @@ const App = () => {
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdCard>
-  <LdFileUpload
-    ref={fileUploadRef}
-    onLdchoosefiles={async (ev) => {
-      const uploadItems = ev.detail
-      if (fileUploadRef.current) {
-        fileUploadRef.current.addUploadItems(uploadItems)
-      }
-    } }
-    onLdfileuploadready={async (ev) => {
-      const uploadItems = ev.detail
-      for (const item in uploadItems) {
-        const newItem = uploadItems[item]
-        newItem.state = 'uploading'
-        if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-        }
-      }
-    } }
-    onLduploaditemremove={async (ev) => {
-      const uploadItem = ev.detail
-      uploadItem.state = 'cancelled'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(uploadItem)
-      }
-    } }
-    onLduploaditemdelete={async (ev) => {
-      const uploadItem = ev.detail
-      if (fileUploadRef.current) {
-        fileUploadRef.current.deleteUploadItem(uploadItem)
-      }
-    } }
-  />
-</LdCard>
+  return (
+    <LdCard>
+      <LdFileUpload
+        ref={fileUploadRef}
+        onLdchoosefiles={async (ev) => {
+          const uploadItems = ev.detail
+          if (fileUploadRef.current) {
+            fileUploadRef.current.addUploadItems(uploadItems)
+          }
+        } }
+        onLdfileuploadready={async (ev) => {
+          const uploadItems = ev.detail
+          for (const item in uploadItems) {
+            const newItem = uploadItems[item]
+            newItem.state = 'uploading'
+            if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+            }
+          }
+        } }
+        onLduploaditemremove={async (ev) => {
+          const uploadItem = ev.detail
+          uploadItem.state = 'cancelled'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(uploadItem)
+          }
+        } }
+        onLduploaditemdelete={async (ev) => {
+          const uploadItem = ev.detail
+          if (fileUploadRef.current) {
+            fileUploadRef.current.deleteUploadItem(uploadItem)
+          }
+        } }
+      />
+    </LdCard>
+  )
+}
 
 {% endexample %}
 
@@ -435,107 +439,111 @@ Files to be uploaded can be accessed through the `file` property of the UploadIt
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  multiple
-  show-progress
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      multiple
+      show-progress
 
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-      
-      const file = uploadItems[item].file
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
 
-      const xhr = new XMLHttpRequest()
-      const success = await new Promise((resolve) => {
-        xhr.upload.addEventListener('progress', (event) => {
-          if (event.lengthComputable) {
+          const file = uploadItems[item].file
+
+          const xhr = new XMLHttpRequest()
+          const success = await new Promise((resolve) => {
+            xhr.upload.addEventListener('progress', (event) => {
+              if (event.lengthComputable) {
+                const newItem = uploadItems[item]
+                newItem.progress = (event.loaded / event.total) * 100
+                if (fileUploadRef.current) {
+                  fileUploadRef.current.updateUploadItem(newItem)
+                }
+              }
+            })
+            xhr.addEventListener('loadend', () => {
+              resolve(xhr.readyState === 4 && xhr.status === 200)
+            })
+
+            if (fileUploadRef.current) {
+              fileUploadRef.current.addEventListener(
+                'lduploaditemremove',
+                async (ev) => {
+                  const uploadItem = ev.detail
+                  if (uploadItem.fileName === uploadItems[item].fileName) {
+                    const newItem = uploadItems[item]
+                    newItem.state = 'cancelled'
+                    fileUploadRef.current.updateUploadItem(newItem)
+                    xhr.abort(ev.detail.file)
+                  }
+                }
+              )
+            }
+
+            xhr.open('PUT', 'https://httpbin.org/put', true)
+            xhr.setRequestHeader('Content-Type', 'application/octet-stream')
+            xhr.send(file)
+          })
+          if (success) {
             const newItem = uploadItems[item]
-            newItem.progress = (event.loaded / event.total) * 100
+            newItem.state = 'uploaded'
+            if (fileUploadRef.current) {
+              fileUploadRef.current.updateUploadItem(newItem)
+            }
+          } else if (uploadItems[item].state != 'cancelled') {
+            const newItem = uploadItems[item]
+            newItem.state = 'upload failed'
             if (fileUploadRef.current) {
               fileUploadRef.current.updateUploadItem(newItem)
             }
           }
+        }
+      } }
+      onLduploaditemdownload={async () => {
+        window.open('https://liquid.merck.design/liquid/')
+      } }
+      onLduploaditemretry={async (ev) => {
+        const uploadItem = ev.detail
+        const uploadItems = []
+        uploadItems.push(uploadItem)
+        const uploadevent = new CustomEvent('ldfileuploadready', {
+          detail: uploadItems,
         })
-        xhr.addEventListener('loadend', () => {
-          resolve(xhr.readyState === 4 && xhr.status === 200)
-        })
-
         if (fileUploadRef.current) {
-          fileUploadRef.current.addEventListener(
-            'lduploaditemremove',
-            async (ev) => {
-              const uploadItem = ev.detail
-              if (uploadItem.fileName === uploadItems[item].fileName) {
-                const newItem = uploadItems[item]
-                newItem.state = 'cancelled'
-                fileUploadRef.current.updateUploadItem(newItem)
-                xhr.abort(ev.detail.file)
-              }
-            }
-          )
+          fileUploadRef.current.dispatchEvent(uploadevent)
         }
-
-        xhr.open('PUT', 'https://httpbin.org/put', true)
-        xhr.setRequestHeader('Content-Type', 'application/octet-stream')
-        xhr.send(file)
-      })
-      if (success) {
-        const newItem = uploadItems[item]
-        newItem.state = 'uploaded'
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
+          fileUploadRef.current.updateUploadItem(uploadItem)
         }
-      } else if (uploadItems[item].state != 'cancelled') {
-        const newItem = uploadItems[item]
-        newItem.state = 'upload failed'
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
+          fileUploadRef.current.deleteUploadItem(uploadItem)
         }
-      }
-    }
-  } }
-  onLduploaditemdownload={async () => {
-    window.open('https://liquid.merck.design/liquid/')
-  } }
-  onLduploaditemretry={async (ev) => {
-    const uploadItem = ev.detail
-    const uploadItems = []
-    uploadItems.push(uploadItem)
-    const uploadevent = new CustomEvent('ldfileuploadready', {
-      detail: uploadItems,
-    })
-    if (fileUploadRef.current) {
-      fileUploadRef.current.dispatchEvent(uploadevent)
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -624,108 +632,112 @@ This is just for testing. Upload success is overwritten with a random true/false
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  multiple
-  show-progress
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      multiple
+      show-progress
 
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
 
-      const file = uploadItems[item].file
+          const file = uploadItems[item].file
 
-      const xhr = new XMLHttpRequest()
-      const success = await new Promise((resolve) => {
-        xhr.upload.addEventListener('progress', (event) => {
-          if (event.lengthComputable) {
+          const xhr = new XMLHttpRequest()
+          const success = await new Promise((resolve) => {
+            xhr.upload.addEventListener('progress', (event) => {
+              if (event.lengthComputable) {
+                const newItem = uploadItems[item]
+                newItem.progress = (event.loaded / event.total) * 100
+                if (fileUploadRef.current) {
+                  fileUploadRef.current.updateUploadItem(newItem)
+                }
+              }
+            })
+            xhr.addEventListener('loadend', () => {
+              resolve(xhr.readyState === 4 && xhr.status === 200)
+            })
+
+            if (fileUploadRef.current) {
+              fileUploadRef.current.addEventListener(
+                'lduploaditemremove',
+                async (ev) => {
+                  const uploadItem = ev.detail
+                  if (uploadItem.fileName === uploadItems[item].fileName) {
+                    const newItem = uploadItems[item]
+                    newItem.state = 'cancelled'
+                    fileUploadRef.current.updateUploadItem(newItem)
+                    xhr.abort(ev.detail.file)
+                  }
+                }
+              )
+            }
+
+            xhr.open('PUT', 'https://httpbin.org/put', true)
+            xhr.setRequestHeader('Content-Type', 'application/octet-stream')
+            xhr.send(file)
+          })
+          const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
+          if (success2) {
             const newItem = uploadItems[item]
-            newItem.progress = (event.loaded / event.total) * 100
+            newItem.state = 'uploaded'
+            if (fileUploadRef.current) {
+              fileUploadRef.current.updateUploadItem(newItem)
+            }
+          } else if (uploadItems[item].state != 'cancelled') {
+            const newItem = uploadItems[item]
+            newItem.state = 'upload failed'
             if (fileUploadRef.current) {
               fileUploadRef.current.updateUploadItem(newItem)
             }
           }
+        }
+      } }
+      onLduploaditemdownload={async () => {
+        window.open('https://liquid.merck.design/liquid/')
+      } }
+      onLduploaditemretry={async (ev) => {
+        const uploadItem = ev.detail
+        const uploadItems = []
+        uploadItems.push(uploadItem)
+        const uploadevent = new CustomEvent('ldfileuploadready', {
+          detail: uploadItems,
         })
-        xhr.addEventListener('loadend', () => {
-          resolve(xhr.readyState === 4 && xhr.status === 200)
-        })
-
         if (fileUploadRef.current) {
-          fileUploadRef.current.addEventListener(
-            'lduploaditemremove',
-            async (ev) => {
-              const uploadItem = ev.detail
-              if (uploadItem.fileName === uploadItems[item].fileName) {
-                const newItem = uploadItems[item]
-                newItem.state = 'cancelled'
-                fileUploadRef.current.updateUploadItem(newItem)
-                xhr.abort(ev.detail.file)
-              }
-            }
-          )
+          fileUploadRef.current.dispatchEvent(uploadevent)
         }
-
-        xhr.open('PUT', 'https://httpbin.org/put', true)
-        xhr.setRequestHeader('Content-Type', 'application/octet-stream')
-        xhr.send(file)
-      })
-      const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
-      if (success2) {
-        const newItem = uploadItems[item]
-        newItem.state = 'uploaded'
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
+          fileUploadRef.current.updateUploadItem(uploadItem)
         }
-      } else if (uploadItems[item].state != 'cancelled') {
-        const newItem = uploadItems[item]
-        newItem.state = 'upload failed'
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
+          fileUploadRef.current.deleteUploadItem(uploadItem)
         }
-      }
-    }
-  } }
-  onLduploaditemdownload={async () => {
-    window.open('https://liquid.merck.design/liquid/')
-  } }
-  onLduploaditemretry={async (ev) => {
-    const uploadItem = ev.detail
-    const uploadItems = []
-    uploadItems.push(uploadItem)
-    const uploadevent = new CustomEvent('ldfileuploadready', {
-      detail: uploadItems,
-    })
-    if (fileUploadRef.current) {
-      fileUploadRef.current.dispatchEvent(uploadevent)
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -817,106 +829,110 @@ const fileUploadRef = useRef(null)
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  multiple
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      multiple
 
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
 
-      const file = uploadItems[item].file
+          const file = uploadItems[item].file
 
-      const xhr = new XMLHttpRequest()
-      const success = await new Promise((resolve) => {
-        xhr.upload.addEventListener('progress', (event) => {
-          if (event.lengthComputable) {
+          const xhr = new XMLHttpRequest()
+          const success = await new Promise((resolve) => {
+            xhr.upload.addEventListener('progress', (event) => {
+              if (event.lengthComputable) {
+                const newItem = uploadItems[item]
+                newItem.progress = (event.loaded / event.total) * 100
+                if (fileUploadRef.current) {
+                  fileUploadRef.current.updateUploadItem(newItem)
+                }
+              }
+            })
+            xhr.addEventListener('loadend', () => {
+              resolve(xhr.readyState === 4 && xhr.status === 200)
+            })
+
+            if (fileUploadRef.current) {
+              fileUploadRef.current.addEventListener(
+                'lduploaditemremove',
+                async (ev) => {
+                  const uploadItem = ev.detail
+                  if (uploadItem.fileName === uploadItems[item].fileName) {
+                    const newItem = uploadItems[item]
+                    newItem.state = 'cancelled'
+                    fileUploadRef.current.updateUploadItem(newItem)
+                    xhr.abort(ev.detail.file)
+                  }
+                }
+              )
+            }
+
+            xhr.open('PUT', 'https://httpbin.org/put', true)
+            xhr.setRequestHeader('Content-Type', 'application/octet-stream')
+            xhr.send(file)
+          })
+          if (success) {
             const newItem = uploadItems[item]
-            newItem.progress = (event.loaded / event.total) * 100
+            newItem.state = 'uploaded'
+            if (fileUploadRef.current) {
+              fileUploadRef.current.updateUploadItem(newItem)
+            }
+          } else if (uploadItems[item].state != 'cancelled') {
+            const newItem = uploadItems[item]
+            newItem.state = 'upload failed'
             if (fileUploadRef.current) {
               fileUploadRef.current.updateUploadItem(newItem)
             }
           }
+        }
+      } }
+      onLduploaditemdownload={async () => {
+        window.open('https://liquid.merck.design/liquid/')
+      } }
+      onLduploaditemretry={async (ev) => {
+        const uploadItem = ev.detail
+        const uploadItems = []
+        uploadItems.push(uploadItem)
+        const uploadevent = new CustomEvent('ldfileuploadready', {
+          detail: uploadItems,
         })
-        xhr.addEventListener('loadend', () => {
-          resolve(xhr.readyState === 4 && xhr.status === 200)
-        })
-
         if (fileUploadRef.current) {
-          fileUploadRef.current.addEventListener(
-            'lduploaditemremove',
-            async (ev) => {
-              const uploadItem = ev.detail
-              if (uploadItem.fileName === uploadItems[item].fileName) {
-                const newItem = uploadItems[item]
-                newItem.state = 'cancelled'
-                fileUploadRef.current.updateUploadItem(newItem)
-                xhr.abort(ev.detail.file)
-              }
-            }
-          )
+          fileUploadRef.current.dispatchEvent(uploadevent)
         }
-
-        xhr.open('PUT', 'https://httpbin.org/put', true)
-        xhr.setRequestHeader('Content-Type', 'application/octet-stream')
-        xhr.send(file)
-      })
-      if (success) {
-        const newItem = uploadItems[item]
-        newItem.state = 'uploaded'
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
+          fileUploadRef.current.updateUploadItem(uploadItem)
         }
-      } else if (uploadItems[item].state != 'cancelled') {
-        const newItem = uploadItems[item]
-        newItem.state = 'upload failed'
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
+          fileUploadRef.current.deleteUploadItem(uploadItem)
         }
-      }
-    }
-  } }
-  onLduploaditemdownload={async () => {
-    window.open('https://liquid.merck.design/liquid/')
-  } }
-  onLduploaditemretry={async (ev) => {
-    const uploadItem = ev.detail
-    const uploadItems = []
-    uploadItems.push(uploadItem)
-    const uploadevent = new CustomEvent('ldfileuploadready', {
-      detail: uploadItems,
-    })
-    if (fileUploadRef.current) {
-      fileUploadRef.current.dispatchEvent(uploadevent)
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -1002,109 +1018,113 @@ const fileUploadRef = useRef(null)
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  multiple
-  show-progress
-  start-upload-immediately
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      multiple
+      show-progress
+      start-upload-immediately
 
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
 
-      const file = uploadItems[item].file
+          const file = uploadItems[item].file
 
-      const xhr = new XMLHttpRequest()
-      const success = await new Promise((resolve) => {
-        xhr.upload.addEventListener('progress', (event) => {
-          if (event.lengthComputable) {
+          const xhr = new XMLHttpRequest()
+          const success = await new Promise((resolve) => {
+            xhr.upload.addEventListener('progress', (event) => {
+              if (event.lengthComputable) {
+                const newItem = uploadItems[item]
+                newItem.progress = (event.loaded / event.total) * 100
+                if (fileUploadRef.current) {
+                  fileUploadRef.current.updateUploadItem(newItem)
+                }
+              }
+            })
+            xhr.addEventListener('loadend', () => {
+              resolve(xhr.readyState === 4 && xhr.status === 200)
+            })
+
+            if (fileUploadRef.current) {
+              fileUploadRef.current.addEventListener(
+                'lduploaditemremove',
+                async (ev) => {
+                  const uploadItem = ev.detail
+                  if (uploadItem.fileName === uploadItems[item].fileName) {
+                    const newItem = uploadItems[item]
+                    newItem.state = 'cancelled'
+                    fileUploadRef.current.updateUploadItem(newItem)
+                    xhr.abort(ev.detail.file)
+                  }
+                }
+              )
+            }
+
+            xhr.open('PUT', 'https://httpbin.org/put', true)
+            xhr.setRequestHeader('Content-Type', 'application/octet-stream')
+            xhr.send(file)
+          })
+          const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
+          if (success2) {
             const newItem = uploadItems[item]
-            newItem.progress = (event.loaded / event.total) * 100
+            newItem.state = 'uploaded'
+            if (fileUploadRef.current) {
+              fileUploadRef.current.updateUploadItem(newItem)
+            }
+          } else if (uploadItems[item].state != 'cancelled') {
+            const newItem = uploadItems[item]
+            newItem.state = 'upload failed'
             if (fileUploadRef.current) {
               fileUploadRef.current.updateUploadItem(newItem)
             }
           }
+        }
+      } }
+      onLduploaditemdownload={async () => {
+        window.open('https://liquid.merck.design/liquid/')
+      } }
+      onLduploaditemretry={async (ev) => {
+        const uploadItem = ev.detail
+        const uploadItems = []
+        uploadItems.push(uploadItem)
+        const uploadevent = new CustomEvent('ldfileuploadready', {
+          detail: uploadItems,
         })
-        xhr.addEventListener('loadend', () => {
-          resolve(xhr.readyState === 4 && xhr.status === 200)
-        })
-
         if (fileUploadRef.current) {
-          fileUploadRef.current.addEventListener(
-            'lduploaditemremove',
-            async (ev) => {
-              const uploadItem = ev.detail
-              if (uploadItem.fileName === uploadItems[item].fileName) {
-                const newItem = uploadItems[item]
-                newItem.state = 'cancelled'
-                fileUploadRef.current.updateUploadItem(newItem)
-                xhr.abort(ev.detail.file)
-              }
-            }
-          )
+          fileUploadRef.current.dispatchEvent(uploadevent)
         }
-
-        xhr.open('PUT', 'https://httpbin.org/put', true)
-        xhr.setRequestHeader('Content-Type', 'application/octet-stream')
-        xhr.send(file)
-      })
-      const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
-      if (success2) {
-        const newItem = uploadItems[item]
-        newItem.state = 'uploaded'
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
+          fileUploadRef.current.updateUploadItem(uploadItem)
         }
-      } else if (uploadItems[item].state != 'cancelled') {
-        const newItem = uploadItems[item]
-        newItem.state = 'upload failed'
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
+          fileUploadRef.current.deleteUploadItem(uploadItem)
         }
-      }
-    }
-  } }
-  onLduploaditemdownload={async () => {
-    window.open('https://liquid.merck.design/liquid/')
-  } }
-  onLduploaditemretry={async (ev) => {
-    const uploadItem = ev.detail
-    const uploadItems = []
-    uploadItems.push(uploadItem)
-    const uploadevent = new CustomEvent('ldfileuploadready', {
-      detail: uploadItems,
-    })
-    if (fileUploadRef.current) {
-      fileUploadRef.current.dispatchEvent(uploadevent)
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -1190,109 +1210,113 @@ const fileUploadRef = useRef(null)
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  multiple
-  show-progress
-  circular-progress
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      multiple
+      show-progress
+      circular-progress
 
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-      }
-    } }
-    onLdfileuploadready={async (ev) => {
-      const uploadItems = ev.detail
-      for (const item in uploadItems) {
-        const newItem = uploadItems[item]
-        newItem.state = 'uploading'
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
-        }
-
-      const file = uploadItems[item].file
-
-      const xhr = new XMLHttpRequest()
-      const success = await new Promise((resolve) => {
-        xhr.upload.addEventListener('progress', (event) => {
-          if (event.lengthComputable) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+          }
+        } }
+        onLdfileuploadready={async (ev) => {
+          const uploadItems = ev.detail
+          for (const item in uploadItems) {
             const newItem = uploadItems[item]
-            newItem.progress = (event.loaded / event.total) * 100
+            newItem.state = 'uploading'
+            if (fileUploadRef.current) {
+              fileUploadRef.current.updateUploadItem(newItem)
+            }
+
+          const file = uploadItems[item].file
+
+          const xhr = new XMLHttpRequest()
+          const success = await new Promise((resolve) => {
+            xhr.upload.addEventListener('progress', (event) => {
+              if (event.lengthComputable) {
+                const newItem = uploadItems[item]
+                newItem.progress = (event.loaded / event.total) * 100
+                if (fileUploadRef.current) {
+                  fileUploadRef.current.updateUploadItem(newItem)
+                }
+              }
+            })
+            xhr.addEventListener('loadend', () => {
+              resolve(xhr.readyState === 4 && xhr.status === 200)
+            })
+
+            if (fileUploadRef.current) {
+              fileUploadRef.current.addEventListener(
+                'lduploaditemremove',
+                async (ev) => {
+                  const uploadItem = ev.detail
+                  if (uploadItem.fileName === uploadItems[item].fileName) {
+                    const newItem = uploadItems[item]
+                    newItem.state = 'cancelled'
+                    fileUploadRef.current.updateUploadItem(newItem)
+                    xhr.abort(ev.detail.file)
+                  }
+                }
+              )
+            }
+
+            xhr.open('PUT', 'https://httpbin.org/put', true)
+            xhr.setRequestHeader('Content-Type', 'application/octet-stream')
+            xhr.send(file)
+          })
+          const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
+          if (success2) {
+            const newItem = uploadItems[item]
+            newItem.state = 'uploaded'
+            if (fileUploadRef.current) {
+              fileUploadRef.current.updateUploadItem(newItem)
+            }
+          } else if (uploadItems[item].state != 'cancelled') {
+            const newItem = uploadItems[item]
+            newItem.state = 'upload failed'
             if (fileUploadRef.current) {
               fileUploadRef.current.updateUploadItem(newItem)
             }
           }
+        }
+      } }
+      onLduploaditemdownload={async () => {
+        window.open('https://liquid.merck.design/liquid/')
+      } }
+      onLduploaditemretry={async (ev) => {
+        const uploadItem = ev.detail
+        const uploadItems = []
+        uploadItems.push(uploadItem)
+        const uploadevent = new CustomEvent('ldfileuploadready', {
+          detail: uploadItems,
         })
-        xhr.addEventListener('loadend', () => {
-          resolve(xhr.readyState === 4 && xhr.status === 200)
-        })
-
         if (fileUploadRef.current) {
-          fileUploadRef.current.addEventListener(
-            'lduploaditemremove',
-            async (ev) => {
-              const uploadItem = ev.detail
-              if (uploadItem.fileName === uploadItems[item].fileName) {
-                const newItem = uploadItems[item]
-                newItem.state = 'cancelled'
-                fileUploadRef.current.updateUploadItem(newItem)
-                xhr.abort(ev.detail.file)
-              }
-            }
-          )
+          fileUploadRef.current.dispatchEvent(uploadevent)
         }
-
-        xhr.open('PUT', 'https://httpbin.org/put', true)
-        xhr.setRequestHeader('Content-Type', 'application/octet-stream')
-        xhr.send(file)
-      })
-      const success2 = Math.floor(Math.random() * 2) === 1 ? true : false
-      if (success2) {
-        const newItem = uploadItems[item]
-        newItem.state = 'uploaded'
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
+          fileUploadRef.current.updateUploadItem(uploadItem)
         }
-      } else if (uploadItems[item].state != 'cancelled') {
-        const newItem = uploadItems[item]
-        newItem.state = 'upload failed'
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
         if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(newItem)
+          fileUploadRef.current.deleteUploadItem(uploadItem)
         }
-      }
-    }
-  } }
-  onLduploaditemdownload={async () => {
-    window.open('https://liquid.merck.design/liquid/')
-  } }
-  onLduploaditemretry={async (ev) => {
-    const uploadItem = ev.detail
-    const uploadItems = []
-    uploadItems.push(uploadItem)
-    const uploadevent = new CustomEvent('ldfileuploadready', {
-      detail: uploadItems,
-    })
-    if (fileUploadRef.current) {
-      fileUploadRef.current.dispatchEvent(uploadevent)
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -1614,42 +1638,46 @@ Mode in which only a circular progress representation of the total upload progre
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  multiple
-  circular-progress
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      multiple
+      circular-progress
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
+        if (fileUploadRef.current) {
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -1694,43 +1722,47 @@ const fileUploadRef = useRef(null)
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  multiple
-  circular-progress
-  max-file-size="500"
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      multiple
+      circular-progress
+      max-file-size="500"
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
+        if (fileUploadRef.current) {
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -1776,41 +1808,45 @@ In `start-upload-immediately` mode, upload of files will start immediately after
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  start-upload-immediately
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      start-upload-immediately
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
+        if (fileUploadRef.current) {
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -1854,42 +1890,46 @@ const fileUploadRef = useRef(null)
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  start-upload-immediately
-  max-file-size="500"
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      start-upload-immediately
+      max-file-size="500"
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
+        if (fileUploadRef.current) {
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -1934,42 +1974,46 @@ const fileUploadRef = useRef(null)
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  start-upload-immediately
-  compact
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      start-upload-immediately
+      compact
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
+        if (fileUploadRef.current) {
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -2034,61 +2078,65 @@ In `allow-pause` mode, the upload of all files can be paused (and continued) on 
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  allow-pause
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-  onLdfileuploadpausealluploads={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'paused'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-  onLdfileuploadcontinueuploads={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-/>
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      allow-pause
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
+        if (fileUploadRef.current) {
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+      onLdfileuploadpausealluploads={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'paused'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLdfileuploadcontinueuploads={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -2135,41 +2183,45 @@ In `show-progress` mode, a progress bar representing the upload progress of a fi
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  show-progress
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      show-progress
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
+        if (fileUploadRef.current) {
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -2214,41 +2266,45 @@ const fileUploadRef = useRef(null)
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  multiple
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      multiple
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
+        if (fileUploadRef.current) {
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -2293,41 +2349,45 @@ const fileUploadRef = useRef(null)
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  max-file-size="500"
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      max-file-size="500"
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
+        if (fileUploadRef.current) {
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
@@ -2372,42 +2432,46 @@ const fileUploadRef = useRef(null)
 
 <!-- React component -->
 
-const fileUploadRef = useRef(null)
+const App = () => {
+  const fileUploadRef = useRef(null)
 
-<LdFileUpload
-  ref={fileUploadRef}
-  max-file-size="500"
-  label-upload-constraints='File size must be smaller than $maxFileSize'
-  onLdchoosefiles={async (ev) => {
-    const uploadItems = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.addUploadItems(uploadItems)
-    }
-  } }
-  onLdfileuploadready={async (ev) => {
-    const uploadItems = ev.detail
-    for (const item in uploadItems) {
-      const newItem = uploadItems[item]
-      newItem.state = 'uploading'
-      if (fileUploadRef.current) {
-        fileUploadRef.current.updateUploadItem(newItem)
-      }
-    }
-  } }
-  onLduploaditemremove={async (ev) => {
-    const uploadItem = ev.detail
-    uploadItem.state = 'cancelled'
-    if (fileUploadRef.current) {
-      fileUploadRef.current.updateUploadItem(uploadItem)
-    }
-  } }
-  onLduploaditemdelete={async (ev) => {
-    const uploadItem = ev.detail
-    if (fileUploadRef.current) {
-      fileUploadRef.current.deleteUploadItem(uploadItem)
-    }
-  } }
-/>
+  return (
+    <LdFileUpload
+      ref={fileUploadRef}
+      max-file-size="500"
+      label-upload-constraints='File size must be smaller than $maxFileSize'
+      onLdchoosefiles={async (ev) => {
+        const uploadItems = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.addUploadItems(uploadItems)
+        }
+      } }
+      onLdfileuploadready={async (ev) => {
+        const uploadItems = ev.detail
+        for (const item in uploadItems) {
+          const newItem = uploadItems[item]
+          newItem.state = 'uploading'
+          if (fileUploadRef.current) {
+            fileUploadRef.current.updateUploadItem(newItem)
+          }
+        }
+      } }
+      onLduploaditemremove={async (ev) => {
+        const uploadItem = ev.detail
+        uploadItem.state = 'cancelled'
+        if (fileUploadRef.current) {
+          fileUploadRef.current.updateUploadItem(uploadItem)
+        }
+      } }
+      onLduploaditemdelete={async (ev) => {
+        const uploadItem = ev.detail
+        if (fileUploadRef.current) {
+          fileUploadRef.current.deleteUploadItem(uploadItem)
+        }
+      } }
+    />
+  )
+}
 
 {% endexample %}
 
