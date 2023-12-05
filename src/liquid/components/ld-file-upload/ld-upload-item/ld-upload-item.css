@@ -28,14 +28,6 @@
   justify-content: center;
 }
 
-/* loading progress has been removed for now */
-/* .ld-upload-item__loading {
-  width: 2rem;
-  height: auto;
-  display: flex;
-  justify-content: center;
-} */
-
 ::slotted(*) {
   width: 2rem;
   height: auto;
