@@ -1,20 +1,11 @@
 :host {
-  margin: 0;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: var(--ld-file-upload-gap, var(--ld-sp-16));
   justify-items: center;
-
-  &(.ld-file-upload--only-choose-file) {
-    background: none;
-    border-radius: none;
-    box-shadow: none;
-    box-sizing: none;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  width: var(--ld-file-upload-width, min(100%, 30rem));
 }
 
 .ld-file-upload__choose-file {
@@ -26,13 +17,13 @@
 }
 
 .ld-file-upload__buttons {
-  margin: 0;
-  padding: 0;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: var(--ld-sp-8);
   justify-items: center;
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 
@@ -53,9 +44,9 @@
 }
 
 .ld-file-upload__input {
-  visibility: hidden;
-  position: absolute;
   clip: rect(0, 0, 0, 0);
-  width: 1px;
   height: 1px;
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
 }

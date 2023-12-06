@@ -51,11 +51,6 @@ export class LdChooseFile {
   /** Chosen Files from the parent component */
   @Prop() uploadItems: UploadItem[] = []
 
-  /** Layout of the choose file area
-   * @internal
-   */
-  @Prop() layout?: 'horizontal' | 'vertical' | 'compact' = 'vertical'
-
   /** Label to be used as a header with instructions for drag and drop or file upload. */
   @Prop() labelDragInstructions = `Drag your file${
     this.multiple ? '(s)' : ''
@@ -164,6 +159,7 @@ export class LdChooseFile {
     const cl = getClassNames([
       'ld-choose-file',
       this.highlighted && 'ld-choose-file--highlighted',
+      this.compact && 'ld-choose-file--compact',
     ])
 
     const calculateTotalProgress = () => {
@@ -199,7 +195,7 @@ export class LdChooseFile {
         <div
           class={getClassNames([
             'ld-choose-file__content',
-            this.layout && `ld-choose-file--${this.layout}`,
+            this.compact && 'ld-choose-file__content--compact',
           ])}
         >
           <img
@@ -210,61 +206,54 @@ export class LdChooseFile {
             height="122"
           />
 
-          <div
-            class={getClassNames([
-              'ld-choose-file__text',
-              this.layout && `ld-choose-file__text--${this.layout}`,
-            ])}
-          >
-            {this.immediate || (!this.immediate && !this.startUploadClicked) ? (
-              <Fragment>
-                <ld-typo id={`${this.idPrefix}-instructions`} variant="h5">
-                  {this.labelDragInstructions}
-                </ld-typo>
-                {this.labelUploadConstraints !== '' && (
-                  <ld-typo>
-                    {this.labelUploadConstraints.replace(
-                      '$maxFileSize',
-                      this.bytesToSize(this.maxFileSize)
-                    )}
-                  </ld-typo>
-                )}
-                <slot></slot>
-                <ld-button
-                  aria-labelledby={`${this.idPrefix}-instructions`}
-                  class="ld-choose-file__upload-button"
-                  size="sm"
-                  onClick={this.handleUploadClick}
-                >
-                  {this.immediate ? this.labelUploadFile : this.labelSelectFile}
-                </ld-button>
-              </Fragment>
-            ) : (
-              <Fragment>
-                <ld-typo variant="h5">{this.labelUploadState}</ld-typo>
+          {this.immediate || (!this.immediate && !this.startUploadClicked) ? (
+            <Fragment>
+              <ld-typo id={`${this.idPrefix}-instructions`} variant="h5">
+                {this.labelDragInstructions}
+              </ld-typo>
+              {this.labelUploadConstraints !== '' && (
                 <ld-typo>
-                  {this.labelUploadCount
-                    .replace(
-                      '$filesUploaded',
-                      String(
-                        this.uploadItems.filter(
-                          (item) => item.state === 'uploaded'
-                        ).length
-                      )
-                    )
-                    .replace('$filesTotal', String(this.uploadItems.length))}
+                  {this.labelUploadConstraints.replace(
+                    '$maxFileSize',
+                    this.bytesToSize(this.maxFileSize)
+                  )}
                 </ld-typo>
-                {this.showProgress ? (
-                  <ld-typo>
-                    {this.labelUploadPercentage.replace(
-                      '$uploadProgress',
-                      String((calculateTotalProgress() * 100).toFixed(2))
-                    )}
-                  </ld-typo>
-                ) : undefined}
-              </Fragment>
-            )}
-          </div>
+              )}
+              <slot></slot>
+              <ld-button
+                aria-labelledby={`${this.idPrefix}-instructions`}
+                class="ld-choose-file__upload-button"
+                size="sm"
+                onClick={this.handleUploadClick}
+              >
+                {this.immediate ? this.labelUploadFile : this.labelSelectFile}
+              </ld-button>
+            </Fragment>
+          ) : (
+            <Fragment>
+              <ld-typo variant="h5">{this.labelUploadState}</ld-typo>
+              <ld-typo>
+                {this.labelUploadCount
+                  .replace(
+                    '$filesUploaded',
+                    String(
+                      this.uploadItems.filter(
+                        (item) => item.state === 'uploaded'
+                      ).length
+                    )
+                  )
+                  .replace('$filesTotal', String(this.uploadItems.length))}
+              </ld-typo>
+              {this.showProgress ? (
+                <ld-typo>
+                  {this.labelUploadPercentage.replace(
+                    '$uploadProgress',
+                    String((calculateTotalProgress() * 100).toFixed(2))
+                  )}
+                </ld-typo>
+              ) : undefined}
+            </Fragment>
+          )}
         </div>
       </Host>
     )

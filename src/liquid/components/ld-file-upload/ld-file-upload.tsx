@@ -12,7 +12,6 @@ import {
   Watch,
   Fragment,
 } from '@stencil/core'
-import { getClassNames } from '../../utils/getClassNames'
 
 export type UploadItem = {
   state:
@@ -86,6 +85,11 @@ export class LdFileUpload {
   @Prop() labelDragInstructions = `Drag your file${
     this.multiple ? '(s)' : ''
   } here or browse`
+
+  /** Label to be used as a header with instructions for drag and drop or file upload in compact mode. */
+  @Prop() labelDragInstructionsCompact = `or drop file${
+    this.multiple ? 's' : ''
+  }`
 
   /** Label to be used to describe upload constraints like the maximum file size. */
   @Prop() labelUploadConstraints = `${
@@ -173,7 +177,7 @@ export class LdFileUpload {
   @State() cannotBeChosen: string[] = []
 
   /** Names of files that cannot be chosen by the user since the files exceed the maximum file size. */
-  @State() exceedmaxFileSize: string[] = []
+  @State() exceedMaxFileSize: string[] = []
 
   /** Contains files that have been chosen but the upload has not started yet. */
   @State() lastChosenFiles: UploadItem[] = []
@@ -266,9 +270,7 @@ export class LdFileUpload {
 
   @Listen('ldchoosefiles')
   updateComponentAppearance() {
-    if (this.renderOnlyChooseFile) {
-      this.renderOnlyChooseFile = false
-    }
+    this.renderOnlyChooseFile = false
     // clears file input value
     this.fileInput.value = null
   }
@@ -349,7 +351,7 @@ export class LdFileUpload {
       this.uploadItems.length === 0 &&
       this.renderOnlyChooseFile === false &&
       this.cannotBeChosen.length === 0 &&
-      this.exceedmaxFileSize.length === 0
+      this.exceedMaxFileSize.length === 0
     ) {
       this.setToInitialState()
     }
@@ -387,7 +389,7 @@ export class LdFileUpload {
   private removeDuplicateChosenFiles(chosenFiles: FileList) {
     this.lastChosenFiles = []
     this.cannotBeChosen = []
-    this.exceedmaxFileSize = []
+    this.exceedMaxFileSize = []
     for (let i = 0; i < chosenFiles.length; i++) {
       if (
         !this.lastChosenFiles.some(
@@ -423,7 +425,7 @@ export class LdFileUpload {
           chosenFiles[i].size > this.maxFileSize &&
           this.maxFileSize !== undefined
         ) {
-          this.exceedmaxFileSize.push(chosenFiles[i].name)
+          this.exceedMaxFileSize.push(chosenFiles[i].name)
         }
       }
     }
@@ -459,7 +461,7 @@ export class LdFileUpload {
     }
     this.uploadInitiated = true
     this.cannotBeChosen = []
-    this.exceedmaxFileSize = []
+    this.exceedMaxFileSize = []
   }
 
   private handlePauseAllClick = () => {
@@ -479,11 +481,6 @@ export class LdFileUpload {
   }
 
   render() {
-    const cl = getClassNames([
-      'ld-file-upload',
-      this.renderOnlyChooseFile && 'ld-file-upload--only-choose-file',
-    ])
-
     const progress =
       this.showProgress &&
       this.uploadInitiated &&
@@ -505,15 +502,10 @@ export class LdFileUpload {
           ? 'pending'
           : undefined
     return (
-      <Host class={cl}>
+      <Host class="ld-file-upload">
         {(this.renderOnlyChooseFile || !this.compact) && (
           <ld-choose-file
             class="ld-file-upload__choose-file"
-            layout={
-              this.renderOnlyChooseFile && !this.compact
-                ? 'vertical'
-                : 'horizontal'
-            }
             onLdchoosefiles={this.handleChooseFiles}
             immediate={this.immediate}
             multiple={this.multiple}
@@ -522,7 +514,11 @@ export class LdFileUpload {
             compact={this.compact}
             uploadItems={this.uploadItems}
             maxFileSize={this.maxFileSize}
-            labelDragInstructions={this.labelDragInstructions}
+            labelDragInstructions={
+              this.compact
+                ? this.labelDragInstructionsCompact
+                : this.labelDragInstructions
+            }
             labelUploadConstraints={this.labelUploadConstraints}
             labelSelectFile={this.labelSelectFile}
             labelUploadFile={this.labelUploadFile}
@@ -546,7 +542,7 @@ export class LdFileUpload {
                 )}
               </ld-notice>
             ) : undefined}
-            {this.exceedmaxFileSize.length !== 0 ? (
+            {this.exceedMaxFileSize.length !== 0 ? (
               <ld-notice
                 headline={this.labelErrorHeader}
                 mode="error"
@@ -554,7 +550,7 @@ export class LdFileUpload {
               >
                 {this.labelmaxFileSizeExceededError.replace(
                   '$filesExceedingmaxFileSize',
-                  this.exceedmaxFileSize.join(', ')
+                  this.exceedMaxFileSize.join(', ')
                 )}
               </ld-notice>
             ) : undefined}
