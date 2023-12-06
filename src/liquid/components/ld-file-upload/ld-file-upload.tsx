@@ -185,9 +185,6 @@ export class LdFileUpload {
   /** Represents whether the pause all button has been clicked. */
   @State() pauseAllClicked = false
 
-  /** Only renders the select file component, if true. */
-  @State() renderOnlySelectFile = true
-
   /** Represents whether the upload has been initiated (i.e. using the start upload button). */
   @State() uploadInitiated = false
 
@@ -270,7 +267,6 @@ export class LdFileUpload {
 
   @Listen('ldselectfiles')
   updateComponentAppearance() {
-    this.renderOnlySelectFile = false
     // clears file input value
     this.fileInput.value = null
   }
@@ -337,23 +333,10 @@ export class LdFileUpload {
     ]
   }
 
-  private setToInitialState = () => {
-    this.renderOnlySelectFile = true
-    this.uploadInitiated = false
-  }
-
   @Watch('uploadItems')
   async changeComponentAppearanceAndStates() {
     if (this.uploadItems.length === 0) {
       this.uploadInitiated = false
-    }
-    if (
-      this.uploadItems.length === 0 &&
-      this.renderOnlySelectFile === false &&
-      this.cannotBeSelected.length === 0 &&
-      this.exceedMaxFileSize.length === 0
-    ) {
-      this.setToInitialState()
     }
   }
 
@@ -490,7 +473,7 @@ export class LdFileUpload {
           item.state === 'pending' ||
           item.state === 'paused' ||
           item.state === 'uploading'
-      ).length !== 0
+      ).length > 0
         ? this.calculateTotalProgress()
         : !this.showProgress &&
             this.uploadInitiated &&
@@ -499,7 +482,7 @@ export class LdFileUpload {
                 item.state === 'pending' ||
                 item.state === 'paused' ||
                 item.state === 'uploading'
-            ).length !== 0
+            ).length > 0
           ? 'pending'
           : undefined
     return (
@@ -529,100 +512,97 @@ export class LdFileUpload {
           />
         )}
 
-        {!this.renderOnlySelectFile && (
-          <Fragment>
-            {this.cannotBeSelected.length !== 0 ? (
-              <ld-notice
-                headline={this.labelErrorHeader}
-                mode="error"
-                class="ld-file-upload__error"
-              >
-                {this.labelFileAlreadySelectedError.replace(
-                  '$duplicateFiles',
-                  this.cannotBeSelected.join(', ')
-                )}
-              </ld-notice>
-            ) : undefined}
-            {this.exceedMaxFileSize.length !== 0 ? (
-              <ld-notice
-                headline={this.labelErrorHeader}
-                mode="error"
-                class="ld-file-upload__error"
-              >
-                {this.labelmaxFileSizeExceededError.replace(
-                  '$filesExceedingmaxFileSize',
-                  this.exceedMaxFileSize.join(', ')
-                )}
-              </ld-notice>
-            ) : undefined}
-            {this.uploadItems.length !== 0 && (
-              <Fragment>
-                <ld-upload-progress
-                  class="ld-file-upload__progress"
-                  uploadItems={this.uploadItems}
-                  allowPause={this.allowPause}
-                  showProgress={this.showProgress}
-                  labelRemove={this.labelRemove}
-                  labelDownload={this.labelDownload}
-                  labelRetry={this.labelRetry}
-                  labelDelete={this.labelDelete}
-                  labelUploadSuccessMsg={this.labelUploadSuccessMsg}
-                  labelUploadCancelledMsg={this.labelUploadCancelledMsg}
-                  labelUploadErrorMsg={this.labelUploadErrorMsg}
-                ></ld-upload-progress>
-
-                <div class="ld-file-upload__buttons">
-                  {!this.immediate && (
-                    <ld-button
-                      class="ld-file-upload__start-upload-button"
-                      size="sm"
-                      onClick={this.handleStartUploadClick}
-                      progress={progress}
-                    >
-                      {!this.uploadInitiated
-                        ? this.labelStartUpload
-                        : this.uploadItems.filter(
-                              (item) =>
-                                item.state === 'pending' ||
-                                item.state === 'paused' ||
-                                item.state === 'uploading'
-                            ).length !== 0
-                          ? this.labelUploading
-                          : this.labelUploadCompleted}
-                    </ld-button>
-                  )}
-                  {this.pauseAllClicked && this.allowPause ? (
-                    <ld-button
-                      class="ld-file-upload__continue-paused-button"
-                      size="sm"
-                      onClick={this.handleContinuePausedClick}
-                      mode="secondary"
-                      disabled={
-                        this.uploadItems.filter(
-                          (item) => item.state === 'paused'
-                        ).length === 0
-                      }
-                    >
-                      {this.labelContinuePausedUploads}
-                    </ld-button>
-                  ) : !this.pauseAllClicked && this.allowPause ? (
-                    <ld-button
-                      class="ld-file-upload__pause-all-button"
-                      size="sm"
-                      onClick={this.handlePauseAllClick}
-                      mode="secondary"
-                      disabled={
-                        this.uploadItems.filter(
-                          (item) => item.state === 'uploading'
-                        ).length === 0
-                      }
-                    >
-                      {this.labelPauseAllUploads}
-                    </ld-button>
-                  ) : undefined}
-                </div>
-              </Fragment>
+        {this.cannotBeSelected.length > 0 && (
+          <ld-notice
+            headline={this.labelErrorHeader}
+            mode="error"
+            class="ld-file-upload__error"
+          >
+            {this.labelFileAlreadySelectedError.replace(
+              '$duplicateFiles',
+              this.cannotBeSelected.join(', ')
             )}
+          </ld-notice>
+        )}
+
+        {this.exceedMaxFileSize.length > 0 && (
+          <ld-notice
+            headline={this.labelErrorHeader}
+            mode="error"
+            class="ld-file-upload__error"
+          >
+            {this.labelmaxFileSizeExceededError.replace(
+              '$filesExceedingmaxFileSize',
+              this.exceedMaxFileSize.join(', ')
+            )}
+          </ld-notice>
+        )}
+
+        {this.uploadItems.length > 0 && (
+          <Fragment>
+            <ld-upload-progress
+              class="ld-file-upload__progress"
+              uploadItems={this.uploadItems}
+              allowPause={this.allowPause}
+              showProgress={this.showProgress}
+              labelRemove={this.labelRemove}
+              labelDownload={this.labelDownload}
+              labelRetry={this.labelRetry}
+              labelDelete={this.labelDelete}
+              labelUploadSuccessMsg={this.labelUploadSuccessMsg}
+              labelUploadCancelledMsg={this.labelUploadCancelledMsg}
+              labelUploadErrorMsg={this.labelUploadErrorMsg}
+            />
+
+            <div class="ld-file-upload__buttons">
+              {!this.immediate && (
+                <ld-button
+                  class="ld-file-upload__start-upload-button"
+                  size="sm"
+                  onClick={this.handleStartUploadClick}
+                  progress={progress}
+                >
+                  {!this.uploadInitiated
+                    ? this.labelStartUpload
+                    : this.uploadItems.filter(
+                          (item) =>
+                            item.state === 'pending' ||
+                            item.state === 'paused' ||
+                            item.state === 'uploading'
+                        ).length > 0
+                      ? this.labelUploading
+                      : this.labelUploadCompleted}
+                </ld-button>
+              )}
+              {this.pauseAllClicked && this.allowPause ? (
+                <ld-button
+                  class="ld-file-upload__continue-paused-button"
+                  size="sm"
+                  onClick={this.handleContinuePausedClick}
+                  mode="secondary"
+                  disabled={
+                    this.uploadItems.filter((item) => item.state === 'paused')
+                      .length === 0
+                  }
+                >
+                  {this.labelContinuePausedUploads}
+                </ld-button>
+              ) : !this.pauseAllClicked && this.allowPause ? (
+                <ld-button
+                  class="ld-file-upload__pause-all-button"
+                  size="sm"
+                  onClick={this.handlePauseAllClick}
+                  mode="secondary"
+                  disabled={
+                    this.uploadItems.filter(
+                      (item) => item.state === 'uploading'
+                    ).length === 0
+                  }
+                >
+                  {this.labelPauseAllUploads}
+                </ld-button>
+              ) : undefined}
+            </div>
           </Fragment>
         )}
 
