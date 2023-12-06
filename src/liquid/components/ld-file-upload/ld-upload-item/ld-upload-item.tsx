@@ -59,25 +59,25 @@ export class LdUploadItem {
   @Prop() uploadItems: UploadItem[] = []
 
   /** Label to be used for the tooltip of the remove button. */
-  @Prop() labelRemove = `Remove`
+  @Prop() labelRemove: string
 
   /** Label to be used for the tooltip of the download button. */
-  @Prop() labelDownload = `Download`
+  @Prop() labelDownload: string
 
   /** Label to be used for the tooltip of the retry button. */
-  @Prop() labelRetry = `Retry`
+  @Prop() labelRetry: string
 
   /** Label to be used for the tooltip of the delete button. */
-  @Prop() labelDelete = `Delete`
+  @Prop() labelDelete: string
 
   /** Label to be used for upload success message. */
-  @Prop() labelUploadSuccessMsg = `Upload was successful!`
+  @Prop() labelUploadSuccessMsg: string
 
   /** Label to be used for upload cancelled message. */
-  @Prop() labelUploadCancelledMsg = `Upload of this file has been cancelled`
+  @Prop() labelUploadCancelledMsg: string
 
   /** Label to be used for upload error message. */
-  @Prop() labelUploadErrorMsg = `Error! Upload was unsuccessful`
+  @Prop() labelUploadErrorMsg: string
 
   /**
    * @internal
