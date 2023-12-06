@@ -276,27 +276,25 @@ export class LdUploadItem {
                   </div>
                 </ld-button>
               )}
-            {this.state === 'cancelled' ||
+            {(this.state === 'cancelled' ||
               this.state === 'uploaded' ||
-              (this.state === 'upload failed' && (
-                <ld-button
-                  class="ld-upload-item__delete-button"
-                  mode="ghost"
+              this.state === 'upload failed') && (
+              <ld-button
+                class="ld-upload-item__delete-button"
+                mode="ghost"
+                size="sm"
+                onClick={this.deleteClick}
+                slot="trigger"
+              >
+                <ld-icon
+                  class="ld-upload-item__delete-icon"
+                  name="bin"
                   size="sm"
-                  onClick={this.deleteClick}
-                  slot="trigger"
-                >
-                  <ld-icon
-                    class="ld-upload-item__delete-icon"
-                    name="bin"
-                    size="sm"
-                    aria-label="Text"
-                  ></ld-icon>
-                  <div class="ld-upload-item__hide-on-sm">
-                    {this.labelDelete}
-                  </div>
-                </ld-button>
-              ))}
+                  aria-label="Text"
+                ></ld-icon>
+                <div class="ld-upload-item__hide-on-sm">{this.labelDelete}</div>
+              </ld-button>
+            )}
           </div>
         </div>
         {this.state === 'pending' || this.state === 'uploading' ? (
