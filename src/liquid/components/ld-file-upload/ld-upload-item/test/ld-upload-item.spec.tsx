@@ -23,8 +23,8 @@ describe('ld-upload-item', () => {
     })
     const ldFileUpload = page.root
 
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+    const ldselectfilesHandler = jest.fn()
+    ldFileUpload.addEventListener('ldselectfiles', ldselectfilesHandler)
 
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
@@ -49,11 +49,11 @@ describe('ld-upload-item', () => {
     ]
 
     ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+      new CustomEvent('ldselectfiles', { detail: data, bubbles: true })
     )
 
     ldFileUpload.addEventListener(
-      'ldchoosefiles',
+      'ldselectfiles',
       await ldFileUpload.addUploadItems(data)
     )
 

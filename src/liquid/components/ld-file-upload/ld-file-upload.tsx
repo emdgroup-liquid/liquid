@@ -30,7 +30,7 @@ export type UploadItem = {
 
 /**
  * File upload:
- *   - listen for files chosen event (from ld-choose-file.tsx) with file list
+ *   - listen for files selected event (from ld-select-file.tsx) with file list
  *     -> emit upload ready event (if immediate prop is set to true)
  *   - listen for click event of continue button and emit upload ready event (if immediate prop is set to false)
  *   - The upload ready event contains the file list as its payload
@@ -46,7 +46,7 @@ export class LdFileUpload {
 
   private fileInput?: HTMLInputElement
 
-  /** Defines whether upload starts immediately after choosing files or after confirmation. */
+  /** Defines whether upload starts immediately after selecting files or after confirmation. */
   @Prop() immediate?: boolean = false
 
   /** Defines whether the user will be able to pause uploads. */
@@ -59,7 +59,7 @@ export class LdFileUpload {
 
   /** Defines whether selection of multiple input files is allowed. */
   @Prop() multiple?: boolean = false
-  /** Defines whether only one file can be chosen and uploaded. */
+  /** Defines whether only one file can be selected and uploaded. */
   @Prop() compact?: boolean = false
 
   /** Is used to display and validate maximum file size in Bytes */
@@ -79,7 +79,7 @@ export class LdFileUpload {
   /** The input value. */
   @Prop({ mutable: true }) value?: string
 
-  // Labels for ld-choose-file
+  // Labels for ld-select-file
 
   /** Label to be used as a header with instructions for drag and drop or file upload. */
   @Prop() labelDragInstructions = `Drag your file${
@@ -137,15 +137,15 @@ export class LdFileUpload {
   /** Label to be used for the header of error messages. */
   @Prop() labelErrorHeader = `An error occurred`
 
-  /** Label to be used for the error message that is shown if a file that has already been chosen is selected again. */
+  /** Label to be used for the error message that is shown if a file that has already been selected is selected again. */
   @Prop()
-  labelFileAlreadyChosenError =
-    `$duplicateFiles cannot be chosen since file(s) with the same name(s) has/have been chosen already. To upload this/these file(s) please remove the file(s) with the same name(s).`
+  labelFileAlreadySelectedError =
+    `$duplicateFiles cannot be selected since file(s) with the same name(s) has/have been selected already. To upload this/these file(s) please remove the file(s) with the same name(s).`
 
-  /** Label to be used for the error message that is shown if chosen file exceeds the maximum file size. */
+  /** Label to be used for the error message that is shown if selected file exceeds the maximum file size. */
   @Prop()
   labelmaxFileSizeExceededError =
-    `$filesExceedingmaxFileSize cannot be chosen since the file(s) exceed(s) the maximum file size.`
+    `$filesExceedingmaxFileSize cannot be selected since the file(s) exceed(s) the maximum file size.`
 
   // Labels for ld-upload-item
 
@@ -170,23 +170,23 @@ export class LdFileUpload {
   /** Label to be used for upload success message. */
   @Prop() labelUploadSuccessMsg = `Upload was successful!`
 
-  /** Contains all files that have been chosen but the upload has not started yet. */
-  @State() allChosenFiles: UploadItem[] = []
+  /** Contains all files that have been selected but the upload has not started yet. */
+  @State() allSelectedFiles: UploadItem[] = []
 
-  /** Names of files that cannot be chosen by the user since a file of the same name has been chosen already. */
-  @State() cannotBeChosen: string[] = []
+  /** Names of files that cannot be selected by the user since a file of the same name has been selected already. */
+  @State() cannotBeSelected: string[] = []
 
-  /** Names of files that cannot be chosen by the user since the files exceed the maximum file size. */
+  /** Names of files that cannot be selected by the user since the files exceed the maximum file size. */
   @State() exceedMaxFileSize: string[] = []
 
-  /** Contains files that have been chosen but the upload has not started yet. */
-  @State() lastChosenFiles: UploadItem[] = []
+  /** Contains files that have been selected but the upload has not started yet. */
+  @State() lastSelectedFiles: UploadItem[] = []
 
   /** Represents whether the pause all button has been clicked. */
   @State() pauseAllClicked = false
 
-  /** Only renders the choose file component, if true. */
-  @State() renderOnlyChooseFile = true
+  /** Only renders the select file component, if true. */
+  @State() renderOnlySelectFile = true
 
   /** Represents whether the upload has been initiated (i.e. using the start upload button). */
   @State() uploadInitiated = false
@@ -195,10 +195,10 @@ export class LdFileUpload {
   @State() uploadItems: UploadItem[] = []
 
   /**
-   * Emitted after choosing files.
-   * UploadItems emitted can be added to the list of chosen files by using the addUploadItems() method.
+   * Emitted after selecting files.
+   * UploadItems emitted can be added to the list of selected files by using the addUploadItems() method.
    */
-  @Event() ldchoosefiles: EventEmitter<UploadItem[]>
+  @Event() ldselectfiles: EventEmitter<UploadItem[]>
 
   /**
    * Emitted on continue all uploads click.
@@ -219,8 +219,8 @@ export class LdFileUpload {
   @Event() ldfileuploadpausealluploads: EventEmitter<UploadItem[]>
 
   /**
-   * Emitted on start upload click or after choosing files, if upload starts immediately after choosing files.
-   * UploadItems emitted can be added to the list of chosen files by using the addUploadItems() method
+   * Emitted on start upload click or after selecting files, if upload starts immediately after selecting files.
+   * UploadItems emitted can be added to the list of selected files by using the addUploadItems() method
    * or updated, if they have been added already, using the updateUploadItem() method.
    */
   @Event() ldfileuploadready: EventEmitter<UploadItem[]>
@@ -256,9 +256,9 @@ export class LdFileUpload {
   @Event() lduploaditemretry: EventEmitter<UploadItem>
 
   @Listen('ldfileuploadready')
-  /** After the ldfileuploadready event is emitted, the list of all chosen files is cleared */
-  clearChosenFiles() {
-    this.allChosenFiles = []
+  /** After the ldfileuploadready event is emitted, the list of all selected files is cleared */
+  clearSelectedFiles() {
+    this.allSelectedFiles = []
   }
 
   @Listen('lduploadclick')
@@ -268,9 +268,9 @@ export class LdFileUpload {
     }
   }
 
-  @Listen('ldchoosefiles')
+  @Listen('ldselectfiles')
   updateComponentAppearance() {
-    this.renderOnlyChooseFile = false
+    this.renderOnlySelectFile = false
     // clears file input value
     this.fileInput.value = null
   }
@@ -338,7 +338,7 @@ export class LdFileUpload {
   }
 
   private setToInitialState = () => {
-    this.renderOnlyChooseFile = true
+    this.renderOnlySelectFile = true
     this.uploadInitiated = false
   }
 
@@ -349,8 +349,8 @@ export class LdFileUpload {
     }
     if (
       this.uploadItems.length === 0 &&
-      this.renderOnlyChooseFile === false &&
-      this.cannotBeChosen.length === 0 &&
+      this.renderOnlySelectFile === false &&
+      this.cannotBeSelected.length === 0 &&
       this.exceedMaxFileSize.length === 0
     ) {
       this.setToInitialState()
@@ -378,54 +378,54 @@ export class LdFileUpload {
     return totalProgress
   }
 
-  private addChosenFiles(chosenFiles: UploadItem[]) {
+  private addSelectedFiles(selectedFiles: UploadItem[]) {
     if (this.multiple) {
-      this.allChosenFiles = [...this.allChosenFiles, ...chosenFiles]
+      this.allSelectedFiles = [...this.allSelectedFiles, ...selectedFiles]
     } else {
-      this.allChosenFiles = [...chosenFiles]
+      this.allSelectedFiles = [...selectedFiles]
     }
   }
 
-  private removeDuplicateChosenFiles(chosenFiles: FileList) {
-    this.lastChosenFiles = []
-    this.cannotBeChosen = []
+  private removeDuplicates(selectedFiles: FileList) {
+    this.lastSelectedFiles = []
+    this.cannotBeSelected = []
     this.exceedMaxFileSize = []
-    for (let i = 0; i < chosenFiles.length; i++) {
+    for (let i = 0; i < selectedFiles.length; i++) {
       if (
-        !this.lastChosenFiles.some(
-          (chosenFile) => chosenFile.fileName === chosenFiles[i].name
+        !this.lastSelectedFiles.some(
+          (selectedFile) => selectedFile.fileName === selectedFiles[i].name
         ) &&
         !this.uploadItems.some(
-          (uploadFile) => uploadFile.fileName === chosenFiles[i].name
+          (uploadFile) => uploadFile.fileName === selectedFiles[i].name
         ) &&
-        ((chosenFiles[i].size < this.maxFileSize &&
+        ((selectedFiles[i].size < this.maxFileSize &&
           this.maxFileSize !== undefined) ||
           this.maxFileSize === undefined)
       ) {
-        this.lastChosenFiles.push({
+        this.lastSelectedFiles.push({
           state: 'pending',
-          fileName: chosenFiles[i].name,
-          fileSize: chosenFiles[i].size,
-          fileType: chosenFiles[i].type,
+          fileName: selectedFiles[i].name,
+          fileSize: selectedFiles[i].size,
+          fileType: selectedFiles[i].type,
           progress: 0,
-          file: chosenFiles[i],
+          file: selectedFiles[i],
         })
       } else {
         if (
-          this.lastChosenFiles.some(
-            (chosenFile) => chosenFile.fileName === chosenFiles[i].name
+          this.lastSelectedFiles.some(
+            (selectedFile) => selectedFile.fileName === selectedFiles[i].name
           ) ||
           this.uploadItems.some(
-            (uploadFile) => uploadFile.fileName === chosenFiles[i].name
+            (uploadFile) => uploadFile.fileName === selectedFiles[i].name
           )
         ) {
-          this.cannotBeChosen.push(chosenFiles[i].name)
+          this.cannotBeSelected.push(selectedFiles[i].name)
         }
         if (
-          chosenFiles[i].size > this.maxFileSize &&
+          selectedFiles[i].size > this.maxFileSize &&
           this.maxFileSize !== undefined
         ) {
-          this.exceedMaxFileSize.push(chosenFiles[i].name)
+          this.exceedMaxFileSize.push(selectedFiles[i].name)
         }
       }
     }
@@ -435,32 +435,31 @@ export class LdFileUpload {
     const files = (ev.target as HTMLInputElement).files
     if (!files || !files.length) return
 
-    this.removeDuplicateChosenFiles(files)
-    this.ldchoosefiles.emit(this.lastChosenFiles)
-    this.addChosenFiles(this.lastChosenFiles)
+    this.removeDuplicates(files)
+    this.ldselectfiles.emit(this.lastSelectedFiles)
+    this.addSelectedFiles(this.lastSelectedFiles)
     if (this.immediate) {
-      this.ldfileuploadready.emit(this.allChosenFiles)
+      this.ldfileuploadready.emit(this.allSelectedFiles)
     }
   }
 
-  /** Emits filesChosen event to component consumer. */
-  private handleChooseFiles = (ev: CustomEvent<FileList>) => {
+  private handleSelectfiles = (ev: CustomEvent<FileList>) => {
     ev.stopImmediatePropagation() // We stop the internal event...
-    this.removeDuplicateChosenFiles(ev.detail)
-    this.ldchoosefiles.emit(this.lastChosenFiles) // ...and dispatch the public one.
-    this.addChosenFiles(this.lastChosenFiles)
+    this.removeDuplicates(ev.detail)
+    this.ldselectfiles.emit(this.lastSelectedFiles) // ...and dispatch the public one.
+    this.addSelectedFiles(this.lastSelectedFiles)
     if (this.immediate) {
-      this.ldfileuploadready.emit(this.allChosenFiles)
+      this.ldfileuploadready.emit(this.allSelectedFiles)
     }
   }
 
   private handleStartUploadClick = (ev: MouseEvent) => {
     ev.preventDefault()
     if (!this.immediate && !this.uploadInitiated) {
-      this.ldfileuploadready.emit(this.allChosenFiles)
+      this.ldfileuploadready.emit(this.allSelectedFiles)
     }
     this.uploadInitiated = true
-    this.cannotBeChosen = []
+    this.cannotBeSelected = []
     this.exceedMaxFileSize = []
   }
 
@@ -481,6 +480,8 @@ export class LdFileUpload {
   }
 
   render() {
+    const isSelectFilesVisible = this.multiple || !this.allSelectedFiles.length
+
     const progress =
       this.showProgress &&
       this.uploadInitiated &&
@@ -503,10 +504,10 @@ export class LdFileUpload {
           : undefined
     return (
       <Host class="ld-file-upload">
-        {(this.renderOnlyChooseFile || !this.compact) && (
-          <ld-choose-file
-            class="ld-file-upload__choose-file"
-            onLdchoosefiles={this.handleChooseFiles}
+        {isSelectFilesVisible && (
+          <ld-select-file
+            class="ld-file-upload__select-file"
+            onLdselectfiles={this.handleSelectfiles}
             immediate={this.immediate}
             multiple={this.multiple}
             startUploadClicked={this.uploadInitiated}
@@ -525,20 +526,20 @@ export class LdFileUpload {
             labelUploadState={this.labelUploadState}
             labelUploadCount={this.labelUploadCount}
             labelUploadPercentage={this.labelUploadPercentage}
-          ></ld-choose-file>
+          />
         )}
 
-        {!this.renderOnlyChooseFile && (
+        {!this.renderOnlySelectFile && (
           <Fragment>
-            {this.cannotBeChosen.length !== 0 ? (
+            {this.cannotBeSelected.length !== 0 ? (
               <ld-notice
                 headline={this.labelErrorHeader}
                 mode="error"
                 class="ld-file-upload__error"
               >
-                {this.labelFileAlreadyChosenError.replace(
+                {this.labelFileAlreadySelectedError.replace(
                   '$duplicateFiles',
-                  this.cannotBeChosen.join(', ')
+                  this.cannotBeSelected.join(', ')
                 )}
               </ld-notice>
             ) : undefined}

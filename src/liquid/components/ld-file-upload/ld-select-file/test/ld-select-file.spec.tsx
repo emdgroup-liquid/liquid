@@ -1,22 +1,22 @@
 import { newSpecPage } from '@stencil/core/testing'
-import { LdChooseFile } from '../ld-choose-file'
+import { LdSelectFile } from '../ld-select-file'
 import '../../../../utils/mutationObserver'
 import { h } from '@stencil/core'
 
-describe('ld-choose-file', () => {
+describe('ld-select-file', () => {
   it('renders default', async () => {
     const page = await newSpecPage({
-      components: [LdChooseFile],
-      html: `<ld-choose-file></ld-choose-file>`,
+      components: [LdSelectFile],
+      html: `<ld-select-file></ld-select-file>`,
     })
     expect(page.root).toMatchSnapshot()
   })
 
   it('renders upload items', async () => {
     const page = await newSpecPage({
-      components: [LdChooseFile],
+      components: [LdSelectFile],
       template: () => (
-        <ld-choose-file
+        <ld-select-file
           start-upload-clicked
           uploadItems={[
             {
@@ -28,7 +28,7 @@ describe('ld-choose-file', () => {
               progress: 50,
             },
           ]}
-        ></ld-choose-file>
+        ></ld-select-file>
       ),
     })
     expect(page.root.uploadItems.length).toBe(1)
@@ -36,41 +36,41 @@ describe('ld-choose-file', () => {
 
   it('renders immediate', async () => {
     const page = await newSpecPage({
-      components: [LdChooseFile],
-      html: `<ld-choose-file immediate></ld-choose-file>`,
+      components: [LdSelectFile],
+      html: `<ld-select-file immediate></ld-select-file>`,
     })
     expect(page.root.startUploadImmediately).toBe(true)
   })
 
   it('renders start-upload-clicked', async () => {
     const page = await newSpecPage({
-      components: [LdChooseFile],
-      html: `<ld-choose-file start-upload-clicked></ld-choose-file>`,
+      components: [LdSelectFile],
+      html: `<ld-select-file start-upload-clicked></ld-select-file>`,
     })
     expect(page.root.startUploadClicked).toBe(true)
   })
 
   it('renders multiple', async () => {
     const page = await newSpecPage({
-      components: [LdChooseFile],
-      html: `<ld-choose-file multiple></ld-choose-file>`,
+      components: [LdSelectFile],
+      html: `<ld-select-file multiple></ld-select-file>`,
     })
     expect(page.root.multiple).toBe(true)
   })
 
   it('emits lduploadclick event', async () => {
     const page = await newSpecPage({
-      components: [LdChooseFile],
-      html: `<ld-choose-file immediate></ld-choose-file>`,
+      components: [LdSelectFile],
+      html: `<ld-select-file immediate></ld-select-file>`,
     })
-    const ldChooseFile = page.root
+    const ldSelectFile = page.root
     const uploadButton =
-      ldChooseFile.shadowRoot.querySelector<HTMLLdButtonElement>(
-        'ld-button[class="ld-choose-file__upload-button"]'
+      ldSelectFile.shadowRoot.querySelector<HTMLLdButtonElement>(
+        'ld-button[class="ld-select-file__upload-button"]'
       )
 
     const lduploadclickHandler = jest.fn()
-    ldChooseFile.addEventListener('lduploadclick', lduploadclickHandler)
+    ldSelectFile.addEventListener('lduploadclick', lduploadclickHandler)
 
     uploadButton.click()
     await page.waitForChanges()
@@ -80,93 +80,93 @@ describe('ld-choose-file', () => {
 
   it('adds class highlighted on drag enter', async () => {
     const page = await newSpecPage({
-      components: [LdChooseFile],
-      html: `<ld-choose-file immediate multiple></ld-choose-file>`,
+      components: [LdSelectFile],
+      html: `<ld-select-file immediate multiple></ld-select-file>`,
     })
-    const ldChooseFile = page.root
+    const ldSelectFile = page.root
 
     await page.waitForChanges()
 
     const ev = new Event('dragenter', { bubbles: true })
     ;(ev as any).dataTransfer = {}
-    ldChooseFile.dispatchEvent(ev)
+    ldSelectFile.dispatchEvent(ev)
 
     await page.waitForChanges()
 
-    expect(ldChooseFile).toHaveClass('ld-choose-file--highlighted')
+    expect(ldSelectFile).toHaveClass('ld-select-file--highlighted')
   })
 
   it('adds class highlighted on drag over', async () => {
     const page = await newSpecPage({
-      components: [LdChooseFile],
-      html: `<ld-choose-file immediate multiple></ld-choose-file>`,
+      components: [LdSelectFile],
+      html: `<ld-select-file immediate multiple></ld-select-file>`,
     })
-    const ldChooseFile = page.root
+    const ldSelectFile = page.root
 
     await page.waitForChanges()
 
     const ev = new Event('dragover', { bubbles: true })
     ;(ev as any).dataTransfer = {}
-    ldChooseFile.dispatchEvent(ev)
+    ldSelectFile.dispatchEvent(ev)
 
     await page.waitForChanges()
 
-    expect(ldChooseFile).toHaveClass('ld-choose-file--highlighted')
+    expect(ldSelectFile).toHaveClass('ld-select-file--highlighted')
   })
 
   it('removes class highlighted on drag leave', async () => {
     const page = await newSpecPage({
-      components: [LdChooseFile],
-      html: `<ld-choose-file immediate multiple></ld-choose-file>`,
+      components: [LdSelectFile],
+      html: `<ld-select-file immediate multiple></ld-select-file>`,
     })
-    const ldChooseFile = page.root
+    const ldSelectFile = page.root
 
     await page.waitForChanges()
 
     const ev1 = new Event('dragover', { bubbles: true })
     ;(ev1 as any).dataTransfer = {}
-    ldChooseFile.dispatchEvent(ev1)
+    ldSelectFile.dispatchEvent(ev1)
 
     await page.waitForChanges()
 
-    expect(ldChooseFile).toHaveClass('ld-choose-file--highlighted')
+    expect(ldSelectFile).toHaveClass('ld-select-file--highlighted')
 
     const ev = new Event('dragleave', { bubbles: true })
     ;(ev as any).dataTransfer = {}
-    ldChooseFile.dispatchEvent(ev)
+    ldSelectFile.dispatchEvent(ev)
 
     await page.waitForChanges()
 
-    expect(ldChooseFile).not.toHaveClass('ld-choose-file--highlighted')
+    expect(ldSelectFile).not.toHaveClass('ld-select-file--highlighted')
   })
 
-  it('removes class highlighted on drop and emits ldchoosefiles event', async () => {
+  it('removes class highlighted on drop and emits ldselectfiles event', async () => {
     const page = await newSpecPage({
-      components: [LdChooseFile],
-      html: `<ld-choose-file immediate multiple></ld-choose-file>`,
+      components: [LdSelectFile],
+      html: `<ld-select-file immediate multiple></ld-select-file>`,
     })
-    const ldChooseFile = page.root
+    const ldSelectFile = page.root
 
-    const ldchoosefilesHandler = jest.fn()
-    ldChooseFile.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+    const ldselectfilesHandler = jest.fn()
+    ldSelectFile.addEventListener('ldselectfiles', ldselectfilesHandler)
 
     await page.waitForChanges()
 
     const ev1 = new Event('dragover', { bubbles: true })
     ;(ev1 as any).dataTransfer = {}
-    ldChooseFile.dispatchEvent(ev1)
+    ldSelectFile.dispatchEvent(ev1)
 
     await page.waitForChanges()
 
-    expect(ldChooseFile).toHaveClass('ld-choose-file--highlighted')
+    expect(ldSelectFile).toHaveClass('ld-select-file--highlighted')
 
     const ev = new Event('drop', { bubbles: true })
     ;(ev as any).dataTransfer = {}
-    ldChooseFile.dispatchEvent(ev)
+    ldSelectFile.dispatchEvent(ev)
 
     await page.waitForChanges()
 
-    expect(ldChooseFile).not.toHaveClass('ld-choose-file--highlighted')
-    expect(ldchoosefilesHandler).toHaveBeenCalled()
+    expect(ldSelectFile).not.toHaveClass('ld-select-file--highlighted')
+    expect(ldselectfilesHandler).toHaveBeenCalled()
   })
 })

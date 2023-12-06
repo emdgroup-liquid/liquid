@@ -13,25 +13,25 @@ import { getClassNames } from '../../../utils/getClassNames'
 import { getAssetPath } from '../../../utils/assetPath'
 import type { UploadItem } from '../ld-file-upload'
 
-let chooseFileCount = 0
+let selectFileCount = 0
 
 /**
  * @virtualProp ref - reference to component
  */
 @Component({
-  tag: 'ld-choose-file',
-  styleUrl: 'ld-choose-file.css',
+  tag: 'ld-select-file',
+  styleUrl: 'ld-select-file.css',
   shadow: true,
   assetsDirs: ['assets'],
 })
-export class LdChooseFile {
-  @Element() el: HTMLLdChooseFileElement
-  private idPrefix = `ld-choose-file-${++chooseFileCount}`
+export class LdSelectFile {
+  @Element() el: HTMLLdSelectFileElement
+  private idPrefix = `ld-select-file-${++selectFileCount}`
 
   /** Max. file size in bytes */
   @Prop() maxFileSize?: number
 
-  /** Defines whether upload starts immediately after choosing files or after confirmation. */
+  /** Defines whether upload starts immediately after selecting files or after confirmation. */
   @Prop() immediate?: boolean = false
 
   /** Defines whether start upload button has been clicked (only relevant when immediate is false)
@@ -45,10 +45,10 @@ export class LdChooseFile {
   /** Defines whether the total progress of all uploading files will be shown in the progress button */
   @Prop() showProgress?: boolean = false
 
-  /** Defines whether only one file can be chosen and uploaded. */
+  /** Defines whether only one file can be selected and uploaded. */
   @Prop() compact?: boolean = false
 
-  /** Chosen Files from the parent component */
+  /** Selected files from the parent component */
   @Prop() uploadItems: UploadItem[] = []
 
   /** Label to be used as a header with instructions for drag and drop or file upload. */
@@ -87,7 +87,7 @@ export class LdChooseFile {
 
   /** @internal */
   /** Emitted after dropping a file in the drop area. */
-  @Event() ldchoosefiles: EventEmitter<FileList>
+  @Event() ldselectfiles: EventEmitter<FileList>
 
   /** @internal */
   /** Emitted on upload click. */
@@ -151,15 +151,15 @@ export class LdChooseFile {
       (this.multiple || fileList.length <= 1) &&
       (this.immediate || !this.startUploadClicked)
     ) {
-      this.ldchoosefiles.emit(fileList)
+      this.ldselectfiles.emit(fileList)
     }
   }
 
   render() {
     const cl = getClassNames([
-      'ld-choose-file',
-      this.highlighted && 'ld-choose-file--highlighted',
-      this.compact && 'ld-choose-file--compact',
+      'ld-select-file',
+      this.highlighted && 'ld-select-file--highlighted',
+      this.compact && 'ld-select-file--compact',
     ])
 
     const calculateTotalProgress = () => {
@@ -194,12 +194,12 @@ export class LdChooseFile {
       >
         <div
           class={getClassNames([
-            'ld-choose-file__content',
-            this.compact && 'ld-choose-file__content--compact',
+            'ld-select-file__content',
+            this.compact && 'ld-select-file__content--compact',
           ])}
         >
           <img
-            class="ld-choose-file__image"
+            class="ld-select-file__image"
             src={getAssetPath('./assets/file-upload.svg')}
             alt=""
             width="142"
@@ -222,7 +222,7 @@ export class LdChooseFile {
               <slot></slot>
               <ld-button
                 aria-labelledby={`${this.idPrefix}-instructions`}
-                class="ld-choose-file__upload-button"
+                class="ld-select-file__upload-button"
                 size="sm"
                 onClick={this.handleUploadClick}
               >

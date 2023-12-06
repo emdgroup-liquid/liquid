@@ -1,18 +1,18 @@
 :host {
-  background-color: var(--ld-choose-file-background-color, var(--ld-col-wht));
-  border-radius: var(--ld-choose-file-border-radius, var(--ld-br-l));
+  background-color: var(--ld-select-file-background-color, var(--ld-col-wht));
+  border-radius: var(--ld-select-file-border-radius, var(--ld-br-l));
   border: var(--ld-sp-2) dashed var(--ld-col-neutral-100);
   box-sizing: border-box;
   list-style: none;
   margin: 0;
   padding: 0;
 
-  &(.ld-choose-file--highlighted) {
+  &(.ld-select-file--highlighted) {
     background: var(--ld-col-rb-050);
   }
 }
 
-.ld-choose-file__content {
+.ld-select-file__content {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -21,13 +21,13 @@
   justify-content: center;
 }
 
-.ld-choose-file__content--compact {
+.ld-select-file__content--compact {
   gap: var(--ld-sp-6);
   margin: var(--ld-sp-2);
   flex-direction: row-reverse;
   padding-right: var(--ld-sp-6);
 
-  .ld-choose-file__image {
+  .ld-select-file__image {
     display: none;
   }
 }

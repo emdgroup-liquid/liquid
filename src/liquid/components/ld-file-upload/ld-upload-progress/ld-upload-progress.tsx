@@ -12,7 +12,7 @@ import type { UploadItem } from '../ld-file-upload'
 export class LdUploadProgress {
   @Element() el: HTMLLdUploadProgressElement
 
-  /** Defines whether upload starts immediately after choosing files or after confirmation. */
+  /** Defines whether upload starts immediately after selecting files or after confirmation. */
   @Prop() immediate?: boolean = false
 
   /** Defines whether the user will be able to pause uploads. */

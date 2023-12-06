@@ -21,7 +21,7 @@ Please refer to the [`ld-file-upload` documentation](components/ld-file-upload) 
 | Property                  | Attribute                    | Description                                                                                   | Type           | Default     |
 | ------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------- | -------------- | ----------- |
 | `allowPause`              | `allow-pause`                | Defines whether the user will be able to pause uploads.                                       | `boolean`      | `undefined` |
-| `immediate`               | `immediate`                  | Defines whether upload starts immediately after choosing files or after confirmation.         | `boolean`      | `false`     |
+| `immediate`               | `immediate`                  | Defines whether upload starts immediately after selecting files or after confirmation.        | `boolean`      | `false`     |
 | `labelDelete`             | `label-delete`               | Label to be used for the tooltip of the delete button.                                        | `string`       | `undefined` |
 | `labelDownload`           | `label-download`             | Label to be used for the tooltip of the download button.                                      | `string`       | `undefined` |
 | `labelRemove`             | `label-remove`               | Label to be used for the tooltip of the remove button.                                        | `string`       | `undefined` |

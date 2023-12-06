@@ -1,6 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdFileUpload, UploadItem } from '../ld-file-upload'
-import { LdChooseFile } from '../ld-choose-file/ld-choose-file'
+import { LdSelectFile } from '../ld-select-file/ld-select-file'
 import { LdUploadProgress } from '../ld-upload-progress/ld-upload-progress'
 import { LdUploadItem } from '../ld-upload-item/ld-upload-item'
 import { LdButton } from '../../ld-button/ld-button'
@@ -23,7 +23,7 @@ describe('ld-file-upload', () => {
     expect(page.root.multiple).toBe(true)
   })
 
-  it('starts upload immediately after choosing files', async () => {
+  it('starts upload immediately after selecting files', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
       html: `<ld-file-upload immediate />`,
@@ -69,13 +69,13 @@ describe('ld-file-upload', () => {
 
   // it('emits ldfileuploadready event on continue button click', async () => {
   //   const page = await newSpecPage({
-  //     components: [LdFileUpload, LdChooseFile, LdUploadProgress, LdUploadItem],
+  //     components: [LdFileUpload, LdSelectFile, LdUploadProgress, LdUploadItem],
   //     html: `<ld-file-upload />`,
   //   })
   //   const ldFileUpload = page.root
 
-  //   const ldchoosefilesHandler = jest.fn()
-  //   ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+  //   const ldselectfilesHandler = jest.fn()
+  //   ldFileUpload.addEventListener('ldselectfiles', ldselectfilesHandler)
 
   //   const ldfileuploadreadyHandler = jest.fn()
   //   ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
@@ -92,7 +92,7 @@ describe('ld-file-upload', () => {
   //   ]
 
   //   ldFileUpload.dispatchEvent(
-  //     new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+  //     new CustomEvent('ldselectfiles', { detail: data, bubbles: true })
   //   )
 
   //   await ldFileUpload.addUploadItems(data)
@@ -129,7 +129,7 @@ describe('ld-file-upload', () => {
   //   ]
 
   //   ldFileUpload.dispatchEvent(
-  //     new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+  //     new CustomEvent('ldselectfiles', { detail: data, bubbles: true })
   //   )
 
   //   await ldFileUpload.addUploadItems(data2)
@@ -149,8 +149,8 @@ describe('ld-file-upload', () => {
     })
     const ldFileUpload = page.root
 
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+    const ldselectfilesHandler = jest.fn()
+    ldFileUpload.addEventListener('ldselectfiles', ldselectfilesHandler)
 
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
@@ -167,7 +167,7 @@ describe('ld-file-upload', () => {
     ]
 
     ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+      new CustomEvent('ldselectfiles', { detail: data, bubbles: true })
     )
 
     await ldFileUpload.addUploadItems(data)
@@ -191,8 +191,8 @@ describe('ld-file-upload', () => {
     })
     const ldFileUpload = page.root
 
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+    const ldselectfilesHandler = jest.fn()
+    ldFileUpload.addEventListener('ldselectfiles', ldselectfilesHandler)
 
     const ldfileuploadcontinueuploadsHandler = jest.fn()
     ldFileUpload.addEventListener(
@@ -215,7 +215,7 @@ describe('ld-file-upload', () => {
     ]
 
     ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+      new CustomEvent('ldselectfiles', { detail: data, bubbles: true })
     )
 
     await ldFileUpload.addUploadItems(data)
@@ -262,8 +262,8 @@ describe('ld-file-upload', () => {
   //   })
   //   const ldFileUpload = page.root
 
-  //   const ldchoosefilesHandler = jest.fn()
-  //   ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+  //   const ldselectfilesHandler = jest.fn()
+  //   ldFileUpload.addEventListener('ldselectfiles', ldselectfilesHandler)
 
   //   const ldfileuploadreadyHandler = jest.fn()
   //   ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
@@ -286,7 +286,7 @@ describe('ld-file-upload', () => {
   //   ]
 
   //   ldFileUpload.dispatchEvent(
-  //     new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+  //     new CustomEvent('ldselectfiles', { detail: data, bubbles: true })
   //   )
 
   //   await ldFileUpload.addUploadItems(data)
@@ -308,19 +308,19 @@ describe('ld-file-upload', () => {
   //   expect(ldFileUpload).not.toHaveClass('ld-file-upload__progress')
   // })
 
-  it('emits public ldchoosefiles and ldfileuploadready event after internal ldchoosefiles event is emitted by ld-choose-files', async () => {
+  it('emits public ldselectfiles and ldfileuploadready event after internal ldselectfiles event is emitted by ld-select-files', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
       html: `<ld-file-upload immediate />`,
     })
     const ldFileUpload = page.root
-    const ldChooseFiles =
-      ldFileUpload.shadowRoot.querySelector<HTMLLdChooseFileElement>(
-        'ld-choose-file[class="ld-file-upload__choose-file"]'
+    const ldSelectFiles =
+      ldFileUpload.shadowRoot.querySelector<HTMLLdSelectFileElement>(
+        'ld-select-file[class="ld-file-upload__select-file"]'
       )
 
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+    const ldselectfilesHandler = jest.fn()
+    ldFileUpload.addEventListener('ldselectfiles', ldselectfilesHandler)
 
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
@@ -336,17 +336,17 @@ describe('ld-file-upload', () => {
       },
     ]
 
-    ldChooseFiles.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+    ldSelectFiles.dispatchEvent(
+      new CustomEvent('ldselectfiles', { detail: data, bubbles: true })
     )
 
     await page.waitForChanges()
 
-    expect(ldchoosefilesHandler).toHaveBeenCalled()
+    expect(ldselectfilesHandler).toHaveBeenCalled()
     expect(ldfileuploadreadyHandler).toHaveBeenCalled()
   })
 
-  it('emits public ldchoosefiles and ldfileuploadready event after files are selected through input', async () => {
+  it('emits public ldselectfiles and ldfileuploadready event after files are selected through input', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
       html: `<ld-file-upload immediate />`,
@@ -356,8 +356,8 @@ describe('ld-file-upload', () => {
       'input[class="ld-file-upload__input"]'
     )
 
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+    const ldselectfilesHandler = jest.fn()
+    ldFileUpload.addEventListener('ldselectfiles', ldselectfilesHandler)
 
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
@@ -367,7 +367,7 @@ describe('ld-file-upload', () => {
 
     await page.waitForChanges()
 
-    expect(ldchoosefilesHandler).toHaveBeenCalled()
+    expect(ldselectfilesHandler).toHaveBeenCalled()
     expect(ldfileuploadreadyHandler).toHaveBeenCalled()
   })
 
@@ -375,7 +375,7 @@ describe('ld-file-upload', () => {
     const page = await newSpecPage({
       components: [
         LdFileUpload,
-        LdChooseFile,
+        LdSelectFile,
         LdUploadItem,
         LdUploadProgress,
         LdButton,
@@ -384,8 +384,8 @@ describe('ld-file-upload', () => {
     })
     const ldFileUpload = page.root
 
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+    const ldselectfilesHandler = jest.fn()
+    ldFileUpload.addEventListener('ldselectfiles', ldselectfilesHandler)
 
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
@@ -402,7 +402,7 @@ describe('ld-file-upload', () => {
     ]
 
     ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+      new CustomEvent('ldselectfiles', { detail: data, bubbles: true })
     )
 
     await ldFileUpload.addUploadItems(data)
@@ -435,13 +435,13 @@ describe('ld-file-upload', () => {
 
   it('removes file using the deleteAllUploadItems method', async () => {
     const page = await newSpecPage({
-      components: [LdFileUpload, LdUploadProgress, LdUploadItem, LdChooseFile],
+      components: [LdFileUpload, LdUploadProgress, LdUploadItem, LdSelectFile],
       html: `<ld-file-upload />`,
     })
     const ldFileUpload = page.root as HTMLLdFileUploadElement
 
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+    const ldselectfilesHandler = jest.fn()
+    ldFileUpload.addEventListener('ldselectfiles', ldselectfilesHandler)
 
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
@@ -458,7 +458,7 @@ describe('ld-file-upload', () => {
     ]
 
     ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+      new CustomEvent('ldselectfiles', { detail: data, bubbles: true })
     )
 
     await ldFileUpload.addUploadItems(data)
@@ -474,13 +474,13 @@ describe('ld-file-upload', () => {
 
   it('removes file using the deleteUploadItem method', async () => {
     const page = await newSpecPage({
-      components: [LdFileUpload, LdUploadProgress, LdUploadItem, LdChooseFile],
+      components: [LdFileUpload, LdUploadProgress, LdUploadItem, LdSelectFile],
       html: `<ld-file-upload />`,
     })
     const ldFileUpload = page.root as HTMLLdFileUploadElement
 
-    const ldchoosefilesHandler = jest.fn()
-    ldFileUpload.addEventListener('ldchoosefiles', ldchoosefilesHandler)
+    const ldselectfilesHandler = jest.fn()
+    ldFileUpload.addEventListener('ldselectfiles', ldselectfilesHandler)
 
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
@@ -505,7 +505,7 @@ describe('ld-file-upload', () => {
     ]
 
     ldFileUpload.dispatchEvent(
-      new CustomEvent('ldchoosefiles', { detail: data, bubbles: true })
+      new CustomEvent('ldselectfiles', { detail: data, bubbles: true })
     )
 
     await ldFileUpload.addUploadItems(data)
