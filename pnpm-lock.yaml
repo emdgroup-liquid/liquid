@@ -6,10 +6,10 @@ settings:
 
 patchedDependencies:
   '@stencil/react-output-target@0.5.3':
-    hash: qntwrldr27pq53gpsshzbfcjzi
+    hash: mwd3czm2f6jbecpe42hnl46y2a
     path: patches/@stencil__react-output-target@0.5.3.patch
   '@stencil/vue-output-target@0.8.6':
-    hash: eb6lfa34opi2q3piixtsbu4b6q
+    hash: z7xijlg5hhjq6c5hzlpzmecnpq
     path: patches/@stencil__vue-output-target@0.8.6.patch
   tether@2.0.0:
     hash: dqcxz4sobtiuqo6nukiwkv6534
@@ -18,7 +18,7 @@ patchedDependencies:
 dependencies:
   '@stencil/core':
     specifier: ~4.8.0
-    version: 4.8.0
+    version: 4.8.1
   dompurify:
     specifier: ^3.0.1
     version: 3.0.6
@@ -77,13 +77,13 @@ devDependencies:
     version: 0.4.0(@typescript-eslint/eslint-plugin@6.1.0)(@typescript-eslint/parser@6.1.0)(eslint-plugin-react@7.32.2)(eslint@8.34.0)(typescript@5.0.4)
   '@stencil/postcss':
     specifier: ^2.1.0
-    version: 2.1.0(@stencil/core@4.8.0)
+    version: 2.1.0(@stencil/core@4.8.1)
   '@stencil/react-output-target':
     specifier: ^0.5.3
-    version: 0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.8.0)
+    version: 0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.8.1)
   '@stencil/vue-output-target':
     specifier: ^0.8.6
-    version: 0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.8.0)
+    version: 0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.8.1)
   '@types/jest':
     specifier: ^27.5.2
     version: 27.5.2
@@ -182,7 +182,7 @@ devDependencies:
     version: 4.1.2
   markdown-it-anchor:
     specifier: ^8.6.5
-    version: 8.6.5(@types/markdown-it@13.0.7)(markdown-it@13.0.2)
+    version: 8.6.5(@types/markdown-it@13.0.7)(markdown-it@14.0.0)
   markdown-it-link-attributes:
     specifier: ^4.0.1
     version: 4.0.1
@@ -1958,8 +1958,8 @@ packages:
     hasBin: true
     dev: true
 
-  /@stencil/core@4.8.0:
-    resolution: {integrity: sha512-iNEaMiEt9oFZXSjZ7qkdlBpPTzWzBgWM7go8nI8a7V6ZOkmdVhhT0xGQD7OY13v5ZuDoIw5IsGvbIAGefhIhhQ==}
+  /@stencil/core@4.8.1:
+    resolution: {integrity: sha512-KG1H10j24rlyxIqOI4CG8/h9T7ObTv7giW2H3u1qXV4KKrLykDOpMcLzpqNXqL2Fki3s1QvHyl/oaRvi5waWVw==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
@@ -1982,31 +1982,31 @@ packages:
       typescript: 5.0.4
     dev: true
 
-  /@stencil/postcss@2.1.0(@stencil/core@4.8.0):
+  /@stencil/postcss@2.1.0(@stencil/core@4.8.1):
     resolution: {integrity: sha512-/e4TYEXErGaHxH0ocg620YqEMLuMLpK/Wg4MJsiJglrLZCZhU4XCX1N0SwxaIOUbEZ1Zh+AqQ++yMI92ilndEA==}
     peerDependencies:
       '@stencil/core': '>=2.0.0'
     dependencies:
-      '@stencil/core': 4.8.0
+      '@stencil/core': 4.8.1
       autoprefixer: 10.4.16(postcss@8.3.11)
       postcss: 8.3.11
     dev: true
 
-  /@stencil/react-output-target@0.5.3(patch_hash=qntwrldr27pq53gpsshzbfcjzi)(@stencil/core@4.8.0):
+  /@stencil/react-output-target@0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.8.1):
     resolution: {integrity: sha512-68jwRp35CjAcwhTJ9yFD/3n+jrHOqvEH2jreVuPVvZK+4tkhPlYlwz0d1E1RlF3jyifUSfdkWUGgXIEy8Fo3yw==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.8.0
+      '@stencil/core': 4.8.1
     dev: true
     patched: true
 
-  /@stencil/vue-output-target@0.8.6(patch_hash=eb6lfa34opi2q3piixtsbu4b6q)(@stencil/core@4.8.0):
+  /@stencil/vue-output-target@0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.8.1):
     resolution: {integrity: sha512-B1gQW8FWeU7x/KBPm9R28jYFGN5NsZTZR4jwfDMhKBmU1Q2dIxFY52ARhbrfj5tJQxKoxr2tQJD2S14r9t1v7w==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.8.0
+      '@stencil/core': 4.8.1
     dev: true
     patched: true
 
@@ -3161,8 +3161,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001566
-      electron-to-chromium: 1.4.601
+      caniuse-lite: 1.0.30001568
+      electron-to-chromium: 1.4.609
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
     dev: true
@@ -3277,8 +3277,8 @@ packages:
     resolution: {integrity: sha512-NTt0DNoKe958Q0BE0j0c1V9jbUzhBxHIEJy7asmGrpE0yG63KTV7PLHPnK2E1O9RsQrQ081I3NLuXGS6zht3cw==}
     dev: true
 
-  /caniuse-lite@1.0.30001566:
-    resolution: {integrity: sha512-ggIhCsTxmITBAMmK8yZjEhCO5/47jKXPu6Dha/wuCS4JePVL+3uiDEBuhu2aIoT+bqTOR8L76Ip1ARL9xYsEJA==}
+  /caniuse-lite@1.0.30001568:
+    resolution: {integrity: sha512-vSUkH84HontZJ88MiNrOau1EBrCqEQYgkC5gIySiDlpsm8sGVrhU7Kx4V6h0tnqaHzIHZv08HlJIwPbL4XL9+A==}
     dev: true
 
   /capture-exit@2.0.0:
@@ -4449,8 +4449,8 @@ packages:
     resolution: {integrity: sha512-V0ZhSu1BQZKfG0yNEL6Dadzik8E1vAzfpVOapdSiT9F6yapEJ3Bk+4tZ4SMPdWiUchCgnM/ByYtBzp5ntzDMIA==}
     dev: true
 
-  /electron-to-chromium@1.4.601:
-    resolution: {integrity: sha512-SpwUMDWe9tQu8JX5QCO1+p/hChAi9AE9UpoC3rcHVc+gdCGlbT3SGb5I1klgb952HRIyvt9wZhSz9bNBYz9swA==}
+  /electron-to-chromium@1.4.609:
+    resolution: {integrity: sha512-ihiCP7PJmjoGNuLpl7TjNA8pCQWu09vGyjlPYw1Rqww4gvNuCcmvl+44G+2QyJ6S2K4o+wbTS++Xz0YN8Q9ERw==}
     dev: true
 
   /eleventy-plugin-toc@1.1.5:
@@ -7318,6 +7318,12 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
+  /linkify-it@5.0.0:
+    resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
+    dependencies:
+      uc.micro: 2.0.0
+    dev: true
+
   /lint-staged@14.0.0:
     resolution: {integrity: sha512-0tLf0pqZYkar/wu3nTctk4rVIG+d7PanDYv4/IQR4qwdqfQkTDziLRFnqMcLuLBTuUqmcLwsHPD2EjQ18d/oaA==}
     engines: {node: ^16.14.0 || >=18.0.0}
@@ -7660,14 +7666,14 @@ packages:
       object-visit: 1.0.1
     dev: true
 
-  /markdown-it-anchor@8.6.5(@types/markdown-it@13.0.7)(markdown-it@13.0.2):
+  /markdown-it-anchor@8.6.5(@types/markdown-it@13.0.7)(markdown-it@14.0.0):
     resolution: {integrity: sha512-PI1qEHHkTNWT+X6Ip9w+paonfIQ+QZP9sCeMYi47oqhH+EsW8CrJ8J7CzV19QVOj6il8ATGbK2nTECj22ZHGvQ==}
     peerDependencies:
       '@types/markdown-it': '*'
       markdown-it: '*'
     dependencies:
       '@types/markdown-it': 13.0.7
-      markdown-it: 13.0.2
+      markdown-it: 14.0.0
     dev: true
 
   /markdown-it-link-attributes@4.0.1:
@@ -7690,6 +7696,18 @@ packages:
       linkify-it: 4.0.1
       mdurl: 1.0.1
       uc.micro: 1.0.6
+    dev: true
+
+  /markdown-it@14.0.0:
+    resolution: {integrity: sha512-seFjF0FIcPt4P9U39Bq1JYblX0KZCjDLFFQPHpL5AzHpqPEKtosxmdq/LTVZnjfH7tjt9BxStm+wXcDBNuYmzw==}
+    hasBin: true
+    dependencies:
+      argparse: 2.0.1
+      entities: 4.5.0
+      linkify-it: 5.0.0
+      mdurl: 2.0.0
+      punycode.js: 2.3.1
+      uc.micro: 2.0.0
     dev: true
 
   /marked-terminal@5.2.0(marked@5.1.2):
@@ -7737,6 +7755,10 @@ packages:
 
   /mdurl@1.0.1:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
+    dev: true
+
+  /mdurl@2.0.0:
+    resolution: {integrity: sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==}
     dev: true
 
   /memorystream@0.3.1:
@@ -9919,6 +9941,11 @@ packages:
       once: 1.4.0
     dev: true
 
+  /punycode.js@2.3.1:
+    resolution: {integrity: sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA==}
+    engines: {node: '>=6'}
+    dev: true
+
   /punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
@@ -11858,6 +11885,10 @@ packages:
 
   /uc.micro@1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
+    dev: true
+
+  /uc.micro@2.0.0:
+    resolution: {integrity: sha512-DffL94LsNOccVn4hyfRe5rdKa273swqeA5DJpMOeFmEn1wCDc7nAbbB0gXlgBCL7TNzeTv6G7XVWzan7iJtfig==}
     dev: true
 
   /uglify-js@3.17.4:
