@@ -687,10 +687,10 @@ Type: `Promise<void>`
  - [ld-file-upload](../ld-file-upload)
  - [ld-menuitem](../ld-context-menu/ld-menuitem)
  - [ld-pagination](../ld-pagination)
- - [ld-select-file](../ld-file-upload/ld-select-file)
+ - ld-select-file-internal
  - ld-select-popper
  - [ld-table-header](../ld-table/ld-table-header)
- - [ld-upload-item](../ld-file-upload/ld-upload-item)
+ - ld-upload-item-internal
 
 ### Graph
 ```mermaid
@@ -699,10 +699,10 @@ graph TD;
   ld-file-upload --> ld-button
   ld-menuitem --> ld-button
   ld-pagination --> ld-button
-  ld-select-file --> ld-button
+  ld-select-file-internal --> ld-button
   ld-select-popper --> ld-button
   ld-table-header --> ld-button
-  ld-upload-item --> ld-button
+  ld-upload-item-internal --> ld-button
   style ld-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

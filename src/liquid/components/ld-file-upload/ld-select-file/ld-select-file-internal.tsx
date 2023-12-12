@@ -11,21 +11,22 @@ import {
 } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
 import { getAssetPath } from '../../../utils/assetPath'
-import type { UploadItem } from '../ld-file-upload'
+import type { LdUploadItem } from '../ld-file-upload'
 
 let selectFileCount = 0
 
 /**
+ * @internal
  * @virtualProp ref - reference to component
  */
 @Component({
-  tag: 'ld-select-file',
-  styleUrl: 'ld-select-file.css',
+  tag: 'ld-select-file-internal',
+  styleUrl: 'ld-select-file-internal.shadow.css',
   shadow: true,
   assetsDirs: ['assets'],
 })
-export class LdSelectFile {
-  @Element() el: HTMLLdSelectFileElement
+export class LdSelectFileInternal {
+  @Element() el: HTMLLdSelectFileInternalElement
   private idPrefix = `ld-select-file-${++selectFileCount}`
 
   /** Max. file size in bytes */
@@ -49,7 +50,7 @@ export class LdSelectFile {
   @Prop() compact?: boolean = false
 
   /** Selected files from the parent component */
-  @Prop() uploadItems: UploadItem[] = []
+  @Prop() uploadItems: LdUploadItem[] = []
 
   /** Label to be used as a header with instructions for drag and drop or file upload. */
   @Prop() labelDragInstructions = `Drag your file${

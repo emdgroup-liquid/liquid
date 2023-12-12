@@ -1,13 +1,13 @@
 import { newSpecPage } from '@stencil/core/testing'
-import { LdUploadProgress } from '../ld-upload-progress'
+import { LdUploadProgressInternal } from '../ld-upload-progress-internal'
 import '../../../../utils/mutationObserver'
 import { h } from '@stencil/core'
 
 describe('ld-upload-progress', () => {
   it('renders default', async () => {
     const page = await newSpecPage({
-      components: [LdUploadProgress],
-      html: `<ld-upload-progress></ld-upload-progress>`,
+      components: [LdUploadProgressInternal],
+      html: `<ld-upload-progress-internal />`,
     })
     expect(page.root).toMatchSnapshot()
   })
@@ -16,9 +16,9 @@ describe('ld-upload-progress', () => {
 describe('ld-upload-progress', () => {
   it('renders list item', async () => {
     const page = await newSpecPage({
-      components: [LdUploadProgress],
+      components: [LdUploadProgressInternal],
       template: () => (
-        <ld-upload-progress
+        <ld-upload-progress-internal
           uploadItems={[
             {
               file: undefined,
@@ -29,7 +29,7 @@ describe('ld-upload-progress', () => {
               progress: 50,
             },
           ]}
-        ></ld-upload-progress>
+        />
       ),
     })
 

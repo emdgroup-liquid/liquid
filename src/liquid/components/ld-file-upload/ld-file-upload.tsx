@@ -13,7 +13,7 @@ import {
   Fragment,
 } from '@stencil/core'
 
-export type UploadItem = {
+export type LdUploadItem = {
   state:
     | 'pending'
     | 'paused'
@@ -38,7 +38,7 @@ export type UploadItem = {
  */
 @Component({
   tag: 'ld-file-upload',
-  styleUrl: 'ld-file-upload.css',
+  styleUrl: 'ld-file-upload.shadow.css',
   shadow: true,
 })
 export class LdFileUpload {
@@ -171,7 +171,7 @@ export class LdFileUpload {
   @Prop() labelUploadSuccessMsg = `Upload was successful!`
 
   /** Contains all files that have been selected but the upload has not started yet. */
-  @State() allSelectedFiles: UploadItem[] = []
+  @State() allSelectedFiles: LdUploadItem[] = []
 
   /** Names of files that cannot be selected by the user since a file of the same name has been selected already. */
   @State() cannotBeSelected: string[] = []
@@ -180,7 +180,7 @@ export class LdFileUpload {
   @State() exceedMaxFileSize: string[] = []
 
   /** Contains files that have been selected but the upload has not started yet. */
-  @State() lastSelectedFiles: UploadItem[] = []
+  @State() lastSelectedFiles: LdUploadItem[] = []
 
   /** Represents whether the pause all button has been clicked. */
   @State() pauseAllClicked = false
@@ -189,68 +189,68 @@ export class LdFileUpload {
   @State() uploadInitiated = false
 
   /** List of files */
-  @State() uploadItems: UploadItem[] = []
+  @State() uploadItems: LdUploadItem[] = []
 
   /**
    * Emitted after selecting files.
    * UploadItems emitted can be added to the list of selected files by using the addUploadItems() method.
    */
-  @Event() ldselectfiles: EventEmitter<UploadItem[]>
+  @Event() ldselectfiles: EventEmitter<LdUploadItem[]>
 
   /**
    * Emitted on continue all uploads click.
    * UploadItems emitted can be updated using the updateUploadItem() method.
    */
-  @Event() ldfileuploadcontinueuploads: EventEmitter<UploadItem[]>
+  @Event() ldfileuploadcontinueuploads: EventEmitter<LdUploadItem[]>
 
   /**
    * Emitted on pause button click.
    * UploadItem emitted can be updated using the updateUploadItem() method.
    */
-  @Event() lduploaditempause: EventEmitter<UploadItem>
+  @Event() lduploaditempause: EventEmitter<LdUploadItem>
 
   /**
    * Emitted on pause all uploads click.
    * UploadItems emitted can be updated using the updateUploadItem() method.
    */
-  @Event() ldfileuploadpausealluploads: EventEmitter<UploadItem[]>
+  @Event() ldfileuploadpausealluploads: EventEmitter<LdUploadItem[]>
 
   /**
    * Emitted on start upload click or after selecting files, if upload starts immediately after selecting files.
    * UploadItems emitted can be added to the list of selected files by using the addUploadItems() method
    * or updated, if they have been added already, using the updateUploadItem() method.
    */
-  @Event() ldfileuploadready: EventEmitter<UploadItem[]>
+  @Event() ldfileuploadready: EventEmitter<LdUploadItem[]>
 
   /**
    * Emitted on continue button click.
    * UploadItem emitted can be updated using the updateUploadItem() method.
    */
-  @Event() lduploaditemcontinue: EventEmitter<UploadItem>
+  @Event() lduploaditemcontinue: EventEmitter<LdUploadItem>
 
   /**
    * Emitted on delete button click.
    * UploadItem emitted can be updated using the updateUploadItem() method.
    */
-  @Event() lduploaditemdelete: EventEmitter<UploadItem>
+  @Event() lduploaditemdelete: EventEmitter<LdUploadItem>
 
   /**
    * Emitted on download button click.
    * UploadItem emitted can be updated using the updateUploadItem() method.
    */
-  @Event() lduploaditemdownload: EventEmitter<UploadItem>
+  @Event() lduploaditemdownload: EventEmitter<LdUploadItem>
 
   /**
    * Emitted on stop button click.
    * UploadItem emitted can be updated using the updateUploadItem() method.
    */
-  @Event() lduploaditemremove: EventEmitter<UploadItem>
+  @Event() lduploaditemremove: EventEmitter<LdUploadItem>
 
   /**
    * Emitted on retry button click.
    * UploadItem emitted can be updated using the updateUploadItem() method.
    */
-  @Event() lduploaditemretry: EventEmitter<UploadItem>
+  @Event() lduploaditemretry: EventEmitter<LdUploadItem>
 
   @Listen('ldfileuploadready')
   /** After the ldfileuploadready event is emitted, the list of all selected files is cleared */
@@ -276,7 +276,7 @@ export class LdFileUpload {
    * and adds the items to the upload items state.
    */
   @Method()
-  async addUploadItems(uploadItems: UploadItem[]) {
+  async addUploadItems(uploadItems: LdUploadItem[]) {
     if (this.multiple) {
       this.uploadItems = [...this.uploadItems, ...uploadItems]
     } else {
@@ -289,7 +289,7 @@ export class LdFileUpload {
    * and updates the upload item state of items that have been added already.
    */
   @Method()
-  async updateUploadItem(uploadItem: UploadItem) {
+  async updateUploadItem(uploadItem: LdUploadItem) {
     const itemToUpdateIndex = this.uploadItems.findIndex(
       (item) => item.fileName === uploadItem.fileName
     )
@@ -317,7 +317,7 @@ export class LdFileUpload {
    * and deletes the upload item.
    */
   @Method()
-  async deleteUploadItem(uploadItem: UploadItem) {
+  async deleteUploadItem(uploadItem: LdUploadItem) {
     const itemToDeleteIndex = this.uploadItems.findIndex(
       (item) => item.fileName === uploadItem.fileName
     )
@@ -361,7 +361,7 @@ export class LdFileUpload {
     return totalProgress
   }
 
-  private addSelectedFiles(selectedFiles: UploadItem[]) {
+  private addSelectedFiles(selectedFiles: LdUploadItem[]) {
     if (this.multiple) {
       this.allSelectedFiles = [...this.allSelectedFiles, ...selectedFiles]
     } else {
@@ -488,7 +488,7 @@ export class LdFileUpload {
     return (
       <Host class="ld-file-upload">
         {isSelectFilesVisible && (
-          <ld-select-file
+          <ld-select-file-internal
             class="ld-file-upload__select-file"
             onLdselectfiles={this.handleSelectfiles}
             immediate={this.immediate}
@@ -540,7 +540,7 @@ export class LdFileUpload {
 
         {this.uploadItems.length > 0 && (
           <Fragment>
-            <ld-upload-progress
+            <ld-upload-progress-internal
               class="ld-file-upload__progress"
               uploadItems={this.uploadItems}
               allowPause={this.allowPause}

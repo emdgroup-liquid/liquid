@@ -1,8 +1,8 @@
 import { newSpecPage } from '@stencil/core/testing'
-import { LdFileUpload, UploadItem } from '../ld-file-upload'
-import { LdSelectFile } from '../ld-select-file/ld-select-file'
-import { LdUploadProgress } from '../ld-upload-progress/ld-upload-progress'
-import { LdUploadItem } from '../ld-upload-item/ld-upload-item'
+import { LdFileUpload, LdUploadItem } from '../ld-file-upload'
+import { LdSelectFileInternal } from '../ld-select-file/ld-select-file-internal'
+import { LdUploadProgressInternal } from '../ld-upload-progress/ld-upload-progress-internal'
+import { LdUploadItemInternal } from '../ld-upload-item/ld-upload-item-internal'
 import { LdButton } from '../../ld-button/ld-button'
 import '../../../utils/mutationObserver'
 
@@ -10,7 +10,7 @@ describe('ld-file-upload', () => {
   it('renders default', async () => {
     const page = await newSpecPage({
       components: [LdFileUpload],
-      html: `<ld-file-upload></ld-file-upload>`,
+      html: `<ld-file-upload/>`,
     })
     expect(page.root).toMatchSnapshot()
   })
@@ -155,7 +155,7 @@ describe('ld-file-upload', () => {
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
 
-    const data: UploadItem[] = [
+    const data: LdUploadItem[] = [
       {
         file: undefined,
         state: 'uploading',
@@ -203,7 +203,7 @@ describe('ld-file-upload', () => {
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
 
-    const data: UploadItem[] = [
+    const data: LdUploadItem[] = [
       {
         file: undefined,
         state: 'uploading',
@@ -315,7 +315,7 @@ describe('ld-file-upload', () => {
     })
     const ldFileUpload = page.root
     const ldSelectFiles =
-      ldFileUpload.shadowRoot.querySelector<HTMLLdSelectFileElement>(
+      ldFileUpload.shadowRoot.querySelector<HTMLLdSelectFileInternalElement>(
         'ld-select-file[class="ld-file-upload__select-file"]'
       )
 
@@ -325,7 +325,7 @@ describe('ld-file-upload', () => {
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
 
-    const data: UploadItem[] = [
+    const data: LdUploadItem[] = [
       {
         file: undefined,
         state: 'uploading',
@@ -375,9 +375,9 @@ describe('ld-file-upload', () => {
     const page = await newSpecPage({
       components: [
         LdFileUpload,
-        LdSelectFile,
-        LdUploadItem,
-        LdUploadProgress,
+        LdSelectFileInternal,
+        LdUploadItemInternal,
+        LdUploadProgressInternal,
         LdButton,
       ],
       html: `<ld-file-upload show-progress />`,
@@ -390,7 +390,7 @@ describe('ld-file-upload', () => {
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
 
-    const data: UploadItem[] = [
+    const data: LdUploadItem[] = [
       {
         file: undefined,
         state: 'uploading',
@@ -435,7 +435,12 @@ describe('ld-file-upload', () => {
 
   it('removes file using the deleteAllUploadItems method', async () => {
     const page = await newSpecPage({
-      components: [LdFileUpload, LdUploadProgress, LdUploadItem, LdSelectFile],
+      components: [
+        LdFileUpload,
+        LdUploadProgressInternal,
+        LdUploadItemInternal,
+        LdSelectFileInternal,
+      ],
       html: `<ld-file-upload />`,
     })
     const ldFileUpload = page.root as HTMLLdFileUploadElement
@@ -446,7 +451,7 @@ describe('ld-file-upload', () => {
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
 
-    const data: UploadItem[] = [
+    const data: LdUploadItem[] = [
       {
         file: undefined,
         state: 'uploading',
@@ -474,7 +479,12 @@ describe('ld-file-upload', () => {
 
   it('removes file using the deleteUploadItem method', async () => {
     const page = await newSpecPage({
-      components: [LdFileUpload, LdUploadProgress, LdUploadItem, LdSelectFile],
+      components: [
+        LdFileUpload,
+        LdUploadProgressInternal,
+        LdUploadItemInternal,
+        LdSelectFileInternal,
+      ],
       html: `<ld-file-upload />`,
     })
     const ldFileUpload = page.root as HTMLLdFileUploadElement
@@ -485,7 +495,7 @@ describe('ld-file-upload', () => {
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
 
-    const data: UploadItem[] = [
+    const data: LdUploadItem[] = [
       {
         file: undefined,
         state: 'uploading',

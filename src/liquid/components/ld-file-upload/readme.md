@@ -1795,10 +1795,10 @@ File upload:
 
 | Event                         | Description                                                                                                                                                                                                                                                                                       | Type                                                                                                                                                                                                |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ldfileuploadcontinueuploads` | Emitted on continue all uploads click. UploadItems emitted can be updated using the updateUploadItem() method.                                                                                                                                                                                    | `CustomEvent<UploadItem[]>`                                                                                                                                                                         |
-| `ldfileuploadpausealluploads` | Emitted on pause all uploads click. UploadItems emitted can be updated using the updateUploadItem() method.                                                                                                                                                                                       | `CustomEvent<UploadItem[]>`                                                                                                                                                                         |
-| `ldfileuploadready`           | Emitted on start upload click or after selecting files, if upload starts immediately after selecting files. UploadItems emitted can be added to the list of selected files by using the addUploadItems() method or updated, if they have been added already, using the updateUploadItem() method. | `CustomEvent<UploadItem[]>`                                                                                                                                                                         |
-| `ldselectfiles`               | Emitted after selecting files. UploadItems emitted can be added to the list of selected files by using the addUploadItems() method.                                                                                                                                                               | `CustomEvent<UploadItem[]>`                                                                                                                                                                         |
+| `ldfileuploadcontinueuploads` | Emitted on continue all uploads click. UploadItems emitted can be updated using the updateUploadItem() method.                                                                                                                                                                                    | `CustomEvent<LdUploadItem[]>`                                                                                                                                                                       |
+| `ldfileuploadpausealluploads` | Emitted on pause all uploads click. UploadItems emitted can be updated using the updateUploadItem() method.                                                                                                                                                                                       | `CustomEvent<LdUploadItem[]>`                                                                                                                                                                       |
+| `ldfileuploadready`           | Emitted on start upload click or after selecting files, if upload starts immediately after selecting files. UploadItems emitted can be added to the list of selected files by using the addUploadItems() method or updated, if they have been added already, using the updateUploadItem() method. | `CustomEvent<LdUploadItem[]>`                                                                                                                                                                       |
+| `ldselectfiles`               | Emitted after selecting files. UploadItems emitted can be added to the list of selected files by using the addUploadItems() method.                                                                                                                                                               | `CustomEvent<LdUploadItem[]>`                                                                                                                                                                       |
 | `lduploaditemcontinue`        | Emitted on continue button click. UploadItem emitted can be updated using the updateUploadItem() method.                                                                                                                                                                                          | `CustomEvent<{ state: "pending" \| "paused" \| "cancelled" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; fileType: string; progress: number; file: File; }>` |
 | `lduploaditemdelete`          | Emitted on delete button click. UploadItem emitted can be updated using the updateUploadItem() method.                                                                                                                                                                                            | `CustomEvent<{ state: "pending" \| "paused" \| "cancelled" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; fileType: string; progress: number; file: File; }>` |
 | `lduploaditemdownload`        | Emitted on download button click. UploadItem emitted can be updated using the updateUploadItem() method.                                                                                                                                                                                          | `CustomEvent<{ state: "pending" \| "paused" \| "cancelled" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; fileType: string; progress: number; file: File; }>` |
@@ -1809,7 +1809,7 @@ File upload:
 
 ## Methods
 
-### `addUploadItems(uploadItems: UploadItem[]) => Promise<void>`
+### `addUploadItems(uploadItems: LdUploadItem[]) => Promise<void>`
 
 Accepts a file list from component consumer (name, progress, state etc.)
 and adds the items to the upload items state.
@@ -1830,7 +1830,7 @@ Type: `Promise<void>`
 
 
 
-### `deleteUploadItem(uploadItem: UploadItem) => Promise<void>`
+### `deleteUploadItem(uploadItem: LdUploadItem) => Promise<void>`
 
 Accepts a file from component consumer (name, progress, state etc.)
 and deletes the upload item.
@@ -1841,7 +1841,7 @@ Type: `Promise<void>`
 
 
 
-### `updateUploadItem(uploadItem: UploadItem) => Promise<void>`
+### `updateUploadItem(uploadItem: LdUploadItem) => Promise<void>`
 
 Accepts a file from component consumer (name, progress, state etc.)
 and updates the upload item state of items that have been added already.
@@ -1857,29 +1857,29 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [ld-select-file](ld-select-file)
+- ld-select-file-internal
 - [ld-notice](../ld-notice)
-- [ld-upload-progress](ld-upload-progress)
+- ld-upload-progress-internal
 - [ld-button](../ld-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  ld-file-upload --> ld-select-file
+  ld-file-upload --> ld-select-file-internal
   ld-file-upload --> ld-notice
-  ld-file-upload --> ld-upload-progress
+  ld-file-upload --> ld-upload-progress-internal
   ld-file-upload --> ld-button
-  ld-select-file --> ld-typo
-  ld-select-file --> ld-button
+  ld-select-file-internal --> ld-typo
+  ld-select-file-internal --> ld-button
   ld-notice --> ld-icon
   ld-notice --> ld-typo
-  ld-upload-progress --> ld-upload-item
-  ld-upload-item --> ld-icon
-  ld-upload-item --> ld-typo
-  ld-upload-item --> ld-button
-  ld-upload-item --> ld-sr-only
-  ld-upload-item --> ld-progress
-  ld-upload-item --> ld-input-message
+  ld-upload-progress-internal --> ld-upload-item-internal
+  ld-upload-item-internal --> ld-icon
+  ld-upload-item-internal --> ld-typo
+  ld-upload-item-internal --> ld-button
+  ld-upload-item-internal --> ld-sr-only
+  ld-upload-item-internal --> ld-progress
+  ld-upload-item-internal --> ld-input-message
   ld-input-message --> ld-icon
   style ld-file-upload fill:#f9f,stroke:#333,stroke-width:4px
 ```

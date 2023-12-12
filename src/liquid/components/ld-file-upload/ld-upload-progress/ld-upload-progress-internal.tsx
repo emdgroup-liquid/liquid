@@ -1,16 +1,17 @@
 import { Component, Element, h, Host, Prop } from '@stencil/core'
-import type { UploadItem } from '../ld-file-upload'
+import type { LdUploadItem } from '../ld-file-upload'
 
 /**
+ * @internal
  * @virtualProp ref - reference to component
  */
 @Component({
-  tag: 'ld-upload-progress',
-  styleUrl: 'ld-upload-progress.css',
+  tag: 'ld-upload-progress-internal',
+  styleUrl: 'ld-upload-progress-internal.shadow.css',
   shadow: true,
 })
-export class LdUploadProgress {
-  @Element() el: HTMLLdUploadProgressElement
+export class LdUploadProgressInternal {
+  @Element() el: HTMLLdUploadProgressInternalElement
 
   /** Defines whether upload starts immediately after selecting files or after confirmation. */
   @Prop() immediate?: boolean = false
@@ -22,7 +23,7 @@ export class LdUploadProgress {
   @Prop() showProgress?: boolean = false
 
   /** List of files */
-  @Prop() uploadItems: UploadItem[] = []
+  @Prop() uploadItems: LdUploadItem[] = []
 
   /** Label to be used for the tooltip of the remove button. */
   @Prop() labelRemove: string
@@ -48,7 +49,7 @@ export class LdUploadProgress {
   private renderListItems = () =>
     this.uploadItems.map((item) => (
       <li key={item.fileName}>
-        <ld-upload-item
+        <ld-upload-item-internal
           state={item.state}
           fileName={item.fileName}
           fileSize={item.fileSize}

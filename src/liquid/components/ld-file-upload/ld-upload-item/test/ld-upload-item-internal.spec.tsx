@@ -1,24 +1,28 @@
 import { newSpecPage } from '@stencil/core/testing'
-import { LdUploadItem } from '../ld-upload-item'
-import { LdFileUpload, UploadItem } from '../../ld-file-upload'
-import { LdUploadProgress } from '../../ld-upload-progress/ld-upload-progress'
+import { LdUploadItemInternal } from '../ld-upload-item-internal'
+import { LdFileUpload, LdUploadItem } from '../../ld-file-upload'
+import { LdUploadProgressInternal } from '../../ld-upload-progress/ld-upload-progress-internal'
 import '../../../../utils/mutationObserver'
 
 describe('ld-upload-item', () => {
   it('renders default', async () => {
     const page = await newSpecPage({
-      components: [LdUploadItem],
-      html: `<ld-upload-item file-name='Liquid' file-size='1.28'></ld-upload-item>`,
+      components: [LdUploadItemInternal],
+      html: `<ld-upload-item-internal file-name='Liquid' file-size='1.28' />`,
     })
     expect(page.root).toMatchSnapshot()
   })
 
   it('renders with custom icon', async () => {
     const page = await newSpecPage({
-      components: [LdUploadItem, LdUploadProgress, LdFileUpload],
+      components: [
+        LdUploadItemInternal,
+        LdUploadProgressInternal,
+        LdFileUpload,
+      ],
       html: `<ld-file-upload>
-      <ld-icon slot='icons' data-upload-icon='application/pdf' name='pdf' size='lg'></ld-icon>
-      <ld-icon slot='icons' data-upload-icon='text/rtf' name='document' size='lg'></ld-icon>
+        <ld-icon slot='icons' data-upload-icon='application/pdf' name='pdf' size='lg' />
+        <ld-icon slot='icons' data-upload-icon='text/rtf' name='document' size='lg' />
       </ld-file-upload>`,
     })
     const ldFileUpload = page.root
@@ -29,7 +33,7 @@ describe('ld-upload-item', () => {
     const ldfileuploadreadyHandler = jest.fn()
     ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
 
-    const data: UploadItem[] = [
+    const data: LdUploadItem[] = [
       {
         file: undefined,
         state: 'uploading',
@@ -65,9 +69,9 @@ describe('ld-upload-item', () => {
   // TODO: check if node is cloned correctly
   it('clones custom icon', async () => {
     const page = await newSpecPage({
-      components: [LdUploadItem, LdFileUpload],
+      components: [LdUploadItemInternal, LdFileUpload],
       html: `<ld-file-upload>
-      <ld-icon slot='icons' data-upload-icon='application/pdf' name='pdf' size='lg'></ld-icon>
+        <ld-icon slot='icons' data-upload-icon='application/pdf' name='pdf' size='lg' />
       </ld-file-upload>`,
     })
     expect(page.root).toMatchSnapshot()
@@ -76,32 +80,32 @@ describe('ld-upload-item', () => {
   describe('changes state according to props', () => {
     it('changes to state pending', async () => {
       const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item state='pending' file-name='Liquid' file-size='1.28'></ld-upload-item>`,
+        components: [LdUploadItemInternal],
+        html: `<ld-upload-item-internal state='pending' file-name='Liquid' file-size='1.28' />`,
       })
       expect(page.root.state).toBe('pending')
     })
 
     it('changes to state uploading', async () => {
       const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item state='uploading' file-name='Liquid' file-size='1.28'></ld-upload-item>`,
+        components: [LdUploadItemInternal],
+        html: `<ld-upload-item-internal state='uploading' file-name='Liquid' file-size='1.28' />`,
       })
       expect(page.root.state).toBe('uploading')
     })
 
     it('changes to state uploaded', async () => {
       const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item state='uploaded' file-name='Liquid' file-size='1.28'></ld-upload-item>`,
+        components: [LdUploadItemInternal],
+        html: `<ld-upload-item-internal state='uploaded' file-name='Liquid' file-size='1.28' />`,
       })
       expect(page.root.state).toBe('uploaded')
     })
 
     it('changes to state upload failed', async () => {
       const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item state='upload failed' file-name='Liquid' file-size='1.28'></ld-upload-item>`,
+        components: [LdUploadItemInternal],
+        html: `<ld-upload-item-internal state='upload failed' file-name='Liquid' file-size='1.28' />`,
       })
       expect(page.root.state).toBe('upload failed')
     })
@@ -110,8 +114,8 @@ describe('ld-upload-item', () => {
   describe('emits events according to button click', () => {
     it('emits lduploaditemremove event', async () => {
       const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item allow-pause state='pending' file-name='Liquid' file-size='1.28' />`,
+        components: [LdUploadItemInternal],
+        html: `<ld-upload-item-internal allow-pause state='pending' file-name='Liquid' file-size='1.28' />`,
       })
       const ldUploadItem = page.root
       const removeButton =
@@ -133,8 +137,8 @@ describe('ld-upload-item', () => {
 
     it('emits lduploaditemdownload event', async () => {
       const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item allow-pause state='uploaded' file-name='Liquid' file-size='1.28' />`,
+        components: [LdUploadItemInternal],
+        html: `<ld-upload-item-internal allow-pause state='uploaded' file-name='Liquid' file-size='1.28' />`,
       })
       const ldUploadItem = page.root
       const downloadButton =
@@ -156,8 +160,8 @@ describe('ld-upload-item', () => {
 
     it('emits lduploaditemretry event', async () => {
       const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item allow-pause state='upload failed' file-name='Liquid' file-size='1.28' />`,
+        components: [LdUploadItemInternal],
+        html: `<ld-upload-item-internal allow-pause state='upload failed' file-name='Liquid' file-size='1.28' />`,
       })
       const ldUploadItem = page.root
       const retryButton =
@@ -179,8 +183,8 @@ describe('ld-upload-item', () => {
 
     it('emits lduploaditemdelete event', async () => {
       const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item allow-pause state='uploaded' file-name='Liquid' file-size='1.28' />`,
+        components: [LdUploadItemInternal],
+        html: `<ld-upload-item-internal allow-pause state='uploaded' file-name='Liquid' file-size='1.28' />`,
       })
       const ldUploadItem = page.root
       const deleteButton =
@@ -204,8 +208,8 @@ describe('ld-upload-item', () => {
   describe('changes size unit according to props', () => {
     it('changes to size KB', async () => {
       const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item state='pending' file-name='Liquid' file-size='1024'></ld-upload-item>`,
+        components: [LdUploadItemInternal],
+        html: `<ld-upload-item-internal state='pending' file-name='Liquid' file-size='1024' />`,
       })
       const fileSize = page.root.shadowRoot.querySelector<HTMLLdTypoElement>(
         'ld-typo[class="ld-upload-item__file-size"]'
@@ -215,8 +219,8 @@ describe('ld-upload-item', () => {
 
     it('changes to size MB if progress is being shown', async () => {
       const page = await newSpecPage({
-        components: [LdUploadItem],
-        html: `<ld-upload-item show-progress state='uploading' file-name='Liquid' file-size='1048576' progress='0'></ld-upload-item>`,
+        components: [LdUploadItemInternal],
+        html: `<ld-upload-item-internal show-progress state='uploading' file-name='Liquid' file-size='1048576' progress='0' />`,
       })
       const fileSize = page.root.shadowRoot.querySelector<HTMLLdTypoElement>(
         'ld-typo[class="ld-upload-item__file-size"]'

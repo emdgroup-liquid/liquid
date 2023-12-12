@@ -9,18 +9,19 @@ import {
 } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
 import { closest } from '../../../utils/closest'
-import type { UploadItem } from '../ld-file-upload'
+import type { LdUploadItem } from '../ld-file-upload'
 
 /**
+ * @internal
  * @virtualProp ref - reference to component
  */
 @Component({
-  tag: 'ld-upload-item',
-  styleUrl: 'ld-upload-item.css',
+  tag: 'ld-upload-item-internal',
+  styleUrl: 'ld-upload-item-internal.shadow.css',
   shadow: true,
 })
-export class LdUploadItem {
-  @Element() el: HTMLLdUploadItemElement
+export class LdUploadItemInternal {
+  @Element() el: HTMLLdUploadItemInternalElement
 
   /** Defines whether the user will be able to pause uploads. */
   @Prop() allowPause?: boolean
@@ -56,7 +57,7 @@ export class LdUploadItem {
   @Prop() file?: File
 
   /** List of all files currently in component */
-  @Prop() uploadItems: UploadItem[] = []
+  @Prop() uploadItems: LdUploadItem[] = []
 
   /** Label to be used for the tooltip of the remove button. */
   @Prop() labelRemove: string
@@ -83,37 +84,37 @@ export class LdUploadItem {
    * @internal
    * Emitted on pause button click.
    */
-  @Event() lduploaditempause: EventEmitter<UploadItem>
+  @Event() lduploaditempause: EventEmitter<LdUploadItem>
 
   /**
    * @internal
    * Emitted on continue button click.
    */
-  @Event() lduploaditemcontinue: EventEmitter<UploadItem>
+  @Event() lduploaditemcontinue: EventEmitter<LdUploadItem>
 
   /**
    * @internal
    * Emitted on stop button click.
    */
-  @Event() lduploaditemremove: EventEmitter<UploadItem>
+  @Event() lduploaditemremove: EventEmitter<LdUploadItem>
 
   /**
    * @internal
    * Emitted on download button click.
    */
-  @Event() lduploaditemdownload: EventEmitter<UploadItem>
+  @Event() lduploaditemdownload: EventEmitter<LdUploadItem>
 
   /**
    * @internal
    * Emitted on retry button click.
    */
-  @Event() lduploaditemretry: EventEmitter<UploadItem>
+  @Event() lduploaditemretry: EventEmitter<LdUploadItem>
 
   /**
    * @internal
    * Emitted on delete button click.
    */
-  @Event() lduploaditemdelete: EventEmitter<UploadItem>
+  @Event() lduploaditemdelete: EventEmitter<LdUploadItem>
 
   private removeClick = () => {
     this.lduploaditemremove.emit({
