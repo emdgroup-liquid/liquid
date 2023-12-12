@@ -20,7 +20,7 @@ export type LdUploadItem = {
     | 'cancelled'
     | 'uploading'
     | 'uploaded'
-    | 'upload failed'
+    | 'uploadFailed'
   fileName: string
   fileSize: number
   fileType: string
@@ -52,7 +52,8 @@ export class LdFileUpload {
   /** Defines whether the user will be able to pause uploads. */
   @Prop() allowPause?: boolean = false
 
-  /** Defines whether the progress of uploading files will be shown, or only an uploading indicator.
+  /**
+   * Defines whether the progress of uploading files will be shown, or only an uploading indicator.
    * Also defines is exact progress will be shown in uploading progress button, as well as in the upload state area.
    */
   @Prop() showProgress?: boolean = false
@@ -113,55 +114,55 @@ export class LdFileUpload {
   // Labels for ld-file-upload
 
   /** Label to be used for the start upload button. */
-  @Prop() labelStartUpload = `Start upload`
+  @Prop() labelStartUpload = 'Start upload'
 
   /** Label to be used for the (disabled) uploading button. */
-  @Prop() labelUploading = `Uploading`
+  @Prop() labelUploading = 'Uploading'
 
   /** Label to be used for the (disabled) upload completed button. */
-  @Prop() labelUploadCompleted = `Upload completed`
+  @Prop() labelUploadCompleted = 'Upload completed'
 
   /** Label to be used for the pause all uploads button. */
-  @Prop() labelPauseAllUploads = `Pause all uploads`
+  @Prop() labelPauseAllUploads = 'Pause all uploads'
 
   /** Label to be used for the continue paused uploads button. */
-  @Prop() labelContinuePausedUploads = `Continue paused uploads`
+  @Prop() labelContinuePausedUploads = 'Continue paused uploads'
 
   /** Label to be used for the header of error messages. */
-  @Prop() labelErrorHeader = `An error occurred`
+  @Prop() labelErrorHeader = 'An error occurred'
 
   /** Label to be used for the error message that is shown if a file that has already been selected is selected again. */
   @Prop()
   labelFileAlreadySelectedError =
-    `$duplicateFiles cannot be selected since file(s) with the same name(s) has/have been selected already. To upload this/these file(s) please remove the file(s) with the same name(s).`
+    '$duplicateFiles cannot be selected since file(s) with the same name(s) has/have been selected already. To upload this/these file(s) please remove the file(s) with the same name(s).'
 
   /** Label to be used for the error message that is shown if selected file exceeds the maximum file size. */
   @Prop()
   labelmaxFileSizeExceededError =
-    `$filesExceedingmaxFileSize cannot be selected since the file(s) exceed(s) the maximum file size.`
+    '$filesExceedingmaxFileSize cannot be selected since the file(s) exceed(s) the maximum file size.'
 
   // Labels for ld-upload-item
 
-  /** Label to be used for the download button. */
-  @Prop() labelDownload = `Download`
+  /** Label to be used for the cancel button. */
+  @Prop() labelCancel = 'Cancel'
 
-  /** Label to be used for the delete button. */
-  @Prop() labelDelete = `Delete`
+  /** Label to be used for the download button. */
+  @Prop() labelDownload = 'Download'
 
   /** Label to be used for the retry button. */
-  @Prop() labelRetry = `Retry`
+  @Prop() labelRetry = 'Retry'
 
   /** Label to be used for the remove button. */
-  @Prop() labelRemove = `Remove`
+  @Prop() labelRemove = 'Remove'
 
   /** Label to be used for upload cancelled message. */
-  @Prop() labelUploadCancelledMsg = `Upload of this file has been cancelled`
+  @Prop() labelUploadCancelledMsg = 'Upload of this file has been cancelled'
 
   /** Label to be used for upload error message. */
-  @Prop() labelUploadErrorMsg = `Error! Upload was unsuccessful`
+  @Prop() labelUploadErrorMsg = 'Error! Upload was unsuccessful'
 
   /** Label to be used for upload success message. */
-  @Prop() labelUploadSuccessMsg = `Upload was successful!`
+  @Prop() labelUploadSuccessMsg = 'Upload was successful!'
 
   /** Contains all files that have been selected but the upload has not started yet. */
   @State() allSelectedFiles: LdUploadItem[] = []
@@ -222,19 +223,19 @@ export class LdFileUpload {
   @Event() lduploaditemcontinue: EventEmitter<LdUploadItem>
 
   /**
-   * Emitted on delete button click.
-   * UploadItem emitted can be updated using the updateUploadItem() method.
-   */
-  @Event() lduploaditemdelete: EventEmitter<LdUploadItem>
-
-  /**
    * Emitted on download button click.
    * UploadItem emitted can be updated using the updateUploadItem() method.
    */
   @Event() lduploaditemdownload: EventEmitter<LdUploadItem>
 
   /**
-   * Emitted on stop button click.
+   * Emitted on cancel button click.
+   * UploadItem emitted can be updated using the updateUploadItem() method.
+   */
+  @Event() lduploaditemcancel: EventEmitter<LdUploadItem>
+
+  /**
+   * Emitted on remove button click.
    * UploadItem emitted can be updated using the updateUploadItem() method.
    */
   @Event() lduploaditemremove: EventEmitter<LdUploadItem>
@@ -299,31 +300,32 @@ export class LdFileUpload {
     ]
   }
 
-  /** Deletes all UploadItems. */
+  /** Removes all upload items. */
   @Method()
-  async deleteAllUploadItems() {
+  async removeAllUploadItems() {
     this.uploadItems = []
   }
 
-  /**
-   * Accepts a file from component consumer (name, progress, state etc.)
-   * and deletes the upload item.
-   */
-  @Method()
-  async deleteUploadItem(uploadItem: LdUploadItem) {
-    const itemToDeleteIndex = this.uploadItems.findIndex(
+  private removeUploadItemFromList = (
+    list: 'uploadItems' | 'allSelectedFiles',
+    uploadItem: LdUploadItem
+  ) => {
+    const itemToRemoveIndex = this[list].findIndex(
       (item) => item.fileName === uploadItem.fileName
     )
-    if (!itemToDeleteIndex && itemToDeleteIndex !== 0) {
-      throw new Error(
-        `Upload item with name ${uploadItem.fileName} not found in upload list.`
-      )
-    }
+    if (itemToRemoveIndex < 0) return
 
-    this.uploadItems = [
-      ...this.uploadItems.slice(0, itemToDeleteIndex),
-      ...this.uploadItems.slice(itemToDeleteIndex + 1),
+    this[list] = [
+      ...this[list].slice(0, itemToRemoveIndex),
+      ...this[list].slice(itemToRemoveIndex + 1),
     ]
+  }
+
+  /** Removes the upload item. */
+  @Method()
+  async removeUploadItem(uploadItem: LdUploadItem) {
+    this.removeUploadItemFromList('uploadItems', uploadItem)
+    this.removeUploadItemFromList('allSelectedFiles', uploadItem)
   }
 
   @Watch('uploadItems')
@@ -362,6 +364,7 @@ export class LdFileUpload {
     }
   }
 
+  // TODO: refactor using Set or Map
   private removeDuplicates(selectedFiles: FileList) {
     this.lastSelectedFiles = []
     this.cannotBeSelected = []
@@ -533,10 +536,10 @@ export class LdFileUpload {
               uploadItems={this.uploadItems}
               allowPause={this.allowPause}
               showProgress={this.showProgress}
-              labelRemove={this.labelRemove}
+              labelCancel={this.labelCancel}
               labelDownload={this.labelDownload}
               labelRetry={this.labelRetry}
-              labelDelete={this.labelDelete}
+              labelRemove={this.labelRemove}
               labelUploadSuccessMsg={this.labelUploadSuccessMsg}
               labelUploadCancelledMsg={this.labelUploadCancelledMsg}
               labelUploadErrorMsg={this.labelUploadErrorMsg}

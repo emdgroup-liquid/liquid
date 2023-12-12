@@ -33,13 +33,7 @@ export class LdUploadItemInternal {
   @Prop() ldTabindex?: number
 
   /** State of the file. */
-  @Prop() state?:
-    | 'pending'
-    | 'paused'
-    | 'cancelled'
-    | 'uploading'
-    | 'uploaded'
-    | 'upload failed' = 'pending'
+  @Prop() state?: LdUploadItem['state'] = 'pending'
 
   /** Name of the uploaded file. */
   @Prop() fileName: string
@@ -59,17 +53,17 @@ export class LdUploadItemInternal {
   /** List of all files currently in component */
   @Prop() uploadItems: LdUploadItem[] = []
 
-  /** Label to be used for the tooltip of the remove button. */
-  @Prop() labelRemove: string
+  /** Label to be used for the tooltip of the cancel button. */
+  @Prop() labelCancel: string
 
   /** Label to be used for the tooltip of the download button. */
   @Prop() labelDownload: string
 
+  /** Label to be used for the tooltip of the remove button. */
+  @Prop() labelRemove: string
+
   /** Label to be used for the tooltip of the retry button. */
   @Prop() labelRetry: string
-
-  /** Label to be used for the tooltip of the delete button. */
-  @Prop() labelDelete: string
 
   /** Label to be used for upload success message. */
   @Prop() labelUploadSuccessMsg: string
@@ -88,13 +82,19 @@ export class LdUploadItemInternal {
 
   /**
    * @internal
+   * Emitted on cancel button click.
+   */
+  @Event() lduploaditemcancel: EventEmitter<LdUploadItem>
+
+  /**
+   * @internal
    * Emitted on continue button click.
    */
   @Event() lduploaditemcontinue: EventEmitter<LdUploadItem>
 
   /**
    * @internal
-   * Emitted on stop button click.
+   * Emitted on remove button click.
    */
   @Event() lduploaditemremove: EventEmitter<LdUploadItem>
 
@@ -110,14 +110,19 @@ export class LdUploadItemInternal {
    */
   @Event() lduploaditemretry: EventEmitter<LdUploadItem>
 
-  /**
-   * @internal
-   * Emitted on delete button click.
-   */
-  @Event() lduploaditemdelete: EventEmitter<LdUploadItem>
-
   private removeClick = () => {
     this.lduploaditemremove.emit({
+      state: this.state,
+      fileName: this.fileName,
+      fileSize: this.fileSize,
+      fileType: this.fileType,
+      progress: this.progress,
+      file: this.file,
+    })
+  }
+
+  private cancelClick = () => {
+    this.lduploaditemcancel.emit({
       state: this.state,
       fileName: this.fileName,
       fileSize: this.fileSize,
@@ -140,17 +145,6 @@ export class LdUploadItemInternal {
 
   private retryClick = () => {
     this.lduploaditemretry.emit({
-      state: this.state,
-      fileName: this.fileName,
-      fileSize: this.fileSize,
-      fileType: this.fileType,
-      progress: this.progress,
-      file: this.file,
-    })
-  }
-
-  private deleteClick = () => {
-    this.lduploaditemdelete.emit({
       state: this.state,
       fileName: this.fileName,
       fileSize: this.fileSize,
@@ -196,7 +190,7 @@ export class LdUploadItemInternal {
         <div class="ld-upload-item__container">
           <div class="ld-upload-item__icon">
             <slot name="icons">
-              <ld-icon name="documents" size="lg"></ld-icon>
+              <ld-icon name="documents" size="lg" />
             </slot>
           </div>
 
@@ -216,27 +210,42 @@ export class LdUploadItemInternal {
             )}
           </div>
           <div class="ld-upload-item__buttons">
-            {this.state === 'pending' ||
-              this.state === 'paused' ||
-              (this.state === 'uploading' && (
-                <ld-button
-                  class="ld-upload-item__remove-button"
-                  mode="ghost"
+            {['pending', 'cancelled', 'uploaded', 'uploadFailed'].includes(
+              this.state
+            ) && (
+              <ld-button
+                class="ld-upload-item__remove-button"
+                mode="ghost"
+                size="sm"
+                onClick={this.removeClick}
+                slot="trigger"
+              >
+                <ld-icon
+                  class="ld-upload-item__remove-icon"
+                  name="cross"
                   size="sm"
-                  onClick={this.removeClick}
-                  slot="trigger"
-                >
-                  <ld-icon
-                    class="ld-upload-item__remove-icon"
-                    name="cross"
-                    size="sm"
-                    aria-label="Text"
-                  ></ld-icon>
-                  <div class="ld-upload-item__hide-on-sm">
-                    {this.labelRemove}
-                  </div>
-                </ld-button>
-              ))}
+                  aria-label="Text"
+                />
+                <div class="ld-upload-item__hide-on-sm">{this.labelRemove}</div>
+              </ld-button>
+            )}
+            {['paused', 'uploading'].includes(this.state) && (
+              <ld-button
+                class="ld-upload-item__cancel-button"
+                mode="ghost"
+                size="sm"
+                onClick={this.cancelClick}
+                slot="trigger"
+              >
+                <ld-icon
+                  class="ld-upload-item__cancel-icon"
+                  name="cross"
+                  size="sm"
+                  aria-label="Text"
+                />
+                <div class="ld-upload-item__hide-on-sm">{this.labelCancel}</div>
+              </ld-button>
+            )}
             {this.state === 'uploaded' && (
               <ld-button
                 class="ld-upload-item__download-button"
@@ -250,13 +259,13 @@ export class LdUploadItemInternal {
                   name="download"
                   size="sm"
                   aria-label="Text"
-                ></ld-icon>
+                />
                 <div class="ld-upload-item__hide-on-sm">
                   {this.labelDownload}
                 </div>
               </ld-button>
             )}
-            {this.state === 'upload failed' &&
+            {this.state === 'uploadFailed' &&
               this.uploadItems.filter((item) => item.state === 'uploading')
                 .length === 0 && (
                 <ld-button
@@ -271,65 +280,49 @@ export class LdUploadItemInternal {
                     name="refresh"
                     size="sm"
                     aria-label="Text"
-                  ></ld-icon>
+                  />
                   <div class="ld-upload-item__hide-on-sm">
                     {this.labelRetry}
                   </div>
                 </ld-button>
               )}
-            {(this.state === 'cancelled' ||
-              this.state === 'uploaded' ||
-              this.state === 'upload failed') && (
-              <ld-button
-                class="ld-upload-item__delete-button"
-                mode="ghost"
-                size="sm"
-                onClick={this.deleteClick}
-                slot="trigger"
-              >
-                <ld-icon
-                  class="ld-upload-item__delete-icon"
-                  name="bin"
-                  size="sm"
-                  aria-label="Text"
-                ></ld-icon>
-                <div class="ld-upload-item__hide-on-sm">{this.labelDelete}</div>
-              </ld-button>
-            )}
           </div>
         </div>
-        {this.state === 'pending' || this.state === 'uploading' ? (
+        {['pending', 'uploading'].includes(this.state) && (
           <ld-sr-only id="progress-label">Progress</ld-sr-only>
-        ) : undefined}
+        )}
         {activeUploads && this.progress !== 0 ? (
           <ld-progress
             class="ld-upload-item__progress"
             pending={this.state === 'paused'}
             aria-labeledby="progress-label"
             aria-valuenow={this.progress}
-          ></ld-progress>
-        ) : activeUploads && this.progress === 0 ? (
-          <ld-progress
-            class="ld-upload-item__progress"
-            pending
-            aria-labeledby="progress-label"
-            aria-valuetext="indeterminate"
-          ></ld-progress>
-        ) : undefined}
-        {this.state === 'cancelled' ? (
+          />
+        ) : (
+          activeUploads &&
+          this.progress === 0 && (
+            <ld-progress
+              class="ld-upload-item__progress"
+              pending
+              aria-labeledby="progress-label"
+              aria-valuetext="indeterminate"
+            ></ld-progress>
+          )
+        )}
+        {this.state === 'cancelled' && (
           <ld-input-message mode="info">
             {this.labelUploadCancelledMsg}
           </ld-input-message>
-        ) : undefined}
-        {this.state === 'uploaded' ? (
+        )}
+        {this.state === 'uploaded' && (
           <ld-input-message mode="valid">
             {this.labelUploadSuccessMsg}
           </ld-input-message>
-        ) : undefined}
-        {this.state === 'upload failed' ? (
+        )}
+        {this.state === 'uploadFailed' && (
           <ld-input-message>{this.labelUploadErrorMsg}</ld-input-message>
-        ) : undefined}
-        <slot></slot>
+        )}
+        <slot />
       </Host>
     )
   }

@@ -253,9 +253,9 @@ describe('ld-file-upload', () => {
     expect(ldfileuploadcontinueuploadsHandler).toHaveBeenCalled()
   })
 
-  // The delete all files button might be added again at a later time
+  // The remove all files button might be added again at a later time
 
-  // it('emits ldfileuploaddeleteall event on delete all click', async () => {
+  // it('emits ldfileuploadremoveall event on remove all click', async () => {
   //   const page = await newSpecPage({
   //     components: [LdFileUpload],
   //     html: `<ld-file-upload />`,
@@ -268,10 +268,10 @@ describe('ld-file-upload', () => {
   //   const ldfileuploadreadyHandler = jest.fn()
   //   ldFileUpload.addEventListener('ldfileuploadready', ldfileuploadreadyHandler)
 
-  //   const ldfileuploaddeleteallHandler = jest.fn()
+  //   const ldfileuploadremoveallHandler = jest.fn()
   //   ldFileUpload.addEventListener(
-  //     'ldfileuploaddeleteall',
-  //     ldfileuploaddeleteallHandler
+  //     'ldfileuploadremoveall',
+  //     ldfileuploadremoveallHandler
   //   )
 
   //   const data: UploadItem[] = [
@@ -293,18 +293,18 @@ describe('ld-file-upload', () => {
 
   //   await page.waitForChanges()
 
-  //   const deleteAllButton =
+  //   const removeAllButton =
   //     ldFileUpload.shadowRoot.querySelector<HTMLLdButtonElement>(
-  //       'ld-button[class="ld-file-upload__delete-button"]'
+  //       'ld-button[class="ld-file-upload__remove-button"]'
   //     )
 
-  //   deleteAllButton.click()
+  //   removeAllButton.click()
 
-  //   await ldFileUpload.deleteAllUploadItems()
+  //   await ldFileUpload.removeAllUploadItems()
 
   //   await page.waitForChanges()
 
-  //   expect(ldfileuploaddeleteallHandler).toHaveBeenCalled()
+  //   expect(ldfileuploadremoveallHandler).toHaveBeenCalled()
   //   expect(ldFileUpload).not.toHaveClass('ld-file-upload__progress')
   // })
 
@@ -433,7 +433,7 @@ describe('ld-file-upload', () => {
     expect(progressButton2.progress).toBe(0)
   })
 
-  it('removes file using the deleteAllUploadItems method', async () => {
+  it('removes file using the removeAllUploadItems method', async () => {
     const page = await newSpecPage({
       components: [
         LdFileUpload,
@@ -468,7 +468,7 @@ describe('ld-file-upload', () => {
 
     await ldFileUpload.addUploadItems(data)
     await page.waitForChanges()
-    await ldFileUpload.deleteAllUploadItems()
+    await ldFileUpload.removeAllUploadItems()
     await page.waitForChanges()
 
     const ldUploadProgress =
@@ -477,7 +477,7 @@ describe('ld-file-upload', () => {
     expect(ldUploadProgress).toBeNull()
   })
 
-  it('removes file using the deleteUploadItem method', async () => {
+  it('removes file using the removeUploadItem method', async () => {
     const page = await newSpecPage({
       components: [
         LdFileUpload,
@@ -522,7 +522,7 @@ describe('ld-file-upload', () => {
 
     await page.waitForChanges()
 
-    await ldFileUpload.deleteUploadItem(data[0])
+    await ldFileUpload.removeUploadItem(data[0])
 
     await page.waitForChanges()
 

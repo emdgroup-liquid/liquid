@@ -159,6 +159,7 @@ export class LdSelectFileInternal {
       this.highlighted && 'ld-select-file--highlighted',
     ])
 
+    // TODO: the exact function already exists in ld-file-upload.tsx
     const calculateTotalProgress = () => {
       const activeUploads = this.uploadItems.filter(
         (item) =>

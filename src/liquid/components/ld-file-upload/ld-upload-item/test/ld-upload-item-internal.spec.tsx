@@ -105,9 +105,9 @@ describe('ld-upload-item', () => {
     it('changes to state upload failed', async () => {
       const page = await newSpecPage({
         components: [LdUploadItemInternal],
-        html: `<ld-upload-item-internal state='upload failed' file-name='Liquid' file-size='1.28' />`,
+        html: `<ld-upload-item-internal state='uploadFailed' file-name='Liquid' file-size='1.28' />`,
       })
-      expect(page.root.state).toBe('upload failed')
+      expect(page.root.state).toBe('uploadFailed')
     })
   })
 
@@ -161,7 +161,7 @@ describe('ld-upload-item', () => {
     it('emits lduploaditemretry event', async () => {
       const page = await newSpecPage({
         components: [LdUploadItemInternal],
-        html: `<ld-upload-item-internal allow-pause state='upload failed' file-name='Liquid' file-size='1.28' />`,
+        html: `<ld-upload-item-internal allow-pause state='uploadFailed' file-name='Liquid' file-size='1.28' />`,
       })
       const ldUploadItem = page.root
       const retryButton =
@@ -181,27 +181,27 @@ describe('ld-upload-item', () => {
       expect(lduploaditemretryHandler).toHaveBeenCalled()
     })
 
-    it('emits lduploaditemdelete event', async () => {
+    it('emits lduploaditemremove event', async () => {
       const page = await newSpecPage({
         components: [LdUploadItemInternal],
         html: `<ld-upload-item-internal allow-pause state='uploaded' file-name='Liquid' file-size='1.28' />`,
       })
       const ldUploadItem = page.root
-      const deleteButton =
+      const removeButton =
         ldUploadItem.shadowRoot.querySelector<HTMLLdButtonElement>(
-          'ld-button[class="ld-upload-item__delete-button"]'
+          'ld-button[class="ld-upload-item__remove-button"]'
         )
 
-      const lduploaditemdeleteHandler = jest.fn()
+      const lduploaditemremoveHandler = jest.fn()
       ldUploadItem.addEventListener(
-        'lduploaditemdelete',
-        lduploaditemdeleteHandler
+        'lduploaditemremove',
+        lduploaditemremoveHandler
       )
 
-      deleteButton.click()
+      removeButton.click()
       await page.waitForChanges()
 
-      expect(lduploaditemdeleteHandler).toHaveBeenCalled()
+      expect(lduploaditemremoveHandler).toHaveBeenCalled()
     })
   })
 

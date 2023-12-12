@@ -25,17 +25,17 @@ export class LdUploadProgressInternal {
   /** List of files */
   @Prop() uploadItems: LdUploadItem[] = []
 
-  /** Label to be used for the tooltip of the remove button. */
-  @Prop() labelRemove: string
+  /** Label to be used for the tooltip of the cancel button. */
+  @Prop() labelCancel: string
 
   /** Label to be used for the tooltip of the download button. */
   @Prop() labelDownload: string
 
+  /** Label to be used for the tooltip of the remove button. */
+  @Prop() labelRemove: string
+
   /** Label to be used for the tooltip of the retry button. */
   @Prop() labelRetry: string
-
-  /** Label to be used for the tooltip of the delete button. */
-  @Prop() labelDelete: string
 
   /** Label to be used for upload success message. */
   @Prop() labelUploadSuccessMsg: string
@@ -59,10 +59,10 @@ export class LdUploadProgressInternal {
           allowPause={this.allowPause}
           showProgress={this.showProgress}
           uploadItems={this.uploadItems}
-          labelRemove={this.labelRemove}
+          labelCancel={this.labelCancel}
           labelDownload={this.labelDownload}
+          labelRemove={this.labelRemove}
           labelRetry={this.labelRetry}
-          labelDelete={this.labelDelete}
           labelUploadSuccessMsg={this.labelUploadSuccessMsg}
           labelUploadCancelledMsg={this.labelUploadCancelledMsg}
           labelUploadErrorMsg={this.labelUploadErrorMsg}
