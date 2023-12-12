@@ -46,9 +46,6 @@ export class LdSelectFileInternal {
   /** Defines whether the total progress of all uploading files will be shown in the progress button */
   @Prop() showProgress?: boolean = false
 
-  /** Defines whether only one file can be selected and uploaded. */
-  @Prop() compact?: boolean = false
-
   /** Selected files from the parent component */
   @Prop() uploadItems: LdUploadItem[] = []
 
@@ -160,7 +157,6 @@ export class LdSelectFileInternal {
     const cl = getClassNames([
       'ld-select-file',
       this.highlighted && 'ld-select-file--highlighted',
-      this.compact && 'ld-select-file--compact',
     ])
 
     const calculateTotalProgress = () => {
@@ -193,12 +189,7 @@ export class LdSelectFileInternal {
         onDragLeave={this.handleDragLeave}
         onDrop={this.handleDrop}
       >
-        <div
-          class={getClassNames([
-            'ld-select-file__content',
-            this.compact && 'ld-select-file__content--compact',
-          ])}
-        >
+        <div class="ld-select-file__content">
           <img
             class="ld-select-file__image"
             src={getAssetPath('./assets/file-upload.svg')}

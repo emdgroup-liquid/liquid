@@ -59,8 +59,6 @@ export class LdFileUpload {
 
   /** Defines whether selection of multiple input files is allowed. */
   @Prop() multiple?: boolean = false
-  /** Defines whether only one file can be selected and uploaded. */
-  @Prop() compact?: boolean = false
 
   /** Is used to display and validate maximum file size in Bytes */
   @Prop() maxFileSize?: number
@@ -85,11 +83,6 @@ export class LdFileUpload {
   @Prop() labelDragInstructions = `Drag your file${
     this.multiple ? '(s)' : ''
   } here or browse`
-
-  /** Label to be used as a header with instructions for drag and drop or file upload in compact mode. */
-  @Prop() labelDragInstructionsCompact = `or drop file${
-    this.multiple ? 's' : ''
-  }`
 
   /** Label to be used to describe upload constraints like the maximum file size. */
   @Prop() labelUploadConstraints = `${
@@ -495,14 +488,9 @@ export class LdFileUpload {
             multiple={this.multiple}
             startUploadClicked={this.uploadInitiated}
             showProgress={this.showProgress}
-            compact={this.compact}
             uploadItems={this.uploadItems}
             maxFileSize={this.maxFileSize}
-            labelDragInstructions={
-              this.compact
-                ? this.labelDragInstructionsCompact
-                : this.labelDragInstructions
-            }
+            labelDragInstructions={this.labelDragInstructions}
             labelUploadConstraints={this.labelUploadConstraints}
             labelSelectFile={this.labelSelectFile}
             labelUploadFile={this.labelUploadFile}

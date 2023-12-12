@@ -20,14 +20,3 @@
   margin: var(--ld-sp-32) var(--ld-sp-40);
   justify-content: center;
 }
-
-.ld-select-file__content--compact {
-  gap: var(--ld-sp-6);
-  margin: var(--ld-sp-2);
-  flex-direction: row-reverse;
-  padding-right: var(--ld-sp-6);
-
-  .ld-select-file__image {
-    display: none;
-  }
-}

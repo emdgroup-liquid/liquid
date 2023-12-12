@@ -728,89 +728,6 @@ const App = () => {
 
 {% endexample %}
 
-### Compact
-
-{% example %}
-<ld-file-upload immediate compact></ld-file-upload>
-
-<script>
-  ;(() => {
-    const ldUpload = document.currentScript.previousElementSibling
-
-    ldUpload.addEventListener('ldselectfiles', async (ev) => {
-      uploadItems = ev.detail
-      ldUpload.addUploadItems(uploadItems)
-    })
-
-    ldUpload.addEventListener('ldfileuploadready', async (ev) => {
-      uploadItems = ev.detail
-      uploadingItems = []
-      for (let item in uploadItems) {
-        newItem = uploadItems[item]
-        newItem.state = 'uploading'
-        uploadingItems.push(newItem)
-        ldUpload.updateUploadItem(newItem)
-      }
-    })
-
-    ldUpload.addEventListener('lduploaditemremove', async (ev) => {
-      uploadItem = ev.detail
-      uploadItem.state = 'cancelled'
-      ldUpload.updateUploadItem(uploadItem)
-    })
-
-    ldUpload.addEventListener('lduploaditemdelete', async (ev) => {
-      uploadItem = ev.detail
-      ldUpload.deleteUploadItem(uploadItem)
-    })
-  })()
-</script>
-
-<!-- React component -->
-
-const App = () => {
-  const fileUploadRef = useRef(null)
-
-  return (
-    <LdFileUpload
-      ref={fileUploadRef}
-      immediate
-      compact
-      onLdselectfiles={async (ev) => {
-        const uploadItems = ev.detail
-        if (fileUploadRef.current) {
-          fileUploadRef.current.addUploadItems(uploadItems)
-        }
-      } }
-      onLdfileuploadready={async (ev) => {
-        const uploadItems = ev.detail
-        for (const item in uploadItems) {
-          const newItem = uploadItems[item]
-          newItem.state = 'uploading'
-          if (fileUploadRef.current) {
-            fileUploadRef.current.updateUploadItem(newItem)
-          }
-        }
-      } }
-      onLduploaditemremove={async (ev) => {
-        const uploadItem = ev.detail
-        uploadItem.state = 'cancelled'
-        if (fileUploadRef.current) {
-          fileUploadRef.current.updateUploadItem(uploadItem)
-        }
-      } }
-      onLduploaditemdelete={async (ev) => {
-        const uploadItem = ev.detail
-        if (fileUploadRef.current) {
-          fileUploadRef.current.deleteUploadItem(uploadItem)
-        }
-      } }
-    />
-  )
-}
-
-{% endexample %}
-
 ### Allow pause
 
 In `allow-pause` mode, the upload of all files can be paused (and continued) on pause all files click.
@@ -1756,7 +1673,6 @@ File upload:
 | Property                        | Attribute                           | Description                                                                                                                                                                                                    | Type      | Default                                                                                                                                                                                  |
 | ------------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `allowPause`                    | `allow-pause`                       | Defines whether the user will be able to pause uploads.                                                                                                                                                        | `boolean` | `false`                                                                                                                                                                                  |
-| `compact`                       | `compact`                           | Defines whether only one file can be selected and uploaded.                                                                                                                                                    | `boolean` | `false`                                                                                                                                                                                  |
 | `dirname`                       | `dirname`                           | Name of form field to use for sending the element's directionality in form submission.                                                                                                                         | `string`  | `undefined`                                                                                                                                                                              |
 | `form`                          | `form`                              | Associates the control with a form element.                                                                                                                                                                    | `string`  | `undefined`                                                                                                                                                                              |
 | `immediate`                     | `immediate`                         | Defines whether upload starts immediately after selecting files or after confirmation.                                                                                                                         | `boolean` | `false`                                                                                                                                                                                  |
@@ -1764,7 +1680,6 @@ File upload:
 | `labelDelete`                   | `label-delete`                      | Label to be used for the delete button.                                                                                                                                                                        | `string`  | ``Delete``                                                                                                                                                                               |
 | `labelDownload`                 | `label-download`                    | Label to be used for the download button.                                                                                                                                                                      | `string`  | ``Download``                                                                                                                                                                             |
 | `labelDragInstructions`         | `label-drag-instructions`           | Label to be used as a header with instructions for drag and drop or file upload.                                                                                                                               | `string`  | ``Drag your file${     this.multiple ? '(s)' : ''   } here or browse``                                                                                                                   |
-| `labelDragInstructionsCompact`  | `label-drag-instructions-compact`   | Label to be used as a header with instructions for drag and drop or file upload in compact mode.                                                                                                               | `string`  | ``or drop file${     this.multiple ? 's' : ''   }``                                                                                                                                      |
 | `labelErrorHeader`              | `label-error-header`                | Label to be used for the header of error messages.                                                                                                                                                             | `string`  | ``An error occurred``                                                                                                                                                                    |
 | `labelFileAlreadySelectedError` | `label-file-already-selected-error` | Label to be used for the error message that is shown if a file that has already been selected is selected again.                                                                                               | `string`  | ``$duplicateFiles cannot be selected since file(s) with the same name(s) has/have been selected already. To upload this/these file(s) please remove the file(s) with the same name(s).`` |
 | `labelPauseAllUploads`          | `label-pause-all-uploads`           | Label to be used for the pause all uploads button.                                                                                                                                                             | `string`  | ``Pause all uploads``                                                                                                                                                                    |
