@@ -83,7 +83,7 @@ export class LdFileUpload {
   /** Label to be used as a header with instructions for drag and drop or file upload. */
   @Prop() labelDragInstructions = `Drag your file${
     this.multiple ? '(s)' : ''
-  } here or browse`
+  } here`
 
   /** Label to be used to describe upload constraints like the maximum file size. */
   @Prop() labelUploadConstraints = `${

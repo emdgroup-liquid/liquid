@@ -893,11 +893,11 @@ You can change all lables of the component using the `label-*` attributes.
   label-continue-paused-uploads="Pausierte Uploads fortführen"
   label-delete="Löschen"
   label-download="Herunterladen"
-  label-drag-instructions="Dateien hierher ziehen oder auswählen"
+  label-drag-instructions="Dateien hierher ziehen"
   label-error-header="Ein Fehler ist aufgetreten"
   label-file-already-selected-error="$duplicateFiles können nicht ausgewählt werden, da Dateien mit den gleichen Namen bereits ausgewählt wurden. Um diese Dateien dennoch hochzuladen müssen die Dateien mit den gleichen Namen entfernt werden."
   label-max-file-size-exceeded-error="$filesExceedingmaxFileSize können nicht ausgewählt werden, da die Dateien die maximale Dateigröße überschreiten."
-  label-select-file="Dateien auswählen"
+  label-select-file="Auswählen"
   label-start-upload="Upload beginnen"
   label-pause-all-uploads="Alle Uploads pausieren"
   label-remove="Entfernen"
@@ -1024,7 +1024,7 @@ const App = () => {
 | `labelCancel`                   | `label-cancel`                      | Label to be used for the cancel button.                                                                                                                                                                        | `string`           | `'Cancel'`                                                                                                                                                                               |
 | `labelContinuePausedUploads`    | `label-continue-paused-uploads`     | Label to be used for the continue paused uploads button.                                                                                                                                                       | `string`           | `'Continue paused uploads'`                                                                                                                                                              |
 | `labelDownload`                 | `label-download`                    | Label to be used for the download button.                                                                                                                                                                      | `string`           | `'Download'`                                                                                                                                                                             |
-| `labelDragInstructions`         | `label-drag-instructions`           | Label to be used as a header with instructions for drag and drop or file upload.                                                                                                                               | `string`           | ``Drag your file${     this.multiple ? '(s)' : ''   } here or browse``                                                                                                                   |
+| `labelDragInstructions`         | `label-drag-instructions`           | Label to be used as a header with instructions for drag and drop or file upload.                                                                                                                               | `string`           | ``Drag your file${     this.multiple ? '(s)' : ''   } here``                                                                                                                             |
 | `labelErrorHeader`              | `label-error-header`                | Label to be used for the header of error messages.                                                                                                                                                             | `string`           | `'An error occurred'`                                                                                                                                                                    |
 | `labelFileAlreadySelectedError` | `label-file-already-selected-error` | Label to be used for the error message that is shown if a file that has already been selected is selected again.                                                                                               | `string`           | `'$duplicateFiles cannot be selected since file(s) with the same name(s) has/have been selected already. To upload this/these file(s) please remove the file(s) with the same name(s).'` |
 | `labelPauseAllUploads`          | `label-pause-all-uploads`           | Label to be used for the pause all uploads button.                                                                                                                                                             | `string`           | `'Pause all uploads'`                                                                                                                                                                    |
@@ -1150,6 +1150,7 @@ graph TD;
   ld-file-upload --> ld-button
   ld-select-file-internal --> ld-typo
   ld-select-file-internal --> ld-button
+  ld-select-file-internal --> ld-icon
   ld-notice --> ld-icon
   ld-notice --> ld-typo
   ld-upload-progress-internal --> ld-upload-item-internal

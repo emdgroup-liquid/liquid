@@ -167,35 +167,46 @@ export class LdSelectFileInternal {
         onDragLeave={this.handleDragLeave}
         onDrop={this.handleDrop}
       >
-        <div class="ld-select-file__content">
+        <div class="ld-select-file__container">
           <img
             class="ld-select-file__image"
             src={getAssetPath('./assets/file-upload.svg')}
             alt=""
-            width="142"
-            height="122"
+            width="55"
+            height="46"
           />
 
           {this.immediate || (!this.immediate && !this.startUploadClicked) ? (
             <Fragment>
-              <ld-typo id={`${this.idPrefix}-instructions`} variant="h5">
-                {this.labelDragInstructions}
-              </ld-typo>
-              {this.labelUploadConstraints !== '' && (
-                <ld-typo>
-                  {this.labelUploadConstraints.replace(
-                    '$maxFileSize',
-                    this.bytesToSize(this.maxFileSize)
-                  )}
+              <div class="ld-select-file__instructions-container">
+                <ld-typo
+                  class="ld-select-file__instructions"
+                  id={`${this.idPrefix}-instructions`}
+                  variant="label-s"
+                >
+                  {this.labelDragInstructions}
                 </ld-typo>
-              )}
-              <slot></slot>
+                {this.labelUploadConstraints !== '' && (
+                  <ld-typo
+                    class="ld-select-file__constraints"
+                    variant="label-s"
+                  >
+                    {this.labelUploadConstraints.replace(
+                      '$maxFileSize',
+                      this.bytesToSize(this.maxFileSize)
+                    )}
+                  </ld-typo>
+                )}
+              </div>
+              <slot />
               <ld-button
                 aria-labelledby={`${this.idPrefix}-instructions`}
                 class="ld-select-file__upload-button"
                 size="sm"
+                mode="ghost"
                 onClick={this.handleUploadClick}
               >
+                <ld-icon name="upload" size="sm" />
                 {this.immediate ? this.labelUploadFile : this.labelSelectFile}
               </ld-button>
             </Fragment>

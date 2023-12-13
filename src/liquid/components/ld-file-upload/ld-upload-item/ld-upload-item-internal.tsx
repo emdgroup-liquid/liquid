@@ -195,10 +195,14 @@ export class LdUploadItemInternal {
           </div>
 
           <div class="ld-upload-item__file-details">
-            <ld-typo class="ld-upload-item__file-name" variant="h5">
+            <ld-typo
+              class="ld-upload-item__file-name"
+              title={this.fileName}
+              variant="label-s"
+            >
               {this.fileName}
             </ld-typo>
-            <ld-typo class="ld-upload-item__file-size">
+            <ld-typo class="ld-upload-item__file-size" variant="label-s">
               {this.state === 'uploaded' || !this.showProgress
                 ? this.bytesToSize(this.fileSize)
                 : `${this.bytesToSize(
