@@ -44,7 +44,7 @@ export class LdSelectFileInternal {
   @Prop() multiple?: boolean = false
 
   /** Defines whether the total progress of all uploading files will be shown in the progress button */
-  @Prop() showProgress?: boolean = false
+  @Prop() progress?: 'pending' | number
 
   /** Selected files from the parent component */
   @Prop() uploadItems: LdUploadItem[] = []
@@ -96,12 +96,12 @@ export class LdSelectFileInternal {
 
     let sizeIndex = 0
 
-    while (bytes >= 1024 && sizeIndex < sizes.length - 1) {
-      bytes /= 1024
+    while (bytes >= 1000 && sizeIndex < sizes.length - 1) {
+      bytes /= 1000
       sizeIndex++
     }
 
-    const roundedSize = bytes.toFixed(2)
+    const roundedSize = bytes % 1 > 0 ? bytes.toFixed(2) : bytes
 
     return `${roundedSize} ${sizes[sizeIndex]}`
   }
@@ -159,29 +159,6 @@ export class LdSelectFileInternal {
       this.highlighted && 'ld-select-file--highlighted',
     ])
 
-    // TODO: the exact function already exists in ld-file-upload.tsx
-    const calculateTotalProgress = () => {
-      const activeUploads = this.uploadItems.filter(
-        (item) =>
-          item.state === 'pending' ||
-          item.state === 'paused' ||
-          item.state === 'uploading' ||
-          item.state === 'uploaded'
-      )
-      const totalSizeSum = activeUploads.reduce(
-        (partialSum, file) => partialSum + file.fileSize,
-        0
-      )
-      const uploadedSizeSum = activeUploads.reduce(
-        (partialSum, file) =>
-          partialSum + file.fileSize * (file.progress / 100),
-        0
-      )
-      const totalProgress = uploadedSizeSum / totalSizeSum || 0
-      // returns total progress between 0 and 1
-      return totalProgress
-    }
-
     return (
       <Host
         class={cl}
@@ -237,14 +214,14 @@ export class LdSelectFileInternal {
                   )
                   .replace('$filesTotal', String(this.uploadItems.length))}
               </ld-typo>
-              {this.showProgress ? (
+              {typeof this.progress === 'number' && (
                 <ld-typo>
                   {this.labelUploadPercentage.replace(
                     '$uploadProgress',
-                    String((calculateTotalProgress() * 100).toFixed(2))
+                    String((this.progress * 100).toFixed(2))
                   )}
                 </ld-typo>
-              ) : undefined}
+              )}
             </Fragment>
           )}
         </div>

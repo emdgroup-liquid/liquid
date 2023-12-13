@@ -198,16 +198,13 @@ export class LdUploadItemInternal {
             <ld-typo class="ld-upload-item__file-name" variant="h5">
               {this.fileName}
             </ld-typo>
-            {this.state === 'uploaded' || !this.showProgress ? (
-              <ld-typo class="ld-upload-item__file-size">
-                {this.bytesToSize(this.fileSize)}
-              </ld-typo>
-            ) : (
-              <ld-typo class="ld-upload-item__file-size">
-                {this.bytesToSize(this.fileSize * (this.progress / 100))} /{' '}
-                {this.bytesToSize(this.fileSize)}
-              </ld-typo>
-            )}
+            <ld-typo class="ld-upload-item__file-size">
+              {this.state === 'uploaded' || !this.showProgress
+                ? this.bytesToSize(this.fileSize)
+                : `${this.bytesToSize(
+                    this.fileSize * (this.progress / 100)
+                  )} / ${this.bytesToSize(this.fileSize)}`}
+            </ld-typo>
           </div>
           <div class="ld-upload-item__buttons">
             {['pending', 'cancelled', 'uploaded', 'uploadFailed'].includes(
