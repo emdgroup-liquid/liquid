@@ -1,2 +1,0 @@
-import{r as o,h as s}from"./p-6323efdb.js";const t=":host{display:contents}";const r=class{constructor(s){o(this,s);this.span=undefined}render(){return s("colgroup",{class:"ld-table-colgroup",span:this.span,part:"colgroup"},s("slot",null))}};r.style=t;export{r as ld_table_colgroup};
-//# sourceMappingURL=p-c957504f.entry.js.map

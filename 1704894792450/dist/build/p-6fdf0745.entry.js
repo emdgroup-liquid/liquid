@@ -1,0 +1,2 @@
+import{r as s,h as t,H as r,g as n}from"./p-21a69c18.js";const e="";const o=class{constructor(t){s(this,t);this.label=undefined;this.disabled=undefined}render(){return t(r,null,t("slot",null))}get el(){return n(this)}};o.style=e;export{o as ld_optgroup};
+//# sourceMappingURL=p-6fdf0745.entry.js.map
