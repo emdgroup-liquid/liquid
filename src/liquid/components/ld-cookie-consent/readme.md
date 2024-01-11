@@ -1378,6 +1378,12 @@ Type: `Promise<void>`
 
 Returns true if cookie category has been accepted.
 
+#### Parameters
+
+| Name             | Type     | Description |
+| ---------------- | -------- | ----------- |
+| `cookieCategory` | `string` |             |
+
 #### Returns
 
 Type: `Promise<boolean>`
@@ -1387,6 +1393,12 @@ Type: `Promise<boolean>`
 ### `showDisclaimer(delay?: number) => Promise<void>`
 
 Shows cookie consent disclaimer.
+
+#### Parameters
+
+| Name    | Type     | Description |
+| ------- | -------- | ----------- |
+| `delay` | `number` |             |
 
 #### Returns
 
