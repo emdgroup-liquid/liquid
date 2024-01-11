@@ -33,6 +33,12 @@ Please refer to the [`ld-sidenav` documentation](components/ld-sidenav/#ld-siden
 
 Scrolls the subnav scroll container to the top.
 
+#### Parameters
+
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| `smoothly` | `boolean` |             |
+
 #### Returns
 
 Type: `Promise<void>`

@@ -1,10 +1,16 @@
-module.exports = {
+import stylelintDeclarationStrictValue from 'stylelint-declaration-strict-value'
+import stylelintHighPerformanceAnimation from 'stylelint-high-performance-animation'
+import stylelintNoUnsupportedBrowserFeatures from 'stylelint-no-unsupported-browser-features'
+import stylelintUseNesting from 'stylelint-use-nesting'
+import packageJson from '../package.json' assert { type: 'json' }
+
+export default {
   extends: ['stylelint-config-standard'],
   plugins: [
-    'stylelint-declaration-strict-value',
-    'stylelint-high-performance-animation',
-    'stylelint-no-unsupported-browser-features',
-    'stylelint-use-nesting',
+    stylelintDeclarationStrictValue,
+    stylelintHighPerformanceAnimation,
+    stylelintNoUnsupportedBrowserFeatures,
+    stylelintUseNesting,
   ],
   rules: {
     'rule-empty-line-before': null,
@@ -30,7 +36,7 @@ module.exports = {
     'plugin/no-unsupported-browser-features': [
       true,
       {
-        browsers: require('../package.json').browserslist,
+        browsers: packageJson.browserslist,
         ignorePartialSupport: true,
         // Most of the stuff below is QQ browser related.
         ignore: [

@@ -673,6 +673,12 @@ return (
 
 Set selected tab to a certain index
 
+#### Parameters
+
+| Name         | Type               | Description |
+| ------------ | ------------------ | ----------- |
+| `identifier` | `string \| number` |             |
+
 #### Returns
 
 Type: `Promise<void>`

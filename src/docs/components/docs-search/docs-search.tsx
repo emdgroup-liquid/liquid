@@ -1,6 +1,6 @@
 import 'wicg-inert'
 import { Component, h, Listen, State, Host } from '@stencil/core'
-import Fuse from 'fuse.js'
+import Fuse, { FuseResult } from 'fuse.js'
 import eventBus from '../../utils/eventBus'
 import { SearchEventType } from '../../utils/eventTypes'
 
@@ -24,7 +24,7 @@ export class DocsSearch {
   private searchResults!: HTMLOListElement
   private fuse: Fuse<SearchResult>
 
-  @State() results: Fuse.FuseResult<SearchResult>[] = []
+  @State() results: FuseResult<SearchResult>[] = []
   @State() isActive: boolean
 
   @Listen('click', { capture: true })
