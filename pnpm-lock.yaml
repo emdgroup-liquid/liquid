@@ -17,8 +17,8 @@ patchedDependencies:
 
 dependencies:
   '@stencil/core':
-    specifier: ~4.11.0
-    version: 4.11.0
+    specifier: ~4.12.0
+    version: 4.12.0
   dompurify:
     specifier: ^3.0.1
     version: 3.0.8
@@ -77,13 +77,13 @@ devDependencies:
     version: 0.4.0(@typescript-eslint/eslint-plugin@6.18.0)(@typescript-eslint/parser@6.18.0)(eslint-plugin-react@7.33.2)(eslint@8.56.0)(typescript@5.3.3)
   '@stencil/postcss':
     specifier: ^2.1.0
-    version: 2.1.0(@stencil/core@4.11.0)
+    version: 2.1.0(@stencil/core@4.12.0)
   '@stencil/react-output-target':
     specifier: ^0.5.3
-    version: 0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.11.0)
+    version: 0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.12.0)
   '@stencil/vue-output-target':
     specifier: ^0.8.6
-    version: 0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.11.0)
+    version: 0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.12.0)
   '@types/jest':
     specifier: ^26.0.24
     version: 26.0.24
@@ -2000,8 +2000,8 @@ packages:
     hasBin: true
     dev: true
 
-  /@stencil/core@4.11.0:
-    resolution: {integrity: sha512-zsKhgIkTGo+s7IthitxR/MKiMS3Ck1yIypOdXr0aE6ofboKqe9NdffTcxZ0vel0wD2bZYOb6WfPMzuhRKk6+FA==}
+  /@stencil/core@4.12.0:
+    resolution: {integrity: sha512-qAQcfNmp2sdxAh1DlyUhHfDmIUS7mhI+5LAhPphg74zK9sKgFL5vpLzgjs0wohpjlmI4msgJFYiRB8lxVPqjPg==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
@@ -2024,31 +2024,31 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /@stencil/postcss@2.1.0(@stencil/core@4.11.0):
+  /@stencil/postcss@2.1.0(@stencil/core@4.12.0):
     resolution: {integrity: sha512-/e4TYEXErGaHxH0ocg620YqEMLuMLpK/Wg4MJsiJglrLZCZhU4XCX1N0SwxaIOUbEZ1Zh+AqQ++yMI92ilndEA==}
     peerDependencies:
       '@stencil/core': '>=2.0.0'
     dependencies:
-      '@stencil/core': 4.11.0
+      '@stencil/core': 4.12.0
       autoprefixer: 10.4.16(postcss@8.3.11)
       postcss: 8.3.11
     dev: true
 
-  /@stencil/react-output-target@0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.11.0):
+  /@stencil/react-output-target@0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.12.0):
     resolution: {integrity: sha512-68jwRp35CjAcwhTJ9yFD/3n+jrHOqvEH2jreVuPVvZK+4tkhPlYlwz0d1E1RlF3jyifUSfdkWUGgXIEy8Fo3yw==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.11.0
+      '@stencil/core': 4.12.0
     dev: true
     patched: true
 
-  /@stencil/vue-output-target@0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.11.0):
+  /@stencil/vue-output-target@0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.12.0):
     resolution: {integrity: sha512-B1gQW8FWeU7x/KBPm9R28jYFGN5NsZTZR4jwfDMhKBmU1Q2dIxFY52ARhbrfj5tJQxKoxr2tQJD2S14r9t1v7w==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.11.0
+      '@stencil/core': 4.12.0
     dev: true
     patched: true
 
@@ -3182,8 +3182,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001581
-      electron-to-chromium: 1.4.648
+      caniuse-lite: 1.0.30001584
+      electron-to-chromium: 1.4.656
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
     dev: true
@@ -3291,8 +3291,8 @@ packages:
     resolution: {integrity: sha512-ff5BdakGe2P3SQsMsiqmt1Lc8221NR1VzHj5jXN5vBny9A6fpze94HiVV/n7XRosOlsShJcvMv5mdnpjOGCEgg==}
     dev: true
 
-  /caniuse-lite@1.0.30001581:
-    resolution: {integrity: sha512-whlTkwhqV2tUmP3oYhtNfaWGYHDdS3JYFQBKXxcUR9qqPWsRhFHhoISO2Xnl/g0xyKzht9mI1LZpiNWfMzHixQ==}
+  /caniuse-lite@1.0.30001584:
+    resolution: {integrity: sha512-LOz7CCQ9M1G7OjJOF9/mzmqmj3jE/7VOmrfw6Mgs0E8cjOsbRXQJHsPBfmBOXDskXKrHLyyW3n7kpDW/4BsfpQ==}
     dev: true
 
   /capture-exit@2.0.0:
@@ -4376,8 +4376,8 @@ packages:
     resolution: {integrity: sha512-lKoz10iCYlP1WtRYdh5MvocQPWVRoI7ysp6qf18bmeBgR8abE6+I2CsfyNKztRDZvhdWc+krKT6wS7Neg8sw3A==}
     dev: true
 
-  /electron-to-chromium@1.4.648:
-    resolution: {integrity: sha512-EmFMarXeqJp9cUKu/QEciEApn0S/xRcpZWuAm32U7NgoZCimjsilKXHRO9saeEW55eHZagIDg6XTUOv32w9pjg==}
+  /electron-to-chromium@1.4.656:
+    resolution: {integrity: sha512-9AQB5eFTHyR3Gvt2t/NwR0le2jBSUNwCnMbUCejFWHD+so4tH40/dRLgoE+jxlPeWS43XJewyvCv+I8LPMl49Q==}
     dev: true
 
   /eleventy-plugin-toc@1.1.5:
