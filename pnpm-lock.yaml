@@ -18,7 +18,7 @@ patchedDependencies:
 dependencies:
   '@stencil/core':
     specifier: ~4.12.0
-    version: 4.12.1
+    version: 4.12.2
   dompurify:
     specifier: ^3.0.1
     version: 3.0.8
@@ -77,13 +77,13 @@ devDependencies:
     version: 0.4.0(@typescript-eslint/eslint-plugin@6.18.0)(@typescript-eslint/parser@6.18.0)(eslint-plugin-react@7.33.2)(eslint@8.56.0)(typescript@5.3.3)
   '@stencil/postcss':
     specifier: ^2.1.0
-    version: 2.1.0(@stencil/core@4.12.1)
+    version: 2.1.0(@stencil/core@4.12.2)
   '@stencil/react-output-target':
     specifier: ^0.5.3
-    version: 0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.12.1)
+    version: 0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.12.2)
   '@stencil/vue-output-target':
     specifier: ^0.8.6
-    version: 0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.12.1)
+    version: 0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.12.2)
   '@types/jest':
     specifier: ^26.0.24
     version: 26.0.24
@@ -212,7 +212,7 @@ devDependencies:
     version: 6.0.1(postcss@8.4.33)
   postcss-normalize:
     specifier: ^10.0.1
-    version: 10.0.1(browserslist@4.22.3)(postcss@8.4.33)
+    version: 10.0.1(browserslist@4.23.0)(postcss@8.4.33)
   postcss-preset-env:
     specifier: ^9.0.0
     version: 9.3.0(postcss@8.4.33)
@@ -2000,8 +2000,8 @@ packages:
     hasBin: true
     dev: true
 
-  /@stencil/core@4.12.1:
-    resolution: {integrity: sha512-l7UUCEV+4Yr1i6BL2DGSQPAzM3x/V4Fx9n9Z0/gdAgX11I25xY0MnH5jbQ69ug6ms/8KUV6SouS1R7MjjM/JnQ==}
+  /@stencil/core@4.12.2:
+    resolution: {integrity: sha512-WEMpoqwMV4hY/ab2z9NxRhSeZwuKEugjyn6Vd+qA9xqZh6VNUL27QbP8vCa7IeqD4Zql4JBtKu3lVuBHutWE6w==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
@@ -2024,31 +2024,31 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /@stencil/postcss@2.1.0(@stencil/core@4.12.1):
+  /@stencil/postcss@2.1.0(@stencil/core@4.12.2):
     resolution: {integrity: sha512-/e4TYEXErGaHxH0ocg620YqEMLuMLpK/Wg4MJsiJglrLZCZhU4XCX1N0SwxaIOUbEZ1Zh+AqQ++yMI92ilndEA==}
     peerDependencies:
       '@stencil/core': '>=2.0.0'
     dependencies:
-      '@stencil/core': 4.12.1
+      '@stencil/core': 4.12.2
       autoprefixer: 10.4.16(postcss@8.3.11)
       postcss: 8.3.11
     dev: true
 
-  /@stencil/react-output-target@0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.12.1):
+  /@stencil/react-output-target@0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.12.2):
     resolution: {integrity: sha512-68jwRp35CjAcwhTJ9yFD/3n+jrHOqvEH2jreVuPVvZK+4tkhPlYlwz0d1E1RlF3jyifUSfdkWUGgXIEy8Fo3yw==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.12.1
+      '@stencil/core': 4.12.2
     dev: true
     patched: true
 
-  /@stencil/vue-output-target@0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.12.1):
+  /@stencil/vue-output-target@0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.12.2):
     resolution: {integrity: sha512-B1gQW8FWeU7x/KBPm9R28jYFGN5NsZTZR4jwfDMhKBmU1Q2dIxFY52ARhbrfj5tJQxKoxr2tQJD2S14r9t1v7w==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.12.1
+      '@stencil/core': 4.12.2
     dev: true
     patched: true
 
@@ -3177,15 +3177,15 @@ packages:
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
     dev: true
 
-  /browserslist@4.22.3:
-    resolution: {integrity: sha512-UAp55yfwNv0klWNapjs/ktHoguxuQNGnOzxYmfnXIS+8AsRDZkSDxg7R1AX3GKzn078SBI5dzwzj/Yx0Or0e3A==}
+  /browserslist@4.23.0:
+    resolution: {integrity: sha512-QW8HiM1shhT2GuzkvklfjcKDiWFXHOeFCIA/huJPwHsslwcydgk7X+z2zXpEijP98UCY7HbubZt5J2Zgvf0CaQ==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001587
-      electron-to-chromium: 1.4.665
+      caniuse-lite: 1.0.30001588
+      electron-to-chromium: 1.4.673
       node-releases: 2.0.14
-      update-browserslist-db: 1.0.13(browserslist@4.22.3)
+      update-browserslist-db: 1.0.13(browserslist@4.23.0)
     dev: true
 
   /bs-logger@0.2.6:
@@ -3291,8 +3291,8 @@ packages:
     resolution: {integrity: sha512-ff5BdakGe2P3SQsMsiqmt1Lc8221NR1VzHj5jXN5vBny9A6fpze94HiVV/n7XRosOlsShJcvMv5mdnpjOGCEgg==}
     dev: true
 
-  /caniuse-lite@1.0.30001587:
-    resolution: {integrity: sha512-HMFNotUmLXn71BQxg8cijvqxnIAofforZOwGsxyXJ0qugTdspUF4sPSJ2vhgprHCB996tIDzEq1ubumPDV8ULA==}
+  /caniuse-lite@1.0.30001588:
+    resolution: {integrity: sha512-+hVY9jE44uKLkH0SrUTqxjxqNTOWHsbnQDIKjwkZ3lNTzUUVdBLBGXtj/q5Mp5u98r3droaZAewQuEDzjQdZlQ==}
     dev: true
 
   /capture-exit@2.0.0:
@@ -4376,8 +4376,8 @@ packages:
     resolution: {integrity: sha512-lKoz10iCYlP1WtRYdh5MvocQPWVRoI7ysp6qf18bmeBgR8abE6+I2CsfyNKztRDZvhdWc+krKT6wS7Neg8sw3A==}
     dev: true
 
-  /electron-to-chromium@1.4.665:
-    resolution: {integrity: sha512-UpyCWObBoD+nSZgOC2ToaIdZB0r9GhqT2WahPKiSki6ckkSuKhQNso8V2PrFcHBMleI/eqbKgVQgVC4Wni4ilw==}
+  /electron-to-chromium@1.4.673:
+    resolution: {integrity: sha512-zjqzx4N7xGdl5468G+vcgzDhaHkaYgVcf9MqgexcTqsl2UHSCmOj/Bi3HAprg4BZCpC7HyD8a6nZl6QAZf72gw==}
     dev: true
 
   /eleventy-plugin-toc@1.1.5:
@@ -8732,14 +8732,14 @@ packages:
       postcss-selector-parser: 6.0.15
     dev: true
 
-  /postcss-browser-comments@4.0.0(browserslist@4.22.3)(postcss@8.4.33):
+  /postcss-browser-comments@4.0.0(browserslist@4.23.0)(postcss@8.4.33):
     resolution: {integrity: sha512-X9X9/WN3KIvY9+hNERUqX9gncsgBA25XaeR+jshHz2j8+sYyHktHw1JdKuMjeLpGktXidqDhA7b/qm1mrBDmgg==}
     engines: {node: '>=8'}
     peerDependencies:
       browserslist: '>=4'
       postcss: '>=8'
     dependencies:
-      browserslist: 4.22.3
+      browserslist: 4.23.0
       postcss: 8.4.33
     dev: true
 
@@ -9272,7 +9272,7 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /postcss-normalize@10.0.1(browserslist@4.22.3)(postcss@8.4.33):
+  /postcss-normalize@10.0.1(browserslist@4.23.0)(postcss@8.4.33):
     resolution: {integrity: sha512-+5w18/rDev5mqERcG3W5GZNMJa1eoYYNGo8gB7tEwaos0ajk3ZXAI4mHGcNT47NE+ZnZD1pEpUOFLvltIwmeJA==}
     engines: {node: '>= 12'}
     peerDependencies:
@@ -9280,9 +9280,9 @@ packages:
       postcss: '>= 8'
     dependencies:
       '@csstools/normalize.css': 12.0.0
-      browserslist: 4.22.3
+      browserslist: 4.23.0
       postcss: 8.4.33
-      postcss-browser-comments: 4.0.0(browserslist@4.22.3)(postcss@8.4.33)
+      postcss-browser-comments: 4.0.0(browserslist@4.23.0)(postcss@8.4.33)
       sanitize.css: 13.0.0
     dev: true
 
@@ -11818,13 +11818,13 @@ packages:
       picocolors: 1.0.0
     dev: true
 
-  /update-browserslist-db@1.0.13(browserslist@4.22.3):
+  /update-browserslist-db@1.0.13(browserslist@4.23.0):
     resolution: {integrity: sha512-xebP81SNcPuNpPP3uzeW1NYXxI3rxyJzF3pD6sH4jE7o/IX+WtSpwnVU+qIsDPyk0d3hmFQ7mjqc6AtV604hbg==}
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
     dependencies:
-      browserslist: 4.22.3
+      browserslist: 4.23.0
       escalade: 3.1.1
       picocolors: 1.0.0
     dev: true
