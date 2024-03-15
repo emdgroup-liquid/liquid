@@ -7,26 +7,13 @@
 
 .ld-breadcrumbs li:not(:last-of-type) .ld-link,
 .ld-crumb__link:not(.ld-crumb__link--current)::part(anchor) {
-  --ld-link-col: var(--ld-col-neutral-600);
-
-  font-weight: normal;
   margin-right: calc(var(--ld-crumb-gap) + 0.5em);
-
-  &:hover {
-    --ld-link-col: var(--ld-thm-primary-hover);
-  }
-
-  &:focus:focus-visible {
-    --ld-link-col: var(--ld-thm-primary-focus);
-  }
-
-  &:active {
-    --ld-link-col: var(--ld-thm-primary-active);
-  }
 }
 
 .ld-breadcrumbs li:last-of-type .ld-link,
-.ld-crumb__link--current {
+.ld-crumb__link--current::part(anchor) {
+  --ld-link-col: var(--ld-col-neutral-600);
   cursor: default;
+  font-weight: normal;
   pointer-events: none;
 }
