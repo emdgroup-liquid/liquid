@@ -1,2 +1,0 @@
-import{r as t,h as l}from"./p-21a69c18.js";const i=":host{display:contents}td{background-color:inherit;max-width:inherit;min-width:inherit;padding-block:var(--ld-table-cell-padding-y);padding-inline:var(--ld-table-cell-padding-x)}";const n=class{constructor(l){t(this,l);this.colspan=undefined;this.headers=undefined;this.rowspan=undefined}render(){return l("td",{class:"ld-table-cell",colSpan:this.colspan,headers:this.headers,part:"cell",rowSpan:this.rowspan},l("slot",null))}};n.style=i;export{n as ld_table_cell};
-//# sourceMappingURL=p-0751677e.entry.js.map

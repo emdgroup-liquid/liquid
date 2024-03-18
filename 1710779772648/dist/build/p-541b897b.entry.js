@@ -1,0 +1,2 @@
+import{r as c,h as o}from"./p-b82f54f4.js";const s=":host{display:contents}";const t=s;const r=class{constructor(o){c(this,o);this.span=undefined}render(){return o("colgroup",{key:"288b720533573044714272bb7f4a14fa2177c4d4",class:"ld-table-colgroup",span:this.span,part:"colgroup"},o("slot",{key:"d1625cbfd7c9a94cdbd79c70d7c20bdc63ceb12e"}))}};r.style=t;export{r as ld_table_colgroup};
+//# sourceMappingURL=p-541b897b.entry.js.map

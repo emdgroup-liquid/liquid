@@ -1,0 +1,2 @@
+var e=typeof globalThis!=="undefined"?globalThis:typeof window!=="undefined"?window:typeof global!=="undefined"?global:typeof self!=="undefined"?self:{};export{e as c};
+//# sourceMappingURL=p-4573c419.js.map
