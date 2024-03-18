@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.14.0](https://github.com/emdgroup-liquid/liquid/compare/v5.13.0...v5.14.0) (2024-03-18)
+
+
+### Features
+
+* **ld-crumb:** switch last/non-last crumb link styles ([71eb431](https://github.com/emdgroup-liquid/liquid/commit/71eb431510abf0374b3a46be4e196dfd1ca53d5d))
+
 # [5.13.0](https://github.com/emdgroup-liquid/liquid/compare/v5.12.7...v5.13.0) (2023-11-29)
 
 
