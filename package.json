@@ -79,7 +79,7 @@
     "watch:styles:components": "chokidar src/liquid/components/**/*.css -i 'src/liquid/components/**/*.shadow.css' -c 'pnpm run build:styles:docs:components'"
   },
   "dependencies": {
-    "@stencil/core": "~4.13.0",
+    "@stencil/core": "~4.14.0",
     "dompurify": "^3.0.1",
     "js-cookie": "^3.0.1",
     "tether": "^2.0.0"
