@@ -18,10 +18,10 @@ patchedDependencies:
 dependencies:
   '@stencil/core':
     specifier: ~4.18.0
-    version: 4.18.2
+    version: 4.18.3
   dompurify:
     specifier: ^3.0.1
-    version: 3.1.4
+    version: 3.1.5
   js-cookie:
     specifier: ^3.0.1
     version: 3.0.5
@@ -77,13 +77,13 @@ devDependencies:
     version: 0.4.0(@typescript-eslint/eslint-plugin@6.18.0)(@typescript-eslint/parser@6.18.0)(eslint-plugin-react@7.33.2)(eslint@8.56.0)(typescript@5.3.3)
   '@stencil/postcss':
     specifier: ^2.1.0
-    version: 2.1.0(@stencil/core@4.18.2)
+    version: 2.1.0(@stencil/core@4.18.3)
   '@stencil/react-output-target':
     specifier: ^0.5.3
-    version: 0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.18.2)
+    version: 0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.18.3)
   '@stencil/vue-output-target':
     specifier: ^0.8.6
-    version: 0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.18.2)
+    version: 0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.18.3)
   '@types/jest':
     specifier: ^26.0.24
     version: 26.0.24
@@ -427,7 +427,7 @@ packages:
       '@babel/traverse': 7.23.2
       '@babel/types': 7.23.6
       convert-source-map: 2.0.0
-      debug: 4.3.4
+      debug: 4.3.5
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -689,7 +689,7 @@ packages:
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.23.6
       '@babel/types': 7.23.6
-      debug: 4.3.4
+      debug: 4.3.5
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -2000,8 +2000,8 @@ packages:
     hasBin: true
     dev: true
 
-  /@stencil/core@4.18.2:
-    resolution: {integrity: sha512-GLYbzv3Bq/oUbQk3CH09zkjISANccyE5/A1C7+1JZhdnWUx1MRuWQR9/2uzSPR7kF0sdppwzXvArl7VqYCxLOQ==}
+  /@stencil/core@4.18.3:
+    resolution: {integrity: sha512-8yoG5AFQYEPocVtuoc5kvRS0Hku0MoDWDUpADRaXPVHsOFLmxR16LJENj25ucCz5GEfeTGQ/tCE8JAypPmr/fQ==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
@@ -2024,31 +2024,31 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /@stencil/postcss@2.1.0(@stencil/core@4.18.2):
+  /@stencil/postcss@2.1.0(@stencil/core@4.18.3):
     resolution: {integrity: sha512-/e4TYEXErGaHxH0ocg620YqEMLuMLpK/Wg4MJsiJglrLZCZhU4XCX1N0SwxaIOUbEZ1Zh+AqQ++yMI92ilndEA==}
     peerDependencies:
       '@stencil/core': '>=2.0.0'
     dependencies:
-      '@stencil/core': 4.18.2
+      '@stencil/core': 4.18.3
       autoprefixer: 10.4.16(postcss@8.3.11)
       postcss: 8.3.11
     dev: true
 
-  /@stencil/react-output-target@0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.18.2):
+  /@stencil/react-output-target@0.5.3(patch_hash=mwd3czm2f6jbecpe42hnl46y2a)(@stencil/core@4.18.3):
     resolution: {integrity: sha512-68jwRp35CjAcwhTJ9yFD/3n+jrHOqvEH2jreVuPVvZK+4tkhPlYlwz0d1E1RlF3jyifUSfdkWUGgXIEy8Fo3yw==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.18.2
+      '@stencil/core': 4.18.3
     dev: true
     patched: true
 
-  /@stencil/vue-output-target@0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.18.2):
+  /@stencil/vue-output-target@0.8.6(patch_hash=z7xijlg5hhjq6c5hzlpzmecnpq)(@stencil/core@4.18.3):
     resolution: {integrity: sha512-B1gQW8FWeU7x/KBPm9R28jYFGN5NsZTZR4jwfDMhKBmU1Q2dIxFY52ARhbrfj5tJQxKoxr2tQJD2S14r9t1v7w==}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.18.2
+      '@stencil/core': 4.18.3
     dev: true
     patched: true
 
@@ -2551,7 +2551,7 @@ packages:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.5
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2560,7 +2560,7 @@ packages:
     resolution: {integrity: sha512-o/zjMZRhJxny7OyEF+Op8X+efiELC7k7yOjMzgfzVqOzXqkBkWI79YoTdOtsuWd5BWhAGAuOY/Xa6xpiaWXiNg==}
     engines: {node: '>= 14'}
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.5
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3182,8 +3182,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001623
-      electron-to-chromium: 1.4.783
+      caniuse-lite: 1.0.30001627
+      electron-to-chromium: 1.4.788
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.0)
     dev: true
@@ -3291,8 +3291,8 @@ packages:
     resolution: {integrity: sha512-ff5BdakGe2P3SQsMsiqmt1Lc8221NR1VzHj5jXN5vBny9A6fpze94HiVV/n7XRosOlsShJcvMv5mdnpjOGCEgg==}
     dev: true
 
-  /caniuse-lite@1.0.30001623:
-    resolution: {integrity: sha512-X/XhAVKlpIxWPpgRTnlgZssJrF0m6YtRA0QDWgsBNT12uZM6LPRydR7ip405Y3t1LamD8cP2TZFEDZFBf5ApcA==}
+  /caniuse-lite@1.0.30001627:
+    resolution: {integrity: sha512-4zgNiB8nTyV/tHhwZrFs88ryjls/lHiqFhrxCW4qSTeuRByBVnPYpDInchOIySWknznucaf31Z4KYqjfbrecVw==}
     dev: true
 
   /capture-exit@2.0.0:
@@ -4043,6 +4043,18 @@ packages:
       ms: 2.1.2
     dev: true
 
+  /debug@4.3.5:
+    resolution: {integrity: sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.2
+    dev: true
+
   /decamelize-keys@1.1.1:
     resolution: {integrity: sha512-WiPxgEirIV0/eIOMcnFBA3/IJZAZqKnwAwWyvvdi4lsr1WCN22nhdf/3db3DoZcUjTV2SqfzIwNyp6y2xs3nmg==}
     engines: {node: '>=0.10.0'}
@@ -4290,8 +4302,8 @@ packages:
       domelementtype: 2.3.0
     dev: true
 
-  /dompurify@3.1.4:
-    resolution: {integrity: sha512-2gnshi6OshmuKil8rMZuQCGiUF3cUxHY3NGDzUAdUx/NPEe5DVnO8BDoAQouvgwnx0R/+a6jUn36Z0FSdq8vww==}
+  /dompurify@3.1.5:
+    resolution: {integrity: sha512-lwG+n5h8QNpxtyrJW/gJWckL+1/DQiYMX8f7t8Z2AZTPw1esVrqjI63i7Zc2Gz0aKzLVMYC1V1PL/ky+aY/NgA==}
     dev: false
 
   /domutils@2.8.0:
@@ -4376,8 +4388,8 @@ packages:
     resolution: {integrity: sha512-lKoz10iCYlP1WtRYdh5MvocQPWVRoI7ysp6qf18bmeBgR8abE6+I2CsfyNKztRDZvhdWc+krKT6wS7Neg8sw3A==}
     dev: true
 
-  /electron-to-chromium@1.4.783:
-    resolution: {integrity: sha512-bT0jEz/Xz1fahQpbZ1D7LgmPYZ3iHVY39NcWWro1+hA2IvjiPeaXtfSqrQ+nXjApMvQRE2ASt1itSLRrebHMRQ==}
+  /electron-to-chromium@1.4.788:
+    resolution: {integrity: sha512-ubp5+Ev/VV8KuRoWnfP2QF2Bg+O2ZFdb49DiiNbz2VmgkIqrnyYaqIOqj8A6K/3p1xV0QcU5hBQ1+BmB6ot1OA==}
     dev: true
 
   /eleventy-plugin-toc@1.1.5:
@@ -4973,7 +4985,7 @@ packages:
     engines: {node: '>= 10.17.0'}
     hasBin: true
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.5
       get-stream: 5.2.0
       yauzl: 2.10.0
     optionalDependencies:
@@ -5396,7 +5408,7 @@ packages:
     dependencies:
       basic-ftp: 5.0.4
       data-uri-to-buffer: 6.0.1
-      debug: 4.3.4
+      debug: 4.3.5
       fs-extra: 8.1.0
     transitivePeerDependencies:
       - supports-color
@@ -6445,7 +6457,7 @@ packages:
     resolution: {integrity: sha512-n3s8EwkdFIJCG3BPKBYvskgXGoy88ARzvegkitk60NxRdwltLOTaH7CUiMRXvwYorl0Q712iEjcWB+fK/MrWVw==}
     engines: {node: '>=10'}
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.5
       istanbul-lib-coverage: 3.2.1
       source-map: 0.6.1
     transitivePeerDependencies:
@@ -8483,7 +8495,7 @@ packages:
     dependencies:
       '@tootallnate/quickjs-emscripten': 0.23.0
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.5
       get-uri: 6.0.2
       http-proxy-agent: 7.0.0
       https-proxy-agent: 7.0.2
@@ -9670,7 +9682,7 @@ packages:
     engines: {node: '>= 14'}
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.5
       http-proxy-agent: 7.0.0
       https-proxy-agent: 7.0.2
       lru-cache: 7.18.3
@@ -10668,7 +10680,7 @@ packages:
     engines: {node: '>= 14'}
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.5
       socks: 2.7.1
     transitivePeerDependencies:
       - supports-color
