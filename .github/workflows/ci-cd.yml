@@ -108,7 +108,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Download dist_docs artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: dist_docs
           path: dist_docs
@@ -162,7 +162,7 @@ jobs:
               args: [--frozen-lockfile]
 
       - name: Download bin_dist artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: bin_dist
           path: ./
