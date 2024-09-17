@@ -293,7 +293,7 @@ packages:
     dependencies:
       '@11ty/eleventy-utils': 1.0.2
       chokidar: 3.5.3
-      debug: 4.3.4
+      debug: 4.3.6
       dev-ip: 1.0.1
       finalhandler: 1.2.0
       mime: 3.0.0
@@ -1302,7 +1302,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.4
+      debug: 4.3.6
       espree: 9.6.1
       globals: 13.24.0
       ignore: 5.3.0
@@ -1324,7 +1324,7 @@ packages:
     engines: {node: '>=10.10.0'}
     dependencies:
       '@humanwhocodes/object-schema': 2.0.1
-      debug: 4.3.4
+      debug: 4.3.6
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -2346,7 +2346,7 @@ packages:
     dependencies:
       '@typescript-eslint/typescript-estree': 6.18.0(typescript@5.3.3)
       '@typescript-eslint/utils': 6.18.0(eslint@8.56.0)(typescript@5.3.3)
-      debug: 4.3.4
+      debug: 4.3.6
       eslint: 8.56.0
       ts-api-utils: 1.0.3(typescript@5.3.3)
       typescript: 5.3.3
@@ -2370,7 +2370,7 @@ packages:
     dependencies:
       '@typescript-eslint/types': 6.18.0
       '@typescript-eslint/visitor-keys': 6.18.0
-      debug: 4.3.4
+      debug: 4.3.6
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.3
@@ -5802,7 +5802,7 @@ packages:
     dependencies:
       '@tootallnate/once': 1.1.2
       agent-base: 6.0.2
-      debug: 4.3.4
+      debug: 4.3.6
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5812,7 +5812,7 @@ packages:
     engines: {node: '>= 14'}
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.6
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5822,7 +5822,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.4
+      debug: 4.3.6
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5832,7 +5832,7 @@ packages:
     engines: {node: '>= 14'}
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.6
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5890,7 +5890,7 @@ packages:
     resolution: {integrity: sha512-U3Qt/CyfFpTUv6LOP2jRTLYjphH6zg3okMfHbyqRa/W2w6hr8OsJWVggNlR4jxuojQy81TgTJTxgSkyoteRGMQ==}
     engines: {node: '>=16.20'}
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.6
       import-meta-resolve: 4.0.0
     transitivePeerDependencies:
       - supports-color
@@ -7309,7 +7309,7 @@ packages:
       object-assign: 4.1.1
       opn: 6.0.0
       proxy-middleware: 0.15.0
-      send: 0.18.0
+      send: 0.19.0
       serve-index: 1.9.1
     transitivePeerDependencies:
       - supports-color
@@ -10434,8 +10434,8 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
-  /send@0.18.0:
-    resolution: {integrity: sha512-qqWzuOjSFOuqPjFe4NOsMLafToQQwBSOEpS+FwEt3A2V3vKubTquT3vmLTQpFgMXp8AlFWFuP1qKaJZOtPpVXg==}
+  /send@0.19.0:
+    resolution: {integrity: sha512-dW41u5VfLXu8SJh5bwRmyYUbAoSB3c9uQh6L8h/KtsFREPWpbX1lrljJo186Jc4nmci/sGUZ9a0a0J2zgfq2hw==}
     engines: {node: '>= 0.8.0'}
     dependencies:
       debug: 2.6.9
