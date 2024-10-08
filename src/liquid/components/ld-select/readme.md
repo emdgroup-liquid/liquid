@@ -2374,6 +2374,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - docs-pick-theme
+
 ### Depends on
 
 - ld-select-popper
@@ -2384,6 +2388,7 @@ graph TD;
   ld-select --> ld-select-popper
   ld-select-popper --> ld-button
   ld-select-popper --> ld-icon
+  docs-pick-theme --> ld-select
   style ld-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

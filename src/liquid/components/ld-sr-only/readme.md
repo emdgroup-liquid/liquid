@@ -47,6 +47,9 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
 
 ### Used by
 
+ - docs-copy-to-cb
+ - docs-pick-theme
+ - docs-toggle-code
  - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
  - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
  - [ld-slider](../ld-slider)
@@ -58,6 +61,9 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
 ### Graph
 ```mermaid
 graph TD;
+  docs-copy-to-cb --> ld-sr-only
+  docs-pick-theme --> ld-sr-only
+  docs-toggle-code --> ld-sr-only
   ld-sidenav-header --> ld-sr-only
   ld-sidenav-toggle-outside --> ld-sr-only
   ld-slider --> ld-sr-only

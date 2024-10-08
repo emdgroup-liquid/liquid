@@ -173,6 +173,14 @@
     --ld-bg-cells-layer-size: 420%;
   }
 
+  :host(&--mtrust),
+  &--mtrust {
+    --ld-bg-cells-base-size-factor: 0.6;
+    --ld-bg-cells-layer-translation-x: 315%;
+    --ld-bg-cells-layer-translation-y: 315%;
+    --ld-bg-cells-layer-size: 140%;
+  }
+
   :host(&--o),
   &--o {
     --ld-bg-cells-base-size-factor: 0.33;

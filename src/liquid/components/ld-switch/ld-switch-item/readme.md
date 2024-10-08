@@ -52,6 +52,19 @@ Type: `Promise<void>`
 | `"label-element"` | wrapping label element                        |
 
 
+## Dependencies
+
+### Used by
+
+ - docs-example
+
+### Graph
+```mermaid
+graph TD;
+  docs-example --> ld-switch-item
+  style ld-switch-item fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

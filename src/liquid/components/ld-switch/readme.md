@@ -738,6 +738,19 @@ Type: `Promise<void>`
 | `"legend"`   | The legend element                                 |
 
 
+## Dependencies
+
+### Used by
+
+ - docs-example
+
+### Graph
+```mermaid
+graph TD;
+  docs-example --> ld-switch
+  style ld-switch fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

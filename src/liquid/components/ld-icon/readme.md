@@ -368,6 +368,14 @@ Right-click an icon below to download its SVG file. To download all icons at onc
 
 ### Used by
 
+ - docs-copy-to-cb
+ - docs-edit-on-github
+ - docs-example
+ - docs-figma-access-notice
+ - docs-icon
+ - docs-pick-theme
+ - docs-toggle-code
+ - docs-view-on-figma
  - [ld-accordion-toggle](../ld-accordion/ld-accordion-toggle)
  - [ld-badge](../ld-badge)
  - [ld-cookie-consent](../ld-cookie-consent)
@@ -385,6 +393,14 @@ Right-click an icon below to download its SVG file. To download all icons at onc
 ### Graph
 ```mermaid
 graph TD;
+  docs-copy-to-cb --> ld-icon
+  docs-edit-on-github --> ld-icon
+  docs-example --> ld-icon
+  docs-figma-access-notice --> ld-icon
+  docs-icon --> ld-icon
+  docs-pick-theme --> ld-icon
+  docs-toggle-code --> ld-icon
+  docs-view-on-figma --> ld-icon
   ld-accordion-toggle --> ld-icon
   ld-badge --> ld-icon
   ld-cookie-consent --> ld-icon
