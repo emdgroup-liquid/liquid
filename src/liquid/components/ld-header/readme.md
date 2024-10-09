@@ -334,10 +334,6 @@ If you want the header to hide (slide up behind the top of the window) when the 
 
 ## Dependencies
 
-### Used by
-
- - docs-topbar
-
 ### Depends on
 
 - [ld-icon](../ld-icon)
@@ -348,7 +344,6 @@ If you want the header to hide (slide up behind the top of the window) when the 
 graph TD;
   ld-header --> ld-icon
   ld-header --> ld-typo
-  docs-topbar --> ld-header
   style ld-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

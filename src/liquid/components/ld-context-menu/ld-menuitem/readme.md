@@ -156,10 +156,6 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
- - docs-icon
-
 ### Depends on
 
 - [ld-button](../../ld-button)
@@ -168,7 +164,6 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   ld-menuitem --> ld-button
-  docs-icon --> ld-menuitem
   style ld-menuitem fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

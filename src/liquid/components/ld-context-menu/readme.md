@@ -287,10 +287,6 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
- - docs-icon
-
 ### Depends on
 
 - [ld-tooltip](../ld-tooltip)
@@ -303,7 +299,6 @@ graph TD;
   ld-context-menu --> ld-menu
   ld-tooltip --> ld-sr-only
   ld-tooltip --> ld-tooltip-popper
-  docs-icon --> ld-context-menu
   style ld-context-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -446,6 +446,7 @@ It is also recommended to only use the property for three layer background cells
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property      | Attribute      | Description                                              | Type                                                                                                                                                                                                                                         | Default     |
@@ -456,6 +457,7 @@ It is also recommended to only use the property for three layer background cells
 | `threeLayers` | `three-layers` | Use 3 color layers                                       | `boolean`                                                                                                                                                                                                                                    | `false`     |
 | `type`        | `type`         | Cells pattern                                            | `"bioreliance" \| "f" \| "functional" \| "hexagon" \| "mdo" \| "millipore" \| "milliq" \| "mtrust" \| "o" \| "organic" \| "plastic" \| "qa-x2f-qc" \| "safc" \| "sigma-aldrich" \| "supelco" \| "synthetic" \| "t" \| "technical" \| "tile"` | `'hexagon'` |
 
+
 ## Shadow Parts
 
 | Part                | Description              |
@@ -463,6 +465,7 @@ It is also recommended to only use the property for three layer background cells
 | `"layer"`           | the primary cell layer   |
 | `"secondary-layer"` | the secondary cell layer |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

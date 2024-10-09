@@ -683,10 +683,6 @@ Type: `Promise<void>`
 
 ### Used by
 
- - docs-copy-to-cb
- - docs-page-nav
- - docs-toggle-code
- - docs-view-on-figma
  - [ld-cookie-consent](../ld-cookie-consent)
  - [ld-menuitem](../ld-context-menu/ld-menuitem)
  - [ld-pagination](../ld-pagination)
@@ -696,10 +692,6 @@ Type: `Promise<void>`
 ### Graph
 ```mermaid
 graph TD;
-  docs-copy-to-cb --> ld-button
-  docs-page-nav --> ld-button
-  docs-toggle-code --> ld-button
-  docs-view-on-figma --> ld-button
   ld-cookie-consent --> ld-button
   ld-menuitem --> ld-button
   ld-pagination --> ld-button

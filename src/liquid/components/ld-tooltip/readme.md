@@ -490,8 +490,6 @@ Type: `Promise<void>`
 
 ### Used by
 
- - docs-topbar
- - docs-view-on-figma
  - [ld-context-menu](../ld-context-menu)
  - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
  - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
@@ -507,8 +505,6 @@ Type: `Promise<void>`
 graph TD;
   ld-tooltip --> ld-sr-only
   ld-tooltip --> ld-tooltip-popper
-  docs-topbar --> ld-tooltip
-  docs-view-on-figma --> ld-tooltip
   ld-context-menu --> ld-tooltip
   ld-sidenav-header --> ld-tooltip
   ld-sidenav-navitem --> ld-tooltip

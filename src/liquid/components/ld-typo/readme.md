@@ -584,10 +584,6 @@ Here are some examples on how you can apply different colors on headings:
 
 ### Used by
 
- - docs-contributors
- - docs-figma-access-notice
- - docs-icon
- - docs-icon-group
  - [ld-cookie-consent](../ld-cookie-consent)
  - [ld-header](../ld-header)
  - [ld-notice](../ld-notice)
@@ -599,10 +595,6 @@ Here are some examples on how you can apply different colors on headings:
 ### Graph
 ```mermaid
 graph TD;
-  docs-contributors --> ld-typo
-  docs-figma-access-notice --> ld-typo
-  docs-icon --> ld-typo
-  docs-icon-group --> ld-typo
   ld-cookie-consent --> ld-typo
   ld-header --> ld-typo
   ld-notice --> ld-typo
