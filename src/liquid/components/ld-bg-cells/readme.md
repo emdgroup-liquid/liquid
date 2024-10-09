@@ -29,7 +29,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- React component -->
 
 <LdBgCells style={ {
-aspectRaio: '16/9'
+  aspectRaio: '16/9'
 } } />
 
 <!-- CSS component -->
@@ -315,13 +315,13 @@ aspectRaio: '16/9'
 <!-- React component -->
 
 <LdBgCells
-style={ {
-'--ld-bg-cells-layer-translation-x': '26%',
-'--ld-bg-cells-layer-translation-y': '-5%',
-'--ld-bg-cells-layer-size': '195%',
-aspectRatio: 1,
-} }
-/>
+  style={ {
+    '--ld-bg-cells-layer-translation-x': '26%',
+    '--ld-bg-cells-layer-translation-y': '-5%',
+    '--ld-bg-cells-layer-size': '195%',
+    aspectRatio: 1,
+  } }
+ />
 
 <!-- CSS component -->
 
@@ -350,10 +350,10 @@ aspectRatio: 1,
 <!-- React component -->
 
 <LdBgCells
-style={ {
-'--ld-bg-cells-layer-col': 'var(--ld-col-rr)',
-'--ld-bg-cells-bg-col': 'var(--ld-col-vy)',
-} }
+  style={ {
+    '--ld-bg-cells-layer-col': 'var(--ld-col-rr)',
+    '--ld-bg-cells-bg-col': 'var(--ld-col-vy)',
+  } }
 />
 
 <!-- CSS component -->
