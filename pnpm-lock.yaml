@@ -239,7 +239,7 @@ devDependencies:
     version: 36.0.0(stylelint@16.1.0)
   stylelint-declaration-strict-value:
     specifier: ^1.9.1
-    version: 1.10.4(stylelint@16.1.0)
+    version: 1.10.6(stylelint@16.1.0)
   stylelint-high-performance-animation:
     specifier: ^1.8.0
     version: 1.10.0(stylelint@16.1.0)
@@ -11181,8 +11181,8 @@ packages:
       stylelint-config-recommended: 14.0.0(stylelint@16.1.0)
     dev: true
 
-  /stylelint-declaration-strict-value@1.10.4(stylelint@16.1.0):
-    resolution: {integrity: sha512-unOEftKCOb78Zr+WStqyVj9V1rCdUo+PJI3vFPiHPdu+O9o71K9Mu+txc6VDF7gBXyTTMHbbjIvHk3VNzuixzQ==}
+  /stylelint-declaration-strict-value@1.10.6(stylelint@16.1.0):
+    resolution: {integrity: sha512-aZGEW4Ee26Tx4UvpQJbcElVXZ42EleujEByiyKDTT7t83EeSe9t0lAG3OOLJnnvLjz/dQnp+L+3IYTMeQI51vQ==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: '>=7 <=16'
