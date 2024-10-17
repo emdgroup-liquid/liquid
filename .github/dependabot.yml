@@ -6,13 +6,14 @@ updates:
       interval: 'weekly'
     ignore:
       - dependency-name: '@stencil/core'
-        versions: ['>=4.12.3']
       - dependency-name: '@types/jest'
       - dependency-name: '@types/jsdom'
       - dependency-name: 'jest'
       - dependency-name: 'jest-cli'
       - dependency-name: 'jsdom'
     groups:
-      update-types:
-        - 'minor'
-        - 'patch'
+      production-dependencies:
+        dependency-type: 'production'
+        update-types:
+          - 'minor'
+          - 'patch'
