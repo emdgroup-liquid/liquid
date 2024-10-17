@@ -53,7 +53,7 @@ devDependencies:
     version: 18.4.4
   '@lottiefiles/lottie-player':
     specifier: ^2.0.2
-    version: 2.0.2
+    version: 2.0.4
   '@semantic-release/changelog':
     specifier: ^6.0.2
     version: 6.0.3(semantic-release@22.0.12)
@@ -1624,8 +1624,8 @@ packages:
       '@lit-labs/ssr-dom-shim': 1.1.2
     dev: true
 
-  /@lottiefiles/lottie-player@2.0.2:
-    resolution: {integrity: sha512-R9WF2/gFboZ0GW3QjqtbZF94JQq8oI1t5XWZPtTypvk2xTizphybZu+c08QFQbqY6rnkazHIyRBj2MK0qr6Hrw==}
+  /@lottiefiles/lottie-player@2.0.4:
+    resolution: {integrity: sha512-OU3HxAt7noWr+kzf59paS7/f4+IT1EupJIsf4h3RxsbljDaRtCunanIjchprNFYHdG+SobnyxwWKtvTDxjI5jg==}
     dependencies:
       '@types/pako': 1.0.7
       lit: 2.8.0
