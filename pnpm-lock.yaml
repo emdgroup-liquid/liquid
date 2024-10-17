@@ -113,7 +113,7 @@ devDependencies:
     version: 6.18.0(eslint@8.56.0)(typescript@5.3.3)
   axe-core:
     specifier: ^4.6.3
-    version: 4.8.3
+    version: 4.10.1
   cheerio:
     specifier: ^1.0.0-rc.12
     version: 1.0.0-rc.12
@@ -2937,8 +2937,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /axe-core@4.8.3:
-    resolution: {integrity: sha512-d5ZQHPSPkF9Tw+yfyDcRoUOc4g/8UloJJe5J8m4L5+c7AtDdjDLRxew/knnI4CxvtdxEUVgWz4x3OIQUIFiMfw==}
+  /axe-core@4.10.1:
+    resolution: {integrity: sha512-qPC9o+kD8Tir0lzNGLeghbOrWMr3ZJpaRlCIb6Uobt/7N4FiEDvqUMnxzCHRHmg8vOg14kr5gVNyScRmbMaJ9g==}
     engines: {node: '>=4'}
     dev: true
 
