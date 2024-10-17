@@ -6,7 +6,7 @@ updates:
       interval: 'weekly'
     ignore:
       - dependency-name: '@stencil/core'
-        versions: ['*']
+        versions: ['>=4.12.3']
       - dependency-name: '@types/jest'
       - dependency-name: '@types/jsdom'
       - dependency-name: 'jest'
