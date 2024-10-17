@@ -12,6 +12,8 @@ updates:
       - dependency-name: 'jest-cli'
       - dependency-name: 'jsdom'
     groups:
-      update-types:
-        - 'minor'
-        - 'patch'
+      production-dependencies:
+        dependency-type: 'production'
+        update-types:
+          - 'minor'
+          - 'patch'

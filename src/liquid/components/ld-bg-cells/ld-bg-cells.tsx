@@ -10,6 +10,7 @@ export type CellType =
   | 'mdo'
   | 'millipore'
   | 'milliq'
+  | 'mtrust'
   | 'o' // Organic
   | 'organic'
   | 'plastic'

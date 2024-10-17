@@ -131,6 +131,19 @@ A background pattern with the Merck cells as additional visual element.
 </div>
 {% endexample %}
 
+### M-Trust
+
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
+<ld-bg-cells type="mtrust"></ld-bg-cells>
+
+<!-- React component -->
+
+<LdBgCells type="mtrust" />
+
+<!-- CSS component -->
+
+{% endexample %}
+
 ### Supelco
 
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
@@ -415,36 +428,34 @@ It is also recommended to only use the property for three layer background cells
 
 {% endexample %}
 
-
 ## CSS Variables
 
-| Variable                                         | Description                                                   | Default                              |
-| ------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------ |
-| `--ld-bg-cells-bg-col`                           | Color of background / lowest layer                            | Theme Secondary Color                |
-| `--ld-bg-cells-layer-col`                        | Color of pattern layer                                        | Theme Primary Color                  |
-| `--ld-bg-cells-layer-size`                       | Size / Scale of pattern layer (in %)                          | Individual per cell type             |
-| `--ld-bg-cells-layer-translation-x`              | Translation on x-axis of pattern layer (in %)                 | Individual per cell type             |
-| `--ld-bg-cells-layer-translation-y`              | Translation on y-axis of pattern layer (in %)                 | Individual per cell type             |
-| `--ld-bg-cells-layer-rotation`                   | Rotation of pattern layer (in deg)                            | `0deg`                               |
-| `--ld-bg-cells-secondary-layer-col`              | Color of secondary pattern layer                              | `transparent`                        |
-| `--ld-bg-cells-secondary-layer-size`             | Size / Scale of secondary pattern layer (in %)                | `150%`                               |
-| `--ld-bg-cells-secondary-layer-translation-x`    | Translation on x-axis of secondary pattern layer (in %)       | `0`                                  |
-| `--ld-bg-cells-secondary-layer-translation-y`    | Translation on y-axis of secondary pattern layer (in %)       | `0`                                  |
-| `--ld-bg-cells-secondary-layer-rotation`         | Rotation of secondary pattern layer (in deg)                  | `0deg`                               |
-
+| Variable                                      | Description                                             | Default                  |
+| --------------------------------------------- | ------------------------------------------------------- | ------------------------ |
+| `--ld-bg-cells-bg-col`                        | Color of background / lowest layer                      | Theme Secondary Color    |
+| `--ld-bg-cells-layer-col`                     | Color of pattern layer                                  | Theme Primary Color      |
+| `--ld-bg-cells-layer-size`                    | Size / Scale of pattern layer (in %)                    | Individual per cell type |
+| `--ld-bg-cells-layer-translation-x`           | Translation on x-axis of pattern layer (in %)           | Individual per cell type |
+| `--ld-bg-cells-layer-translation-y`           | Translation on y-axis of pattern layer (in %)           | Individual per cell type |
+| `--ld-bg-cells-layer-rotation`                | Rotation of pattern layer (in deg)                      | `0deg`                   |
+| `--ld-bg-cells-secondary-layer-col`           | Color of secondary pattern layer                        | `transparent`            |
+| `--ld-bg-cells-secondary-layer-size`          | Size / Scale of secondary pattern layer (in %)          | `150%`                   |
+| `--ld-bg-cells-secondary-layer-translation-x` | Translation on x-axis of secondary pattern layer (in %) | `0`                      |
+| `--ld-bg-cells-secondary-layer-translation-y` | Translation on y-axis of secondary pattern layer (in %) | `0`                      |
+| `--ld-bg-cells-secondary-layer-rotation`      | Rotation of secondary pattern layer (in deg)            | `0deg`                   |
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property      | Attribute      | Description                                              | Type                                                                                                                                                                                                                             | Default     |
-| ------------- | -------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `animated`    | `animated`     | Animate the pattern                                      | `boolean`                                                                                                                                                                                                                        | `false`     |
-| `key`         | `key`          | for tracking the node's identity when working with lists | `string \| number`                                                                                                                                                                                                               | `undefined` |
-| `ref`         | `ref`          | reference to component                                   | `any`                                                                                                                                                                                                                            | `undefined` |
-| `threeLayers` | `three-layers` | Use 3 color layers                                       | `boolean`                                                                                                                                                                                                                        | `false`     |
-| `type`        | `type`         | Cells pattern                                            | `"bioreliance" \| "f" \| "functional" \| "hexagon" \| "mdo" \| "millipore" \| "milliq" \| "o" \| "organic" \| "plastic" \| "qa-x2f-qc" \| "safc" \| "sigma-aldrich" \| "supelco" \| "synthetic" \| "t" \| "technical" \| "tile"` | `'hexagon'` |
+| Property      | Attribute      | Description                                              | Type                                                                                                                                                                                                                                         | Default     |
+| ------------- | -------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `animated`    | `animated`     | Animate the pattern                                      | `boolean`                                                                                                                                                                                                                                    | `false`     |
+| `key`         | `key`          | for tracking the node's identity when working with lists | `string \| number`                                                                                                                                                                                                                           | `undefined` |
+| `ref`         | `ref`          | reference to component                                   | `any`                                                                                                                                                                                                                                        | `undefined` |
+| `threeLayers` | `three-layers` | Use 3 color layers                                       | `boolean`                                                                                                                                                                                                                                    | `false`     |
+| `type`        | `type`         | Cells pattern                                            | `"bioreliance" \| "f" \| "functional" \| "hexagon" \| "mdo" \| "millipore" \| "milliq" \| "mtrust" \| "o" \| "organic" \| "plastic" \| "qa-x2f-qc" \| "safc" \| "sigma-aldrich" \| "supelco" \| "synthetic" \| "t" \| "technical" \| "tile"` | `'hexagon'` |
 
 
 ## Shadow Parts
