@@ -89,7 +89,7 @@
     "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "@commitlint/cli": "^18.4.4",
+    "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^18.4.4",
     "@lottiefiles/lottie-player": "^2.0.2",
     "@semantic-release/changelog": "^6.0.2",
