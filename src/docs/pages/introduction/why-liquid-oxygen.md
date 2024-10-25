@@ -16,7 +16,7 @@ We are working hard to make Liquid Oxygen a reliable and easy to use component l
 
 All Liquid Oxygen components follow the Liquid Design Guidelines and are build in close coorperation with the Liquid Design Team. Therefore, Liquid Oxygen is the easiest way to make sure your project is compliant with the Liquid Design System.
 
-## 2. Accessability
+## 2. Accessibility
 
 Making sure everyone can use our applications is a core value of Liquid Oxygen. Therefore all components are built with accessibility in mind, following best practices by the [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/) Level AA requirements.
 
