@@ -145,7 +145,7 @@
     "postcss-mixins": "^9.0.4",
     "postcss-nested": "^6.0.0",
     "postcss-normalize": "^10.0.1",
-    "postcss-preset-env": "^9.0.0",
+    "postcss-preset-env": "^10.0.8",
     "prettier": "^3.0.0",
     "puppeteer": "^21.0.1",
     "semantic-release": "^22.0.0",
