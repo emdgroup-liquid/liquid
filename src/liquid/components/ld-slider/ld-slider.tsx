@@ -378,7 +378,7 @@ linear-gradient(
         }}
       >
         {this.values.map((value, index) => (
-          <>
+          <Fragment>
             <ld-sr-only
               id={`${this.idPrefix}-label-${index}`}
               key={`label-${index}`}
@@ -440,7 +440,7 @@ linear-gradient(
                 '--unit': `"${this.unit ?? ''}"`,
               }}
             />
-          </>
+          </Fragment>
         ))}
         {this.indicators &&
           this.steps.map((step) => (

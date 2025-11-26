@@ -49,11 +49,11 @@ describe('ld-icon', () => {
     const page = await newSpecPage({
       components: [LdIcon],
       template: () => (
-        <>
+        <Fragment>
           <ld-icon name="rect" />
           <ld-icon name="circle" />
           <ld-icon name="rect" />
-        </>
+        </Fragment>
       ),
     })
     expect(page.body).toMatchSnapshot()

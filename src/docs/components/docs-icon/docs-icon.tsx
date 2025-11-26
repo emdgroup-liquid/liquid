@@ -123,10 +123,10 @@ export class DocsIcon {
               variant="body-xs"
             >
               {!this.isAnimation && (
-                <>
+                <Fragment>
                   <span>Click</span> to copy name
                   <br />
-                </>
+                </Fragment>
               )}
               <span>Right-click</span> to download
             </ld-typo>
