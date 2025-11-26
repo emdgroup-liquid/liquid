@@ -1,0 +1,40 @@
+.docs-deprecation-banner {
+  background-color: #ffc832;
+  padding: 0 24px;
+  border-radius: 14px;
+  margin: 0 0 24px;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 16px;
+  align-items: center;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.docs-deprecation-banner__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.docs-deprecation-banner__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #0e0e11;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.docs-deprecation-banner__text > div {
+  opacity: 0.8;
+}
+
+.docs-deprecation-banner__text > a {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #0e0e11;
+}
