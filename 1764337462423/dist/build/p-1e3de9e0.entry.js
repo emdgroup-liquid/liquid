@@ -1,0 +1,2 @@
+import{r as e,h as d,H as s,g as t}from"./p-3274e4e5.js";const r="";const n=r;const o=class{constructor(d){e(this,d);this.label=undefined;this.disabled=undefined}render(){return d(s,{key:"d2f27d4dea4ed7e9d3d47e7de234f80cb174c04b"},d("slot",{key:"3f68e68244f5778136447dfec294e875c0d1b0db"}))}get el(){return t(this)}};o.style=n;export{o as ld_optgroup};
+//# sourceMappingURL=p-1e3de9e0.entry.js.map

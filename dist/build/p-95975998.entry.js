@@ -1,0 +1,2 @@
+import{r as t,h as e}from"./p-3274e4e5.js";const s=":host{display:contents}";const d=s;const o=class{constructor(e){t(this,e)}render(){return e("tbody",{key:"741a1809db4463cb45cb1cc2d9ede2833d16289e",class:"ld-table-body",part:"tbody"},e("slot",{key:"3654927dc1d374bb0ea098e9213a0d33965039b3"}))}};o.style=d;export{o as ld_table_body};
+//# sourceMappingURL=p-95975998.entry.js.map

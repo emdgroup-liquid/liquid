@@ -1,0 +1,2 @@
+import{r as a,h as c,H as e}from"./p-3274e4e5.js";const s="";const t=s;const r=class{constructor(c){a(this,c)}render(){return c(e,{key:"9eaa90654d4b5b00c89dcdca6630d9b4382f7c90",role:"tabpanel",class:"ld-tabpanel",tabindex:"-1"},c("slot",{key:"12e848169073287f72c29ac8c0f45996a9926ac5"}))}};r.style=t;export{r as ld_tabpanel};
+//# sourceMappingURL=p-65ca981a.entry.js.map

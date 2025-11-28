@@ -1,0 +1,2 @@
+import{r as t,h as a}from"./p-3274e4e5.js";const c="";const d=c;const o=class{constructor(a){t(this,a)}render(){return a("figcaption",{key:"1d418dd1db91dd904186564015aa45364424c65b",class:"ld-table-caption",part:"figcaption"},a("slot",{key:"dfc3622451d24c7566a178517a8bdeff31c00ad3"}))}};o.style=d;export{o as ld_table_caption};
+//# sourceMappingURL=p-1d6c140d.entry.js.map
