@@ -1,3 +1,5 @@
+[![Deprecation Notice: Liquid Oxygen will shortly be deprecated. Please use Liquid Carbon from now on.](./deprecation-banner.svg)](https://carbon.emd.design)
+
 # Liquid
 
 [![Join us on GitHub discussions](https://img.shields.io/badge/Join%20us-on%20GitHub%20discussions-blue?style=flat&color=0F69AF)](https://github.com/emdgroup-liquid/liquid/discussions)
@@ -7,7 +9,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/emdgroup-liquid/liquid/badge.svg?branch=main)](https://coveralls.io/github/emdgroup-liquid/liquid?branch=main)
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-black?style=flat&color=24292F)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=344421806&machine=standardLinux32gb&location=WestEurope)
 
-Liquid is a UI component library based on the [Liquid Design System](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide veriaty of plattforms and projects.
+Liquid is a UI component library based on the [Liquid Design System](<https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310>), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide veriaty of plattforms and projects.
 
 ## Links
 
@@ -15,7 +17,7 @@ Liquid is a UI component library based on the [Liquid Design System](https://www
 - [Sandbox apps](https://liquid.emd.design/liquid/guides/sandbox-applications/)
 - [Feature backlog](https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Afeature+-label%3Aduplicate+is%3Aopen)
 - [Changelog](https://github.com/emdgroup-liquid/liquid/releases) / [Breaking changes](https://github.com/emdgroup-liquid/liquid/releases?q=".0.0")
-- [Liquid Design System on Figma](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310)
+- [Liquid Design System on Figma](<https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310>)
 
 ## Contributing
 
