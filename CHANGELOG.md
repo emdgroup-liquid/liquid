@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.15.0](https://github.com/emdgroup-liquid/liquid/compare/v5.14.0...v5.15.0) (2025-12-01)
+
+
+### Features
+
+* fix 20 typos in technical documentation and component readmes ([2cd7a3e](https://github.com/emdgroup-liquid/liquid/commit/2cd7a3ebe0c475c79771738c3d97b7a1986da6be))
+
 # [5.14.0](https://github.com/emdgroup-liquid/liquid/compare/v5.13.0...v5.14.0) (2024-03-18)
 
 
