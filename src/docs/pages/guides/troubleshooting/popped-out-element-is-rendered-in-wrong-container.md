@@ -60,7 +60,7 @@ export default function App() {
         open={open}
         ref={modalRef}
       >
-        <LdTypo slot="header">We make a fruit salat!</LdTypo>
+        <LdTypo slot="header">We make a fruit salad!</LdTypo>
         <LdSelect
           name="fruit"
           placeholder="Pick a fruit"

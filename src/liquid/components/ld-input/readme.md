@@ -15,7 +15,7 @@ permalink: components/ld-input/
 
 # ld-input
 
-The `ld-input` component can be used in forms to accept data from the user. While the [native HTML input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) supports a wide variety of types of input data and offers different control widgets, depending on the user agent, this component supports only a subset of the types available in the native HTML input element. All officially supported types of `ld-input` are documented here. Other form input widgets either have been implemented as separate components or may eventually be concidered for implementation in the future.
+The `ld-input` component can be used in forms to accept data from the user. While the [native HTML input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) supports a wide variety of types of input data and offers different control widgets, depending on the user agent, this component supports only a subset of the types available in the native HTML input element. All officially supported types of `ld-input` are documented here. Other form input widgets either have been implemented as separate components or may eventually be considered for implementation in the future.
 
 This component can be used in conjunction with the [`ld-label`](components/ld-label/) and the [`ld-input-message`](components/ld-input-message/) component.
 
@@ -185,7 +185,7 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 ### Type email
 
-Triggerts associated keyboard in supporting browsers and devices with dynamic keyboards.
+Triggers associated keyboard in supporting browsers and devices with dynamic keyboards.
 
 {% example %}
 <ld-input placeholder="Your email address" type="email"></ld-input>
@@ -382,7 +382,7 @@ Triggers a telephone keypad in some devices with dynamic keypads.
 
 ### Type url
 
-Triggerts associated keyboard in supporting browsers and devices with dynamic keyboards.
+Triggers associated keyboard in supporting browsers and devices with dynamic keyboards.
 
 {% example %}
 <ld-input placeholder="Your website URL" type="url"></ld-input>
@@ -499,7 +499,7 @@ You can change the way how the multiline input element can be resized by the use
 </label>
 {% endexample %}
 
-Please reffer to the [ld-label](components/ld-label/) docs for more information on the label component.
+Please refer to the [ld-label](components/ld-label/) docs for more information on the label component.
 
 ### With label and input message
 

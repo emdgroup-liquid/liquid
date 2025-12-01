@@ -13,7 +13,7 @@ permalink: components/ld-link/
 <link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-icon.css">
 <link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-typo.css">
 
-This component is meant to be used in conjunction with the [`ld-icon`](components/ld-icon/). Please reffer to the [`ld-icon`](components/ld-icon/) docs for further usage examples.
+This component is meant to be used in conjunction with the [`ld-icon`](components/ld-icon/). Please refer to the [`ld-icon`](components/ld-icon/) docs for further usage examples.
 
 ## Examples
 
