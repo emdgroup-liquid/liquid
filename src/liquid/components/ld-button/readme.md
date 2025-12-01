@@ -500,7 +500,7 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
   You shouldn't use a button with too much text in it! Instead, put the description in a label outside the button.
 </ld-notice>
 
-You can align the text inside the button using the `align-text` propperty.
+You can align the text inside the button using the `align-text` property.
 
 {% example %}
 <ld-button>

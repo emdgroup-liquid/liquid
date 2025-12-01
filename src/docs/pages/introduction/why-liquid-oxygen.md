@@ -14,7 +14,7 @@ We are working hard to make Liquid Oxygen a reliable and easy to use component l
 
 ## 1. Design Compliance
 
-All Liquid Oxygen components follow the Liquid Design Guidelines and are build in close coorperation with the Liquid Design Team. Therefore, Liquid Oxygen is the easiest way to make sure your project is compliant with the Liquid Design System.
+All Liquid Oxygen components follow the Liquid Design Guidelines and are built in close cooperation with the Liquid Design Team. Therefore, Liquid Oxygen is the easiest way to make sure your project is compliant with the Liquid Design System.
 
 ## 2. Accessibility
 

@@ -404,7 +404,7 @@ The checkbox in mode "danger" looks and behaves the same as a checkbox with the 
 </label>
 {% endexample %}
 
-Please reffer to the [ld-label](components/ld-label/) docs for more information on the label component.
+Please refer to the [ld-label](components/ld-label/) docs for more information on the label component.
 
 ### With label and input message
 

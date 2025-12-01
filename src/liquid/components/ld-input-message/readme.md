@@ -12,7 +12,7 @@ permalink: components/ld-input-message/
 <link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-input-message.css">
 <link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-icon.css">
 
-This component is meant to be used in conjunction with the [`ld-input`](components/ld-input/) and the [`ld-label`](components/ld-label/) component. Please reffer to the [`ld-input`](components/ld-input/) docs for further usage examples.
+This component is meant to be used in conjunction with the [`ld-input`](components/ld-input/) and the [`ld-label`](components/ld-label/) component. Please refer to the [`ld-input`](components/ld-input/) docs for further usage examples.
 
 <ld-notice headline="Note" mode="warning">
   The <code>ld-input-message</code> with a mode other than <code>"info"</code> is supposed to be used on white background only, as on other backgrounds the color contrast of the text is insufficient against the background. 

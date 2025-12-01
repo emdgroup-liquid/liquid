@@ -133,7 +133,7 @@ export class DocsDeprecationBanner {
 
         <div class="docs-deprecation-banner__text">
           <div>
-            Liquid Oxygen will shortly be depreciated. Please use Liquid Carbon
+            Liquid Oxygen will shortly be deprecated. Please use Liquid Carbon
             from now on.
           </div>
           <a href="https://carbon.merck.design/">Go to Liquid Carbon</a>
