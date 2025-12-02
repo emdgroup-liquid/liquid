@@ -235,6 +235,10 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 ## Dependencies
 
+### Used by
+
+ - [ld-file-upload](../ld-file-upload)
+
 ### Depends on
 
 - [ld-icon](../ld-icon)
@@ -245,6 +249,7 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 graph TD;
   ld-notice --> ld-icon
   ld-notice --> ld-typo
+  ld-file-upload --> ld-notice
   style ld-notice fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

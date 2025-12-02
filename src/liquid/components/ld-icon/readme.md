@@ -375,12 +375,14 @@ Right-click an icon below to download its SVG file. To download all icons at onc
  - [ld-input-message](../ld-input-message)
  - [ld-notice](../ld-notice)
  - [ld-pagination](../ld-pagination)
+ - ld-select-file-internal
  - ld-select-popper
  - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
  - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
  - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
  - [ld-step](../ld-stepper/ld-step)
  - [ld-table-header](../ld-table/ld-table-header)
+ - ld-upload-item-internal
 
 ### Graph
 ```mermaid
@@ -392,12 +394,14 @@ graph TD;
   ld-input-message --> ld-icon
   ld-notice --> ld-icon
   ld-pagination --> ld-icon
+  ld-select-file-internal --> ld-icon
   ld-select-popper --> ld-icon
   ld-sidenav-header --> ld-icon
   ld-sidenav-navitem --> ld-icon
   ld-sidenav-toggle-outside --> ld-icon
   ld-step --> ld-icon
   ld-table-header --> ld-icon
+  ld-upload-item-internal --> ld-icon
   style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

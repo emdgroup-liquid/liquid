@@ -1,0 +1,87 @@
+:host {
+  align-items: flex-start;
+  background-color: var(--ld-upload-item-background-color, var(--ld-col-wht));
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-upload-item-gap, var(--ld-sp-8));
+  list-style: none;
+  margin: 0;
+  min-height: var(--ld-upload-item-width, 4.875rem);
+  max-width: var(--ld-upload-item-max-width, 100%);
+  padding: var(
+    --ld-upload-item-padding,
+    var(--ld-sp-16) var(--ld-sp-8) var(--ld-sp-16) var(--ld-sp-16)
+  );
+  width: var(--ld-upload-item-width, 100%);
+}
+
+.ld-upload-item__container {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-upload-item-container-gap, var(--ld-sp-8));
+  justify-items: start;
+  width: 100%;
+}
+
+.ld-upload-item__icon {
+  width: 2rem;
+  height: auto;
+  color: var(--ld-thm-primary);
+  display: flex;
+  justify-content: center;
+}
+
+::slotted(*) {
+  width: 2rem;
+  height: auto;
+}
+
+.ld-upload-item__file-details {
+  align-items: flex-start;
+  display: flex;
+  flex: 1 1 0; /* required to stop flexbox from overflowing */
+  flex-direction: column;
+  margin-left: var(--ld-sp-8);
+  min-width: 0; /* required to stop flexbox from overflowing */
+}
+
+.ld-upload-item__file-name,
+.ld-upload-item__file-size {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.ld-upload-item__file-name {
+  margin-bottom: var(--ld-sp-8);
+}
+
+.ld-upload-item__file-size {
+  color: var(--ld-col-neutral-600);
+
+  &::part(tag) {
+    font-weight: normal;
+  }
+}
+
+.ld-upload-item__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-self: end;
+  justify-items: end;
+}
+
+.ld-upload-item__hide-on-sm {
+  @media (width <= 32rem) {
+    display: none;
+  }
+}
+
+.ld-upload-item__progress {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+}

@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+}
+
+.ld-upload-progress {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: var(--ld-upload-progress-padding, 0);
+  width: var(--ld-upload-progress-width, 100%);
+  max-height: var(--ld-upload-progress-max-height, 22rem);
+  overflow: hidden;
+  overflow-y: scroll;
+  border: var(--ld-sp-2) solid var(--ld-col-neutral-100);
+  border-radius: var(--ld-upload-progress-border-radius, var(--ld-br-l));
+  gap: var(--ld-sp-2);
+  background-color: var(
+    --ld-upload-progress-background-color,
+    var(--ld-col-neutral-100)
+  );
+  flex-direction: column;
+}
