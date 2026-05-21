@@ -20,10 +20,10 @@ dependencies:
     specifier: ~4.12.3
     version: 4.12.3
   dompurify:
-    specifier: ^3.4.0
+    specifier: ^3.0.1
     version: 3.4.0
   js-cookie:
-    specifier: ^3.0.7
+    specifier: ^3.0.1
     version: 3.0.7
   react:
     specifier: '>=17.0.0'
@@ -37,7 +37,7 @@ dependencies:
 
 devDependencies:
   '@11ty/eleventy':
-    specifier: ^2.0.1
+    specifier: ^2.0.0
     version: 2.0.1
   '@11ty/eleventy-navigation':
     specifier: ^0.3.5
@@ -52,25 +52,25 @@ devDependencies:
     specifier: ^18.4.4
     version: 18.4.4
   '@lottiefiles/lottie-player':
-    specifier: ^2.0.4
+    specifier: ^2.0.2
     version: 2.0.4
   '@semantic-release/changelog':
-    specifier: ^6.0.3
+    specifier: ^6.0.2
     version: 6.0.3(semantic-release@22.0.12)
   '@semantic-release/commit-analyzer':
-    specifier: ^11.1.0
+    specifier: ^11.0.0
     version: 11.1.0(semantic-release@22.0.12)
   '@semantic-release/git':
     specifier: ^10.0.1
     version: 10.0.1(semantic-release@22.0.12)
   '@semantic-release/github':
-    specifier: ^9.2.6
+    specifier: ^9.0.3
     version: 9.2.6(semantic-release@22.0.12)
   '@semantic-release/npm':
-    specifier: ^11.0.2
+    specifier: ^11.0.0
     version: 11.0.2(semantic-release@22.0.12)
   '@semantic-release/release-notes-generator':
-    specifier: ^12.1.0
+    specifier: ^12.0.0
     version: 12.1.0(semantic-release@22.0.12)
   '@stencil/eslint-plugin':
     specifier: ^0.4.0
@@ -88,76 +88,76 @@ devDependencies:
     specifier: ^26.0.24
     version: 26.0.24
   '@types/js-cookie':
-    specifier: ^3.0.6
+    specifier: ^3.0.2
     version: 3.0.6
   '@types/jsdom':
     specifier: ^16.2.15
     version: 16.2.15
   '@types/node':
-    specifier: ^20.10.7
+    specifier: ^20.1.0
     version: 20.10.7
   '@types/react':
     specifier: ^18.2.0
     version: 18.2.0
   '@types/react-dom':
-    specifier: ^18.2.18
+    specifier: ^18.0.11
     version: 18.2.18
   '@types/tether':
-    specifier: ^1.4.9
+    specifier: ^1.4.6
     version: 1.4.9
   '@typescript-eslint/eslint-plugin':
-    specifier: ^6.18.0
+    specifier: ^6.1.0
     version: 6.18.0(@typescript-eslint/parser@6.21.0)(eslint@8.56.0)(typescript@5.3.3)
   '@typescript-eslint/parser':
-    specifier: ^6.21.0
+    specifier: ^6.1.0
     version: 6.21.0(eslint@8.56.0)(typescript@5.3.3)
   axe-core:
-    specifier: ^4.10.1
+    specifier: ^4.6.3
     version: 4.10.1
   cheerio:
-    specifier: 1.0.0-rc.12
+    specifier: ^1.0.0-rc.12
     version: 1.0.0-rc.12
   chokidar-cli:
     specifier: ^3.0.0
     version: 3.0.0
   cssnano:
-    specifier: ^6.0.3
+    specifier: ^6.0.0
     version: 6.0.3(postcss@8.5.10)
   dotenv-cli:
-    specifier: ^7.3.0
+    specifier: ^7.0.0
     version: 7.3.0
   eleventy-plugin-toc:
     specifier: ^1.1.5
     version: 1.1.5
   eslint:
-    specifier: ^8.56.0
+    specifier: ^8.34.0
     version: 8.56.0
   eslint-config-prettier:
-    specifier: ^9.1.0
+    specifier: ^9.0.0
     version: 9.1.0(eslint@8.56.0)
   eslint-plugin-compat:
-    specifier: ^4.2.0
+    specifier: ^4.1.1
     version: 4.2.0(eslint@8.56.0)
   eslint-plugin-prettier:
-    specifier: ^5.2.1
+    specifier: ^5.0.0
     version: 5.2.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
   eslint-plugin-promise:
     specifier: ^6.1.1
     version: 6.1.1(eslint@8.56.0)
   eslint-plugin-react:
-    specifier: ^7.33.2
+    specifier: ^7.32.2
     version: 7.33.2(eslint@8.56.0)
   fuse.js:
     specifier: ^7.0.0
     version: 7.0.0
   glob:
-    specifier: ^10.3.10
+    specifier: ^10.2.2
     version: 10.3.10
   husky:
     specifier: ^8.0.3
     version: 8.0.3
   jest:
-    specifier: ^26.6.3
+    specifier: ^26.0.24
     version: 26.6.3(ts-node@10.9.2)
   jest-cli:
     specifier: ^26.6.3
@@ -172,7 +172,7 @@ devDependencies:
     specifier: ^16.7.0
     version: 16.7.0
   lint-staged:
-    specifier: ^15.2.10
+    specifier: ^15.2.0
     version: 15.2.10
   live-server:
     specifier: 1.2.2
@@ -181,13 +181,13 @@ devDependencies:
     specifier: ^4.1.2
     version: 4.1.2
   markdown-it-anchor:
-    specifier: ^8.6.7
+    specifier: ^8.6.5
     version: 8.6.7(@types/markdown-it@14.1.2)(markdown-it@14.1.1)
   markdown-it-link-attributes:
     specifier: ^4.0.1
     version: 4.0.1
   markdown-it-replace-link:
-    specifier: ^1.2.1
+    specifier: ^1.1.0
     version: 1.2.1(@types/markdown-it@14.1.2)(markdown-it@14.1.1)
   mutation-observer:
     specifier: ^1.0.3
@@ -196,7 +196,7 @@ devDependencies:
     specifier: ^4.1.5
     version: 4.1.5
   postcss:
-    specifier: ^8.5.10
+    specifier: ^8.4.21
     version: 8.5.10
   postcss-cli:
     specifier: ^11.0.0
@@ -208,22 +208,22 @@ devDependencies:
     specifier: ^9.0.4
     version: 9.0.4(postcss@8.5.10)
   postcss-nested:
-    specifier: ^6.2.0
+    specifier: ^6.0.0
     version: 6.2.0(postcss@8.5.10)
   postcss-normalize:
     specifier: ^10.0.1
     version: 10.0.1(browserslist@4.28.2)(postcss@8.5.10)
   postcss-preset-env:
-    specifier: ^9.3.0
+    specifier: ^9.0.0
     version: 9.3.0(postcss@8.5.10)
   prettier:
-    specifier: ^3.1.1
+    specifier: ^3.0.0
     version: 3.1.1
   puppeteer:
-    specifier: ^21.7.0
+    specifier: ^21.0.1
     version: 21.7.0(typescript@5.3.3)
   semantic-release:
-    specifier: ^22.0.12
+    specifier: ^22.0.0
     version: 22.0.12(typescript@5.3.3)
   shx:
     specifier: ^0.3.4
@@ -238,10 +238,10 @@ devDependencies:
     specifier: ^36.0.0
     version: 36.0.0(stylelint@16.1.0)
   stylelint-declaration-strict-value:
-    specifier: ^1.10.6
+    specifier: ^1.9.1
     version: 1.10.6(stylelint@16.1.0)
   stylelint-high-performance-animation:
-    specifier: ^1.10.0
+    specifier: ^1.8.0
     version: 1.10.0(stylelint@16.1.0)
   stylelint-no-unsupported-browser-features:
     specifier: ^8.0.5
@@ -250,19 +250,19 @@ devDependencies:
     specifier: ^4.1.0
     version: 4.1.0(stylelint@16.1.0)
   svgo:
-    specifier: ^3.3.3
+    specifier: ^3.0.2
     version: 3.3.3
   tailwindcss:
-    specifier: ^3.4.1
+    specifier: ^3.2.6
     version: 3.4.1(ts-node@10.9.2)
   trash-cli:
     specifier: ^5.0.0
     version: 5.0.0
   ts-jest:
-    specifier: ^29.1.1
+    specifier: ^29.1.0
     version: 29.1.1(@babel/core@7.23.2)(jest@26.6.3)(typescript@5.3.3)
   ts-node:
-    specifier: ^10.9.2
+    specifier: ^10.9.1
     version: 10.9.2(@types/node@20.10.7)(typescript@5.3.3)
   typescript:
     specifier: ^5.3.3
@@ -271,13 +271,13 @@ devDependencies:
     specifier: ^1.3.0
     version: 1.3.0
   vue:
-    specifier: ^3.4.6
+    specifier: ^3.3.4
     version: 3.4.6(typescript@5.3.3)
   wicg-inert:
     specifier: ^3.1.2
     version: 3.1.2
   yargs:
-    specifier: ^17.7.2
+    specifier: ^17.6.2
     version: 17.7.2
 
 packages:
@@ -293,7 +293,7 @@ packages:
     dependencies:
       '@11ty/eleventy-utils': 1.0.2
       chokidar: 3.5.3
-      debug: 4.3.4
+      debug: 4.4.3
       dev-ip: 1.0.1
       finalhandler: 1.2.0
       mime: 3.0.0
@@ -341,7 +341,7 @@ packages:
       bcp-47-normalize: 1.1.1
       chokidar: 3.5.3
       cross-spawn: 7.0.3
-      debug: 4.3.4
+      debug: 4.4.3
       dependency-graph: 0.11.0
       ejs: 3.1.10
       fast-glob: 3.3.2
@@ -355,7 +355,7 @@ packages:
       liquidjs: 10.27.0
       luxon: 3.4.4
       markdown-it: 13.0.2
-      micromatch: 4.0.5
+      micromatch: 4.0.8
       minimist: 1.2.8
       moo: 0.5.2
       multimatch: 5.0.0
@@ -451,7 +451,7 @@ packages:
     dependencies:
       '@babel/compat-data': 7.23.2
       '@babel/helper-validator-option': 7.22.15
-      browserslist: 4.28.0
+      browserslist: 4.28.2
       lru-cache: 5.1.1
       semver: 6.3.1
     dev: true
@@ -1311,7 +1311,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.4
+      debug: 4.4.3
       espree: 9.6.1
       globals: 13.24.0
       ignore: 5.3.0
@@ -1331,9 +1331,10 @@ packages:
   /@humanwhocodes/config-array@0.11.13:
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}
     engines: {node: '>=10.10.0'}
+    deprecated: Use @eslint/config-array instead
     dependencies:
       '@humanwhocodes/object-schema': 2.0.1
-      debug: 4.3.4
+      debug: 4.4.3
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -1346,6 +1347,7 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.1:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
+    deprecated: Use @eslint/object-schema instead
     dev: true
 
   /@iarna/toml@2.2.5:
@@ -1358,7 +1360,7 @@ packages:
     dependencies:
       string-width: 5.1.2
       string-width-cjs: /string-width@4.2.3
-      strip-ansi: 7.1.0
+      strip-ansi: 7.2.0
       strip-ansi-cjs: /strip-ansi@6.0.1
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: /wrap-ansi@7.0.0
@@ -1836,10 +1838,10 @@ packages:
       conventional-changelog-angular: 7.0.0
       conventional-commits-filter: 4.0.0
       conventional-commits-parser: 5.0.0
-      debug: 4.3.4
+      debug: 4.4.3
       import-from-esm: 1.3.3
       lodash-es: 4.17.21
-      micromatch: 4.0.5
+      micromatch: 4.0.8
       semantic-release: 22.0.12(typescript@5.3.3)
     transitivePeerDependencies:
       - supports-color
@@ -1886,7 +1888,7 @@ packages:
       '@octokit/plugin-throttling': 8.1.3(@octokit/core@5.0.2)
       '@semantic-release/error': 4.0.0
       aggregate-error: 5.0.0
-      debug: 4.3.4
+      debug: 4.4.3
       dir-glob: 3.0.1
       globby: 14.0.0
       http-proxy-agent: 7.0.0
@@ -1933,7 +1935,7 @@ packages:
       conventional-changelog-writer: 7.0.1
       conventional-commits-filter: 4.0.0
       conventional-commits-parser: 5.0.0
-      debug: 4.3.4
+      debug: 4.4.3
       get-stream: 7.0.1
       import-from-esm: 1.3.3
       into-stream: 7.0.0
@@ -2296,7 +2298,7 @@ packages:
       '@typescript-eslint/type-utils': 6.18.0(eslint@8.56.0)(typescript@5.3.3)
       '@typescript-eslint/utils': 6.18.0(eslint@8.56.0)(typescript@5.3.3)
       '@typescript-eslint/visitor-keys': 6.18.0
-      debug: 4.3.4
+      debug: 4.4.3
       eslint: 8.56.0
       graphemer: 1.4.0
       ignore: 5.3.0
@@ -2322,7 +2324,7 @@ packages:
       '@typescript-eslint/types': 6.21.0
       '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.3.3)
       '@typescript-eslint/visitor-keys': 6.21.0
-      debug: 4.3.7
+      debug: 4.4.3
       eslint: 8.56.0
       typescript: 5.3.3
     transitivePeerDependencies:
@@ -2357,7 +2359,7 @@ packages:
     dependencies:
       '@typescript-eslint/typescript-estree': 6.18.0(typescript@5.3.3)
       '@typescript-eslint/utils': 6.18.0(eslint@8.56.0)(typescript@5.3.3)
-      debug: 4.3.4
+      debug: 4.4.3
       eslint: 8.56.0
       ts-api-utils: 1.0.3(typescript@5.3.3)
       typescript: 5.3.3
@@ -2386,7 +2388,7 @@ packages:
     dependencies:
       '@typescript-eslint/types': 6.18.0
       '@typescript-eslint/visitor-keys': 6.18.0
-      debug: 4.3.4
+      debug: 4.4.3
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.3
@@ -2408,7 +2410,7 @@ packages:
     dependencies:
       '@typescript-eslint/types': 6.21.0
       '@typescript-eslint/visitor-keys': 6.21.0
-      debug: 4.3.7
+      debug: 4.4.3
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.3
@@ -2456,6 +2458,7 @@ packages:
 
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
     dev: true
 
   /@vue/compiler-core@3.4.6:
@@ -2606,7 +2609,7 @@ packages:
     resolution: {integrity: sha512-o/zjMZRhJxny7OyEF+Op8X+efiELC7k7yOjMzgfzVqOzXqkBkWI79YoTdOtsuWd5BWhAGAuOY/Xa6xpiaWXiNg==}
     engines: {node: '>= 14'}
     dependencies:
-      debug: 4.3.4
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2711,11 +2714,6 @@ packages:
   /ansi-styles@5.2.0:
     resolution: {integrity: sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==}
     engines: {node: '>=10'}
-    dev: true
-
-  /ansi-styles@6.2.1:
-    resolution: {integrity: sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==}
-    engines: {node: '>=12'}
     dev: true
 
   /ansi-styles@6.2.3:
@@ -3247,17 +3245,6 @@ packages:
     resolution: {integrity: sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow==}
     dev: true
 
-  /browserslist@4.22.2:
-    resolution: {integrity: sha512-0UgcrvQmBDvZHFGdYUehrCNIazki7/lUP3kkoi/r3YB2amZbFM9J43ZRkJTXBUZK4gmx56+Sqk9+Vs9mwZx9+A==}
-    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
-    hasBin: true
-    dependencies:
-      caniuse-lite: 1.0.30001757
-      electron-to-chromium: 1.5.36
-      node-releases: 2.0.18
-      update-browserslist-db: 1.1.1(browserslist@4.22.2)
-    dev: true
-
   /browserslist@4.24.0:
     resolution: {integrity: sha512-Rmb62sR1Zpjql25eSanFGEhAxcFwfA1K0GuQcLoaJBAcENegrQut3hYdhXFF1obQfiDyqIW/cLM5HSJ/9k884A==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
@@ -3275,7 +3262,7 @@ packages:
     hasBin: true
     dependencies:
       baseline-browser-mapping: 2.8.31
-      caniuse-lite: 1.0.30001757
+      caniuse-lite: 1.0.30001793
       electron-to-chromium: 1.5.260
       node-releases: 2.0.27
       update-browserslist-db: 1.1.4(browserslist@4.28.0)
@@ -3386,8 +3373,8 @@ packages:
   /caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
-      browserslist: 4.24.0
-      caniuse-lite: 1.0.30001757
+      browserslist: 4.28.2
+      caniuse-lite: 1.0.30001793
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: true
@@ -3456,7 +3443,7 @@ packages:
       css-what: 6.2.2
       domelementtype: 2.3.0
       domhandler: 5.0.3
-      domutils: 3.1.0
+      domutils: 3.2.2
     dev: true
 
   /cheerio@1.0.0-rc.12:
@@ -3466,7 +3453,7 @@ packages:
       cheerio-select: 2.1.0
       dom-serializer: 2.0.0
       domhandler: 5.0.3
-      domutils: 3.1.0
+      domutils: 3.2.2
       htmlparser2: 8.0.2
       parse5: 7.1.2
       parse5-htmlparser2-tree-adapter: 7.0.0
@@ -4068,7 +4055,7 @@ packages:
       postcss: ^8.4.31
     dependencies:
       cssnano-preset-default: 6.0.3(postcss@8.5.10)
-      lilconfig: 3.0.0
+      lilconfig: 3.1.2
       postcss: 8.5.10
     dev: true
 
@@ -4361,8 +4348,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
-      browserslist: 4.28.0
-      caniuse-lite: 1.0.30001757
+      browserslist: 4.28.2
+      caniuse-lite: 1.0.30001793
       css-tokenize: 1.0.1
       duplexify: 4.1.3
       multimatch: 5.0.0
@@ -4425,14 +4412,6 @@ packages:
       dom-serializer: 1.4.1
       domelementtype: 2.3.0
       domhandler: 4.3.1
-    dev: true
-
-  /domutils@3.1.0:
-    resolution: {integrity: sha512-H78uMmQtI2AhgDJjWeQmHwJJ2bLPD3GMmO7Zja/ZZh84wkm+4ut+IUnUdRa8uCGX88DiVx1j6FRe1XfxEgjEZA==}
-    dependencies:
-      dom-serializer: 2.0.0
-      domelementtype: 2.3.0
-      domhandler: 5.0.3
     dev: true
 
   /domutils@3.2.2:
@@ -4556,12 +4535,6 @@ packages:
   /encodeurl@2.0.0:
     resolution: {integrity: sha512-Q0n9HRi4m6JuGIV1eFlmvJB7ZEVxu93IrMyiMsGC0lrMJMWzRgx6WGquyfQgZVb31vhGgXnfmPNNXmxnOkRBrg==}
     engines: {node: '>= 0.8'}
-    dev: true
-
-  /end-of-stream@1.4.4:
-    resolution: {integrity: sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==}
-    dependencies:
-      once: 1.4.0
     dev: true
 
   /end-of-stream@1.4.5:
@@ -4703,11 +4676,6 @@ packages:
       is-symbol: 1.0.4
     dev: true
 
-  /escalade@3.1.1:
-    resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
-    engines: {node: '>=6'}
-    dev: true
-
   /escalade@3.2.0:
     resolution: {integrity: sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==}
     engines: {node: '>=6'}
@@ -4766,8 +4734,8 @@ packages:
     dependencies:
       '@mdn/browser-compat-data': 5.5.4
       ast-metadata-inferer: 0.8.0
-      browserslist: 4.22.2
-      caniuse-lite: 1.0.30001757
+      browserslist: 4.28.2
+      caniuse-lite: 1.0.30001793
       eslint: 8.56.0
       find-up: 5.0.0
       lodash.memoize: 4.1.2
@@ -4860,6 +4828,7 @@ packages:
   /eslint@8.56.0:
     resolution: {integrity: sha512-Go19xM6T9puCOWntie1/P997aXxFsOi37JIHRWI514Hc6ZnaHGKY9xFhrU65RT6CcBEzZoGG1e6Nq+DT04ZtZQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.56.0)
@@ -4873,7 +4842,7 @@ packages:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.3
-      debug: 4.3.4
+      debug: 4.4.3
       doctrine: 3.0.0
       escape-string-regexp: 4.0.0
       eslint-scope: 7.2.2
@@ -5126,7 +5095,7 @@ packages:
     engines: {node: '>= 10.17.0'}
     hasBin: true
     dependencies:
-      debug: 4.3.4
+      debug: 4.4.3
       get-stream: 5.2.0
       yauzl: 2.10.0
     optionalDependencies:
@@ -5549,7 +5518,7 @@ packages:
     dependencies:
       basic-ftp: 5.3.1
       data-uri-to-buffer: 6.0.1
-      debug: 4.3.4
+      debug: 4.4.3
       fs-extra: 8.1.0
     transitivePeerDependencies:
       - supports-color
@@ -5607,6 +5576,7 @@ packages:
   /glob@10.3.10:
     resolution: {integrity: sha512-fa46+tv1Ak0UPK1TOy/pZrIybNNt4HCv7SDzwyfiOZkvZLEbjsZkJBPtDHVshZjbecAoAGSC20MjLDG/qr679g==}
     engines: {node: '>=16 || 14 >=14.17'}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
     dependencies:
       foreground-child: 3.1.1
@@ -5618,6 +5588,7 @@ packages:
 
   /glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
@@ -5893,7 +5864,7 @@ packages:
     dependencies:
       domelementtype: 2.3.0
       domhandler: 5.0.3
-      domutils: 3.1.0
+      domutils: 3.2.2
       entities: 4.5.0
     dev: true
 
@@ -5953,7 +5924,7 @@ packages:
     engines: {node: '>= 14'}
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5973,7 +5944,7 @@ packages:
     engines: {node: '>= 14'}
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6031,7 +6002,7 @@ packages:
     resolution: {integrity: sha512-U3Qt/CyfFpTUv6LOP2jRTLYjphH6zg3okMfHbyqRa/W2w6hr8OsJWVggNlR4jxuojQy81TgTJTxgSkyoteRGMQ==}
     engines: {node: '>=16.20'}
     dependencies:
-      debug: 4.3.4
+      debug: 4.4.3
       import-meta-resolve: 4.0.0
     transitivePeerDependencies:
       - supports-color
@@ -7339,11 +7310,6 @@ packages:
   /lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
     engines: {node: '>=10'}
-    dev: true
-
-  /lilconfig@3.0.0:
-    resolution: {integrity: sha512-K2U4W2Ff5ibV7j7ydLr+zLAkIg5JJ4lPn1Ltsdt+Tz/IjQ8buJ55pZAxoP34lqIiwtF9iAvtLv3JGv7CAyAg+g==}
-    engines: {node: '>=14'}
     dev: true
 
   /lilconfig@3.1.2:
@@ -8665,7 +8631,7 @@ packages:
     dependencies:
       '@tootallnate/quickjs-emscripten': 0.23.0
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.4.3
       get-uri: 6.0.2
       http-proxy-agent: 7.0.0
       https-proxy-agent: 7.0.2
@@ -9018,7 +8984,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.24.0
+      browserslist: 4.28.2
       caniuse-api: 3.0.0
       colord: 2.9.3
       postcss: 8.5.10
@@ -9031,7 +8997,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.24.0
+      browserslist: 4.28.2
       postcss: 8.5.10
       postcss-value-parser: 4.2.0
     dev: true
@@ -9288,7 +9254,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.24.0
+      browserslist: 4.28.2
       caniuse-api: 3.0.0
       cssnano-utils: 4.0.1(postcss@8.5.10)
       postcss: 8.5.10
@@ -9323,7 +9289,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.24.0
+      browserslist: 4.28.2
       cssnano-utils: 4.0.1(postcss@8.5.10)
       postcss: 8.5.10
       postcss-value-parser: 4.2.0
@@ -9438,7 +9404,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.24.0
+      browserslist: 4.28.2
       postcss: 8.5.10
       postcss-value-parser: 4.2.0
     dev: true
@@ -9560,7 +9526,7 @@ packages:
       '@csstools/postcss-trigonometric-functions': 3.0.4(postcss@8.5.10)
       '@csstools/postcss-unset-value': 3.0.1(postcss@8.5.10)
       autoprefixer: 10.4.16(postcss@8.5.10)
-      browserslist: 4.22.2
+      browserslist: 4.28.2
       css-blank-pseudo: 6.0.1(postcss@8.5.10)
       css-has-pseudo: 6.0.1(postcss@8.5.10)
       css-prefers-color-scheme: 9.0.1(postcss@8.5.10)
@@ -9610,7 +9576,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.24.0
+      browserslist: 4.28.2
       caniuse-api: 3.0.0
       postcss: 8.5.10
     dev: true
@@ -9860,7 +9826,7 @@ packages:
     engines: {node: '>= 14'}
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.4.3
       http-proxy-agent: 7.0.0
       https-proxy-agent: 7.0.2
       lru-cache: 7.18.3
@@ -9913,10 +9879,6 @@ packages:
       with: 7.0.2
     dev: true
 
-  /pug-error@2.0.0:
-    resolution: {integrity: sha512-sjiUsi9M4RAGHktC1drQfCr5C5eriu24Lfbt4s+7SykztEOwVZtbFk1RRq0tzLxcMxMYTBR+zMQaG07J/btayQ==}
-    dev: true
-
   /pug-error@2.1.0:
     resolution: {integrity: sha512-lv7sU9e5Jk8IeUheHata6/UThZ7RK2jnaaNztxfPYUY+VxZyk/ePVaNZ/vwmH8WqGvDz3LrNYt/+gA55NDg6Pg==}
     dev: true
@@ -9926,7 +9888,7 @@ packages:
     dependencies:
       constantinople: 4.0.1
       jstransformer: 1.0.0
-      pug-error: 2.0.0
+      pug-error: 2.1.0
       pug-walk: 2.0.0
       resolve: 1.22.8
     dev: true
@@ -9936,13 +9898,13 @@ packages:
     dependencies:
       character-parser: 2.2.0
       is-expression: 4.0.0
-      pug-error: 2.0.0
+      pug-error: 2.1.0
     dev: true
 
   /pug-linker@4.0.0:
     resolution: {integrity: sha512-gjD1yzp0yxbQqnzBAdlhbgoJL5qIFJw78juN1NpTLt/mfPJ5VgC4BvkoD3G23qKzJtIIXBbcCt6FioLSFLOHdw==}
     dependencies:
-      pug-error: 2.0.0
+      pug-error: 2.1.0
       pug-walk: 2.0.0
     dev: true
 
@@ -9956,7 +9918,7 @@ packages:
   /pug-parser@6.0.0:
     resolution: {integrity: sha512-ukiYM/9cH6Cml+AOl5kETtM9NR3WulyVP2y4HOU45DyMim1IeP/OOiyEWRr6qk5I5klpsBnbuHpwKmTx6WURnw==}
     dependencies:
-      pug-error: 2.0.0
+      pug-error: 2.1.0
       token-stream: 1.0.0
     dev: true
 
@@ -9967,7 +9929,7 @@ packages:
   /pug-strip-comments@2.0.0:
     resolution: {integrity: sha512-zo8DsDpH7eTkPHCXFeAk1xZXJbyoTfdPlNR0bK7rpOMuhBYb0f5qUVCO1xlsitYd3w5FQTK7zpNVKb3rZoUrrQ==}
     dependencies:
-      pug-error: 2.0.0
+      pug-error: 2.1.0
     dev: true
 
   /pug-walk@2.0.0:
@@ -9990,7 +9952,7 @@ packages:
   /pump@3.0.0:
     resolution: {integrity: sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==}
     dependencies:
-      end-of-stream: 1.4.4
+      end-of-stream: 1.4.5
       once: 1.4.0
     dev: true
 
@@ -10024,6 +9986,7 @@ packages:
   /puppeteer@21.7.0(typescript@5.3.3):
     resolution: {integrity: sha512-Yy+UUy0b9siJezbhHO/heYUoZQUwyqDK1yOQgblTt0l97tspvDVFkcW9toBlnSvSfkDmMI3Dx9cZL6R8bDArHA==}
     engines: {node: '>=16.13.2'}
+    deprecated: < 24.15.0 is no longer supported
     hasBin: true
     requiresBuild: true
     dependencies:
@@ -10414,6 +10377,7 @@ packages:
 
   /rimraf@2.7.1:
     resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
     dependencies:
       glob: 7.2.3
@@ -10543,7 +10507,7 @@ packages:
       '@semantic-release/release-notes-generator': 12.1.0(semantic-release@22.0.12)
       aggregate-error: 5.0.0
       cosmiconfig: 8.3.6(typescript@5.3.3)
-      debug: 4.3.4
+      debug: 4.4.3
       env-ci: 10.0.0
       execa: 8.0.1
       figures: 6.0.1
@@ -10556,7 +10520,7 @@ packages:
       lodash-es: 4.17.21
       marked: 9.1.6
       marked-terminal: 6.2.0(marked@9.1.6)
-      micromatch: 4.0.5
+      micromatch: 4.0.8
       p-each-series: 3.0.0
       p-reduce: 3.0.0
       read-pkg-up: 11.0.0
@@ -10856,7 +10820,7 @@ packages:
     engines: {node: '>= 14'}
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.4.3
       socks: 2.7.1
     transitivePeerDependencies:
       - supports-color
@@ -10911,11 +10875,6 @@ packages:
   /source-map@0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
-    dev: true
-
-  /source-map@0.7.4:
-    resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
-    engines: {node: '>= 8'}
     dev: true
 
   /source-map@0.7.6:
@@ -11087,7 +11046,7 @@ packages:
     dependencies:
       eastasianwidth: 0.2.0
       emoji-regex: 9.2.2
-      strip-ansi: 7.1.0
+      strip-ansi: 7.2.0
     dev: true
 
   /string-width@7.2.0:
@@ -11251,7 +11210,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.28.0
+      browserslist: 4.28.2
       postcss: 8.5.10
       postcss-selector-parser: 6.1.2
     dev: true
@@ -11476,16 +11435,16 @@ packages:
       is-glob: 4.0.3
       jiti: 1.21.0
       lilconfig: 2.1.0
-      micromatch: 4.0.5
+      micromatch: 4.0.8
       normalize-path: 3.0.0
       object-hash: 3.0.0
-      picocolors: 1.0.0
+      picocolors: 1.1.1
       postcss: 8.5.10
       postcss-import: 15.1.0(postcss@8.5.10)
       postcss-js: 4.0.1(postcss@8.5.10)
       postcss-load-config: 4.0.2(postcss@8.5.10)(ts-node@10.9.2)
       postcss-nested: 6.2.0(postcss@8.5.10)
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.1.2
       resolve: 1.22.8
       sucrase: 3.35.0
     transitivePeerDependencies:
@@ -12008,17 +11967,6 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /update-browserslist-db@1.1.1(browserslist@4.22.2):
-    resolution: {integrity: sha512-R8UzCaa9Az+38REPiJ1tXlImTJXlVfgHZsglwBD/k6nj76ctsH1E3q4doGrukiLQd3sGQYu56r5+lo5r94l29A==}
-    hasBin: true
-    peerDependencies:
-      browserslist: '>= 4.21.0'
-    dependencies:
-      browserslist: 4.22.2
-      escalade: 3.2.0
-      picocolors: 1.1.1
-    dev: true
-
   /update-browserslist-db@1.1.1(browserslist@4.24.0):
     resolution: {integrity: sha512-R8UzCaa9Az+38REPiJ1tXlImTJXlVfgHZsglwBD/k6nj76ctsH1E3q4doGrukiLQd3sGQYu56r5+lo5r94l29A==}
     hasBin: true
@@ -12121,7 +12069,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.6
       convert-source-map: 1.9.0
-      source-map: 0.7.4
+      source-map: 0.7.6
     dev: true
 
   /validate-branch-name@1.3.0:
@@ -12356,9 +12304,9 @@ packages:
     resolution: {integrity: sha512-si7QWI6zUMq56bESFvagtmzMdGOtoxfR+Sez11Mobfc7tm+VkUckk9bW2UeffTGVUbOksxmSw0AA2gs8g71NCQ==}
     engines: {node: '>=12'}
     dependencies:
-      ansi-styles: 6.2.1
+      ansi-styles: 6.2.3
       string-width: 5.1.2
-      strip-ansi: 7.1.0
+      strip-ansi: 7.2.0
     dev: true
 
   /wrap-ansi@9.0.0:
@@ -12539,7 +12487,7 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       cliui: 8.0.1
-      escalade: 3.1.1
+      escalade: 3.2.0
       get-caller-file: 2.0.5
       require-directory: 2.1.1
       string-width: 4.2.3
