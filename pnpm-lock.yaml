@@ -24,7 +24,7 @@ dependencies:
     version: 3.4.0
   js-cookie:
     specifier: ^3.0.1
-    version: 3.0.5
+    version: 3.0.7
   react:
     specifier: '>=17.0.0'
     version: 17.0.0
@@ -293,7 +293,7 @@ packages:
     dependencies:
       '@11ty/eleventy-utils': 1.0.2
       chokidar: 3.5.3
-      debug: 4.3.7
+      debug: 4.3.4
       dev-ip: 1.0.1
       finalhandler: 1.2.0
       mime: 3.0.0
@@ -1311,7 +1311,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.7
+      debug: 4.3.4
       espree: 9.6.1
       globals: 13.24.0
       ignore: 5.3.0
@@ -1333,7 +1333,7 @@ packages:
     engines: {node: '>=10.10.0'}
     dependencies:
       '@humanwhocodes/object-schema': 2.0.1
-      debug: 4.3.7
+      debug: 4.3.4
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -2357,7 +2357,7 @@ packages:
     dependencies:
       '@typescript-eslint/typescript-estree': 6.18.0(typescript@5.3.3)
       '@typescript-eslint/utils': 6.18.0(eslint@8.56.0)(typescript@5.3.3)
-      debug: 4.3.7
+      debug: 4.3.4
       eslint: 8.56.0
       ts-api-utils: 1.0.3(typescript@5.3.3)
       typescript: 5.3.3
@@ -2386,7 +2386,7 @@ packages:
     dependencies:
       '@typescript-eslint/types': 6.18.0
       '@typescript-eslint/visitor-keys': 6.18.0
-      debug: 4.3.7
+      debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.3
@@ -2597,7 +2597,7 @@ packages:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
     dependencies:
-      debug: 4.3.7
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3118,8 +3118,8 @@ packages:
       pascalcase: 0.1.1
     dev: true
 
-  /baseline-browser-mapping@2.10.19:
-    resolution: {integrity: sha512-qCkNLi2sfBOn8XhZQ0FXsT1Ki/Yo5P90hrkRamVFRS7/KV9hpfA4HkoWNU152+8w0zPjnxo5psx5NL3PSGgv5g==}
+  /baseline-browser-mapping@2.10.31:
+    resolution: {integrity: sha512-MujYO3eP72uvmSE0i4wltsodRfIpZATP3jvzRNRGGxgzId7aVocVJJV3nf01qnzzKFGxQVC9bpWxl5cjxTr/7Q==}
     engines: {node: '>=6.0.0'}
     hasBin: true
     dev: true
@@ -3286,10 +3286,10 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      baseline-browser-mapping: 2.10.19
-      caniuse-lite: 1.0.30001788
-      electron-to-chromium: 1.5.338
-      node-releases: 2.0.37
+      baseline-browser-mapping: 2.10.31
+      caniuse-lite: 1.0.30001793
+      electron-to-chromium: 1.5.360
+      node-releases: 2.0.45
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
     dev: true
 
@@ -3396,8 +3396,8 @@ packages:
     resolution: {integrity: sha512-r0nnL/I28Zi/yjk1el6ilj27tKcdjLsNqAOZr0yVjWPrSQyHgKI2INaEWw21bAQSv2LXRt1XuCS/GomNpWOxsQ==}
     dev: true
 
-  /caniuse-lite@1.0.30001788:
-    resolution: {integrity: sha512-6q8HFp+lOQtcf7wBK+uEenxymVWkGKkjFpCvw5W25cmMwEDU45p1xQFBQv8JDlMMry7eNxyBaR+qxgmTUZkIRQ==}
+  /caniuse-lite@1.0.30001793:
+    resolution: {integrity: sha512-iwSsYWaCOoh26cV8NwNRViHlrfUvYsHDfRVcbtmw0Kg6PJIZZXwMkj1442FYLBGkeUf1juAsU3DTfxW579mrPA==}
     dev: true
 
   /capture-exit@2.0.0:
@@ -4509,12 +4509,12 @@ packages:
     resolution: {integrity: sha512-ov8rBoOBhVawpzdre+Cmz4FB+y66Eqrk6Gwqd8NGxuhv99GQ8XqMAr351KEkOt7gukXWDg6gJWEMKgL2RLMPtA==}
     dev: true
 
-  /electron-to-chromium@1.5.338:
-    resolution: {integrity: sha512-KVQQ3xko9/coDX3qXLUEEbqkKT8L+1DyAovrtu0Khtrt9wjSZ+7CZV4GVzxFy9Oe1NbrIU1oVXCwHJruIA1PNg==}
-    dev: true
-
   /electron-to-chromium@1.5.36:
     resolution: {integrity: sha512-HYTX8tKge/VNp6FGO+f/uVDmUkq+cEfcxYhKf15Akc4M5yxt5YmorwlAitKWjWhWQnKcDRBAQKXkhqqXMqcrjw==}
+    dev: true
+
+  /electron-to-chromium@1.5.360:
+    resolution: {integrity: sha512-GkcBt6YYAw9SxFWn+xVar4cLVGlXVuswwtRLBozi2zp0GjXs4ZnOrqV4zbXzg35n7w81hCkyJNYicgXlVHAmBA==}
     dev: true
 
   /eleventy-plugin-toc@1.1.5:
@@ -5432,7 +5432,7 @@ packages:
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
-      nan: 2.26.2
+      nan: 2.27.0
     dev: true
     optional: true
 
@@ -5943,7 +5943,7 @@ packages:
     dependencies:
       '@tootallnate/once': 1.1.2
       agent-base: 6.0.2
-      debug: 4.3.7
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5963,7 +5963,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.7
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6031,7 +6031,7 @@ packages:
     resolution: {integrity: sha512-U3Qt/CyfFpTUv6LOP2jRTLYjphH6zg3okMfHbyqRa/W2w6hr8OsJWVggNlR4jxuojQy81TgTJTxgSkyoteRGMQ==}
     engines: {node: '>=16.20'}
     dependencies:
-      debug: 4.3.7
+      debug: 4.3.4
       import-meta-resolve: 4.0.0
     transitivePeerDependencies:
       - supports-color
@@ -7134,9 +7134,9 @@ packages:
     hasBin: true
     dev: true
 
-  /js-cookie@3.0.5:
-    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
-    engines: {node: '>=14'}
+  /js-cookie@3.0.7:
+    resolution: {integrity: sha512-z/wZZgDrkNV1eA0ULjM/F9/50Ya8fbzgKneSpoPsXSGd0KnpdtHfOZWK+GcwLk+EZbS4F9RBhU+K2RgzuDaItw==}
+    engines: {node: '>=20'}
     dev: false
 
   /js-stringify@1.0.2:
@@ -8082,8 +8082,8 @@ packages:
       thenify-all: 1.6.0
     dev: true
 
-  /nan@2.26.2:
-    resolution: {integrity: sha512-0tTvBTYkt3tdGw22nrAy50x7gpbGCCFH3AFcyS5WiUu7Eu4vWlri1woE6qHBSfy11vksDqkiwjOnlR7WV8G1Hw==}
+  /nan@2.27.0:
+    resolution: {integrity: sha512-hC+0LidcL3XE4rp1C4H54KujgXKzbfyTngZTwBByQxsOxCEKZT0MPQ4hOKUH2jU1OYstqdDH4onyHPDzcV0XdQ==}
     requiresBuild: true
     dev: true
     optional: true
@@ -8192,8 +8192,9 @@ packages:
     resolution: {integrity: sha512-nmh3lCkYZ3grZvqcCH+fjmQ7X+H0OeZgP40OierEaAptX4XofMh5kwNbWh7lBduUzCcV/8kZ+NDLCwm2iorIlA==}
     dev: true
 
-  /node-releases@2.0.37:
-    resolution: {integrity: sha512-1h5gKZCF+pO/o3Iqt5Jp7wc9rH3eJJ0+nh/CIoiRwjRxde/hAHyLPXYN4V3CqKAbiZPSeJFSWHmJsbkicta0Eg==}
+  /node-releases@2.0.45:
+    resolution: {integrity: sha512-iIbHXV9eBB2nB0wa7oTsrrXq+qQt+9SIlx9AX3T96YgobtEQfis5n6TJ6vV+3QP8DwdriEAcGhARaFCu37peBg==}
+    engines: {node: '>=18'}
     dev: true
 
   /normalize-package-data@2.5.0:
