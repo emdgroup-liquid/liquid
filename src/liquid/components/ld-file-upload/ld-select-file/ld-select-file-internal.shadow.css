@@ -1,0 +1,55 @@
+:host {
+  background-color: var(--ld-select-file-background-color, var(--ld-col-wht));
+  border-radius: var(--ld-select-file-border-radius, var(--ld-br-l));
+  border: var(--ld-sp-2) dashed var(--ld-col-neutral-100);
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &(.ld-select-file--highlighted) {
+    background: var(--ld-col-rb-050);
+  }
+}
+
+.ld-select-file__container {
+  align-items: flex-start;
+  display: flex;
+  gap: var(--ld-select-file-gap, var(--ld-sp-8));
+  padding: var(--ld-select-file-padding, var(--ld-sp-16));
+}
+
+.ld-select-file__image {
+  align-self: center;
+}
+
+.ld-select-file__instructions-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0; /* required to stop flexbox from overflowing */
+  height: 100%;
+  justify-content: space-between;
+  margin-left: var(--ld-sp-8);
+  min-width: 0; /* required to stop flexbox from overflowing */
+}
+
+.ld-select-file__instructions,
+.ld-select-file__constraints {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.ld-select-file__instructions {
+  margin-bottom: var(--ld-sp-8);
+}
+
+.ld-select-file__constraints::part(tag) {
+  font-weight: normal;
+}
+
+.ld-select-file__upload-button {
+  flex-shrink: 0;
+  transform: translate(var(--ld-sp-8), calc(-1 * var(--ld-sp-8)));
+}

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-file-upload renders default 1`] = `
+<ld-file-upload class="ld-file-upload ld-file-upload--only-select-file">
+  <mock:shadow-root>
+    <ld-select-file class="ld-file-upload__select-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" layout="vertical"></ld-select-file>
+    <input class="ld-file-upload__input" tabindex="-1" type="file">
+  </mock:shadow-root>
+</ld-file-upload>
+`;
+
+exports[`ld-file-upload sets custom icons 1`] = `
+<ld-file-upload class="ld-file-upload ld-file-upload--only-select-file">
+  <mock:shadow-root>
+    <ld-select-file class="ld-file-upload__select-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" layout="vertical"></ld-select-file>
+    <input class="ld-file-upload__input" tabindex="-1" type="file">
+  </mock:shadow-root>
+  <ld-icon data-upload-icon="application/pdf" name="pdf" size="lg" slot="icons"></ld-icon>
+</ld-file-upload>
+`;
