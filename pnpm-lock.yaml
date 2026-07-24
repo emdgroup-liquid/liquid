@@ -21,7 +21,7 @@ dependencies:
     version: 4.12.3
   dompurify:
     specifier: ^3.0.1
-    version: 3.4.11
+    version: 3.4.12
   js-cookie:
     specifier: ^3.0.1
     version: 3.0.7
@@ -4422,8 +4422,8 @@ packages:
       domelementtype: 2.3.0
     dev: true
 
-  /dompurify@3.4.11:
-    resolution: {integrity: sha512-zhlUV12GsaRzMsf9q5M254YhA4+VuF0fG+QFqu6aYpoGlKtz+w8//jBcGVYBgQkR5GHjUomejY84AV+/uPbWdw==}
+  /dompurify@3.4.12:
+    resolution: {integrity: sha512-zQvGet8Z2sWbQhCmfFz/T5QWH2oBmjnqK3qvOjaqaNLrLEF912WamU+ohnTp0TCep/MFVHpdJuCZEdFOdTnEFg==}
     optionalDependencies:
       '@types/trusted-types': 2.0.7
     dev: false
