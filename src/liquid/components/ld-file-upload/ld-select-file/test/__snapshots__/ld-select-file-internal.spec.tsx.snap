@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-select-file renders default 1`] = `
+<ld-select-file class="ld-select-file">
+  <mock:shadow-root>
+    <div class="ld-select-file--vertical ld-select-file__content">
+      <img alt="" class="ld-select-file__image" height="46" src="/dist/liquid/assets/file-upload.svg" width="55">
+      <div class="ld-select-file__text ld-select-file__text--vertical">
+        <ld-typo id="ld-select-file-1-instructions" variant="h5">
+          Drag your file here or browse
+        </ld-typo>
+        <slot></slot>
+        <ld-button aria-labelledby="ld-select-file-1-instructions" class="ld-select-file__upload-button" size="sm">
+          Select a file
+        </ld-button>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ld-select-file>
+`;

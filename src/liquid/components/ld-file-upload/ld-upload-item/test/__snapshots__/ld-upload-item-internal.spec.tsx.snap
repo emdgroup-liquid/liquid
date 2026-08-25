@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-upload-item clones custom icon 1`] = `
+<ld-file-upload class="ld-file-upload ld-file-upload--only-select-file">
+  <mock:shadow-root>
+    <ld-select-file class="ld-file-upload__select-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" layout="vertical"></ld-select-file>
+    <input class="ld-file-upload__input" tabindex="-1" type="file">
+  </mock:shadow-root>
+  <ld-icon data-upload-icon="application/pdf" name="pdf" size="lg" slot="icons"></ld-icon>
+</ld-file-upload>
+`;
+
+exports[`ld-upload-item renders default 1`] = `
+<ld-upload-item class="ld-upload-item" file-name="Liquid" file-size="1.28">
+  <mock:shadow-root>
+    <div class="ld-upload-item__container">
+      <div class="ld-upload-item__icon">
+        <slot name="icons">
+          <ld-icon name="documents" size="lg"></ld-icon>
+        </slot>
+      </div>
+      <div class="ld-upload-item__file-details">
+        <ld-typo class="ld-upload-item__file-name" variant="h5">
+          Liquid
+        </ld-typo>
+        <ld-typo class="ld-upload-item__file-size">
+          1.28 Bytes
+        </ld-typo>
+      </div>
+      <div class="ld-upload-item__buttons">
+        <ld-button class="ld-upload-item__remove-button" mode="ghost" size="sm" slot="trigger">
+          <ld-icon aria-label="Text" class="ld-upload-item__remove-icon" name="cross" size="sm"></ld-icon>
+          <div class="ld-upload-item__hide-on-sm">
+            Remove
+          </div>
+        </ld-button>
+      </div>
+    </div>
+    <ld-sr-only id="progress-label">
+      Progress
+    </ld-sr-only>
+    <ld-progress aria-labeledby="progress-label" aria-valuetext="indeterminate" class="ld-upload-item__progress" pending=""></ld-progress>
+    <slot></slot>
+  </mock:shadow-root>
+</ld-upload-item>
+`;
+
+exports[`ld-upload-item renders with custom icon 1`] = `
+<ld-file-upload class="ld-file-upload">
+  <mock:shadow-root>
+    <ld-select-file class="ld-file-upload__select-file" labeldraginstructions="Drag your file here or browse" labelselectfile="Select a file" labeluploadconstraints="" labeluploadcount="$filesUploaded of $filesTotal file uploaded." labeluploadfile="Upload a file" labeluploadpercentage="$uploadProgress % uploaded." labeluploadstate="Upload state:" layout="horizontal"></ld-select-file>
+    <ld-upload-progress class="ld-file-upload__progress">
+      <mock:shadow-root>
+        <ul class="ld-upload-progress">
+          <li>
+            <ld-upload-item class="ld-upload-item">
+              <mock:shadow-root>
+                <div class="ld-upload-item__container">
+                  <div class="ld-upload-item__icon">
+                    <slot name="icons">
+                      <ld-icon name="documents" size="lg"></ld-icon>
+                    </slot>
+                  </div>
+                  <div class="ld-upload-item__file-details">
+                    <ld-typo class="ld-upload-item__file-name" variant="h5">
+                      file1.pdf
+                    </ld-typo>
+                    <ld-typo class="ld-upload-item__file-size">
+                      1 KB
+                    </ld-typo>
+                  </div>
+                  <div class="ld-upload-item__buttons">
+                    <ld-button class="ld-upload-item__remove-button" mode="ghost" size="sm" slot="trigger">
+                      <ld-icon aria-label="Text" class="ld-upload-item__remove-icon" name="cross" size="sm"></ld-icon>
+                      <div class="ld-upload-item__hide-on-sm">
+                        Remove
+                      </div>
+                    </ld-button>
+                  </div>
+                </div>
+                <ld-sr-only id="progress-label">
+                  Progress
+                </ld-sr-only>
+                <ld-progress aria-labeledby="progress-label" aria-valuetext="indeterminate" class="ld-upload-item__progress" pending=""></ld-progress>
+                <slot></slot>
+              </mock:shadow-root>
+              <ld-icon data-upload-icon="application/pdf" name="pdf" size="lg" slot="icons"></ld-icon>
+            </ld-upload-item>
+          </li>
+          <li>
+            <ld-upload-item class="ld-upload-item">
+              <mock:shadow-root>
+                <div class="ld-upload-item__container">
+                  <div class="ld-upload-item__icon">
+                    <slot name="icons">
+                      <ld-icon name="documents" size="lg"></ld-icon>
+                    </slot>
+                  </div>
+                  <div class="ld-upload-item__file-details">
+                    <ld-typo class="ld-upload-item__file-name" variant="h5">
+                      file2.rtf
+                    </ld-typo>
+                    <ld-typo class="ld-upload-item__file-size">
+                      1 KB
+                    </ld-typo>
+                  </div>
+                  <div class="ld-upload-item__buttons">
+                    <ld-button class="ld-upload-item__remove-button" mode="ghost" size="sm" slot="trigger">
+                      <ld-icon aria-label="Text" class="ld-upload-item__remove-icon" name="cross" size="sm"></ld-icon>
+                      <div class="ld-upload-item__hide-on-sm">
+                        Remove
+                      </div>
+                    </ld-button>
+                  </div>
+                </div>
+                <ld-sr-only id="progress-label">
+                  Progress
+                </ld-sr-only>
+                <ld-progress aria-labeledby="progress-label" aria-valuetext="indeterminate" class="ld-upload-item__progress" pending=""></ld-progress>
+                <slot></slot>
+              </mock:shadow-root>
+              <ld-icon data-upload-icon="text/rtf" name="document" size="lg" slot="icons"></ld-icon>
+            </ld-upload-item>
+          </li>
+        </ul>
+      </mock:shadow-root>
+    </ld-upload-progress>
+    <div class="ld-file-upload__buttons">
+      <ld-button class="ld-file-upload__start-upload-button" size="sm">
+        Start upload
+      </ld-button>
+    </div>
+    <input class="ld-file-upload__input" tabindex="-1" type="file" value="null">
+  </mock:shadow-root>
+  <ld-icon data-upload-icon="application/pdf" name="pdf" size="lg" slot="icons"></ld-icon>
+  <ld-icon data-upload-icon="text/rtf" name="document" size="lg" slot="icons"></ld-icon>
+</ld-file-upload>
+`;

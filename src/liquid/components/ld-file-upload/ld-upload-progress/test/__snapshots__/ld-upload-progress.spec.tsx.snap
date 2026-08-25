@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-upload-progress renders default 1`] = `
+<ld-upload-progress>
+  <mock:shadow-root>
+    <ul class="ld-upload-progress"></ul>
+  </mock:shadow-root>
+</ld-upload-progress>
+`;

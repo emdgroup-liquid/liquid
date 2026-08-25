@@ -231,6 +231,19 @@ Use this mode on backgrounds with brand color.
 | `steps`         | `steps`          | Devides progress bar in multiple progress steps.                                                                                                                                           | `boolean`          | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - ld-upload-item-internal
+
+### Graph
+```mermaid
+graph TD;
+  ld-upload-item-internal --> ld-progress
+  style ld-progress fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

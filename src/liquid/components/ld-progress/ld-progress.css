@@ -33,7 +33,8 @@
   );
 
   border-radius: var(--ld-br-full);
-  box-shadow: inset 0 0 0 calc((1 - var(--ld-progress-has-overflow)) * 99rem)
+  box-shadow:
+    inset 0 0 0 calc((1 - var(--ld-progress-has-overflow)) * 99rem)
       var(--ld-progress-bg-col),
     inset 0 0 0 calc(var(--ld-progress-has-overflow) * 99rem)
       var(--ld-col-wht-alpha-high),
@@ -62,7 +63,8 @@
     transform: translateX(
       min(100%, calc(var(--ld-progress-calc-relative-progress) * 100%))
     );
-    transition: transform var(--ld-progress-transition-duration) ease,
+    transition:
+      transform var(--ld-progress-transition-duration) ease,
       opacity var(--ld-progress-transition-duration) linear;
   }
 
@@ -87,7 +89,8 @@
   --ld-progress-pending-gap-col-overflow: var(--ld-col-wht);
   --ld-progress-steps-col: var(--ld-col-wht-alpha-medium);
 
-  box-shadow: inset 0 0 0 calc((1 - var(--ld-progress-has-overflow)) * 99rem)
+  box-shadow:
+    inset 0 0 0 calc((1 - var(--ld-progress-has-overflow)) * 99rem)
       var(--ld-progress-bg-col),
     inset 0 0 0 calc(var(--ld-progress-has-overflow) * 99rem)
       var(--ld-col-wht-alpha-medium),
@@ -113,7 +116,8 @@
     100%;
   background-repeat: repeat-x;
   background-position: calc(var(--ld-progress-steps-dot-width) / 2) center;
-  box-shadow: inset 0 0 0 calc(var(--ld-progress-has-overflow) * 99rem)
+  box-shadow:
+    inset 0 0 0 calc(var(--ld-progress-has-overflow) * 99rem)
       var(--ld-col-wht-alpha-lowest),
     inset 0 498rem calc(var(--ld-progress-has-overflow) * 500rem) -500rem var(--ld-progress-bg-col-overflow);
 
@@ -154,7 +158,8 @@
 
 :host(.ld-progress--steps.ld-progress--brand-color),
 .ld-progress--steps.ld-progress--brand-color {
-  box-shadow: inset 0 0 0 calc(var(--ld-progress-has-overflow) * 99rem)
+  box-shadow:
+    inset 0 0 0 calc(var(--ld-progress-has-overflow) * 99rem)
       var(--ld-col-wht-alpha-low),
     inset 0 500rem calc(var(--ld-progress-has-overflow) * 500rem) -500rem var(--ld-progress-bg-col-overflow);
 }
@@ -185,6 +190,7 @@
 
     @media (prefers-reduced-motion: no-preference) {
       animation-name: ld-progress-animation-pending;
+      will-change: background-position-x;
     }
   }
 

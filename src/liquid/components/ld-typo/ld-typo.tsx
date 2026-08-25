@@ -22,7 +22,7 @@ export class LdTypo implements ClonesAttributes {
   @Prop() tag?: string
 
   /** The font style. Every variant has a default tag that it renders with. */
-  @Prop({ mutable: true }) variant?:
+  @Prop({ mutable: true, reflect: true }) variant?:
     | 'body-xs'
     | 'body-s'
     | 'body-m'

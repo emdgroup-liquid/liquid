@@ -1,0 +1,36 @@
+:host {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-file-upload-gap, var(--ld-sp-16));
+  justify-items: center;
+  margin: 0;
+  width: var(--ld-file-upload-width, min(100%, 24rem));
+}
+
+.ld-file-upload__buttons,
+.ld-file-upload__select-file,
+.ld-file-upload__continue-paused-button,
+.ld-file-upload__pause-all-button,
+.ld-file-upload__progress,
+.ld-file-upload__start-upload-button {
+  width: 100%;
+}
+
+.ld-file-upload__buttons {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-sp-8);
+  justify-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.ld-file-upload__input {
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+}
